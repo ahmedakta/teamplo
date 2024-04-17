@@ -1,0 +1,63 @@
+<template>
+  <form @submit.prevent="login">
+    <div class="mb-4 py-5">
+      <label for="email" class="block mb-1">Email</label>
+      <input
+        type="email"
+        id="email"
+        v-model="email"
+        required
+        class="w-full px-3 py-2 border rounded-md"
+      />
+      <span class="text-red-600" v-if="errors?.email">{{ errors.email[0] }}</span>
+    </div>
+    <div class="mb-4">
+      <label for="password" class="block mb-1">Password</label>
+      <input
+        type="password"
+        id="password"
+        v-model="password"
+        required
+        class="w-full px-3 py-2 border rounded-md"
+        :error="errors && errors.password ? errors.password[0] : ''"
+      />
+      <span class="text-red-600" v-if="errors?.password">{{ errors.password[0] }}</span>
+    </div>
+    <button
+      type="submit"
+      class="items-center bg-green-500 text-white border rounded-md px-3 py-[6px]"
+    >
+      Login
+    </button>
+  </form>
+</template>
+
+<script setup>
+import { ref } from 'vue'
+import { useGeneralStore } from '@/stores/general'
+import { useUserStore } from '@/stores/user'
+const generalStore = useGeneralStore()
+const userStore = useUserStore()
+import { useRouter } from 'vue-router'
+const router = useRouter()
+let email = ref(null)
+let password = ref(null)
+let errors = ref(null)
+
+const login = async () => {
+  errors.value = null
+
+  try {
+    await userStore.getTokens()
+    await userStore.login(email.value, password.value)
+    await userStore.getUser()
+    router.push('dashboard')
+    generalStore.isLoginOpen = false
+  } catch (error) {
+    errors.value = error.response.data.errors
+    console.log(errors.value)
+  }
+}
+</script>
+
+<style lang="scss" scoped></style>

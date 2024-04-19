@@ -1,6 +1,8 @@
 import axios from '../../plugins/axios'
 import { defineStore } from 'pinia'
 import { useRouter } from 'vue-router'
+import { useGeneralStore } from '@/stores/general'
+
 const router = useRouter()
 export const useUserStore = defineStore('user', {
   state: () => ({
@@ -14,11 +16,17 @@ export const useUserStore = defineStore('user', {
     },
 
     async login(email, password) {
+      // set loader to frontend
+      const spinner = document.querySelector('.spinner')
+      spinner.style.display = 'block'
+      spinner.classList.add('animate-spin')
+
       await axios.post('/login', {
         email: email,
         password: password
       })
-      // router.push('/dashboard')
+      useGeneralStore().isLoading = false
+      swal('Success', 'You Logged In Successfully')
     },
 
     async register(name, email, password, confirmPassword) {

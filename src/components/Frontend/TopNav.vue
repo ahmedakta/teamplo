@@ -1,35 +1,44 @@
 <template>
-  <header class="flex items-center">
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="50" />
-    <nav>
-      <RouterLink to="/">Home</RouterLink>
-      <RouterLink to="/about">About</RouterLink>
-      <RouterLink to="/counter">Counter</RouterLink>
-    </nav>
-    <div class="flex">
-      <button
-        v-if="!userStore.id"
-        class="items-center w-[145px] bg-green-500 text-white border rounded-md px-5 py-[6px]"
-        @click="($event) => (generalStore.isLoginOpen = true)"
-      >
-        <span class="mx-4 font-medium text-[15px]">Log in</span>
-      </button>
-      <button
-        class="items-center w-[155px] bg-green-500 text-white border rounded-md px-3 py-[6px]"
-        @click="($event) => isLoggedIn('upload')"
-      >
-        <span class="mx-4 font-medium text-[15px]">Add Task</span>
-      </button>
-      <!-- <a href="#" @click="swal('Hi', 'success', 'success')">Alert</a> -->
-      <a href="#" @click="logout()" v-if="userStore.id">logout</a>
-      <a href="" v-if="userStore.id">
-        <img
-          width="33"
-          class="rounded-full"
-          :src="'http://127.0.0.1:8000/' + `${userStore.image}`"
-        />
-        <!-- TODO CLEANT THE FILE LOGIC HERE -->
-      </a>
+  <header class="text-white py-4">
+    <div class="container mx-auto flex items-center justify-between">
+      <!-- Logo on the left -->
+      <div class="flex-shrink-0">
+        <!-- <img src="logo.png" alt="Logo" class="h-8" /> -->
+        <a href="/">
+          <img alt="Vue logo" class="h-8 logo" src="@/assets/logo.svg" width="50" />
+        </a>
+      </div>
+      <!-- Navigation links in the center -->
+      <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
+        <a class="mx-4 hover:text-gray-300" href="/features">Features</a>
+        <a class="mx-4 hover:text-gray-300" href="/contact-us">Contact Us</a>
+        <a class="mx-4 hover:text-gray-300" href="/about-us">About Us</a>
+        <a class="mx-4 hover:text-gray-300" href="/faq">FAQ</a>
+        <a href="#" class="mx-4 hover:text-gray-300" @click="logout()" v-if="userStore.id"
+          >logout</a
+        >
+      </nav>
+      <!-- Login button on the right -->
+      <div class="flex-shrink-0">
+        <button
+          v-if="!userStore.id"
+          class="bg-white text-black hover:bg-blue-300 font-bold py-2 px-4 rounded-xl border-2 border-black"
+          @click="($event) => (generalStore.isLoginOpen = true)"
+        >
+          <font-awesome-icon :icon="['fas', 'user']" />
+
+          Log in
+        </button>
+        <button
+          v-if="!userStore.id"
+          class="bg-white text-white ml-1 font-bold py-2 px-4 rounded-xl border-2 border-black bg-gradient-to-r from-cyan-500 to-blue-500"
+          @click="($event) => (generalStore.isLoginOpen = true)"
+        >
+          <font-awesome-icon :icon="['fas', 'arrow-right']" />
+
+          Get Started
+        </button>
+      </div>
     </div>
   </header>
 </template>
@@ -63,7 +72,7 @@ const logout = () => {
 }
 </script>
 <style scoped>
-header {
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
@@ -123,5 +132,5 @@ nav a:first-of-type {
     padding: 1rem 0;
     margin-top: 1rem;
   }
-}
+} */
 </style>

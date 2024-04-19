@@ -7,6 +7,7 @@ export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
     isEditProfileOpen: false,
+    isLoading: false,
     selectedPost: null,
     ids: null,
     isBackUrl: '/',

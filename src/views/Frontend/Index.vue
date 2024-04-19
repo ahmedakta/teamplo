@@ -1,5 +1,8 @@
 <template>
-  <div>Hi</div>
+  <div class=""></div>
+  <Hero />
 </template>
 
-<script setup></script>
+<script setup>
+import Hero from '@/components/Frontend/Hero.vue'
+</script>

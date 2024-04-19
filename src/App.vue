@@ -28,10 +28,8 @@ onMounted(async () => {
 </script>
 
 <template>
-  <div class="container">
-    <TopNav />
-    <AuthOverlay v-if="generalStore.isLoginOpen" />
+  <TopNav />
+  <AuthOverlay v-if="generalStore.isLoginOpen" />
 
-    <RouterView />
-  </div>
+  <RouterView />
 </template>

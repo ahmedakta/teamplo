@@ -68,7 +68,7 @@
     </div>
     <button
       type="submit"
-      class="items-center bg-green-500 text-white border rounded-md px-3 py-[6px]"
+      class="items-center bg-[#5DADE2] text-white border rounded-md px-3 py-[6px]"
     >
       Sign Up
     </button>

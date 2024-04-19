@@ -25,9 +25,15 @@
     </div>
     <button
       type="submit"
-      class="items-center bg-green-500 text-white border rounded-md px-3 py-[6px]"
+      @click="($event) => (generalStore.isLoading = true)"
+      class="items-center bg-[#5DADE2] text-white border rounded-md px-3 py-[6px]"
     >
-      Login
+      <font-awesome-icon
+        :icon="['fas', 'spinner']"
+        class="spinner animate-spin"
+        v-if="generalStore.isLoading && !errors"
+      />
+      <span>Login</span>
     </button>
   </form>
 </template>

@@ -1,5 +1,5 @@
 <template>
-  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+  <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
     <div class="relative h-[50%] bg-white p-8 rounded-lg shadow-md w-96">
       <div class="w-full flex justify-between">
         <h2 class="text-2xl">Login</h2>

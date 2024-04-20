@@ -26,7 +26,7 @@
     <button
       type="submit"
       @click="($event) => (generalStore.isLoading = true)"
-      class="items-center bg-[#5DADE2] text-white border rounded-md px-3 py-[6px]"
+      class="items-center bg-[#5DADE2] text-white border rounded-md px-3 py-[6px] w-[120px]"
     >
       <font-awesome-icon
         :icon="['fas', 'spinner']"
@@ -36,6 +36,9 @@
       <span>Login</span>
     </button>
   </form>
+
+  <hr class="m-5" />
+  <span class="">Forgot Your Password ? <a href="#" class="text-[#5DADE2]">Reset Password</a></span>
 </template>
 
 <script setup>

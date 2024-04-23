@@ -1,19 +1,39 @@
 <template>
-  <header class="text-white py-4">
-    <div class="container mx-auto flex items-center justify-between">
+  <header class="py-4">
+    <div class="container mx-auto bg-white rounded-xl flex items-center justify-between">
       <!-- Logo on the left -->
       <div class="flex-shrink-0">
         <!-- <img src="logo.png" alt="Logo" class="h-8" /> -->
         <a href="/">
-          <img alt="Vue logo" class="h-8 logo" src="@/assets/logo.svg" width="50" />
+          <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.png" />
         </a>
       </div>
       <!-- Navigation links in the center -->
       <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
-        <a class="mx-4 hover:text-gray-300" href="/features">Features</a>
-        <a class="mx-4 hover:text-gray-300" href="/contact-us">Contact Us</a>
-        <a class="mx-4 hover:text-gray-300" href="/about-us">About Us</a>
-        <a class="mx-4 hover:text-gray-300" href="/faq">FAQ</a>
+        <a class="mx-4 hover:text-gray-300" :class="{ active: $route.path === '/' }" href="/"
+          >Home</a
+        >
+        <a
+          class="mx-4 hover:text-gray-300"
+          :class="{ active: $route.path === '/about-us' }"
+          href="/about-us"
+          >About Us</a
+        >
+        <a
+          class="mx-4 hover:text-gray-300"
+          :class="{ active: $route.path === '/features' }"
+          href="/features"
+          >Features</a
+        >
+        <a
+          class="mx-4 hover:text-gray-300"
+          :class="{ active: $route.path === '/contact-us' }"
+          href="/contact-us"
+          >Contact Us</a
+        >
+        <a class="mx-4 hover:text-gray-300" :class="{ active: $route.path === '/faq' }" href="/faq"
+          >FAQ</a
+        >
         <a href="#" class="mx-4 hover:text-gray-300" @click="logout()" v-if="userStore.id"
           >logout</a
         >
@@ -22,22 +42,28 @@
       <div class="flex-shrink-0">
         <button
           v-if="!userStore.id"
-          class="bg-white text-black hover:bg-blue-300 font-bold py-2 px-4 rounded-xl border-2 border-black"
+          class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl"
           @click="($event) => (generalStore.isLoginOpen = true)"
         >
-          <font-awesome-icon :icon="['fas', 'user']" />
+          <!-- <font-awesome-icon :icon="['fas', 'user']" /> -->
 
           Log in
         </button>
         <button
           v-if="!userStore.id"
-          class="bg-white text-white ml-1 font-bold py-2 px-4 rounded-xl border-2 border-black bg-gradient-to-r from-cyan-500 to-blue-500"
+          class="bg-white text-white ml-1 py-2 px-4 rounded bg-gradient-to-r from-cyan-500 to-blue-500"
           @click="($event) => (generalStore.isLoginOpen = true)"
         >
           <font-awesome-icon :icon="['fas', 'arrow-right']" />
 
           Get Started
         </button>
+        <!-- swithc languages -->
+        <select class="text-[#3aa9D0] py-2 px-1" name="" id="">
+          <option value="">EN</option>
+          <option value="">TR</option>
+          <option value="">AR</option>
+        </select>
       </div>
     </div>
   </header>

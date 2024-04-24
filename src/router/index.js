@@ -3,13 +3,18 @@ import DashboardIndex from '@/views/Backend/Index.vue'
 import FrontendIndex from '@/views/Frontend/Index.vue'
 import CounterView from '@/views/CounterView.vue'
 import { useUserStore } from '@/stores/user'
+import ContentCreator from '@/views/Backend/ContentCreator.vue'
+import Protected from '../views/Backend/protected.vue'
 
 const ifAuthenticated = (to, from, next) => {
-  // const userStore = useUserStore()
-  // userStore.getUser()
-  // alert(user.image)
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
-  console.log(storedUserInfo)
+  // check first if there is required role for this page....
+  if (to.meta.roles) {
+    if (storedUserInfo && !to.meta.roles.includes(storedUserInfo.role_id)) {
+      next('/unauthorized') // Redirect to unauthorized page if role doesn't match
+      return
+    }
+  }
   if (storedUserInfo) {
     next()
     return
@@ -26,8 +31,21 @@ const router = createRouter({
       component: FrontendIndex
     },
     {
+      path: '/protected',
+      name: 'protected',
+      component: Protected
+    },
+    {
+      path: '/content-creator/dashboard',
+      name: 'backend.contentCreator',
+      component: ContentCreator,
+      meta: { roles: [1, 3] },
+      beforeEnter: ifAuthenticated // Check if user logged in to enter this page
+    },
+    {
       path: '/dashboard',
       name: 'backend.index',
+      meta: { roles: [1] },
       component: DashboardIndex,
       beforeEnter: ifAuthenticated // Check if user logged in to enter this page
     },

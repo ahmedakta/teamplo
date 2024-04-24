@@ -60,7 +60,12 @@ const login = async () => {
     await userStore.getTokens()
     await userStore.login(email.value, password.value)
     await userStore.getUser()
-    router.push('dashboard')
+    if (userStore.role_id == 1) {
+      router.push('dashboard')
+    }
+    if (userStore.role_id == 3) {
+      router.push('content-creator/dashboard')
+    }
     generalStore.isLoginOpen = false
   } catch (error) {
     errors.value = error.response.data.errors

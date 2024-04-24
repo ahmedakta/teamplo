@@ -7,6 +7,8 @@ const router = useRouter()
 export const useUserStore = defineStore('user', {
   state: () => ({
     id: '',
+    name: '',
+    role_id: '',
     bio: '',
     image: ''
   }),
@@ -45,6 +47,7 @@ export const useUserStore = defineStore('user', {
       this.$state.id = res.data[0].id
       this.$state.name = res.data[0].name
       this.$state.bio = res.data[0].bio
+      this.$state.role_id = res.data[0].role_id
       this.$state.image = res.data[0].image
     },
 

@@ -39,7 +39,7 @@
         >
       </nav>
       <!-- Login button on the right -->
-      <div class="flex-shrink-0">
+      <div class="flex-shrink-0 text-center">
         <button
           v-if="!userStore.id"
           class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl"
@@ -58,12 +58,18 @@
 
           Get Started
         </button>
-        <!-- swithc languages -->
-        <select class="text-[#3aa9D0] py-2 px-1" name="" id="">
+        <!-- swithch languages -->
+        <select class="text-[#3aa9D0] px-1" name="" id="">
           <option value="">EN</option>
           <option value="">TR</option>
           <option value="">AR</option>
         </select>
+        <div v-if="userStore.id" class="flex justify-between">
+          <img :src="'./src/assets/' + userStore.image" alt="" width="30rem" />
+          <span>
+            {{ userStore.name }}
+          </span>
+        </div>
       </div>
     </div>
   </header>

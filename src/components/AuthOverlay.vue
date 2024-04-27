@@ -1,6 +1,9 @@
 <template>
   <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-    <div class="relative h-[50%] bg-white p-8 rounded-lg shadow-md w-96">
+    <div class="relative h-[60%] bg-white p-8 rounded-lg shadow-md w-[25rem]">
+      <div class="justify-center text-center items-center mx-auto">
+        <img src="/src/assets/teamplo-logo-v1.png" class="mx-auto" width="80" alt="" />
+      </div>
       <div class="w-full flex justify-between">
         <h2 class="text-2xl">Login</h2>
         <button class="p-1.5 rounded-xl" @click="($event) => (generalStore.isLoginOpen = false)">

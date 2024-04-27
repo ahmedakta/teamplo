@@ -10,7 +10,7 @@
             :class="
               feature.isfeatured
                 ? 'bg-[#49C1EC] text-white'
-                : 'text-[#A9E0F4] bg-white border-2 border-[#A9E0F4]'
+                : 'text-[#A9E0F4] bg-white border border-[#A9E0F4]'
             "
             class="p-3 mt-10 rounded w-[5rem]"
           >

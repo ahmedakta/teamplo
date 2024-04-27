@@ -3,6 +3,7 @@
   <Trusted />
   <HowToUse />
   <Props :items="items" />
+  <Categories :categories="categories" />
 </template>
 
 <script setup>
@@ -10,6 +11,7 @@ import Trusted from '@/components/Frontend/TrustedCompanies.vue'
 import HowToUse from '@/components/Frontend/HowToUse.vue'
 import Hero from '@/components/Frontend/Hero.vue'
 import Props from '@/components/Frontend/Props.vue'
+import Categories from '@/components/Frontend/Categories.vue'
 import { ref } from 'vue'
 
 const items = ref([
@@ -48,6 +50,26 @@ const items = ref([
       { name: 'Feature', isfeatured: 0 },
       { name: 'Feature', isfeatured: 0 }
     ]
+  }
+])
+const categories = ref([
+  {
+    id: 1,
+    name: 'Mobil Uyum',
+    image: 'src/assets/categories/category1.png',
+    active: true
+  },
+  {
+    id: 2,
+    name: 'Web Arayuz',
+    image: 'src/assets/categories/category2.png',
+    active: false
+  },
+  {
+    id: 3,
+    name: 'Yazilim',
+    image: 'src/assets/categories/category3.png',
+    active: false
   }
 ])
 </script>

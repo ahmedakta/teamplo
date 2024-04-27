@@ -1,5 +1,5 @@
 <template>
-  <header class="py-4">
+  <header class="py-4 bg-[#f3f7f8]">
     <div class="container mx-auto bg-white rounded-xl flex items-center justify-between">
       <!-- Logo on the left -->
       <div class="flex-shrink-0">

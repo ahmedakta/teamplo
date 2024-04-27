@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 body {
-  background-color: #f3f7f8;
+  background-color: #ffff;
 }
 .active {
   color: #5dade2;

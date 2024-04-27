@@ -4,6 +4,7 @@
   <HowToUse />
   <Props :items="items" />
   <Categories :categories="categories" />
+  <Blogs :blogs="blogs" header="Our Latest Blogs" />
 </template>
 
 <script setup>
@@ -12,6 +13,7 @@ import HowToUse from '@/components/Frontend/HowToUse.vue'
 import Hero from '@/components/Frontend/Hero.vue'
 import Props from '@/components/Frontend/Props.vue'
 import Categories from '@/components/Frontend/Categories.vue'
+import Blogs from '@/components/Frontend/Blogs.vue'
 import { ref } from 'vue'
 
 const items = ref([
@@ -70,6 +72,36 @@ const categories = ref([
     name: 'Yazilim',
     image: 'src/assets/categories/category3.png',
     active: false
+  }
+])
+const blogs = ref([
+  {
+    id: 1,
+    header:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    image: 'src/assets/categories/category1.png',
+    created_at: '27 APRIL 2024'
+  },
+  {
+    id: 2,
+    header:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    image: 'src/assets/categories/category1.png',
+    created_at: '27 APRIL 2024'
+  },
+  {
+    id: 3,
+    header:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    image: 'src/assets/categories/category1.png',
+    created_at: '27 APRIL 2024'
+  },
+  {
+    id: 4,
+    header:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
+    image: 'src/assets/categories/category1.png',
+    created_at: '27 APRIL 2024'
   }
 ])
 </script>

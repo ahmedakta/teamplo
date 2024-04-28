@@ -1,7 +1,7 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import TopNav from '@/components/Frontend/TopNav.vue'
 import { useTaskStore } from '@/stores/teskStore'
+import MainLayout from '@/layouts/Backend/MainLayout.vue'
 const taskStore = useTaskStore()
 const errors = ref()
 onMounted(() => {
@@ -22,8 +22,7 @@ const task = ref('')
 </script>
 
 <template>
-  <TopNav />
-  <main>
+  <MainLayout>
     <div class="flex justify-center">
       <!-- Tasks Column -->
       <div class="flex flex-col items-center mr-4 overflow-y-auto max-h-[540px]">
@@ -58,5 +57,5 @@ const task = ref('')
         </div>
       </div>
     </div>
-  </main>
+  </MainLayout>
 </template>

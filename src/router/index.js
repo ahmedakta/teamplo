@@ -1,7 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardIndex from '@/views/Backend/Index.vue'
 import FrontendIndex from '@/views/Frontend/Index.vue'
-import CounterView from '@/views/CounterView.vue'
+import AboutView from '@/views/Frontend/AboutView.vue'
+import FeaturesView from '@/views/Frontend/FeaturesView.vue'
+import ContactView from '@/views/Frontend/ContactView.vue'
+import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
 import ContentCreator from '@/views/Backend/ContentCreator.vue'
 
@@ -24,11 +27,33 @@ const ifAuthenticated = (to, from, next) => {
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
+    // frontend pages
     {
       path: '/',
       name: 'frontend.index',
       component: FrontendIndex
     },
+    {
+      path: '/about-us',
+      name: 'frontend.aboutUs',
+      component: AboutView
+    },
+    {
+      path: '/features',
+      name: 'frontend.features',
+      component: FeaturesView
+    },
+    {
+      path: '/contact-us',
+      name: 'frontend.contactUs',
+      component: ContactView
+    },
+    {
+      path: '/faq',
+      name: 'frontend.faq',
+      component: FaqView
+    },
+    // End Of Frontend Pages Routes
     {
       path: '/content-creator/dashboard',
       name: 'backend.contentCreator',
@@ -41,20 +66,7 @@ const router = createRouter({
       name: 'backend.index',
       meta: { roles: [1] },
       component: DashboardIndex,
-      beforeEnter: ifAuthenticated // Check if user logged in to enter this page
-    },
-    {
-      path: '/counter',
-      name: 'counter',
-      component: CounterView
-    },
-    {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import('../views/Frontend/AboutView.vue')
+      beforeEnter: ifAuthenticated
     }
   ]
 })

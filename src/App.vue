@@ -7,7 +7,6 @@ const generalStore = useGeneralStore()
 const userStore = useUserStore()
 import swal from 'sweetalert'
 import { useRouter } from 'vue-router'
-import TopNav from '@/components/Frontend/TopNav.vue'
 const router = useRouter()
 onMounted(async () => {
   // alert(1)
@@ -28,7 +27,6 @@ onMounted(async () => {
 </script>
 
 <template>
-  <TopNav />
   <AuthOverlay v-if="generalStore.isLoginOpen" />
 
   <RouterView />

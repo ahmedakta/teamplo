@@ -1,6 +1,6 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import TheWelcome from '@/components/TheWelcome.vue'
+import TopNav from '@/components/Frontend/TopNav.vue'
 import { useTaskStore } from '@/stores/teskStore'
 const taskStore = useTaskStore()
 const errors = ref()
@@ -22,6 +22,7 @@ const task = ref('')
 </script>
 
 <template>
+  <TopNav />
   <main>
     <div class="flex justify-center">
       <!-- Tasks Column -->

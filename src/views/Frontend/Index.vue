@@ -1,22 +1,23 @@
 <template>
-  <Hero />
-  <Trusted />
-  <HowToUse />
-  <Props :items="items" />
-  <Categories :categories="categories" />
-  <Blogs :blogs="blogs" header="Our Latest Blogs" />
-  <Footer />
+  <MainLayout>
+    <Hero />
+    <Trusted />
+    <HowToUse />
+    <Props :items="items" />
+    <Categories :categories="categories" />
+    <Blogs :blogs="blogs" header="Our Latest Blogs" />
+  </MainLayout>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import MainLayout from '@/layouts/Frontend/MainLayout.vue'
 import Trusted from '@/components/Frontend/TrustedCompanies.vue'
 import HowToUse from '@/components/Frontend/HowToUse.vue'
 import Hero from '@/components/Frontend/Hero.vue'
 import Props from '@/components/Frontend/Props.vue'
 import Categories from '@/components/Frontend/Categories.vue'
 import Blogs from '@/components/Frontend/Blogs.vue'
-import Footer from '@/components/Frontend/Footer.vue'
-import { ref } from 'vue'
 
 const items = ref([
   {

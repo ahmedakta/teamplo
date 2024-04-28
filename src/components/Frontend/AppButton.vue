@@ -7,8 +7,9 @@
       'bg-gray-800 text-white p-3 rounded px-20': type == 'dark'
     }"
     :disabled="processing"
-    ><slot
-  /></Button>
+  >
+    <slot />
+  </Button>
 </template>
 
 <script setup>

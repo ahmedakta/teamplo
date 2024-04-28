@@ -1,7 +1,9 @@
 <template>
-  {{ header }}
-  <div v-for="blog in blogs" :key="blog.id">
-    <Blog :blog="blog" />
+  <h1 class="text-4xl text-center font-bold py-10">
+    {{ header }}
+  </h1>
+  <div class="flex flex-wrap w-[100rem] justify-between mx-auto py-5">
+    <Blog v-for="blog in blogs" :key="blog.id" :blog="blog" />
   </div>
 </template>
 

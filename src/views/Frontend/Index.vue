@@ -5,6 +5,7 @@
   <Props :items="items" />
   <Categories :categories="categories" />
   <Blogs :blogs="blogs" header="Our Latest Blogs" />
+  <Footer />
 </template>
 
 <script setup>
@@ -14,6 +15,7 @@ import Hero from '@/components/Frontend/Hero.vue'
 import Props from '@/components/Frontend/Props.vue'
 import Categories from '@/components/Frontend/Categories.vue'
 import Blogs from '@/components/Frontend/Blogs.vue'
+import Footer from '@/components/Frontend/Footer.vue'
 import { ref } from 'vue'
 
 const items = ref([
@@ -78,29 +80,29 @@ const blogs = ref([
   {
     id: 1,
     header:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    image: 'src/assets/categories/category1.png',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    image: 'src/assets/blogs/blog1.png',
     created_at: '27 APRIL 2024'
   },
   {
     id: 2,
     header:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    image: 'src/assets/categories/category1.png',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    image: 'src/assets/blogs/blog2.png',
     created_at: '27 APRIL 2024'
   },
   {
     id: 3,
     header:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    image: 'src/assets/categories/category1.png',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    image: 'src/assets/blogs/blog3.png',
     created_at: '27 APRIL 2024'
   },
   {
     id: 4,
     header:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,",
-    image: 'src/assets/categories/category1.png',
+      'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
+    image: 'src/assets/blogs/blog4.png',
     created_at: '27 APRIL 2024'
   }
 ])

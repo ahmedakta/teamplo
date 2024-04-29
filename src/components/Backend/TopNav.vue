@@ -8,19 +8,31 @@
       </div>
       <!-- Login button on the right -->
       <!-- search input -->
-      <div class="flex justify-between w-[29rem] text-[1.2rem] text-center">
-        <div v-if="userStore.id" class="flex justify-between bg-white py-3 px-3 rounded-2xl">
+      <div class="flex justify-between w-[26rem] text-[1rem] text-center">
+        <div
+          v-if="userStore.id"
+          class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"
+        >
           <p><font-awesome-icon :icon="['fas', 'search']" /></p>
           <input type="text" name="" id="" placeholder="Search.." />
         </div>
-        <div v-if="userStore.id" class="flex justify-between bg-white py-3 px-3 rounded-2xl">
-          <a href=""><font-awesome-icon :icon="['fas', 'fa-cog']" /></a>
+        <div
+          v-if="userStore.id"
+          class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl"
+        >
+          <RouterLink to="/settings"><font-awesome-icon :icon="['fas', 'fa-cog']" /></RouterLink>
         </div>
-        <div v-if="userStore.id" class="flex justify-between bg-white py-3 px-3 rounded-2xl">
+        <div
+          v-if="userStore.id"
+          class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl"
+        >
           <a href=""> <font-awesome-icon :icon="['far', 'bell']" /></a>
         </div>
-        <div v-if="userStore.id" class="flex justify-between bg-white py-3 px-3 rounded-3xl">
-          <a href="#"><img :src="'./src/assets/' + userStore.image" alt="" width="30rem" /></a>
+        <div
+          v-if="userStore.id"
+          class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-3xl"
+        >
+          <a href="#"><img :src="'./src/assets/' + userStore.image" alt="" width="25rem" /></a>
         </div>
       </div>
     </div>

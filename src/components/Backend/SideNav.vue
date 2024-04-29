@@ -6,11 +6,26 @@
     </div>
     <!-- Navigation Links -->
     <nav class="mt-6 text-gray-500">
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">Dashboard</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">Projects</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">Tasks</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">Events</a>
-      <a href="#" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">Settings</a>
+      <RouterLink to="/dashboard" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">
+        <font-awesome-icon :icon="['fas', 'circle-notch']" />
+        Dashboard
+      </RouterLink>
+      <RouterLink to="/projects" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">
+        <font-awesome-icon :icon="['fa', 'diagram-project']" />
+        Projects
+      </RouterLink>
+      <RouterLink to="/tasks" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">
+        <font-awesome-icon :icon="['fa', 'bars-progress']" />
+        Tasks
+      </RouterLink>
+      <RouterLink to="/events" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">
+        <font-awesome-icon :icon="['fa', 'calendar']" />
+        Events
+      </RouterLink>
+      <RouterLink to="/chats" class="block py-2 px-4 hover:bg-gray-700 hover:text-white">
+        <font-awesome-icon :icon="['fa', 'comment']" />
+        Chats
+      </RouterLink>
       <a
         href="#"
         class="block py-2 px-4 text-red-500 hover:bg-gray-700"

@@ -1,5 +1,9 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardIndex from '@/views/Backend/Index.vue'
+import ProjectsIndex from '@/views/Backend/ProjectsView.vue'
+import TasksIndex from '@/views/Backend/TasksView.vue'
+import EventsIndex from '@/views/Backend/EventsView.vue'
+import ChatsIndex from '@/views/Backend/ChatsView.vue'
 import FrontendIndex from '@/views/Frontend/Index.vue'
 import AboutView from '@/views/Frontend/AboutView.vue'
 import FeaturesView from '@/views/Frontend/FeaturesView.vue'
@@ -54,6 +58,7 @@ const router = createRouter({
       component: FaqView
     },
     // End Of Frontend Pages Routes
+    // Backend Routes
     {
       path: '/content-creator/dashboard',
       name: 'backend.contentCreator',
@@ -66,6 +71,34 @@ const router = createRouter({
       name: 'backend.index',
       meta: { roles: [1] },
       component: DashboardIndex,
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/projects',
+      name: 'backend.projects',
+      meta: { roles: [1] },
+      component: ProjectsIndex,
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/tasks',
+      name: 'backend.tasks',
+      meta: { roles: [1] },
+      component: TasksIndex,
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/events',
+      name: 'backend.events',
+      meta: { roles: [1] },
+      component: EventsIndex,
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/chats',
+      name: 'backend.chats',
+      meta: { roles: [1] },
+      component: ChatsIndex,
       beforeEnter: ifAuthenticated
     }
   ]

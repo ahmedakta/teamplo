@@ -1,14 +1,14 @@
 <template>
-  <div class="flex h-screen">
+  <div class="flex bg-gray-100 h-screen">
     <SideNav />
-    <div class="flex-1 bg-gray-100">
+    <div class="flex-1">
+      <TopNav />
       <slot />
     </div>
   </div>
 </template>
 
 <script setup>
-import TopNav from '@/components/Frontend/TopNav.vue'
+import TopNav from '@/components/Backend/TopNav.vue'
 import SideNav from '@/components/Backend/SideNav.vue'
-import Footer from '@/components/Frontend/Footer.vue'
 </script>

@@ -8,7 +8,7 @@
       </div>
       <!-- Login button on the right -->
       <!-- search input -->
-      <div class="flex justify-between w-[26rem] text-[1rem] text-center">
+      <div class="hidden md:flex justify-between w-[26rem] text-[1rem] text-center">
         <div
           v-if="userStore.id"
           class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"

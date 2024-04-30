@@ -18,43 +18,96 @@ const deleteTask = async (task) => {
     errors.value = error.response.data.errors
   }
 }
+
+// example attrs to the vcalendar
+const attrs = ref([
+  {
+    key: 'test',
+    highlight: true,
+    dates: { start: new Date(2019, 3, 15), end: new Date(2019, 3, 19) }
+  }
+])
 const task = ref('')
 </script>
 
 <template>
   <MainLayout>
-    <div class="flex justify-center">
-      <!-- Tasks Column -->
-      <div class="flex flex-col items-center mr-4 overflow-y-auto max-h-[540px]">
-        <h2 class="text-xl font-semibold mb-2">Tasks</h2>
-        <div class="bg-white rounded-md shadow-md p-4 w-96">
-          <!-- Task Cards will go here -->
-          <div
-            class="border-b border-gray-200 pb-2 mb-2"
-            v-for="(task, key) in taskStore.tasks"
-            :key="key"
-          >
-            <p class="font-semibold">{{ task.name }}</p>
-            <p class="text-gray-600">{{ task.description }}.</p>
+    <div class="container w-full h-[25rem] flex flex-wrap mx-auto justify-between">
+      <!-- company updates section -->
+      <div class="bg-white md:w-1/2 rounded-xl w-full">
+        <!-- header -->
+        <div class="flex justify-between">
+          <div>
+            <h1 class="font-bold text-xl text-black p-5">Company Updates</h1>
           </div>
-          <!-- Add more task cards as needed -->
+          <div>
+            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl">
+              <option value="">Nisan</option>
+              <option value="">Augustos</option>
+              <option value="">Ekim</option>
+              <option value="">Aralik</option>
+            </select>
+          </div>
+        </div>
+        <!-- company updates -->
+        <VDatePicker
+          v-model="selectedDate"
+          borderless
+          :initial-page="{ month: 4, year: 2019 }"
+          :color="selectedColor"
+          :attributes="attrs"
+          expanded
+          is-dark="system"
+        />
+      </div>
+      <!-- recent mountained tasks section -->
+      <div class="bg-white w-full md:w-1/2 rounded-xl">
+        <!-- header of div -->
+        <div class="flex justify-between">
+          <div>
+            <h1 class="font-bold text-xl text-black p-5">Recent Mentioned Tasks</h1>
+          </div>
+          <div>
+            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl">
+              <option value="">Priority</option>
+              <option value="">High</option>
+              <option value="">Medium</option>
+              <option value="">Low</option>
+            </select>
+          </div>
+        </div>
+        <!-- tasks -->
+        <div class="bg-white w-full flex flex-col mx-auto">
+          <div class="flex shadow py-3 m-3 rounded-xl">
+            <img src="../../assets/icons/task-todo.png" alt="" class="rounded-xl w-[4rem] px-5" />
+            <p>Todo (18)</p>
+          </div>
+          <div class="flex shadow py-3 m-3 rounded-xl">
+            <img
+              src="../../assets/icons/task-inProgress.png"
+              alt=""
+              class="rounded-xl w-[4rem] px-5"
+            />
+            <p>In Progress (18)</p>
+          </div>
+          <div class="flex shadow py-3 m-3 rounded-xl">
+            <img src="../../assets/icons/task-done.png" alt="" class="rounded-xl w-[4rem] px-5" />
+            <p>Done (18)</p>
+          </div>
+          <div class="flex shadow py-3 m-3 rounded-xl">
+            <img
+              src="../../assets/icons/task-unassigned.png"
+              alt=""
+              class="rounded-xl w-[4rem] px-5"
+            />
+            <p>Unassigned (18)</p>
+          </div>
         </div>
       </div>
 
-      <!-- Completed Column -->
-      <div class="flex flex-col items-center mr-4">
-        <h2 class="text-xl font-semibold mb-2">Completed</h2>
-        <div class="bg-white rounded-md shadow-md p-4 w-96">
-          <!-- Completed Task Cards will go here -->
-        </div>
-      </div>
-
-      <!-- Waiting Column -->
-      <div class="flex flex-col items-center">
-        <h2 class="text-xl font-semibold mb-2">Waiting</h2>
-        <div class="bg-white rounded-md shadow-md p-4 w-96">
-          <!-- Waiting Task Cards will go here -->
-        </div>
+      <!-- projects section -->
+      <div class="container">
+        <h1 class="">Projects Progress</h1>
       </div>
     </div>
   </MainLayout>

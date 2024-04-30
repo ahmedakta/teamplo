@@ -4,7 +4,7 @@
     <div class="text-2xl text-black font-bold">
       <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.png" />
       <!-- General -->
-      <p class="text-gray-500 text-sm py-3">General <hr/></p>
+      <p class="text-gray-600 text-sm font-bold py-3">General <hr/></p>
       <!-- Navigation Links -->
       <nav class="mt-6 text-[1.1rem] text-gray-500">
         <RouterLink to="/dashboard"           
@@ -37,19 +37,21 @@
           <font-awesome-icon :icon="['fa', 'comment']" />
           Chats
         </RouterLink>
-        <a
-          href="#"
-          class="block py-2 px-4 text-red-500 hover:bg-[#D6E6FD]"
-          @click="logout()"
-          v-if="userStore.id">
-          <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
-          Logout
-        </a>
         <!-- Add more links as needed -->
       </nav>
     </div>
     <!-- Footer (Optional) -->
-    <div class="mt-6 text-gray-500"><p>Made By Teamplo</p></div>
+    <div class="mt-6 text-gray-500">
+      <a
+        href="#"
+        class="block py-2  text-red-500 hover:bg-[#D6E6FD]"
+        @click="logout()"
+        v-if="userStore.id">
+        <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
+        Logout
+      </a>
+      <p>Made By Teamplo</p>
+    </div>
   </div>
 </template>
 
@@ -60,17 +62,30 @@ const userStore = useUserStore()
 const generalStore = useGeneralStore()
 import { useRouter } from 'vue-router'
 const router = useRouter()
+import swal from 'sweetalert'
 
 const logout = () => {
-  try {
-    if (window.confirm('Are you sure you want to logout?')) {
-      // Perform logout action
-      userStore.logout()
-      router.push('/')
+ 
+    swal({
+    title: "Do you want to Logout?",
+    showDenyButton: true,
+    showCancelButton: true,
+    confirmButtonText: "Logout",
+    denyButtonText: "Cancel"
+  }).then((result) => {
+    /* Read more about isConfirmed, isDenied below */
+    if (result) {
+      try {  
+        userStore.logout()
+        router.push('/')
+      } catch (error) {
+        console.log(error)
+      }
+      swal("Logouted!", "", "success");
+    } else if (result.isDenied) {
+      swal("Logout Error", "", "info");
     }
-  } catch (error) {
-    console.log(error)
-  }
+  });
 }
 </script>
 <style scoped>

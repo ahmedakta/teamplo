@@ -1,7 +1,7 @@
 <template>
   <!-- Features Section -->
   <section>
-    <div class="container mx-auto mt-10">
+    <div class="container mx-auto mt-10 text-black">
       <div class="flex flex-wrap justify-between items-center">
         <div class="w-2/3">
           <h2 class="text-xl font-semibold mb-4">Trusted by Global Companies</h2>

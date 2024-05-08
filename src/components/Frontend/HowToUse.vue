@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto mb-10 mt-10">
+  <div class="container mx-auto mb-10 mt-10 text-black">
     <div class="justify-between items-center">
       <h2 class="text-3xl font-bold mb-4">
         See How To Use <span class="text-[#3aa9D0] font-semibold">Teamplo</span>

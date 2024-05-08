@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-4xl text-center font-bold py-10">
+  <h1 class="text-4xl text-center font-bold py-10 text-black">
     {{ header }}
   </h1>
   <div class="flex flex-wrap w-[100rem] justify-between mx-auto py-5">

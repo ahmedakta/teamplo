@@ -26,7 +26,10 @@ export const useUserStore = defineStore('user', {
       await axios.post('/login', {
         email: email,
         password: password
-      })
+      },{withCredentials: true})
+    //   {
+    //     headers: headers
+    // }
       useGeneralStore().isLoading = false
       swal('Success', 'You Logged In Successfully')
     },

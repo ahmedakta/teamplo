@@ -8,6 +8,7 @@ export const useGeneralStore = defineStore('general', {
     isLoginOpen: false,
     isEditProfileOpen: false,
     isLoading: false,
+    data: null,
     selectedPost: null,
     ids: null,
     isBackUrl: '/',
@@ -16,6 +17,17 @@ export const useGeneralStore = defineStore('general', {
     following: null
   }),
   actions: {
+    async getData(url)
+    {
+      try {
+        const response = await axios.get(url, {
+          withCredentials: true
+        })
+        this.data = response.data
+      } catch (error) {
+        console.error('Error fetching data:', error)
+      }
+    },
     async isLoggedIn(redirect) {
       let storedUserInfo = JSON.parse(localStorage.getItem('user'))
       if (storedUserInfo) {
@@ -39,7 +51,9 @@ export const useGeneralStore = defineStore('general', {
             case 401: // Not logged in
             case 419: // Session expired
             case 503: // Down for maintenance
-              alert('fuck you')
+              console.log('Error : ' + error.response.data.message);
+              alert(error.response.data.message);
+              // alert('fuck you')
               // Bounce the user to the login screen with a redirect back
               useUserStore().resetUser()
               localStorage.removeItem('user')

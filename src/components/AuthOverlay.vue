@@ -1,6 +1,6 @@
 <template>
   <div class="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10">
-    <div class="relative h-[60%] bg-white p-8 rounded-lg shadow-md w-[25rem]">
+    <div class="relative h-[60%] bg-white p-8 rounded-lg shadow-md w-[25rem] text-black">
       <div class="justify-center text-center items-center mx-auto">
         <img src="/src/assets/teamplo-logo-v1.png" class="mx-auto" width="80" alt="" />
       </div>

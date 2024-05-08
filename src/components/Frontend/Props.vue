@@ -1,5 +1,5 @@
 <template>
-  <div class="item-section bg-[#f3f7f8]" v-show="items.length">
+  <div class="item-section bg-[#f3f7f8] text-black" v-show="items.length">
     <div v-for="item in items" :key="item.id" class="item">
       <!-- Your item design goes here -->
       <Prop

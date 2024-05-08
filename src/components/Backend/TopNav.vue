@@ -13,20 +13,20 @@
           v-if="userStore.id"
           class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"
         >
-          <p><font-awesome-icon :icon="['fas', 'search']" /></p>
-          <input type="text" name="" id="" placeholder="Search.." />
+          <p><font-awesome-icon :icon="['fas', 'search']" class="text-black" /></p>
+          <input type="text" class="text-black" name="" id="" placeholder="Search.." />
         </div>
         <div
           v-if="userStore.id"
           class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl"
         >
-          <RouterLink to="/settings"><font-awesome-icon :icon="['fas', 'fa-cog']" /></RouterLink>
+          <RouterLink to="/settings"><font-awesome-icon :icon="['fas', 'fa-cog']" class="text-black"/></RouterLink>
         </div>
         <div
           v-if="userStore.id"
           class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl"
         >
-          <a href=""> <font-awesome-icon :icon="['far', 'bell']" /></a>
+          <a href=""> <font-awesome-icon :icon="['far', 'bell']" class="text-black"/></a>
         </div>
         <div
           v-if="userStore.id"

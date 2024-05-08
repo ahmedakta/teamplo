@@ -1,6 +1,6 @@
 <template>
   <MainLayout>
-    <div class="flex justify-center">
+    <div class="flex justify-center text-black">
       <!-- Tasks Column -->
       <div class="flex flex-col items-center mr-4 overflow-y-auto max-h-[540px]">
         <h2 class="text-xl font-semibold mb-2">Tasks</h2>

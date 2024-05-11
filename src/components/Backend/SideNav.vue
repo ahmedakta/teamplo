@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-white m-5 rounded-3xl text-white w-64 py-6 px-8 flex flex-col justify-between">
+  <div class="bg-white m-5 rounded-3xl text-white w-64 py-6 px-8 flex flex-col justify-between ">
     <!-- Logo -->
     <div class="text-2xl text-black font-bold">
       <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.png" />

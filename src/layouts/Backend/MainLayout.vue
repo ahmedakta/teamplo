@@ -1,5 +1,6 @@
 <template>
-  <div class="flex bg-gray-100 h-screen">
+  <div class="flex bg-[#f3f7f8] h-screen pr-5">
+    
     <SideNav />
     <div class="flex-1">
       <TopNav />

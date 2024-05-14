@@ -39,7 +39,7 @@ const task = ref('')
     <div class="container w-full h-[25rem] max-h-[50rem] flex flex-wrap mx-auto justify-between">
       <!-- KPI cards -->
       <div class="w-full flex mx-auto mb-5">
-        <div class="bg-white rounded-lg shadow-md p-6 w-72">
+        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
           <div class="flex items-center justify-between mb-4">
               <h3 class="text-lg font-semibold text-gray-800">Revenue</h3>
               <span class="text-gray-500 text-sm">May 2024</span>
@@ -59,7 +59,7 @@ const task = ref('')
               <span class="text-gray-700 text-sm">$1,043,000</span>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 w-72">
+        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
           <div class="flex items-center justify-between mb-4">
               <h3 class="text-lg font-semibold text-gray-800">Customer Satisfaction</h3>
               <span class="text-gray-500 text-sm">May 2024</span>
@@ -73,7 +73,7 @@ const task = ref('')
               <span class="text-gray-700 text-sm">4.5</span>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 w-72">
+        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-semibold text-gray-800">Employee Turnover</h3>
                 <span class="text-gray-500 text-sm">May 2024</span>
@@ -87,7 +87,7 @@ const task = ref('')
                 <span class="text-gray-700 text-sm">7%</span>
             </div>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 w-72">
+        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
             <div class="flex items-center justify-between mb-4">
                 <h3 class="text-lg font-semibold text-gray-800">Inventory Turnover</h3>
                 <span class="text-gray-500 text-sm">May 2024</span>
@@ -104,7 +104,7 @@ const task = ref('')
 
       </div>
       <!-- company updates section -->
-      <div class="bg-white md:w-1/2 rounded-xl w-full">
+      <div class="bg-white md:w-1/2 rounded-xl w-full ">
         <!-- header -->
         <div class="flex justify-between">
           <div>
@@ -134,7 +134,7 @@ const task = ref('')
           <!-- is-dark="system" -->
       </div>
       <!-- recent mountained tasks section -->
-      <div class="bg-white w-full md:w-1/2 rounded-xl">
+      <div class="bg-white w-full md:w-1/2  rounded-xl">
         <!-- header of div -->
         <div class="flex justify-between">
           <div>
@@ -179,22 +179,39 @@ const task = ref('')
       </div>
 
       <!-- projects section -->
-      <div class="container text-black">
-        <h1 class="text-bold text-2xl">Projects Progress</h1>
-        <div class="bg-white w-full flex flex-col mx-auto">
-          <div class="flex shadow py-3 m-3 rounded-xl text-black"
-          v-for="(project, key) in generalStore.data.projects"
-            :key="key"
-          >
-            <img
-              src="../../assets/icons/task-unassigned.png"
-              alt=""
-              class="rounded-xl w-[4rem] px-5"
-            />
-            <p>{{ project.project_name }}</p>
+      <div class="bg-white w-full md:w-full mt-5 p-5 rounded-xl">
+        <div class="container text-black">
+          <h1 class="font-bold text-xl">Projects Progress</h1>
+          <div class="bg-white w-full mx-auto overflow-y-auto h-[20rem]">
+            <div class="flex justify-between shadow py-3 m-3 rounded-xl text-black px-4"
+            v-for="(project, key) in generalStore.data.projects"
+              :key="key"
+            >
+            <div class="w-1/4  flex">
+              <img
+              v-for="(user , key) in project.users"
+                :src="'./src/assets/' +user.image"
+                alt=""
+                class="rounded-xl w-4 h-auto"
+              />
+            </div>
+            <div class="w-1/4 text-left">
+              {{project.project_name}}
+            </div>
+            <div class="w-1/4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+                <div class="bg-pink-600 h-2.5 rounded-full" :style="{width: project.progress + '%'}"></div>
+            </div>
+            <div class="w-1/4 text-center">
+              <!-- End at : {{project.project_end_at}} -->
+              2 Days left
+            </div>
+            <!-- <div>
+              <progress id="file" :value="project.progress" max="100" class=" bg-red-500"> {{project.progress}} </progress>
+            </div> -->
+            </div>
           </div>
         </div>
-      </div>
+    </div>
     </div>
   </MainLayout>
 </template>

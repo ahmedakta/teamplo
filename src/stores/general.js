@@ -24,6 +24,7 @@ export const useGeneralStore = defineStore('general', {
           withCredentials: true
         })
         this.data = response.data
+        // console.log(response.data);
       } catch (error) {
         console.error('Error fetching data:', error)
       }

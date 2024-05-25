@@ -1,11 +1,8 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useTaskStore } from '@/stores/teskStore'
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { useGeneralStore } from '@/stores/general'
 import Chart from '@/components/Backend/Chart.vue'
-
-const taskStore = useTaskStore()
 const generalStore = useGeneralStore()
 const errors = ref()
 
@@ -195,7 +192,7 @@ const task = ref('')
                 class="rounded-xl w-4 h-auto"
               />
             </div>
-            <div class="w-1/4 text-left">
+            <div class="w-1/4 text-left text-black">
               {{project.project_name}}
             </div>
             <div class="w-1/4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">

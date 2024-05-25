@@ -1,8 +1,8 @@
 <template>
-  <div class="flex bg-[#f3f7f8] h-screen pr-5">
+  <div class="flex bg-[#f3f7f8] h-screen pr-5 text-black">
     
     <SideNav />
-    <div class="flex-1">
+    <div class="ml-[20%] flex-1">
       <TopNav />
       <slot />
     </div>

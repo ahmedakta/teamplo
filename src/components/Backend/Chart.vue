@@ -1,7 +1,7 @@
 <template>
     <div class="text-black">
       <div v-if="loaded">
-        <Pie :data="storeData.chart" :options="options" />
+        <Pie :data="storeData.chart" :options="options"  palette="Soft"/>
       </div>
     </div>
 </template>

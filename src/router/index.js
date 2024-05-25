@@ -11,6 +11,7 @@ import ContactView from '@/views/Frontend/ContactView.vue'
 import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
 import ContentCreator from '@/views/Backend/ContentCreator.vue'
+import SettingsView from '@/views/Backend/SettingsView.vue'
 
 const ifAuthenticated = (to, from, next) => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
@@ -85,6 +86,13 @@ const router = createRouter({
       name: 'backend.tasks',
       meta: { roles: [1] },
       component: TasksIndex,
+      beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/settings',
+      name: 'backend.settings',
+      meta: { roles: [1] },
+      component: SettingsView,
       beforeEnter: ifAuthenticated
     },
     {

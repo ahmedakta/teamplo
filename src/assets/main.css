@@ -1,4 +1,6 @@
 @import './base.css';
+/* @import '@bhplugin/vue3-datatable/dist/style.css'; */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -8,6 +10,7 @@ body {
 .active {
   color: #5dade2;
 }
+
 /* 
 #app {
   max-width: 1280px;

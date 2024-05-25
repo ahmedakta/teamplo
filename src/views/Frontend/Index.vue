@@ -3,7 +3,7 @@
     <Hero />
     <Trusted />
     <HowToUse />
-    <Props :items="items" />
+    <!-- <Props :items="items" /> -->
     <Categories :categories="categories" />
     <Blogs :blogs="blogs" header="Our Latest Blogs" />
   </MainLayout>

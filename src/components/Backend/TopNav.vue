@@ -4,7 +4,7 @@
       <!-- Logo on the left -->
       <div class="flex-shrink-0">
         <!-- <img src="logo.png" alt="Logo" class="h-8" /> -->
-        <h1 class="text-black text-[2vh] px-5 font-bold">Welcome 👋🏻</h1>
+        <h1 class="text-black text-[2vh] px-5 font-bold">Welcome 👋🏻 {{ userStore.name }}</h1>
       </div>
       <!-- Login button on the right -->
       <!-- search input -->

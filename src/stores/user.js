@@ -23,13 +23,17 @@ export const useUserStore = defineStore('user', {
       spinner.style.display = 'block'
       spinner.classList.add('animate-spin')
 
-      await axios.post('/login', {
-        email: email,
-        password: password
-      },{withCredentials: true})
-    //   {
-    //     headers: headers
-    // }
+      await axios.post(
+        '/login',
+        {
+          email: email,
+          password: password
+        },
+        { withCredentials: true }
+      )
+      //   {
+      //     headers: headers
+      // }
       useGeneralStore().isLoading = false
       swal('Success', 'You Logged In Successfully')
     },

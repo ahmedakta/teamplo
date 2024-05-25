@@ -17,14 +17,14 @@ export const useGeneralStore = defineStore('general', {
     following: null
   }),
   actions: {
-    async getData(url)
-    {
+    async getData(url) {
+      this.isLoading = true
       try {
         const response = await axios.get(url, {
           withCredentials: true
         })
         this.data = response.data
-        // console.log(response.data);
+        this.isLoading = false
       } catch (error) {
         console.error('Error fetching data:', error)
       }
@@ -52,8 +52,8 @@ export const useGeneralStore = defineStore('general', {
             case 401: // Not logged in
             case 419: // Session expired
             case 503: // Down for maintenance
-              console.log('Error : ' + error.response.data.message);
-              alert(error.response.data.message);
+              console.log('Error : ' + error.response.data.message)
+              alert(error.response.data.message)
               // alert('fuck you')
               // Bounce the user to the login screen with a redirect back
               useUserStore().resetUser()

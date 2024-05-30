@@ -25,18 +25,23 @@
       <!-- <DataTable :items="[1 , 2, 3, 6,8]"/> -->
       <vue3-datatable
         ref="datatable"
-        skin="bh-table-hover"
+        skin="bh-table-striped bh-table-hover bh-table-bordered bh-table-compact"
         :loading="generalStore.isLoading"
         :sortable="true"
-        :pageSize="params.pagesize"
+        :pageSize="params.page_size"
         :sortColumn="params.sort_column"
-        :totalRows="params.totalRows"
+        :totalRows="params.total_rows"
         :sortDirection="params.sort_direction"
         :search="params.search"
         :rows="data"
         :columns="cols"
         :hasCheckbox="true"
+        :isServerMode="true"
+        :showNumbersCount="10"
+        :pageSizeOptions="[10, 15, 30, 50]"
+        class="next-prev-pagination"
         @rowClick="rowClick"
+        @change="changeServer()"
       >
         <template #id="data">
           <strong class="text-info"> #{{ data.value.id }} </strong>
@@ -85,28 +90,32 @@ const params: any = ref({})
 
 onMounted(() => {
   try {
-    generalStore.getData('/api/projects').then(() => {
+    getProjects()
+  } catch (error) {
+    console.log(error)
+  }
+})
+
+const getProjects = async (search = null) => {
+  generalStore.getData('/api/projects' , search).then(() => {
       // custimize values for datatable library
       if (generalStore.data && generalStore.data.cols && generalStore.data.data.data) {
         cols.value = JSON.parse(generalStore.data.cols)
         data.value = generalStore.data.data.data
         params.value = reactive({
           current_page: generalStore.data.data.current_page,
-          search: '',
+          search: search,
           pagesize: generalStore.data.data.per_page,
           sort_column: 'id',
-          totalRows: generalStore.data.total,
+          total_rows: generalStore.data.data.total,
           sort_direction: 'asc'
         })
+        generalStore.isLoading = false
       } else {
         console.log('something going wrong with endpoint data')
       }
     })
-  } catch (error) {
-    console.log(error)
-  }
-})
-
+}
 const rowClick = (project: any) => {
   alert(
     'project Details \n' +
@@ -125,4 +134,9 @@ const getSelectedRows = () => {
   console.log(selected)
   alert('Rows selected: ' + selected?.length || 0)
 }
+
+// change server function
+const changeServer = () => {
+  getProjects(params.value.search)
+};
 </script>

@@ -17,7 +17,8 @@ export const useGeneralStore = defineStore('general', {
     following: null
   }),
   actions: {
-    async getData(url) {
+    async getData(url , search_text = null) {
+      if(search_text){url = url + '?search=' + search_text}
       this.isLoading = true
       try {
         const response = await axios.get(url, {

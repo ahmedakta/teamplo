@@ -17,12 +17,12 @@ export const useGeneralStore = defineStore('general', {
     following: null
   }),
   actions: {
-    async getData(url , search_text = null) {
-      if(search_text){url = url + '?search=' + search_text}
+    async getData(url, params = null) {
       this.isLoading = true
       try {
         const response = await axios.get(url, {
-          withCredentials: true
+          withCredentials: true,
+          params
         })
         this.data = response.data
         this.isLoading = false

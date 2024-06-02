@@ -5,7 +5,7 @@
     >
       <div class="mb-5 rounded-xl">
         <input
-          v-model="params.search"
+          v-model="filterParams.search"
           type="text"
           class="form-input max-w-xs py-2 px-3 border-blue-100 border-2 rounded-xl"
           placeholder="Search..."
@@ -28,23 +28,23 @@
         skin="bh-table-striped bh-table-hover bh-table-bordered bh-table-compact"
         :loading="generalStore.isLoading"
         :sortable="true"
-        :pageSize="params.page_size"
+        :pageSize="15"
         :sortColumn="params.sort_column"
         :totalRows="params.total_rows"
         :sortDirection="params.sort_direction"
-        :search="params.search"
+        :search="filterParams.search"
         :rows="data"
         :columns="cols"
         :hasCheckbox="true"
         :isServerMode="true"
-        :showNumbersCount="10"
+        :showNumbersCount="15"
         :pageSizeOptions="[10, 15, 30, 50]"
         class="next-prev-pagination"
         @rowClick="rowClick"
-        @change="changeServer()"
+        @change="changeServer"
       >
         <template #id="data">
-          <strong class="text-info"> #{{ data.value.id }} </strong>
+          <strong class="text-info">{{ data.value.id }} </strong>
         </template>
         <template #actions="data">
           <div class="flex gap-4">
@@ -87,6 +87,7 @@ const datatable: any = ref(null)
 const cols: any = ref([])
 const data: any = ref([])
 const params: any = ref({})
+const filterParams: any = reactive({})
 
 onMounted(() => {
   try {
@@ -96,25 +97,24 @@ onMounted(() => {
   }
 })
 
-const getProjects = async (search = null) => {
-  generalStore.getData('/api/projects' , search).then(() => {
-      // custimize values for datatable library
-      if (generalStore.data && generalStore.data.cols && generalStore.data.data.data) {
-        cols.value = JSON.parse(generalStore.data.cols)
-        data.value = generalStore.data.data.data
-        params.value = reactive({
-          current_page: generalStore.data.data.current_page,
-          search: search,
-          pagesize: generalStore.data.data.per_page,
-          sort_column: 'id',
-          total_rows: generalStore.data.data.total,
-          sort_direction: 'asc'
-        })
-        generalStore.isLoading = false
-      } else {
-        console.log('something going wrong with endpoint data')
-      }
-    })
+const getProjects = async (filterParams = null) => {
+  generalStore.getData('/api/projects', filterParams).then(() => {
+    // custimize values for datatable library
+    if (generalStore.data && generalStore.data.cols && generalStore.data.data.data) {
+      cols.value = JSON.parse(generalStore.data.cols)
+      data.value = generalStore.data.data.data
+      params.value = reactive({
+        current_page: generalStore.data.data.current_page,
+        page_size: generalStore.data.data.per_page,
+        sort_column: 'id',
+        total_rows: generalStore.data.data.total,
+        sort_direction: 'asc'
+      })
+      generalStore.isLoading = false
+    } else {
+      console.log('something going wrong with endpoint data')
+    }
+  })
 }
 const rowClick = (project: any) => {
   alert(
@@ -136,7 +136,8 @@ const getSelectedRows = () => {
 }
 
 // change server function
-const changeServer = () => {
-  getProjects(params.value.search)
-};
+const changeServer = (data: any) => {
+  filterParams.page = data.current_page
+  getProjects(filterParams)
+}
 </script>

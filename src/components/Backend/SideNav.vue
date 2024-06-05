@@ -7,7 +7,7 @@
    </svg>
 </button>
 
-  <div id="sidebar-multi-level-sidebar" class="bg-white m-5 rounded-3xl  fixed z-1 pl-0 py-6 px-8 flex flex-col justify-between w-64 h-screen text-white top-0 left-0
+  <div id="sidebar-multi-level-sidebar" class="bg-white m-5 rounded-3xl pl-10 fixed z-1 py-6 flex flex-col justify-between w-64 h-screen text-white top-0 left-0
   transform transition-transform -translate-x-full md:translate-x-0 
   " aria-label="Sidebar">
     <!-- Logo -->

@@ -51,15 +51,14 @@
             <button
               type="button"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="deleteUser(data.value)"
+              @click="viewProject(data.value.id)"
             >
               <font-awesome-icon :icon="['fas', 'eye']" />
             </button>
             <button
               type="button"
               class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded !py-1"
-              @click="viewUser(data.value)"
-            >
+              @click="generalStore.deleteData('api/project/delete/' + data.value.id)">
               <font-awesome-icon :icon="['fas', 'trash']" />
             </button>
           </div>
@@ -81,6 +80,9 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
+import swal from 'sweetalert'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 const generalStore = useGeneralStore()
 
 const datatable: any = ref(null)
@@ -117,16 +119,17 @@ const getProjects = async (filterParams = null) => {
   })
 }
 const rowClick = (project: any) => {
-  alert(
-    'project Details \n' +
-      project.id +
-      ', ' +
-      project.project_name +
-      ', ' +
-      project.project_started_at +
-      ', ' +
-      project.status
-  )
+  // router.push(`/project/${project.id}`)
+  // alert(
+  //   'project Details \n' +
+  //     project.id +
+  //     ', ' +
+  //     project.project_name +
+  //     ', ' +
+  //     project.project_started_at +
+  //     ', ' +
+  //     project.status
+  // )
 }
 // selected items
 const getSelectedRows = () => {
@@ -134,7 +137,9 @@ const getSelectedRows = () => {
   console.log(selected)
   alert('Rows selected: ' + selected?.length || 0)
 }
-
+const viewProject = (id) => {
+    router.push(`/project/${id}`)
+}
 // change server function
 const changeServer = (data: any) => {
   filterParams.page = data.current_page

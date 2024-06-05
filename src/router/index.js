@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import DashboardIndex from '@/views/Backend/Index.vue'
 import ProjectsIndex from '@/views/Backend/ProjectsView.vue'
+import ProjectIndex from '@/views/Backend/ProjectView.vue'
 import TasksIndex from '@/views/Backend/TasksView.vue'
 import EventsIndex from '@/views/Backend/EventsView.vue'
 import ChatsIndex from '@/views/Backend/ChatsView.vue'
@@ -11,7 +12,6 @@ import ContactView from '@/views/Frontend/ContactView.vue'
 import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
 import ContentCreator from '@/views/Backend/ContentCreator.vue'
-import SettingsView from '@/views/Backend/SettingsView.vue'
 
 const ifAuthenticated = (to, from, next) => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
@@ -82,6 +82,13 @@ const router = createRouter({
       beforeEnter: ifAuthenticated
     },
     {
+      path: '/project/:id',
+      name: 'backend.projects.view',
+      meta: { roles: [1] },
+      component: ProjectIndex,
+      beforeEnter: ifAuthenticated
+    },
+    {
       path: '/tasks',
       name: 'backend.tasks',
       meta: { roles: [1] },
@@ -92,7 +99,7 @@ const router = createRouter({
       path: '/settings',
       name: 'backend.settings',
       meta: { roles: [1] },
-      component: SettingsView,
+      // component: settingsView,
       beforeEnter: ifAuthenticated
     },
     {

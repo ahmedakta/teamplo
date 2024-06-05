@@ -30,6 +30,37 @@ export const useGeneralStore = defineStore('general', {
         console.error('Error fetching data:', error)
       }
     },
+    async deleteData(url){
+      try{
+        swal({
+          title: "Are you sure ?",
+          showDenyButton: true,
+          showCancelButton: true,
+          confirmButtonText: "Logout",
+          denyButtonText: "Cancel"
+        }).then((result) => {
+          /* Read more about isConfirmed, isDenied below */
+          if (result) {
+            try {  
+              const response = axios.delete(url);
+            } catch (error) {
+              console.log(error)
+            }
+            swal("Deleted!", "", "success");
+            // this.data = this.getData('/api/projects')
+          } else if (result.isDenied) {
+            swal("Error", "", "warning");
+          }
+        });
+      }catch(error){
+        if (error.response && error.response.status === 404) {
+          alert('Record not found');
+        } else {
+          console.error(error);
+          alert('An error occurred');
+        }
+      }
+    },
     async isLoggedIn(redirect) {
       let storedUserInfo = JSON.parse(localStorage.getItem('user'))
       if (storedUserInfo) {

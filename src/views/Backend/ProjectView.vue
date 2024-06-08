@@ -56,17 +56,37 @@
                     >
                     Files
                     </button>
+                    <button
+                    :class="{'border-b-2 border-blue-500': activeTab === 'activity'}"
+                    class="p-2 focus:outline-none"
+                    @click="activeTab = 'activity'"
+                    >
+                    Activities
+                    </button>
                 </div>
                 <div>
                     <div v-if="activeTab === 'comments'">
                     <!-- Comments content goes here -->
-                    <h3 class="text-lg font-semibold mb-2">Comments</h3>
-                    <Editor v-model="value" editorStyle="height: 320px" />
-                    <p class="text-gray-600">No comments available.</p>
+                    <div class="flex w-40 mb-10">
+                        <a href="#"><img src="@/assets/default_profile_image.png" alt="" width="30rem" /></a>
+                        <p class="mx-auto flex">Test comment</p>
+                    </div>
+                    <Editor v-model="value" editorStyle="height: 220px" />
+                    <button
+                        type="button"
+                        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+                    >
+                        <font-awesome-icon :icon="['fa', 'paper-plane']" />
+                    </button>
                     </div>
                     <div v-if="activeTab === 'files'">
                     <!-- Files content goes here -->
                     <h3 class="text-lg font-semibold mb-2">Files</h3>
+                    <p class="text-gray-600">No files available.</p>
+                    </div>
+                    <div v-if="activeTab === 'activity'">
+                    <!-- Files content goes here -->
+                    <h3 class="text-lg font-semibold mb-2">Last Activity</h3>
                     <p class="text-gray-600">No files available.</p>
                     </div>
                 </div>

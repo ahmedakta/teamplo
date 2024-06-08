@@ -1,39 +1,34 @@
 <template>
   <MainLayout>
-    <div class="flex justify-center text-black">
-      <!-- Tasks Column -->
-      <div class="flex flex-col items-center mr-4 overflow-y-auto max-h-[540px]">
-        <h2 class="text-xl font-semibold mb-2">Tasks</h2>
-        <div class="bg-white rounded-md shadow-md p-4 w-96">
-          <!-- Task Cards will go here -->
-          <div
-            class="border-b border-gray-200 pb-2 mb-2"
-            v-for="(task, key) in taskStore.tasks"
-            :key="key"
-          >
-            <p class="font-semibold">{{ task.name }}</p>
-            <p class="text-gray-600">{{ task.description }}.</p>
-          </div>
-          <!-- Add more task cards as needed -->
-        </div>
+    <div class="max-w-6xl mx-auto p-4">
+    <h1 class="text-3xl font-bold mb-6">Departments</h1>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div
+        class="bg-white shadow-md rounded-lg p-6 cursor-pointer hover:shadow-lg"
+      >
+        <h2 class="text-2xl font-semibold mb-2">IT</h2>
+        <p class="text-gray-700">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores, fugit.</p>
       </div>
-
-      <!-- Completed Column -->
-      <div class="flex flex-col items-center mr-4">
-        <h2 class="text-xl font-semibold mb-2">Completed</h2>
-        <div class="bg-white rounded-md shadow-md p-4 w-96">
-          <!-- Completed Task Cards will go here -->
-        </div>
+      <div
+        class="bg-white shadow-md rounded-lg p-6 cursor-pointer hover:shadow-lg"
+      >
+        <h2 class="text-2xl font-semibold mb-2">Marketing</h2>
+        <p class="text-gray-700">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores, fugit.</p>
       </div>
-
-      <!-- Waiting Column -->
-      <div class="flex flex-col items-center">
-        <h2 class="text-xl font-semibold mb-2">Waiting</h2>
-        <div class="bg-white rounded-md shadow-md p-4 w-96">
-          <!-- Waiting Task Cards will go here -->
-        </div>
+      <div
+        class="bg-white shadow-md rounded-lg p-6 cursor-pointer hover:shadow-lg"
+      >
+        <h2 class="text-2xl font-semibold mb-2">Sales</h2>
+        <p class="text-gray-700">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores, fugit.</p>
+      </div>
+      <div
+        class="bg-white shadow-md rounded-lg p-6 cursor-pointer hover:shadow-lg"
+      >
+        <h2 class="text-2xl font-semibold mb-2">Design</h2>
+        <p class="text-gray-700">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Maiores, fugit.</p>
       </div>
     </div>
+  </div>
   </MainLayout>
 </template>
 

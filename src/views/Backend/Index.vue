@@ -106,7 +106,10 @@ const task = ref('')
         </div>
       </div>
       <!-- company updates section -->
-      <div class="bg-white md:w-1/2 rounded-xl w-full">
+      <div
+        class="bg-white md:w-1/2 rounded-xl w-full"
+        :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
+      >
         <!-- header -->
         <div class="flex justify-between">
           <div>
@@ -181,7 +184,10 @@ const task = ref('')
       </div>
 
       <!-- projects section -->
-      <div class="bg-white w-full md:w-full mt-5 p-5 rounded-xl">
+      <div
+        :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
+        class="bg-white w-full md:w-full mt-5 p-5 rounded-xl"
+      >
         <div class="container text-black">
           <h1 class="font-bold text-xl">Projects Progress</h1>
           <div class="bg-white w-full mx-auto overflow-y-auto h-[20rem]">

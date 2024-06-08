@@ -16,7 +16,6 @@
       <button
         type="button"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-        @click="clearSelectedRows()"
       >
         Add Project <font-awesome-icon :icon="['fa', 'plus']" />
       </button>
@@ -58,7 +57,8 @@
             <button
               type="button"
               class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded !py-1"
-              @click="generalStore.deleteData('api/project/delete/' + data.value.id)">
+              @click="generalStore.deleteData('api/project/delete/' + data.value.id)"
+            >
               <font-awesome-icon :icon="['fas', 'trash']" />
             </button>
           </div>
@@ -138,7 +138,7 @@ const getSelectedRows = () => {
   alert('Rows selected: ' + selected?.length || 0)
 }
 const viewProject = (id) => {
-    router.push(`/project/${id}`)
+  router.push(`/project/${id}`)
 }
 // change server function
 const changeServer = (data: any) => {

@@ -23,11 +23,53 @@
           <font-awesome-icon :icon="['fas', 'circle-notch']" />
           Dashboard
         </RouterLink>
+        <button
+          @click="dropdownOpen = !dropdownOpen"
+          class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:text-white"
+        >
+          <font-awesome-icon :icon="['fas', 'bars']" />
+          Users
+        </button>
+          <div
+            v-show="dropdownOpen"
+            class="pl-5"
+            @click.away="dropdownOpen = false"
+          >
+            <RouterLink
+              to="/link1"
+              class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white"
+              @click="dropdownOpen = false"
+            >
+            <font-awesome-icon :icon="['fas', 'users']" />
+              Users
+            </RouterLink>
+            <RouterLink
+              to="/link2"
+              class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white"
+              @click="dropdownOpen = false"
+            >
+              Employees
+            </RouterLink>
+            <RouterLink
+              to="/link3"
+              class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white"
+              @click="dropdownOpen = false"
+            >
+            <font-awesome-icon :icon="['fas', 'user-lock']" />
+              Permissions
+            </RouterLink>
+          </div>
         <RouterLink to="/projects" 
         :class="{ active: $route.path === '/projects' }"
         class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
           <font-awesome-icon :icon="['fa', 'diagram-project']" />
           Projects
+        </RouterLink>
+        <RouterLink to="/projects" 
+        :class="{ active: $route.path === '/projects' }"
+        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+        <font-awesome-icon :icon="['fas', 'users-rectangle']" />
+          Departments
         </RouterLink>
         <RouterLink to="/tasks" 
             :class="{ active: $route.path === '/tasks' }"
@@ -56,6 +98,14 @@
     <div class="mt-6 text-gray-500">
       <a
         href="#"
+        class="block py-2 hover:bg-[#D6E6FD]"
+        @click="logout()"
+        v-if="userStore.id">
+        <font-awesome-icon :icon="['fa', 'cog']" />
+        Settings
+      </a>
+      <a
+        href="#"
         class="block py-2  text-red-500 hover:bg-[#D6E6FD]"
         @click="logout()"
         v-if="userStore.id">
@@ -71,11 +121,12 @@
 import { useUserStore } from '@/stores/user'
 import { useGeneralStore } from '@/stores/general'
 const userStore = useUserStore()
+import { ref, onMounted } from 'vue'
 const generalStore = useGeneralStore()
 import { useRouter } from 'vue-router'
 const router = useRouter()
 import swal from 'sweetalert'
-
+const dropdownOpen = ref(false)
 
 // CLOSE THE SIDENAV
 const sidenav = document.querySelector('#sidenav');

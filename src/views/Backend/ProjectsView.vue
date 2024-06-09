@@ -45,6 +45,9 @@
         <template #id="data">
           <strong class="text-info">{{ data.value.id }} </strong>
         </template>
+        <template #created_at="data">
+          <p class="text-info"> {{ moment(data.value.created_at).format('YYYY-MM-DD [at] hh:mm') }}</p>
+        </template>
         <template #actions="data">
           <div class="flex gap-4">
             <button
@@ -80,6 +83,7 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
+import moment from "moment";
 import swal from 'sweetalert'
 import { useRouter } from 'vue-router'
 const router = useRouter()

@@ -45,25 +45,37 @@
         <template #id="data">
           <strong class="text-info">{{ data.value.id }} </strong>
         </template>
+        <template #status="data">
+          <p class="text-info">{{ data.value.status }}</p>
+        </template>
         <template #created_at="data">
-          <p class="text-info"> {{ moment(data.value.created_at).format('YYYY-MM-DD [at] hh:mm') }}</p>
+          <p class="text-info">
+            {{ moment(data.value.created_at).format('YYYY-MM-DD [at] hh:mm') }}
+          </p>
         </template>
         <template #actions="data">
           <div class="flex gap-4">
             <button
               type="button"
-              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
               @click="viewProject(data.value.id)"
             >
               <font-awesome-icon :icon="['fas', 'eye']" />
             </button>
             <button
               type="button"
-              class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-4 border-b-4 border-red-700 hover:border-red-500 rounded !py-1"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
+              @click="viewProject(data.value.id)"
+            >
+              <font-awesome-icon :icon="['fas', 'bars']" />
+            </button>
+            <!-- <button
+              type="button"
+              class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-3 border-b-4 border-red-700 hover:border-red-500 rounded !py-1"
               @click="generalStore.deleteData('api/project/delete/' + data.value.id)"
             >
               <font-awesome-icon :icon="['fas', 'trash']" />
-            </button>
+            </button> -->
           </div>
         </template>
       </vue3-datatable>
@@ -83,7 +95,7 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
-import moment from "moment";
+import moment from 'moment'
 import swal from 'sweetalert'
 import { useRouter } from 'vue-router'
 const router = useRouter()

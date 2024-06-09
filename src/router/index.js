@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardIndex from '@/views/Backend/Index.vue'
 import ProjectsIndex from '@/views/Backend/ProjectsView.vue'
 import ProjectIndex from '@/views/Backend/ProjectView.vue'
+import SettingsIndex from '@/views/Backend/SettingsView.vue'
 import TasksIndex from '@/views/Backend/TasksView.vue'
 import EventsIndex from '@/views/Backend/EventsView.vue'
 import ChatsIndex from '@/views/Backend/ChatsView.vue'
@@ -99,7 +100,7 @@ const router = createRouter({
       path: '/settings',
       name: 'backend.settings',
       meta: { roles: [1] },
-      // component: settingsView,
+      component: SettingsIndex,
       beforeEnter: ifAuthenticated
     },
     {

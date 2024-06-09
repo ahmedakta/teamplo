@@ -196,13 +196,42 @@ const task = ref('')
               v-for="(project, key) in generalStore.data.projects"
               :key="key"
             >
-              <div class="w-1/4 flex">
-                <img
-                  v-for="(user, key) in project.users"
-                  :src="'./src/assets/' + user.image"
-                  alt=""
-                  class="rounded-xl w-4 h-auto"
-                />
+              <div class="flex items-center space-x-2">
+                <div class="flex -space-x-2">
+                  <div
+                    v-for="(user, key) in project.users"
+                    :key="key"
+                    class="relative group"
+                    :data-username="user.name"
+                  >
+                    <img
+                      :src="'./src/assets/' + user.image"
+                      class="w-10 h-10 rounded-full border-2 border-white"
+                      alt="User 1"
+                    />
+                    <div
+                      class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                    >
+                      ×
+                    </div>
+                    <div
+                      class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                    >
+                      {{ user.name }}
+                    </div>
+                  </div>
+                  <div class="relative group">
+                    <span
+                      class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                      >+</span
+                    >
+                  </div>
+                </div>
+                <div
+                  class="flex items-center justify-center w-10 h-10 text-green-800 bg-gray-100 rounded-full"
+                >
+                  +16
+                </div>
               </div>
               <div class="w-1/4 text-left text-black">
                 {{ project.project_name }}

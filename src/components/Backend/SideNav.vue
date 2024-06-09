@@ -7,11 +7,11 @@
    </svg>
 </button>
 
-  <div id="sidebar-multi-level-sidebar" class="bg-white m-5 rounded-3xl pl-10 fixed z-1 py-6 flex flex-col justify-between w-64 h-screen text-white top-0 left-0
+  <div id="sidebar-multi-level-sidebar" class="bg-white m-5 rounded-3xl  fixed z-1 py-6 flex flex-col justify-between w-64 h-screen text-white top-0 left-0
   transform transition-transform -translate-x-full md:translate-x-0 
   " aria-label="Sidebar">
     <!-- Logo -->
-    <div class="text-2xl text-black font-bold">
+    <div class="text-2xl text-black font-bold mx-auto">
       <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.png" />
       <!-- General -->
       <p class="text-gray-600 text-sm font-bold py-3">General <hr/></p>
@@ -19,13 +19,13 @@
       <nav id="sidenav" class="mt-6 text-[1.1rem] text-gray-500">
         <RouterLink to="/dashboard"           
                     :class="{ active: $route.path === '/dashboard' }"
-                     class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+                     class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]">
           <font-awesome-icon :icon="['fas', 'circle-notch']" />
           Dashboard
         </RouterLink>
         <button
           @click="dropdownOpen = !dropdownOpen"
-          class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:text-white"
+          class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:text-[#1038FA]"
         >
           <font-awesome-icon :icon="['fas', 'bars']" />
           Users
@@ -37,7 +37,7 @@
           >
             <RouterLink
               to="/link1"
-              class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white"
+              class="block py-2 px-4  hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]"
               @click="dropdownOpen = false"
             >
             <font-awesome-icon :icon="['fas', 'users']" />
@@ -45,14 +45,14 @@
             </RouterLink>
             <RouterLink
               to="/link2"
-              class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white"
+              class="block py-2 px-4  hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]"
               @click="dropdownOpen = false"
             >
               Employees
             </RouterLink>
             <RouterLink
               to="/link3"
-              class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white"
+              class="block py-2 px-4  hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]"
               @click="dropdownOpen = false"
             >
             <font-awesome-icon :icon="['fas', 'user-lock']" />
@@ -61,31 +61,31 @@
           </div>
         <RouterLink to="/projects" 
         :class="{ active: $route.path === '/projects' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+        class="block py-2 hover:rounded-xl px-4 hover:bg-[#D6E6FD] hover:text-[#1038FA]">
           <font-awesome-icon :icon="['fa', 'diagram-project']" />
           Projects
         </RouterLink>
         <RouterLink to="/projects" 
         :class="{ active: $route.path === '/projects' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+        class="block py-2 hover:rounded-xl px-4 hover:bg-[#D6E6FD] hover:text-[#1038FA]">
         <font-awesome-icon :icon="['fas', 'users-rectangle']" />
           Departments
         </RouterLink>
         <RouterLink to="/tasks" 
             :class="{ active: $route.path === '/tasks' }"
-            class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+            class="block py-2 px-4  hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]">
           <font-awesome-icon :icon="['fa', 'bars-progress']" />
           Tasks
         </RouterLink>
         <RouterLink to="/events" 
         :class="{ active: $route.path === '/events' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+        class="block py-2 px-4 hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]">
           <font-awesome-icon :icon="['fa', 'calendar']" />
           Events
         </RouterLink>
         <RouterLink to="/chats"
         :class="{ active: $route.path === '/chats' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-white">
+        class="block py-2 px-4 hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]">
           <font-awesome-icon :icon="['fa', 'comment']" />
           Chats
         </RouterLink>
@@ -96,17 +96,15 @@
     </div>
     <!-- Footer (Optional) -->
     <div class="mt-6 text-gray-500">
-      <a
-        href="#"
-        class="block py-2 hover:bg-[#D6E6FD]"
-        @click="logout()"
-        v-if="userStore.id">
-        <font-awesome-icon :icon="['fa', 'cog']" />
+      <RouterLink to="/tasks" 
+            :class="{ active: $route.path === '/tasks' }"
+            class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-[#1038FA]">
+            <font-awesome-icon :icon="['fa', 'cog']" />
         Settings
-      </a>
+      </RouterLink>
       <a
         href="#"
-        class="block py-2  text-red-500 hover:bg-[#D6E6FD]"
+        class="block py-2 px-4  text-red-500 hover:bg-[#D6E6FD]"
         @click="logout()"
         v-if="userStore.id">
         <font-awesome-icon :icon="['fa', 'right-from-bracket']" />

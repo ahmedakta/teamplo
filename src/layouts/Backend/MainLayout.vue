@@ -24,7 +24,7 @@
       </div>
     </div> -->
     <SideNav />
-    <div class="ml-[20%] flex-1">
+    <div class="ml-[15%] flex-1">
       <TopNav />
       <slot />
     </div>

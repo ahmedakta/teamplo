@@ -90,18 +90,73 @@
           <div>
             <h3 class="text-l font-semibold">Status</h3>
             <!-- Assigned Users Section -->
-            <div class="mt-4">
+            <div class="mt-4 w-60">
               <h2 class="text-lg font-semibold mb-2">Assigned Users</h2>
-              <div class="border rounded bg-gray-100 p-4">
+
+              <div class="border rounded bg-gray-100 rounded-xl p-4">
                 <!-- Display assigned users -->
                 <div class="flex items-center justify-between border-b py-2">
-                  <span>asdasd</span>
-                  <button
+                  <div class="flex items-center space-x-2">
+                    <div class="flex -space-x-2">
+                      <div class="relative group" data-username="User 1">
+                        <img
+                          class="w-10 h-10 rounded-full border-2 border-white"
+                          src="https://via.placeholder.com/40"
+                          alt="User 1"
+                        />
+                        <div
+                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          ×
+                        </div>
+                        <div
+                          class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                        >
+                          User 1
+                        </div>
+                      </div>
+                      <div class="relative group">
+                        <img
+                          class="w-10 h-10 rounded-full border-2 border-white"
+                          src="https://via.placeholder.com/40"
+                          alt="User 1"
+                        />
+                        <div
+                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          ×
+                        </div>
+                        <div
+                          class="absolute mb-100 inset-0 flex items-center justify-center bg-black bg-opacity-60 text-black text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          a
+                        </div>
+                      </div>
+                      <div class="relative group">
+                        <img
+                          class="w-10 h-10 rounded-full border-2 border-white"
+                          src="https://via.placeholder.com/40"
+                          alt="User 1"
+                        />
+                        <div
+                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          ×
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                    >
+                      +16
+                    </div>
+                  </div>
+                  <!-- <button
                     @click="removeUser(index)"
                     class="text-red-500 hover:text-red-700 focus:outline-none"
                   >
                     Remove
-                  </button>
+                  </button> -->
                 </div>
               </div>
             </div>

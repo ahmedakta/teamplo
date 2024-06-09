@@ -46,11 +46,11 @@
           <strong class="text-info">{{ data.value.id }} </strong>
         </template>
         <template #status="data">
-          <p class="text-info">{{ data.value.status }}</p>
-        </template>
-        <template #created_at="data">
-          <p class="text-info">
-            {{ moment(data.value.created_at).format('YYYY-MM-DD [at] hh:mm') }}
+          <p
+            class="text-black px-2 text-center py-1 rounded"
+            :class="statusClass(data.value.status)"
+          >
+            {{ data.value.status ? 'Active' : 'Inactive' }}
           </p>
         </template>
         <template #actions="data">
@@ -146,6 +146,14 @@ const rowClick = (project: any) => {
   //     ', ' +
   //     project.status
   // )
+}
+const statusClass = (status) => {
+  switch (status) {
+    case 0:
+      return 'bg-gray-300'
+    case 1:
+      return 'bg-green-300'
+  }
 }
 // selected items
 const getSelectedRows = () => {

@@ -45,12 +45,19 @@
         <template #id="data">
           <strong class="text-info">{{ data.value.id }} </strong>
         </template>
-        <template #status="data">
+        <template #project_stage="data">
           <p
             class="text-black px-2 text-center py-1 rounded"
-            :class="statusClass(data.value.status)"
+            :class="data.value.stage.category_color"
           >
-            {{ data.value.status ? 'Active' : 'Inactive' }}
+            {{ data.value.stage.category_name }}
+          </p>
+        </template>
+        <template #project_priority="data">
+          <p
+            class="text-black px-2 text-center py-1 rounded"
+          >
+            {{ data.value.priority.category_name }}
           </p>
         </template>
         <template #actions="data">
@@ -147,14 +154,7 @@ const rowClick = (project: any) => {
   //     project.status
   // )
 }
-const statusClass = (status) => {
-  switch (status) {
-    case 0:
-      return 'bg-gray-300'
-    case 1:
-      return 'bg-green-300'
-  }
-}
+
 // selected items
 const getSelectedRows = () => {
   const selected = datatable.value.getSelectedRows()

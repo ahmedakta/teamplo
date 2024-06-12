@@ -70,9 +70,9 @@
               v-model="data.project_priority"
               @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
             >
-              <option :value="2">High</option>
-              <option :value="1">Medium</option>
-              <option :value="0">Low</option>
+              <option :value="7">High</option>
+              <option :value="8">Medium</option>
+              <option :value="9">Low</option>
             </select>
           </div>
           <div>

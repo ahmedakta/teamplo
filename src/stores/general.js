@@ -6,6 +6,7 @@ const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
+    currentModal: null,
     isEditProfileOpen: false,
     isLoading: false,
     data: [],
@@ -156,7 +157,13 @@ export const useGeneralStore = defineStore('general', {
       setTimeout(() => {
         successMessage.classList.add('hidden')
       }, 5000) // 5000 milliseconds = 5 seconds
-    }
+    },
+    openModal(modal) {
+      this.currentModal = modal;
+    },
+    closeModal() {
+      this.currentModal = null;
+    },
   },
   persist: true
 })

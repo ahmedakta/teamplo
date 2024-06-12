@@ -7,18 +7,39 @@
         <input
           v-model="filterParams.search"
           type="text"
-          class="form-input max-w-xs py-2 px-3 border-blue-100 border-2 rounded-xl"
+          class="form-input max-w-xs py-2 px-3 border-blue-700 border-[1px] rounded-xl"
           placeholder="Search..."
         />
       </div>
-      <!-- <button type="button" class="btn btn-outline" @click="getFilteredRows()">Get Filtered Rows</button>
-      <button type="button" class="btn btn-outline" @click="getSelectedRows()">Get Selected Rows</button> -->
-      <button
-        type="button"
-        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-      >
-        Add Project <font-awesome-icon :icon="['fa', 'plus']" />
-      </button>
+      <!-- Filter Section -->
+        <div class="mb-5 relative">
+            <ul v-if="isOpen" class="absolute left-0 mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10">
+                <li v-for="col in cols" :key="col.field">
+                    <label class="flex items-center gap-2 w-full cursor-pointer text-gray-600 hover:text-black">
+                        <input type="checkbox" class="form-checkbox" :checked="!col.hide" @change="col.hide = !$event.target.checked" />
+                        <span>{{ col.title }}</span>
+                    </label>
+                </li>
+            </ul>
+            <button
+              type="button"
+              @click="generalStore.openModal('modal1')"
+              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+            >
+              Add Project <font-awesome-icon :icon="['fa', 'plus']" />
+            </button>
+            <button
+              type="button"
+              class="text-blue-700 border-blue-700 border-[1px]  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  focus:outline-none "
+            >
+              <font-awesome-icon :icon="['fa', 'filter']" />
+            </button>
+            <button class="text-blue-700 border-blue-700 border-[1px]  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5  me-2 mb-5  focus:outline-none " type="button"  @click="isOpen = !isOpen">
+              <font-awesome-icon :icon="['fa', 'bars']" />
+            </button>
+        </div>
+          <!-- <button type="button" class="btn btn-outline" @click="getFilteredRows()">Get Filtered Rows</button>
+          <button type="button" class="btn btn-outline" @click="getSelectedRows()">Get Selected Rows</button> -->
     </div>
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
       <!-- <DataTable :items="[1 , 2, 3, 6,8]"/> -->
@@ -44,6 +65,48 @@
       >
         <template #id="data">
           <strong class="text-info">{{ data.value.id }} </strong>
+        </template>
+        <template #progress="data">
+          <progress id="file" value="32" max="100" class="progress-bar w-full h-4"> 32% </progress>
+        </template>
+        <template #assignments="data">
+          <div class="flex -space-x-2">
+            <div
+              v-for="(user, key) in data.value.users"
+              :key="key"
+              class="relative group"
+              :data-username="user.name"
+            >
+              <img
+                src="@/assets/default_profile_image.png"
+                class="w-10 h-10 rounded-full border-2 border-white"
+                alt="User 1"
+              />
+              <div
+                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+              >
+                ×
+              </div>
+              <div
+                class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+              >
+                Test
+              </div>
+            </div>
+            <div class="relative group">
+              <span
+                class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                >+</span
+              >
+            </div>
+          </div>
+        </template>
+        <template #department_id="data">
+          <p
+            class="text-black px-2 text-center py-1 rounded"
+          >
+            {{ data.value.department.department_name }}
+          </p>
         </template>
         <template #project_stage="data">
           <p
@@ -93,6 +156,18 @@
 .bh-datatable .bh-table-responsive {
   @apply min-h-[380px];
 }
+.progress-bar::-webkit-progress-bar {
+      background-color: #e5e7eb; /* Tailwind's bg-gray-200 */
+      border-radius: 0.5rem;
+    }
+    .progress-bar::-webkit-progress-value {
+      background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+      border-radius: 0.5rem 0 0 0.5rem;
+    }
+    .progress-bar::-moz-progress-bar {
+      background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+      border-radius: 0.5rem;
+    }
 </style>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
@@ -100,12 +175,10 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
-import moment from 'moment'
-import swal from 'sweetalert'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const generalStore = useGeneralStore()
-
+const isOpen = ref(false);
 const datatable: any = ref(null)
 const cols: any = ref([])
 const data: any = ref([])
@@ -167,4 +240,5 @@ const changeServer = (data: any) => {
   filterParams.page = data.current_page
   getProjects(filterParams)
 }
+
 </script>

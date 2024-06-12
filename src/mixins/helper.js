@@ -6,6 +6,11 @@ const userStore = useUserStore()
 import { defineStore } from 'pinia'
 
 export default {
+  data() {
+    return {
+      currentModal: null,
+    };
+  },
   methods: {
     isLoggedIn(redirect) {
       if (userStore.id) {
@@ -13,6 +18,6 @@ export default {
       } else {
         generalStore.isLoginOpen = true
       }
-    }
+    },
   }
 }

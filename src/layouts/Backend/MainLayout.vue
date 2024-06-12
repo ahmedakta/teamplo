@@ -13,22 +13,13 @@
       </p>
       <span id="successMessageText"></span>
     </div>
-    <!-- Full Page Loader Modal -->
-    <!-- Loading layer -->
-    <!-- <div
-      v-if="generalStore.isLoading"
-      class="absolute inset-0 flex items-center justify-center bg-opacity-50 z-50"
-    >
-      <div class="spinner">
-        <font-awesome-icon :icon="['fa', 'spinner']" class="fa-spin-pulse fa-2x text-black" />
-      </div>
-    </div> -->
     <SideNav />
     <div class="ml-[18rem] flex-1">
       <TopNav />
       <slot />
     </div>
-    <!-- Your main content goes here -->
+    <!-- Modals -->
+    <Modals />
 
     <!-- Bubble element -->
     <div class="fixed bottom-4 right-4">
@@ -43,6 +34,7 @@
 
 <script setup>
 import TopNav from '@/components/Backend/TopNav.vue'
+import Modals from '@/components/Backend/Modals.vue'
 import SideNav from '@/components/Backend/SideNav.vue'
 import { useGeneralStore } from '@/stores/general'
 const generalStore = useGeneralStore()

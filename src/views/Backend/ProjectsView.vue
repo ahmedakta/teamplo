@@ -23,19 +23,11 @@
             </ul>
             <button
               type="button"
-              @click="openModal('modal1')"
+              @click="generalStore.openModal('modal1')"
               class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
             >
               Add Project <font-awesome-icon :icon="['fa', 'plus']" />
             </button>
-            <div ref="modal" v-if="currentModal" class="modal">
-            <div class="modal-content">
-              <p v-if="currentModal === 'modal1'">Content for Modal 1</p>
-              <p v-if="currentModal === 'modal2'">Content for Modal 2</p>
-              <p v-if="currentModal === 'modal3'">Content for Modal 3</p>
-              <button @click="closeModal">Close</button>
-            </div>
-          </div>
             <button
               type="button"
               class="text-blue-700 border-blue-700 border-[1px]  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  focus:outline-none "
@@ -189,7 +181,6 @@ import { useRouter } from 'vue-router'
 const router = useRouter()
 const generalStore = useGeneralStore()
 const isOpen = ref(false);
-const currentModal = ref(null);
 const datatable: any = ref(null)
 const cols: any = ref([])
 const data: any = ref([])
@@ -252,7 +243,4 @@ const changeServer = (data: any) => {
   getProjects(filterParams)
 }
 
-const openModal = (modal) => {
-  currentModal.value = modal;
-}
 </script>

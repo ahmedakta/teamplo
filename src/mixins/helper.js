@@ -19,14 +19,5 @@ export default {
         generalStore.isLoginOpen = true
       }
     },
-    openModal(modal) {
-      alert(modal)
-      // this.currentModal = modal;
-      // this.$refs.modal.style.display = 'block';
-    },
-    closeModal() {
-      // this.currentModal = null;
-      // this.$refs.modal.style.display = 'none';
-    },
   }
 }

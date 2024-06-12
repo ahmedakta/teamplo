@@ -3,7 +3,7 @@
     <div class="container mx-auto h-[5rem] rounded-xl flex items-center justify-between">
       <!-- Logo on the left -->
       <div class="flex-shrink-0">
-        <!-- <img src="logo.png" alt="Logo" class="h-8" /> -->
+        <font-awesome-icon :icon="['fa', 'bars']" />
         <h1 class="text-black text-[2vh] px-5 font-bold">Welcome 👋🏻 {{ userStore.name }}</h1>
       </div>
       <!-- Login button on the right -->

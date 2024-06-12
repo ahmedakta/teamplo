@@ -54,9 +54,7 @@
           </p>
         </template>
         <template #project_priority="data">
-          <p
-            class="text-black px-2 text-center py-1 rounded"
-          >
+          <p class="text-black px-2 text-center py-1 rounded">
             {{ data.value.priority.category_name }}
           </p>
         </template>

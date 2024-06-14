@@ -21,15 +21,13 @@
                     </label>
                 </li>
             </ul>
+            <RouterLink to="/project/create"           
+                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">                      
+                Add Project <font-awesome-icon :icon="['fa', 'plus']" />
+            </RouterLink>
             <button
               type="button"
-              @click="generalStore.openModal('modal1')"
-              class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
-            >
-              Add Project <font-awesome-icon :icon="['fa', 'plus']" />
-            </button>
-            <button
-              type="button"
+              @click="generalStore.openModal('filterModal')"
               class="text-blue-700 border-blue-700 border-[1px]  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  focus:outline-none "
             >
               <font-awesome-icon :icon="['fa', 'filter']" />
@@ -67,7 +65,7 @@
           <strong class="text-info">{{ data.value.id }} </strong>
         </template>
         <template #progress="data">
-          <progress id="file" value="32" max="100" class="progress-bar w-full h-4"> 32% </progress>
+          <progress id="file" :value="data.value.progress" max="100" class="progress-bar w-full h-4"> {{data.value.progress}} </progress>
         </template>
         <template #assignments="data">
           <div class="flex -space-x-2">

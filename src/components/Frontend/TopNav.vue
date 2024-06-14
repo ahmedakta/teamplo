@@ -40,15 +40,12 @@
       </nav>
       <!-- Login button on the right -->
       <div class="flex-shrink-0 text-center">
-        <button
-          v-if="!userStore.id"
+        <a
+          href="/login"
           class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl"
-          @click="($event) => (generalStore.isLoginOpen = true)"
         >
-          <!-- <font-awesome-icon :icon="['fas', 'user']" /> -->
-
           Log in
-        </button>
+      </a>
         <button
           v-if="!userStore.id"
           class="bg-white text-white ml-1 py-2 px-4 rounded bg-gradient-to-r from-cyan-500 to-blue-500"

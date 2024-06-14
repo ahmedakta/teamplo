@@ -66,7 +66,7 @@
           Projects
         </RouterLink>
         <RouterLink to="/projects" 
-        :class="{ active: $route.path === '/projects' }"
+        :class="{ active: $route.path === '/departments' }"
         class="block py-2 hover:rounded-xl px-4 hover:bg-[#D6E6FD] hover:text-[#1038FA]">
         <font-awesome-icon :icon="['fas', 'users-rectangle']" />
           Departments

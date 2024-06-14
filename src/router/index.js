@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import DashboardIndex from '@/views/Backend/Index.vue'
 import ProjectsIndex from '@/views/Backend/ProjectsView.vue'
 import ProjectIndex from '@/views/Backend/ProjectView.vue'
+import ProjectForm from '@/views/Backend/Forms/ProjectForm.vue'
 import SettingsIndex from '@/views/Backend/SettingsView.vue'
 import TasksIndex from '@/views/Backend/TasksView.vue'
 import EventsIndex from '@/views/Backend/EventsView.vue'
@@ -9,6 +10,7 @@ import ChatsIndex from '@/views/Backend/ChatsView.vue'
 import FrontendIndex from '@/views/Frontend/Index.vue'
 import AboutView from '@/views/Frontend/AboutView.vue'
 import FeaturesView from '@/views/Frontend/FeaturesView.vue'
+import LoginView from '@/views/Frontend/LoginView.vue'
 import ContactView from '@/views/Frontend/ContactView.vue'
 import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
@@ -83,6 +85,13 @@ const router = createRouter({
       beforeEnter: ifAuthenticated
     },
     {
+      path: '/project/create',
+      name: 'backend.project.create',
+      meta: { roles: [1] },
+      component: ProjectForm,
+      beforeEnter: ifAuthenticated
+    },
+    {
       path: '/project/:id',
       name: 'backend.projects.view',
       meta: { roles: [1] },
@@ -116,7 +125,13 @@ const router = createRouter({
       meta: { roles: [1] },
       component: ChatsIndex,
       beforeEnter: ifAuthenticated
-    }
+    },
+    // AUTH ROUTES
+    {
+      path: '/login',
+      name: 'frontend.login',
+      component: LoginView,
+    },
   ]
 })
 

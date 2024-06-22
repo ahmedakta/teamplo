@@ -92,7 +92,7 @@ const router = createRouter({
       beforeEnter: ifAuthenticated
     },
     {
-      path: '/project/:id',
+      path: '/project/:slug',
       name: 'backend.projects.view',
       meta: { roles: [1] },
       component: ProjectIndex,

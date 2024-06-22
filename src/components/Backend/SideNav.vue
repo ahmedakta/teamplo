@@ -25,7 +25,7 @@
         </RouterLink>
         <button
           @click="dropdownOpen = !dropdownOpen"
-          class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:text-[#1038FA]"
+          class="block py-2 px-4 w-full text-left hover:rounded-xl hover:bg-[#D6E6FD] hover:text-[#1038FA]"
         >
           <font-awesome-icon :icon="['fas', 'bars']" />
           Users

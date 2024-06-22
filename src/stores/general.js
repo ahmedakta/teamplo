@@ -6,6 +6,7 @@ const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
+    router: useRouter(),
     currentModal: null,
     isEditProfileOpen: false,
     isLoading: false,
@@ -31,7 +32,7 @@ export const useGeneralStore = defineStore('general', {
         console.error('Error fetching data:', error)
       }
     },
-    async makeRequest(url, params = null, method = 'GET') {
+    async makeRequest(url, params = null, method = 'GET' , redirect = null) {
       this.isLoading = true
       try {
         // Ensure method is in uppercase
@@ -44,9 +45,14 @@ export const useGeneralStore = defineStore('general', {
         let reqParams = { withCredentials: true, params }
         const response = await axios[method.toLowerCase()](url, reqParams)
         // show the response modal response
-        this.showSuccessMessage(response.data.message, response.status)
         this.data = response.data
         this.isLoading = false
+        // redirect
+        if(redirect)
+        {
+          this.router.push(redirect)
+        }
+        this.showSuccessMessage(response.data.message, response.status)
       } catch (error) {
         if (error.response) {
           this.showSuccessMessage(error.response.data.message, error.response.status)
@@ -94,7 +100,7 @@ export const useGeneralStore = defineStore('general', {
       let storedUserInfo = JSON.parse(localStorage.getItem('user'))
       if (storedUserInfo) {
         if (redirect) {
-          router.push({ name: 'hi' })
+          router.go({ name: 'hi' })
         }
         return 1
       } else {

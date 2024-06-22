@@ -238,7 +238,7 @@ onMounted(() => {
 })
 
 const getProject = async (filterParams = null) => {
-  let url = '/api/project/' + route.params.id
+  let url = '/api/project/' + route.params.slug
   generalStore.getData(url, filterParams).then(() => {
     // custimize values for datatable library
     if (generalStore.data) {

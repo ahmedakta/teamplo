@@ -93,6 +93,7 @@
             </div>
             <div class="relative group">
               <span
+                @click="generalStore.openModal('assignUserModal')"
                 class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
                 >+</span
               >
@@ -124,14 +125,14 @@
             <button
               type="button"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="viewProject(data.value.id)"
+              @click="viewProject(data.value.slug)"
             >
               <font-awesome-icon :icon="['fas', 'eye']" />
             </button>
             <button
               type="button"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="viewProject(data.value.id)"
+              @click="viewProject(data.value.slug)"
             >
               <font-awesome-icon :icon="['fas', 'bars']" />
             </button>
@@ -230,8 +231,8 @@ const getSelectedRows = () => {
   console.log(selected)
   alert('Rows selected: ' + selected?.length || 0)
 }
-const viewProject = (id) => {
-  router.push(`/project/${id}`)
+const viewProject = (slug) => {
+  router.push(`/project/${slug}`)
 }
 // change server function
 const changeServer = (data: any) => {

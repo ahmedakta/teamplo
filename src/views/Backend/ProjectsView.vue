@@ -12,31 +12,47 @@
         />
       </div>
       <!-- Filter Section -->
-        <div class="mb-5 relative">
-            <ul v-if="isOpen" class="absolute left-0 mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10">
-                <li v-for="col in cols" :key="col.field">
-                    <label class="flex items-center gap-2 w-full cursor-pointer text-gray-600 hover:text-black">
-                        <input type="checkbox" class="form-checkbox" :checked="!col.hide" @change="col.hide = !$event.target.checked" />
-                        <span>{{ col.title }}</span>
-                    </label>
-                </li>
-            </ul>
-            <RouterLink to="/project/create"           
-                class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">                      
-                Add Project <font-awesome-icon :icon="['fa', 'plus']" />
-            </RouterLink>
-            <button
-              type="button"
-              @click="generalStore.openModal('filterModal')"
-              class="text-blue-700 border-blue-700 border-[1px]  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2  focus:outline-none "
+      <div class="mb-5 relative">
+        <ul
+          v-if="isOpen"
+          class="absolute left-0 mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10"
+        >
+          <li v-for="col in cols" :key="col.field">
+            <label
+              class="flex items-center gap-2 w-full cursor-pointer text-gray-600 hover:text-black"
             >
-              <font-awesome-icon :icon="['fa', 'filter']" />
-            </button>
-            <button class="text-blue-700 border-blue-700 border-[1px]  hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5  me-2 mb-5  focus:outline-none " type="button"  @click="isOpen = !isOpen">
-              <font-awesome-icon :icon="['fa', 'bars']" />
-            </button>
-        </div>
-          <!-- <button type="button" class="btn btn-outline" @click="getFilteredRows()">Get Filtered Rows</button>
+              <input
+                type="checkbox"
+                class="form-checkbox"
+                :checked="!col.hide"
+                @change="col.hide = !$event.target.checked"
+              />
+              <span>{{ col.title }}</span>
+            </label>
+          </li>
+        </ul>
+        <RouterLink
+          to="/project/create"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+        >
+          Add Project <font-awesome-icon :icon="['fa', 'plus']" />
+        </RouterLink>
+        <button
+          type="button"
+          @click="generalStore.openModal('filterModal')"
+          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+        >
+          <font-awesome-icon :icon="['fa', 'filter']" />
+        </button>
+        <button
+          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none"
+          type="button"
+          @click="isOpen = !isOpen"
+        >
+          <font-awesome-icon :icon="['fa', 'bars']" />
+        </button>
+      </div>
+      <!-- <button type="button" class="btn btn-outline" @click="getFilteredRows()">Get Filtered Rows</button>
           <button type="button" class="btn btn-outline" @click="getSelectedRows()">Get Selected Rows</button> -->
     </div>
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
@@ -45,11 +61,11 @@
         ref="datatable"
         skin="bh-table-striped bh-table-hover bh-table-bordered bh-table-compact"
         :loading="generalStore.isLoading"
-        :sortable="true"
         :pageSize="15"
+        :sortable="true"
         :sortColumn="params.sort_column"
-        :totalRows="params.total_rows"
         :sortDirection="params.sort_direction"
+        :totalRows="params.total_rows"
         :search="filterParams.search"
         :rows="data"
         :columns="cols"
@@ -65,7 +81,14 @@
           <strong class="text-info">{{ data.value.id }} </strong>
         </template>
         <template #progress="data">
-          <progress id="file" :value="data.value.progress" max="100" class="progress-bar w-full h-4"> {{data.value.progress}} </progress>
+          <progress
+            id="file"
+            :value="data.value.progress"
+            max="100"
+            class="progress-bar w-full h-4"
+          >
+            {{ data.value.progress }}
+          </progress>
         </template>
         <template #assignments="data">
           <div class="flex -space-x-2">
@@ -101,9 +124,7 @@
           </div>
         </template>
         <template #department_id="data">
-          <p
-            class="text-black px-2 text-center py-1 rounded"
-          >
+          <p class="text-black px-2 text-center py-1 rounded">
             {{ data.value.department.department_name }}
           </p>
         </template>
@@ -156,17 +177,17 @@
   @apply min-h-[380px];
 }
 .progress-bar::-webkit-progress-bar {
-      background-color: #e5e7eb; /* Tailwind's bg-gray-200 */
-      border-radius: 0.5rem;
-    }
-    .progress-bar::-webkit-progress-value {
-      background-color: #3b82f6; /* Tailwind's bg-blue-500 */
-      border-radius: 0.5rem 0 0 0.5rem;
-    }
-    .progress-bar::-moz-progress-bar {
-      background-color: #3b82f6; /* Tailwind's bg-blue-500 */
-      border-radius: 0.5rem;
-    }
+  background-color: #e5e7eb; /* Tailwind's bg-gray-200 */
+  border-radius: 0.5rem;
+}
+.progress-bar::-webkit-progress-value {
+  background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+  border-radius: 0.5rem 0 0 0.5rem;
+}
+.progress-bar::-moz-progress-bar {
+  background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+  border-radius: 0.5rem;
+}
 </style>
 <script setup lang="ts">
 import { ref, reactive, onMounted } from 'vue'
@@ -177,7 +198,7 @@ import { useGeneralStore } from '@/stores/general'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const generalStore = useGeneralStore()
-const isOpen = ref(false);
+const isOpen = ref(false)
 const datatable: any = ref(null)
 const cols: any = ref([])
 const data: any = ref([])
@@ -239,5 +260,4 @@ const changeServer = (data: any) => {
   filterParams.page = data.current_page
   getProjects(filterParams)
 }
-
 </script>

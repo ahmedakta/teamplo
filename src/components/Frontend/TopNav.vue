@@ -10,45 +10,40 @@
       </div>
       <!-- Navigation links in the center -->
       <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
-        <a class="mx-4 hover:text-gray-300" :class="{ active: $route.path === '/' }" href="/"
+        <a class="mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/' }" href="/"
           >Home</a
         >
         <a
-          class="mx-4 hover:text-gray-300"
+          class="mx-4 hover:text-[#5dade2]"
           :class="{ active: $route.path === '/about-us' }"
           href="/about-us"
           >About Us</a
         >
         <a
-          class="mx-4 hover:text-gray-300"
+          class="mx-4 hover:text-[#5dade2]"
           :class="{ active: $route.path === '/features' }"
           href="/features"
           >Features</a
         >
         <a
-          class="mx-4 hover:text-gray-300"
+          class="mx-4 hover:text-[#5dade2]"
           :class="{ active: $route.path === '/contact-us' }"
           href="/contact-us"
           >Contact Us</a
         >
-        <a class="mx-4 hover:text-gray-300" :class="{ active: $route.path === '/faq' }" href="/faq"
+        <a class="mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/faq' }" href="/faq"
           >FAQ</a
         >
-        <a href="#" class="mx-4 hover:text-gray-300" @click="logout()" v-if="userStore.id"
+        <a href="#" class="mx-4 hover:text-[#5dade2]" @click="logout()" v-if="userStore.id"
           >logout</a
         >
       </nav>
       <!-- Login button on the right -->
       <div class="flex-shrink-0 text-center">
-        <a
-          href="/login"
-          class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl"
-        >
-          Log in
-      </a>
+        <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl"> Log in </a>
         <button
           v-if="!userStore.id"
-          class="bg-white text-white ml-1 py-2 px-4 rounded bg-gradient-to-r from-cyan-500 to-blue-500"
+          class="text-white ml-1 py-2 px-4 rounded bg-blue-500"
           @click="($event) => (generalStore.isLoginOpen = true)"
         >
           <font-awesome-icon :icon="['fas', 'arrow-right']" />

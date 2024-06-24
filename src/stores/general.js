@@ -1,12 +1,15 @@
 import { defineStore } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
+import { useProjectStore } from '@/stores/projectStore'
+// const projectStore = useProjectStore()
 import axios from '../../plugins/axios'
 const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
     router: useRouter(),
+    projectStore: useProjectStore(),
     currentModal: null,
     isEditProfileOpen: false,
     isLoading: false,
@@ -32,7 +35,7 @@ export const useGeneralStore = defineStore('general', {
         console.error('Error fetching data:', error)
       }
     },
-    async makeRequest(url, params = null, method = 'GET' , redirect = null) {
+    async makeRequest(url, params = null, method = 'GET', redirect = null) {
       this.isLoading = true
       try {
         // Ensure method is in uppercase
@@ -48,8 +51,7 @@ export const useGeneralStore = defineStore('general', {
         this.data = response.data
         this.isLoading = false
         // redirect
-        if(redirect)
-        {
+        if (redirect) {
           this.router.push(redirect)
         }
         this.showSuccessMessage(response.data.message, response.status)
@@ -164,12 +166,16 @@ export const useGeneralStore = defineStore('general', {
         successMessage.classList.add('hidden')
       }, 5000) // 5000 milliseconds = 5 seconds
     },
-    openModal(modal) {
-      this.currentModal = modal;
+    openModal(modal, params = {}) {
+      if (modal == 'assignUserModal') {
+        // console.log(params.department_id)
+        this.projectStore.fetchAssignmentUsers(params.department_id)
+      }
+      this.currentModal = modal
     },
     closeModal() {
-      this.currentModal = null;
-    },
+      this.currentModal = null
+    }
   },
   persist: true
 })

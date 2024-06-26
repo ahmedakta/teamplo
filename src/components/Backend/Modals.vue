@@ -70,7 +70,7 @@
       <!-- Close button -->
       <button
         @click="generalStore.closeModal()"
-        class="mt-4 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        class="mt-4 inline-flex items-center px-4 py-2 text-red border border-transparent rounded-md font-semibold hover:bg-red-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
       >
         Close
       </button>

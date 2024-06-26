@@ -3,7 +3,7 @@
     <!-- Message Modal -->
     <div
       id="successMessage"
-      class="fixed flex justify-between right-0 top-0 mr-4 mt-4 px-6 py-3 rounded-lg shadow-lg bg-gray-400 text-white hidden"
+      class="fixed flex justify-between right-0 top-0 mr-4 mt-4 px-6 py-3 rounded-lg shadow-lg bg-white index-1 text-black border-gray-500 border-[1px] hidden"
     >
       <p id="successIcon" class="text-green-500 mr-2 hidden">
         <font-awesome-icon :icon="['fa', 'check']" />

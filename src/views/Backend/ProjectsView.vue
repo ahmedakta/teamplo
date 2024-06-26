@@ -118,7 +118,8 @@
               <span
                 @click="
                   generalStore.openModal('assignUserModal', {
-                    department_id: data.value.department.id
+                    department_id: data.value.department.id,
+                    project_id: data.value.id
                   })
                 "
                 class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"

@@ -169,7 +169,7 @@ export const useGeneralStore = defineStore('general', {
     openModal(modal, params = {}) {
       if (modal == 'assignUserModal') {
         // console.log(params.department_id)
-        this.projectStore.fetchAssignmentUsers(params.department_id)
+        this.projectStore.fetchAssignmentUsers(params)
       }
       this.currentModal = modal
     },

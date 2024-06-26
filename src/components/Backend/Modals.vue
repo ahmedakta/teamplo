@@ -51,18 +51,26 @@
     class="fixed inset-0 flex items-center justify-center z-50 transition-transform duration-300 transform"
   >
     <div class="bg-white shadow-xl w-80 h-50 p-4">
-      <input
-        type="text"
-        v-model="searchQuery"
-        class="w-full px-4 py-2 mb-2 border rounded"
-        placeholder="Search users..."
-      />
+      <!-- Selected users tag input -->
+      <div class="tags-input">
+        <div class="tag">
+          Ahmet
+          <span class="remove-tag" @click="removeUser(index)">x</span>
+        </div>
+        <input
+          type="text"
+          v-model="searchQuery"
+          @keydown.enter.prevent="addUserByInput"
+          placeholder="Add a user"
+        />
+      </div>
       <!-- {{ projectStore.data.assignmentUsers }} -->
       <ul class="max-h-48 overflow-y-auto">
         <li
           class="px-4 py-2 cursor-pointer hover:bg-gray-100"
           v-for="(user, key) in projectStore.data.assignmentUsers"
           :key="key"
+          @click="generalStore.makeRequest('api/project/assign-user' , {'user_id' : user.id ,'project_id' : projectStore.data.project_id} , 'POST' , null)"
         >
           {{ user.name }}
         </li>
@@ -83,3 +91,34 @@ const generalStore = useGeneralStore()
 import { useProjectStore } from '@/stores/projectStore'
 const projectStore = useProjectStore()
 </script>
+<style scoped>
+.tags-input {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 5px;
+  border-radius: 3px;
+}
+
+.tag {
+  display: flex;
+  align-items: center;
+  background-color: #e0e0e0;
+  border-radius: 3px;
+  padding: 5px;
+  margin: 2px;
+}
+
+.remove-tag {
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+.tags-input input {
+  border: none;
+  outline: none;
+  flex: 1;
+  padding: 5px;
+}
+</style>

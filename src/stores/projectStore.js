@@ -8,12 +8,13 @@ export const useProjectStore = defineStore('task', {
     projects: []
   }),
   actions: {
-    async fetchAssignmentUsers(department_id) {
+    async fetchAssignmentUsers(params) {
       try {
         this.data = []
-        const response = await axios.get('/api/department/users/' + department_id, {
+        const response = await axios.get('/api/department/users/' + params.department_id, {
           withCredentials: true
         })
+        response.data.data.project_id = params.project_id
         this.data = response.data.data
       } catch (error) {
         alert(error)

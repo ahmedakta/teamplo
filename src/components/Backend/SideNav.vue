@@ -110,7 +110,7 @@
         <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
         Logout
       </a>
-      <p>Made By Teamplo</p>
+      <p>Made By Scritp</p>
     </div>
   </div>
 </template>
@@ -134,7 +134,7 @@ const toggleButton =  () => {
 };
 
 const logout = () => {
- 
+
     swal({
     title: "Do you want to Logout?",
     showDenyButton: true,

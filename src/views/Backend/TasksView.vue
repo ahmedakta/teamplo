@@ -35,7 +35,7 @@
 <script setup>
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { ref, onMounted } from 'vue'
-import { useTaskStore } from '@/stores/teskStore'
+import { useTaskStore } from '@/stores/task'
 const taskStore = useTaskStore()
 const errors = ref()
 onMounted(() => {

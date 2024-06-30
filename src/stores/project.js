@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import axios from '../../plugins/axios'
 import { useGeneralStore } from '@/stores/general'
-export const useProjectStore = defineStore('task', {
+export const useProjectStore = defineStore('project', {
   state: () => ({
     data: [],
     generalStore: useGeneralStore(),

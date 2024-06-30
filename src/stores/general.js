@@ -1,7 +1,7 @@
 import { defineStore } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
-import { useProjectStore } from '@/stores/projectStore'
+import { useProjectStore } from '@/stores/project'
 // const projectStore = useProjectStore()
 import axios from '../../plugins/axios'
 const router = useRouter()

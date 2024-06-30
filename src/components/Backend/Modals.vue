@@ -88,7 +88,7 @@
 <script setup>
 import { useGeneralStore } from '@/stores/general'
 const generalStore = useGeneralStore()
-import { useProjectStore } from '@/stores/projectStore'
+import { useProjectStore } from '@/stores/project'
 const projectStore = useProjectStore()
 </script>
 <style scoped>

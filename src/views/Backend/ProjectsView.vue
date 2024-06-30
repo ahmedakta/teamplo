@@ -104,17 +104,25 @@
                 alt="User 1"
               />
               <div
-                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                class="absolute cursor-pointer inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                @click="
+                  generalStore.makeRequest(
+                    'api/project/assign-user',
+                    { user_id: user.id, project_id: data.value.id },
+                    'POST',
+                    null
+                  )
+                "
               >
                 ×
               </div>
               <div
                 class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
               >
-                Test
+                {{ user.name }}
               </div>
             </div>
-            <div class="relative group">
+            <div class="relative group cursor-pointer">
               <span
                 @click="
                   generalStore.openModal('assignUserModal', {

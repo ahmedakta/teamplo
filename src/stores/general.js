@@ -47,8 +47,10 @@ export const useGeneralStore = defineStore('general', {
         }
         let reqParams = { withCredentials: true, params }
         const response = await axios[method.toLowerCase()](url, reqParams)
+        console.log('hi')
+        console.log(response.data.data.data)
         // show the response modal response
-        this.data = response.data
+        this.data = response.data.data.data
         this.isLoading = false
         // redirect
         if (redirect) {

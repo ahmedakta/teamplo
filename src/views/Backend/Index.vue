@@ -8,7 +8,9 @@ const errors = ref()
 
 onMounted(() => {
   try {
-    generalStore.getData('/api/dashboard')
+    generalStore.makeRequest('/api/dashboard')
+    console.log('+')
+    console.log(generalStore.data)
   } catch (error) {
     console.log(error)
   }

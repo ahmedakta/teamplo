@@ -2,17 +2,20 @@ import { defineStore } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
 import { useProjectStore } from '@/stores/project'
-// const projectStore = useProjectStore()
+import { reactive, ref } from 'vue'
+import { useDataTableStore } from '@/stores/datatable'
 import axios from '../../plugins/axios'
+import { data } from 'autoprefixer'
 const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
     router: useRouter(),
     projectStore: useProjectStore(),
+    datatableStore: useDataTableStore(),
     currentModal: null,
     isEditProfileOpen: false,
-    isLoading: false,
+    isLoading: ref(false),
     data: [],
     selectedPost: null,
     ids: null,
@@ -22,20 +25,30 @@ export const useGeneralStore = defineStore('general', {
     following: null
   }),
   actions: {
-    async getData(url, params = null) {
+    // this function responsible to set data for "DataTable" only after makeRequest()
+    setDataTable() {
       this.isLoading = true
       try {
-        const response = await axios.get(url, {
-          withCredentials: true,
-          params
-        })
-        this.data = response.data.data
-        this.isLoading = false
+        // custimize values for datatable library
+        if (this.data.data && this.data.cols) {
+          this.data = this.data
+          this.datatableStore.cols = JSON.parse(this.data.cols)
+          this.datatableStore.data = this.data.data
+          this.datatableStore.params = reactive({
+            current_page: this.data.data.current_page,
+            page_size: this.data.data.per_page,
+            sort_column: 'id',
+            total_rows: this.data.data.total,
+            sort_direction: 'asc'
+          })
+          this.isLoading = false
+        }
       } catch (error) {
         console.error('Error fetching data:', error)
       }
     },
-    async makeRequest(url, params = null, method = 'GET', redirect = null) {
+    // we using this function to make all requests.
+    async makeRequest(url, params = null, method = 'GET', redirect = null, refreshUrl = null) {
       this.isLoading = true
       try {
         // Ensure method is in uppercase
@@ -49,7 +62,12 @@ export const useGeneralStore = defineStore('general', {
         const response = await axios[method.toLowerCase()](url, reqParams)
         // show the response modal response
         if (response.data.data) {
-          this.data = response.data.data.data
+          this.data = response.data.data
+        }
+        if (refreshUrl) {
+          this.makeRequest(refreshUrl).then(() => {
+            this.setDataTable()
+          })
         }
         this.isLoading = false
         // redirect

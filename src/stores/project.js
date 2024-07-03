@@ -21,17 +21,6 @@ export const useProjectStore = defineStore('project', {
         console.error('Error fetching projects:' + error)
       }
     },
-    async fetchProjects() {
-      try {
-        const response = await axios.get('/api/projects', {
-          withCredentials: true
-        })
-        this.projects = response.data
-      } catch (error) {
-        alert(error)
-        console.error('Error fetching projects:' + error)
-      }
-    },
     async getTokens() {
       await axios.get('/sanctum/csrf-cookie')
     },

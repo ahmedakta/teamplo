@@ -63,12 +63,12 @@
         :loading="generalStore.isLoading"
         :pageSize="15"
         :sortable="true"
-        :sortColumn="params.sort_column"
-        :sortDirection="params.sort_direction"
-        :totalRows="params.total_rows"
+        :sortColumn="datatableStore.params.sort_column"
+        :sortDirection="datatableStore.params.sort_direction"
+        :totalRows="datatableStore.params.total_rows"
         :search="filterParams.search"
-        :rows="data"
-        :columns="cols"
+        :rows="datatableStore.data.data"
+        :columns="datatableStore.cols"
         :hasCheckbox="true"
         :isServerMode="true"
         :showNumbersCount="15"
@@ -208,14 +208,15 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
+import { useDataTableStore } from '@/stores/datatable'
+import { useProjectStore } from '@/stores/project'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const generalStore = useGeneralStore()
+const projectStore = useProjectStore()
+const datatableStore = useDataTableStore()
 const isOpen = ref(false)
 const datatable: any = ref(null)
-const cols: any = ref([])
-const data: any = ref([])
-const params: any = ref({})
 const filterParams: any = reactive({})
 
 onMounted(() => {
@@ -227,45 +228,12 @@ onMounted(() => {
 })
 
 const getProjects = async (filterParams = null) => {
-  generalStore.getData('/api/projects', filterParams).then(() => {
-    // custimize values for datatable library
-    if (generalStore.data && generalStore.data.cols && generalStore.data.data.data) {
-      cols.value = JSON.parse(generalStore.data.cols)
-      data.value = generalStore.data.data.data
-      params.value = reactive({
-        current_page: generalStore.data.data.current_page,
-        page_size: generalStore.data.data.per_page,
-        sort_column: 'id',
-        total_rows: generalStore.data.data.total,
-        sort_direction: 'asc'
-      })
-      generalStore.isLoading = false
-    } else {
-      console.log('something going wrong with endpoint data')
-    }
+  generalStore.makeRequest('/api/projects', filterParams).then(() => {
+    generalStore.setDataTable()
   })
 }
-const rowClick = (project: any) => {
-  // router.push(`/project/${project.id}`)
-  // alert(
-  //   'project Details \n' +
-  //     project.id +
-  //     ', ' +
-  //     project.project_name +
-  //     ', ' +
-  //     project.project_started_at +
-  //     ', ' +
-  //     project.status
-  // )
-}
 
-// selected items
-const getSelectedRows = () => {
-  const selected = datatable.value.getSelectedRows()
-  console.log(selected)
-  alert('Rows selected: ' + selected?.length || 0)
-}
-const viewProject = (slug) => {
+const viewProject = (slug = null) => {
   router.push(`/project/${slug}`)
 }
 // change server function

@@ -70,7 +70,15 @@
           class="px-4 py-2 cursor-pointer hover:bg-gray-100"
           v-for="(user, key) in projectStore.data.assignmentUsers"
           :key="key"
-          @click="generalStore.makeRequest('api/project/assign-user' , {'user_id' : user.id ,'project_id' : projectStore.data.project_id} , 'POST' , null)"
+          @click="
+            generalStore.makeRequest(
+              'api/project/assign-user',
+              { user_id: user.id, project_id: projectStore.data.project_id },
+              'POST',
+              null,
+              '/api/projects'
+            )
+          "
         >
           {{ user.name }}
         </li>

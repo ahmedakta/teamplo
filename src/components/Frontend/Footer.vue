@@ -2,13 +2,13 @@
   <footer class="flex-col">
     <!-- links -->
     <div
-      class="text-center w-[35rem] justify-between max-w-screen-xl px-4 pt-10 mx-auto lg:pt-18 flex"
+      class="text-center text-black w-[35rem] justify-between max-w-screen-xl px-4 pt-10 mx-auto lg:pt-18 flex"
     >
-      <a href="">Home</a>
-      <a href="">About Us</a>
-      <a href="">Features</a>
-      <a href="">Contact Us</a>
-      <a href="">FAQ</a>
+      <a href="/" class="hover:text-[#5dade2]">Home</a>
+      <a href="/about-us" class="hover:text-[#5dade2]">About Us</a>
+      <a href="/features" class="hover:text-[#5dade2]">Features</a>
+      <a href="/contact-us" class="hover:text-[#5dade2]">Contact Us</a>
+      <a href="/faq" class="hover:text-[#5dade2]">FAQ</a>
     </div>
     <!-- privacy section -->
     <div

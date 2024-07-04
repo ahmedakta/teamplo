@@ -110,7 +110,8 @@
                     'api/project/assign-user',
                     { user_id: user.id, project_id: data.value.id },
                     'POST',
-                    null
+                    null,
+                    '/api/projects',
                   )
                 "
               >

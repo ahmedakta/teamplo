@@ -3,7 +3,6 @@
     <div class="container mx-auto h-[5rem] rounded-xl flex items-center justify-between">
       <!-- Logo on the left -->
       <div class="flex-shrink-0">
-        <font-awesome-icon :icon="['fa', 'bars']" />
         <h1 class="text-black text-[2vh] px-5 font-bold">Welcome 👋🏻 {{ userStore.name }}</h1>
       </div>
       <!-- Login button on the right -->
@@ -20,13 +19,15 @@
           v-if="userStore.id"
           class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl"
         >
-          <RouterLink to="/settings"><font-awesome-icon :icon="['fas', 'fa-cog']" class="text-black"/></RouterLink>
+          <RouterLink to="/settings"
+            ><font-awesome-icon :icon="['fas', 'fa-cog']" class="text-black"
+          /></RouterLink>
         </div>
         <div
           v-if="userStore.id"
           class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl"
         >
-          <a href=""> <font-awesome-icon :icon="['far', 'bell']" class="text-black"/></a>
+          <a href=""> <font-awesome-icon :icon="['far', 'bell']" class="text-black" /></a>
         </div>
         <div
           v-if="userStore.id"

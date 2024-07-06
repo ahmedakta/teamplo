@@ -3,16 +3,16 @@
     <div
       class="container w-full md:flex justify-between items-center flex-wrap gap-4 font-semibold"
     >
-      <div class="mb-5 rounded-xl">
+      <div class="mb-5 rounded-xl w-full md:w-auto">
         <input
           v-model="filterParams.search"
           type="text"
-          class="form-input max-w-xs py-2 px-3 border-blue-700 border-[1px] rounded-xl"
+          class="form-input w-full md:max-w-xs py-2 px-3 border-blue-700 border-[1px] rounded-xl"
           placeholder="Search..."
         />
       </div>
       <!-- Filter Section -->
-      <div class="mb-5 relative">
+      <div class="mb-5 relative w-full md:w-auto">
         <ul
           v-if="isOpen"
           class="absolute left-0 mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10"
@@ -33,30 +33,27 @@
         </ul>
         <RouterLink
           to="/project/create"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
         >
           Add Project <font-awesome-icon :icon="['fa', 'plus']" />
         </RouterLink>
         <button
           type="button"
           @click="generalStore.openModal('filterModal')"
-          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none"
+          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
         >
           <font-awesome-icon :icon="['fa', 'filter']" />
         </button>
         <button
-          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none"
+          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none w-full md:w-auto"
           type="button"
           @click="isOpen = !isOpen"
         >
           <font-awesome-icon :icon="['fa', 'bars']" />
         </button>
       </div>
-      <!-- <button type="button" class="btn btn-outline" @click="getFilteredRows()">Get Filtered Rows</button>
-          <button type="button" class="btn btn-outline" @click="getSelectedRows()">Get Selected Rows</button> -->
     </div>
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
-      <!-- <DataTable :items="[1 , 2, 3, 6,8]"/> -->
       <vue3-datatable
         ref="datatable"
         skin="bh-table-striped bh-table-hover bh-table-bordered bh-table-compact"
@@ -111,7 +108,7 @@
                     { user_id: user.id, project_id: data.value.id },
                     'POST',
                     null,
-                    '/api/projects',
+                    '/api/projects'
                   )
                 "
               >
@@ -171,18 +168,9 @@
             >
               <font-awesome-icon :icon="['fas', 'bars']" />
             </button>
-            <!-- <button
-              type="button"
-              class="bg-red-500 hover:bg-red-400 text-white font-bold py-2 px-3 border-b-4 border-red-700 hover:border-red-500 rounded !py-1"
-              @click="generalStore.deleteData('api/project/delete/' + data.value.id)"
-            >
-              <font-awesome-icon :icon="['fas', 'trash']" />
-            </button> -->
           </div>
         </template>
       </vue3-datatable>
-      <!-- :isServerMode="true" -->
-      <!-- @change="changeServer" -->
     </div>
   </MainLayout>
 </template>

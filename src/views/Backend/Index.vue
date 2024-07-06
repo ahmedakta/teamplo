@@ -33,10 +33,13 @@ const task = ref('')
     {{ generalStore.data }}
   </div> -->
   <MainLayout>
-    <div class="container w-full h-[25rem] max-h-[50rem] flex flex-wrap mx-auto justify-between">
+    <div class="container max-w-[7xl] mx-auto flex flex-wrap justify-between">
       <!-- KPI cards -->
-      <div class="w-full flex mx-auto mb-5">
-        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
+      <div class="flex flex-wrap justify-between mb-5">
+        <!-- KPI Card 1 -->
+        <div
+          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
+        >
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800">Revenue</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
@@ -64,7 +67,11 @@ const task = ref('')
             <span class="text-gray-700 text-sm">$1,043,000</span>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
+
+        <!-- KPI Card 2 -->
+        <div
+          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
+        >
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800">Customer Satisfaction</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
@@ -78,7 +85,11 @@ const task = ref('')
             <span class="text-gray-700 text-sm">4.5</span>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
+
+        <!-- KPI Card 3 -->
+        <div
+          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
+        >
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800">Employee Turnover</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
@@ -92,7 +103,11 @@ const task = ref('')
             <span class="text-gray-700 text-sm">7%</span>
           </div>
         </div>
-        <div class="bg-white rounded-lg shadow-md p-6 w-72 m-1">
+
+        <!-- KPI Card 4 -->
+        <div
+          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
+        >
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800">Inventory Turnover</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
@@ -107,57 +122,36 @@ const task = ref('')
           </div>
         </div>
       </div>
-      <!-- company updates section -->
-      <div
-        class="bg-white md:w-1/2 rounded-xl w-full"
-        :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
-      >
-        <!-- header -->
+
+      <!-- Departments Progress Overview -->
+      <div class="bg-white w-full md:w-[calc(50%-2rem)] rounded-xl mb-5 md:mb-0">
         <div class="flex justify-between">
-          <div>
-            <h1 class="font-bold text-xl text-black p-5">Departments Progress overview</h1>
-          </div>
-          <div>
-            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
-              <option value="">Nisan</option>
-              <option value="">Augustos</option>
-              <option value="">Ekim</option>
-              <option value="">Aralik</option>
-            </select>
-          </div>
+          <h1 class="font-bold text-xl text-black p-5">Departments Progress Overview</h1>
+          <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
+            <option value="">Nisan</option>
+            <option value="">Augustos</option>
+            <option value="">Ekim</option>
+            <option value="">Aralik</option>
+          </select>
         </div>
-        <!-- company updates -->
-        <!-- <VDatePicker
-          v-model="selectedDate"
-          borderless
-          :initial-page="{ month: 4, year: 2019 }"
-          :color="selectedColor"
-          :attributes="attrs"
-          expanded
-          /> -->
-        <div v-if="generalStore.data">
+        <div class="bg-white w-full">
           <Chart :storeData="generalStore.data" />
         </div>
-        <!-- is-dark="system" -->
       </div>
-      <!-- recent mountained tasks section -->
-      <div class="bg-white w-full md:w-1/2 rounded-xl">
-        <!-- header of div -->
+
+      <!-- Tasks by Department -->
+      <div class="bg-white w-full md:w-[calc(50%-2rem)] rounded-xl">
         <div class="flex justify-between">
-          <div>
-            <h1 class="font-bold text-xl text-black p-5">Tasks by department</h1>
-          </div>
-          <div>
-            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
-              <option value="">IT</option>
-              <option value="">Marketing</option>
-              <option value="">Medium</option>
-              <option value="">Low</option>
-            </select>
-          </div>
+          <h1 class="font-bold text-xl text-black p-5">Tasks by Department</h1>
+          <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
+            <option value="">IT</option>
+            <option value="">Marketing</option>
+            <option value="">Medium</option>
+            <option value="">Low</option>
+          </select>
         </div>
-        <!-- tasks -->
         <div class="bg-white w-full flex flex-col mx-auto">
+          <!-- Task cards -->
           <div class="flex shadow py-3 m-3 rounded-xl text-black">
             <img src="../../assets/icons/task-todo.png" alt="" class="rounded-xl w-[4rem] px-5" />
             <p>Todo (18)</p>
@@ -185,72 +179,68 @@ const task = ref('')
         </div>
       </div>
 
-      <!-- projects section -->
-      <div
-        :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
-        class="bg-white w-full md:w-full mt-5 p-5 rounded-xl"
-      >
-        <div class="container text-black">
-          <h1 class="font-bold text-xl">Projects Progress</h1>
-          <div class="bg-white w-full mx-auto overflow-y-auto h-[20rem]">
-            <div
-              class="flex justify-between shadow py-3 m-3 rounded-xl text-black px-4"
-              v-for="(project, key) in generalStore.data.projects"
-              :key="key"
-            >
-              <div class="flex items-center space-x-2">
-                <div class="flex -space-x-2">
-                  <div
-                    v-for="(user, key) in project.users"
-                    :key="key"
-                    class="relative group"
-                    :data-username="user.name"
-                  >
-                    <img
-                      :src="'./src/assets/' + user.image"
-                      class="w-10 h-10 rounded-full border-2 border-white"
-                      alt="User 1"
-                    />
-                    <div
-                      class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                    >
-                      ×
-                    </div>
-                    <div
-                      class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
-                    >
-                      {{ user.name }}
-                    </div>
-                  </div>
-                  <div class="relative group">
-                    <span
-                      class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
-                      >+</span
-                    >
-                  </div>
-                </div>
+      <!-- Projects Progress -->
+      <div class="bg-white w-full rounded-xl p-5 mt-5">
+        <h1 class="font-bold text-xl">Projects Progress</h1>
+        <div class="bg-white w-full mx-auto overflow-y-auto h-[20rem]">
+          <div
+            class="flex justify-between shadow py-3 m-3 rounded-xl text-black px-4"
+            v-for="(project, key) in generalStore.data.projects"
+            :key="key"
+          >
+            <!-- Project Users -->
+            <div class="flex items-center space-x-2">
+              <div class="flex -space-x-2">
                 <div
-                  class="flex items-center justify-center w-10 h-10 text-green-800 bg-gray-100 rounded-full"
+                  v-for="(user, key) in project.users"
+                  :key="key"
+                  class="relative group"
+                  :data-username="user.name"
                 >
-                  +16
+                  <img
+                    :src="'./src/assets/' + user.image"
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    alt="User 1"
+                  />
+                  <div
+                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                  >
+                    ×
+                  </div>
+                  <div
+                    class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                  >
+                    {{ user.name }}
+                  </div>
+                </div>
+                <div class="relative group">
+                  <span
+                    class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                    >+</span
+                  >
                 </div>
               </div>
-              <div class="w-1/4 text-left text-black">
-                {{ project.project_name }}
+              <div
+                class="flex items-center justify-center w-10 h-10 text-green-800 bg-gray-100 rounded-full"
+              >
+                +16
               </div>
-              <div class="w-1/4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-                <div
-                  class="bg-pink-600 h-2.5 rounded-full"
-                  :style="{ width: project.progress + '%' }"
-                ></div>
-              </div>
-              <div class="w-1/4 text-center">
-                <!-- End at : {{project.project_end_at}} -->
-                2 Days left
-              </div>
-              <!-- <div>
-              <progress id="file" :value="project.progress" max="100" class=" bg-red-500"> {{project.progress}} </progress>
-            </div> -->
+            </div>
+            <!-- Project Name -->
+            <div class="w-1/4 text-left text-black">
+              {{ project.project_name }}
+            </div>
+            <!-- Project Progress -->
+            <div class="w-1/4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
+              <div
+                class="bg-pink-600 h-2.5 rounded-full"
+                :style="{ width: project.progress + '%' }"
+              ></div>
+            </div>
+            <!-- Days Left -->
+            <div class="w-1/4 text-center">
+              2 Days left
+              <!-- End at : {{project.project_end_at}} -->
             </div>
           </div>
         </div>

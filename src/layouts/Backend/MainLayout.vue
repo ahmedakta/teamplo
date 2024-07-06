@@ -1,5 +1,5 @@
 <template>
-  <div class="flex bg-[#f3f7f8] relative h-screen pr-5 text-black">
+  <div class="flex flex-col md:flex-row bg-[#f3f7f8] h-screen pr-5 text-black relative">
     <!-- Message Modal -->
     <div
       id="successMessage"
@@ -13,11 +13,13 @@
       </p>
       <span id="successMessageText"></span>
     </div>
-    <SideNav />
-    <div class="ml-[18rem] flex-1">
+
+    <SideNav class="w-full md:w-[18rem] md:flex-shrink-0" />
+    <div class="flex-1 md:ml-[18rem]">
       <TopNav />
       <slot />
     </div>
+
     <!-- Modals -->
     <Modals />
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="text-black">
+  <div class="text-black p-5">
     <div v-if="loaded">
       <Pie :data="storeData.chart" :options="options" palette="Soft" />
     </div>
@@ -7,7 +7,7 @@
 </template>
 
 <script setup>
-import { Pie } from 'vue-chartjs'
+import { Pie, Bar } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
 import { ref, onMounted } from 'vue'
 ChartJS.register(ArcElement, Tooltip, Legend)

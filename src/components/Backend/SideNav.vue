@@ -138,7 +138,7 @@
       <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
       Logout
     </a>
-    <p>Made By Scritp</p>
+    <p class="">Made By Scritp</p>
   </div>
 </div>
 

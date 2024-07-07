@@ -40,6 +40,10 @@ const task = ref('')
         <div
           class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
         >
+          <div class="flex items-center justify-between">
+            <span class="text-gray-700 text-sm">Total Employees:</span>
+            <span class="text-gray-700 text-sm">20</span>
+          </div>
           <div class="flex items-center mt-10 justify-between mb-4">
             <span class="text-gray-700 text-xl font-semibold">Active Employees</span>
             <span class="text-green-500 text-sm flex items-center">
@@ -83,8 +87,8 @@ const task = ref('')
           class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
         >
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-gray-800">Employee Turnover</h3>
-            <span class="text-gray-500 text-sm">May 2024</span>
+            <h3 class="text-gray-800">Projects Count</h3>
+            <span class="text-gray-500 text-sm">40</span>
           </div>
           <div class="flex items-center justify-between mb-4">
             <span class="text-gray-700 text-xl font-semibold">8%</span>
@@ -116,7 +120,7 @@ const task = ref('')
       </div>
 
       <!-- Departments Progress Overview -->
-      <div class="bg-white w-full md:w-[calc(50%-2rem)] rounded-xl mb-5 md:mb-0">
+      <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
         <div class="flex justify-between">
           <h1 class="font-bold text-xl text-black p-5">Departments Progress Overview</h1>
           <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
@@ -126,13 +130,11 @@ const task = ref('')
             <option value="">Aralik</option>
           </select>
         </div>
-        <div class="bg-white w-full">
-          <Chart :storeData="generalStore.data" />
-        </div>
+        <Chart :storeData="generalStore.data" />
       </div>
 
       <!-- Tasks by Department -->
-      <div class="bg-white w-full md:w-[calc(50%-2rem)] rounded-xl">
+      <div class="bg-white shadow-md w-full md:w-[calc(50%-1rem)] rounded-xl">
         <div class="flex justify-between">
           <h1 class="font-bold text-xl text-black p-5">Tasks by Department</h1>
           <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
@@ -172,7 +174,7 @@ const task = ref('')
       </div>
 
       <!-- Projects Progress -->
-      <div class="bg-white w-full rounded-xl p-5 mt-5">
+      <!-- <div class="bg-white w-full rounded-xl p-5 mt-5">
         <h1 class="font-bold text-xl">Projects Progress</h1>
         <div class="bg-white w-full mx-auto overflow-y-auto h-[20rem]">
           <div
@@ -180,7 +182,6 @@ const task = ref('')
             v-for="(project, key) in generalStore.data.projects"
             :key="key"
           >
-            <!-- Project Users -->
             <div class="flex items-center space-x-2">
               <div class="flex -space-x-2">
                 <div
@@ -218,25 +219,19 @@ const task = ref('')
                 +16
               </div>
             </div>
-            <!-- Project Name -->
             <div class="w-1/4 text-left text-black">
               {{ project.project_name }}
             </div>
-            <!-- Project Progress -->
             <div class="w-1/4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
               <div
                 class="bg-pink-600 h-2.5 rounded-full"
                 :style="{ width: project.progress + '%' }"
               ></div>
             </div>
-            <!-- Days Left -->
-            <div class="w-1/4 text-center">
-              2 Days left
-              <!-- End at : {{project.project_end_at}} -->
-            </div>
+            <div class="w-1/4 text-center">2 Days left</div>
           </div>
         </div>
-      </div>
+      </div> -->
     </div>
   </MainLayout>
 </template>

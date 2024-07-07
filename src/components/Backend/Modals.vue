@@ -15,21 +15,58 @@
 
         <!-- Input fields for filtering data -->
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Filter 1</label>
+          <label class="block text-sm font-medium text-gray-700">Project Budget</label>
           <input
-            type="text"
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Filter 1"
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            type="number"
           />
         </div>
-
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Filter 2</label>
+          <label class="block text-sm font-medium text-gray-700">Project Budget</label>
           <input
-            type="text"
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-            placeholder="Filter 2"
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            type="number"
           />
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Project Budget</label>
+          <input
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            type="number"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Priority</label>
+          <select
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            name="status"
+          >
+            <option :value="7">High</option>
+            <option :value="8">Medium</option>
+            <option :value="9">Low</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Priority</label>
+          <select
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            name="status"
+          >
+            <option :value="7">High</option>
+            <option :value="8">Medium</option>
+            <option :value="9">Low</option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Priority</label>
+          <select
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            name="status"
+          >
+            <option :value="7">High</option>
+            <option :value="8">Medium</option>
+            <option :value="9">Low</option>
+          </select>
         </div>
 
         <!-- Add more input fields as needed -->
@@ -37,7 +74,7 @@
         <!-- Close button -->
         <button
           @click="generalStore.closeModal()"
-          class="mt-4 inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold hover:border-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         >
           Close
         </button>

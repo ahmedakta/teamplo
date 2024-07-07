@@ -40,12 +40,8 @@ const task = ref('')
         <div
           class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
         >
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-gray-800">Revenue</h3>
-            <span class="text-gray-500 text-sm">May 2024</span>
-          </div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-gray-700 text-xl font-semibold">$1,200,000</span>
+          <div class="flex items-center mt-10 justify-between mb-4">
+            <span class="text-gray-700 text-xl font-semibold">Active Employees</span>
             <span class="text-green-500 text-sm flex items-center">
               <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -59,12 +55,8 @@ const task = ref('')
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              +15%
+              +15
             </span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-gray-700 text-sm">Previous Month:</span>
-            <span class="text-gray-700 text-sm">$1,043,000</span>
           </div>
         </div>
 
@@ -73,12 +65,12 @@ const task = ref('')
           class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
         >
           <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-gray-800">Customer Satisfaction</h3>
+            <h3 class="text-lg font-semibold text-gray-800">Project Completion Rate</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
           </div>
           <div class="flex items-center justify-between mb-4">
             <span class="text-gray-700 text-xl font-semibold">4.7</span>
-            <span class="text-gray-700 text-sm">NPS Score</span>
+            <span class="text-gray-700 text-sm">Rate</span>
           </div>
           <div class="flex items-center justify-between">
             <span class="text-gray-700 text-sm">Last Month:</span>

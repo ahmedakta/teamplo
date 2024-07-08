@@ -85,21 +85,21 @@
         Projects
       </RouterLink>
       <RouterLink
-        to="/departments"
-        :class="{ active: $route.path === '/departments' }"
+        to="/tasks"
+        :class="{ active: $route.path === '/tasks' }"
         class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
         <font-awesome-icon :icon="['fas', 'users-rectangle']" />
         Departments
       </RouterLink>
-      <RouterLink
+      <!-- <RouterLink
         to="/tasks"
         :class="{ active: $route.path === '/tasks' }"
         class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
         <font-awesome-icon :icon="['fa', 'bars-progress']" />
         Tasks
-      </RouterLink>
+      </RouterLink> -->
       <RouterLink
         to="/events"
         :class="{ active: $route.path === '/events' }"

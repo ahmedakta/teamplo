@@ -85,8 +85,8 @@
         Projects
       </RouterLink>
       <RouterLink
-        to="/tasks"
-        :class="{ active: $route.path === '/tasks' }"
+        to="/departments"
+        :class="{ active: $route.path === '/departments' }"
         class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
         <font-awesome-icon :icon="['fas', 'users-rectangle']" />
@@ -146,13 +146,11 @@
 
 <script setup>
 import { useUserStore } from '@/stores/user'
-import { useGeneralStore } from '@/stores/general'
-const userStore = useUserStore()
-import { ref, onMounted } from 'vue'
-const generalStore = useGeneralStore()
+import { ref } from 'vue'
 import { useRouter } from 'vue-router'
-const router = useRouter()
 import swal from 'sweetalert'
+const userStore = useUserStore()
+const router = useRouter()
 const dropdownOpen = ref(false)
 
 // CLOSE THE SIDENAV

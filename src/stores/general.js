@@ -166,25 +166,27 @@ export const useGeneralStore = defineStore('general', {
       const successIcon = document.getElementById('successIcon')
       const errorIcon = document.getElementById('errorIcon')
 
-      // Set success message text
-      successMessageText.textContent = message
+      // check all element if exist
+      if (successMessage && successMessageText && successIcon && errorIcon) {
+        // Set success message text
+        successMessageText.textContent = message
 
-      // Show appropriate icon based on isSuccess parameter
-      if (isSuccess == 200) {
-        successIcon.classList.remove('hidden')
-        errorIcon.classList.add('hidden')
-      } else {
-        successIcon.classList.add('hidden')
-        errorIcon.classList.remove('hidden')
+        // Show appropriate icon based on isSuccess parameter
+        if (isSuccess == 200) {
+          successIcon.classList.remove('hidden')
+          errorIcon.classList.add('hidden')
+        } else {
+          successIcon.classList.add('hidden')
+          errorIcon.classList.remove('hidden')
+        }
+        // Show the success message
+        successMessage.classList.remove('hidden')
+
+        // Hide the success message after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden')
+        }, 5000) // 5000 milliseconds = 5 seconds
       }
-
-      // Show the success message
-      successMessage.classList.remove('hidden')
-
-      // Hide the success message after 5 seconds
-      setTimeout(() => {
-        successMessage.classList.add('hidden')
-      }, 5000) // 5000 milliseconds = 5 seconds
     },
     openModal(modal, params = {}) {
       if (modal == 'assignUserModal') {

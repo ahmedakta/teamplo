@@ -4,7 +4,8 @@ import ProjectsIndex from '@/views/Backend/ProjectsView.vue'
 import ProjectIndex from '@/views/Backend/ProjectView.vue'
 import ProjectForm from '@/views/Backend/Forms/ProjectForm.vue'
 import SettingsIndex from '@/views/Backend/SettingsView.vue'
-import TasksIndex from '@/views/Backend/TasksView.vue'
+import DepartmentsIndex from '@/views/Backend/DepartmentsView.vue'
+import DepartmentIndex from '@/views/Backend/DepartmentView.vue'
 import EventsIndex from '@/views/Backend/EventsView.vue'
 import ChatsIndex from '@/views/Backend/ChatsView.vue'
 import FrontendIndex from '@/views/Frontend/Index.vue'
@@ -15,6 +16,7 @@ import ContactView from '@/views/Frontend/ContactView.vue'
 import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
 import ContentCreator from '@/views/Backend/ContentCreator.vue'
+import DepartmentsView from '@/views/Backend/DepartmentsView.vue'
 
 const ifAuthenticated = (to, from, next) => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
@@ -99,11 +101,16 @@ const router = createRouter({
       beforeEnter: ifAuthenticated
     },
     {
-      path: '/tasks',
-      name: 'backend.tasks',
+      path: '/departments',
+      name: 'backend.departments',
       meta: { roles: [1] },
-      component: TasksIndex,
+      component: DepartmentsIndex,
       beforeEnter: ifAuthenticated
+    },
+    {
+      path: '/department/:slug',
+      name: 'backend.departments.view',
+      component: DepartmentIndex
     },
     {
       path: '/settings',
@@ -130,8 +137,8 @@ const router = createRouter({
     {
       path: '/login',
       name: 'frontend.login',
-      component: LoginView,
-    },
+      component: LoginView
+    }
   ]
 })
 

@@ -1,5 +1,5 @@
 <template>
-  <!-- Filter Modal -->
+  <!-- Projects Filter Modal -->
   <div
     ref="modal"
     v-if="generalStore.currentModal === 'filterModal'"
@@ -15,10 +15,19 @@
 
         <!-- Input fields for filtering data -->
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Project Budget</label>
+          <label class="block text-sm font-medium text-gray-700">Start At</label>
           <input
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            type="number"
+            type="date"
+            v-model="generalStore.filterParams.project_start_at"
+          />
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">End At</label>
+          <input
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            type="date"
+            v-model="generalStore.filterParams.project_end_at"
           />
         </div>
         <div class="mb-4">
@@ -26,24 +35,39 @@
           <input
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             type="number"
+            v-model="generalStore.filterParams.project_budget"
           />
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Project Budget</label>
-          <input
-            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            type="number"
-          />
-        </div>
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Priority</label>
+          <label class="block text-sm font-medium text-gray-700">Department</label>
           <select
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             name="status"
+            v-model="generalStore.filterParams.department_id"
           >
-            <option :value="7">High</option>
-            <option :value="8">Medium</option>
-            <option :value="9">Low</option>
+            <option
+              v-for="(department, index) in generalStore.data.filter_form.departments"
+              :key="index"
+              :value="index"
+            >
+              {{ department.department_name }}
+            </option>
+          </select>
+        </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Stage</label>
+          <select
+            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            name="status"
+            v-model="generalStore.filterParams.project_stage"
+          >
+            <option
+              v-for="(stage, index) in generalStore.data.filter_form.stages"
+              :key="index"
+              :value="index"
+            >
+              {{ stage }}
+            </option>
           </select>
         </div>
         <div class="mb-4">
@@ -51,24 +75,46 @@
           <select
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             name="status"
+            v-model="generalStore.filterParams.project_priority"
           >
-            <option :value="7">High</option>
-            <option :value="8">Medium</option>
-            <option :value="9">Low</option>
+            <option
+              v-for="(priority, index) in generalStore.data.filter_form.priorities"
+              :key="index"
+              :value="index"
+            >
+              {{ priority }}
+            </option>
           </select>
         </div>
+        <!-- Assignment Filter -->
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Priority</label>
-          <select
-            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            name="status"
-          >
-            <option :value="7">High</option>
-            <option :value="8">Medium</option>
-            <option :value="9">Low</option>
-          </select>
+          <label class="block text-sm font-medium text-gray-700">Assigned To User..</label>
+          <div class="flex -space-x-2">
+            <div class="relative group">
+              <img
+                src="@/assets/default_profile_image.png"
+                class="w-10 h-10 rounded-full border-2 border-white"
+                alt="User 1"
+              />
+              <div
+                class="absolute cursor-pointer inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+              >
+                ×
+              </div>
+              <div
+                class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+              >
+                Test User
+              </div>
+            </div>
+            <div class="relative group cursor-pointer">
+              <span
+                class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                >+</span
+              >
+            </div>
+          </div>
         </div>
-
         <!-- Add more input fields as needed -->
 
         <!-- Close button -->

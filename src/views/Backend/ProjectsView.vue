@@ -5,7 +5,7 @@
     >
       <div class="mb-5 rounded-xl w-full md:w-auto">
         <input
-          v-model="filterParams.search"
+          v-model="generalStore.filterParams.search"
           type="text"
           class="form-input w-full md:max-w-xs py-2 px-3 border-blue-700 border-[1px] rounded-xl"
           placeholder="Search..."
@@ -53,6 +53,7 @@
         </button>
       </div>
     </div>
+    {{ generalStore.filterParams }}
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
       <vue3-datatable
         ref="datatable"
@@ -63,7 +64,7 @@
         :sortColumn="datatableStore.params.sort_column"
         :sortDirection="datatableStore.params.sort_direction"
         :totalRows="datatableStore.params.total_rows"
-        :search="filterParams.search"
+        :search="generalStore.filterParams.search"
         :rows="datatableStore.data.data"
         :columns="datatableStore.cols"
         :hasCheckbox="true"
@@ -198,15 +199,12 @@ import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
 import { useDataTableStore } from '@/stores/datatable'
-import { useProjectStore } from '@/stores/project'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const generalStore = useGeneralStore()
-const projectStore = useProjectStore()
 const datatableStore = useDataTableStore()
 const isOpen = ref(false)
 const datatable: any = ref(null)
-const filterParams: any = reactive({})
 
 onMounted(() => {
   try {
@@ -216,7 +214,7 @@ onMounted(() => {
   }
 })
 
-const getProjects = async (filterParams = null) => {
+const getProjects = async (filterParams = generalStore.filterParams) => {
   generalStore.makeRequest('/api/projects', filterParams).then(() => {
     generalStore.setDataTable()
   })
@@ -227,7 +225,7 @@ const viewProject = (slug = null) => {
 }
 // change server function
 const changeServer = (data: any) => {
-  filterParams.page = data.current_page
-  getProjects(filterParams)
+  generalStore.filterParams.page = data.current_page
+  getProjects(generalStore.filterParams)
 }
 </script>

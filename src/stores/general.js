@@ -10,6 +10,7 @@ const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
+    filterParams: reactive({}),
     router: useRouter(),
     projectStore: useProjectStore(),
     datatableStore: useDataTableStore(),

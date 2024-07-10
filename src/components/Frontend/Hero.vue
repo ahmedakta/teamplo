@@ -12,7 +12,7 @@
         <div class="space-y-3">
           <a
             href="#"
-            class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-[#5DADE2] rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 "
+            class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-[#5DADE2] rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100"
           >
             Subscribe
           </a>

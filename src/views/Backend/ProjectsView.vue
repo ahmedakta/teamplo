@@ -71,6 +71,7 @@
         :isServerMode="true"
         :showNumbersCount="15"
         :pageSizeOptions="[10, 15, 30, 50]"
+        noDataContent="No records found in the database."
         class="next-prev-pagination"
         @rowClick="rowClick"
         @change="changeServer"

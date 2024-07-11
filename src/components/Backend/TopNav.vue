@@ -13,7 +13,12 @@
           class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"
         >
           <p><font-awesome-icon :icon="['fas', 'search']" class="text-black" /></p>
-          <input type="text" class="text-black" name="" id="" placeholder="Search.." />
+          <input
+            v-model="generalStore.filterParams.search"
+            type="text"
+            placeholder="Search..."
+            class="text-black"
+          />
         </div>
         <div
           v-if="userStore.id"

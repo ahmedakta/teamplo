@@ -3,14 +3,7 @@
     <div
       class="container w-full md:flex justify-between items-center flex-wrap gap-4 font-semibold"
     >
-      <div class="mb-5 rounded-xl w-full md:w-auto">
-        <input
-          v-model="generalStore.filterParams.search"
-          type="text"
-          class="form-input w-full md:max-w-xs py-2 px-3 border-blue-700 border-[1px] rounded-xl"
-          placeholder="Search..."
-        />
-      </div>
+      <div class="mb-5 rounded-xl w-full md:w-auto">You Can put something here</div>
       <!-- Filter Section -->
       <div class="mb-5 relative w-full md:w-auto">
         <ul
@@ -53,7 +46,21 @@
         </button>
       </div>
     </div>
-    {{ generalStore.filterParams }}
+    <div class="flex space-x-2">
+      <div
+        v-for="(param, key) in generalStore.filterParams"
+        :key="key"
+        class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full flex items-center"
+      >
+        <span class="mr-2"> {{ key }} : {{ param }}</span>
+        <button
+          @click="generalStore.filterParams.$remove(param)"
+          class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+        >
+          x
+        </button>
+      </div>
+    </div>
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
       <vue3-datatable
         ref="datatable"

@@ -48,7 +48,7 @@
             <option
               v-for="(department, index) in generalStore.data.filter_form.departments"
               :key="index"
-              :value="index"
+              :value="department.id"
             >
               {{ department.department_name }}
             </option>
@@ -86,6 +86,10 @@
             </option>
           </select>
         </div>
+        <div class="mb-4">
+          <label class="block text-sm font-medium text-gray-700">Progress</label>
+          <input type="range" />
+        </div>
         <!-- Assignment Filter -->
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Assigned To User..</label>
@@ -120,9 +124,31 @@
         <!-- Close button -->
         <button
           @click="generalStore.closeModal()"
-          class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold hover:border-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+          class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         >
           Close
+        </button>
+        <button
+          @click="
+            generalStore.makeRequest('/api/projects', generalStore.filterParams, 'GET').then(() => {
+              generalStore.setDataTable()
+            })
+          "
+          class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+        >
+          <font-awesome-icon :icon="['fas', 'search']" />
+        </button>
+        <button
+          v-if="Object.keys(generalStore.filterParams).length"
+          @click="
+            generalStore.makeRequest('/api/projects').then(() => {
+              generalStore.setDataTable()
+              generalStore.filterParams = {}
+            })
+          "
+          class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+        >
+          <font-awesome-icon :icon="['fas', 'rotate-left']" />
         </button>
       </div>
     </div>

@@ -3,10 +3,8 @@
     <div>
       <div class="flex justify-center space-x-2 mb-8">
         <button
-          :class="[
-            'bg-white px-10 py-2 border-black rounded-lg text-black',
-            { 'bg-red-500': activeTab == 'PROJECTS' }
-          ]"
+          class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black"
+          :class="{ 'bg-white': activeTab === 'PROJECTS' }"
           @click="activeTab = 'PROJECTS'"
         >
           <!-- :class="tabClass(tab)"
@@ -15,17 +13,18 @@
         </button>
         <button
           class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black"
+          :class="{ 'bg-white': activeTab === 'KPI' }"
           @click="activeTab = 'KPI'"
         >
           KPI
         </button>
         <button
           class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black"
+          :class="{ 'bg-white': activeTab === 'EMPLOYEES' }"
           @click="activeTab = 'EMPLOYEES'"
         >
           Employee's
         </button>
-        {{ activeTab }}
       </div>
       <!-- <div v-if="selectedTab === 'KPI'">
         <KpiSection />
@@ -40,7 +39,7 @@
       <div v-else-if="selectedTab === 'USERS'">
         <UsersSection :users="users" />
       </div> -->
-      <Board v-if="activeTab == 'PROJECTS'" :department="department" :tasks="tasks" />
+      <Project />
     </div>
   </MainLayout>
 </template>
@@ -48,13 +47,13 @@
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import Board from '@/components/Backend/Departments/Board.vue'
+import Project from '@/components/Backend/Departments/Project.vue'
 import { useGeneralStore } from '@/stores/general'
 const generalStore = useGeneralStore()
 const route = useRoute()
 const department = ref({})
 const tasks = ref({})
-let activeTab = ref('Board')
+let activeTab = ref('PROJECTS')
 
 onMounted(() => {
   try {

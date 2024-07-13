@@ -1,23 +1,7 @@
 // this file for functions used a lot
-import { useUserStore } from '@/stores/user'
-import { useGeneralStore } from '@/stores/general'
-const generalStore = useGeneralStore()
-const userStore = useUserStore()
-import { defineStore } from 'pinia'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
-export default {
-  data() {
-    return {
-      currentModal: null,
-    };
-  },
-  methods: {
-    isLoggedIn(redirect) {
-      if (userStore.id) {
-        router.push(redirect)
-      } else {
-        generalStore.isLoginOpen = true
-      }
-    },
-  }
+export function redirectBack() {
+  router.go()
 }

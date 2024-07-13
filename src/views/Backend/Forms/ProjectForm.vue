@@ -189,7 +189,8 @@
           <!-- Actions Section -->
           <div class="float-right">
             <RouterLink
-              @click="redirectBack()"
+              to="/projects"
+              type="button"
               class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-10 py-3 mr-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
             >
               Cancel
@@ -210,13 +211,8 @@
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { useGeneralStore } from '@/stores/general'
 import { ref, onMounted } from 'vue'
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-const redirectBack = () => {
-  router.go(-1)
-}
+import { redirectBack } from '@/mixins/helper.js'
+import axios from '../../../../plugins/axios'
 
 const generalStore = useGeneralStore()
 const data = ref({
@@ -234,10 +230,6 @@ const data = ref({
 onMounted(async () => {
   try {
     generalStore.makeRequest('api/projects/create')
-    const response = await axios.get('url', {
-      withCredentials: true,
-      params
-    })
   } catch (error) {
     console.log(error)
   }

@@ -78,6 +78,7 @@
             v-model="generalStore.filterParams.project_priority"
           >
             <option
+              class="bg-white text-black rounded-md"
               v-for="(priority, index) in generalStore.data.filter_form.priorities"
               :key="index"
               :value="index"

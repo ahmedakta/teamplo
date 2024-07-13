@@ -2,13 +2,15 @@
   <MainLayout>
     <div>
       <div class="flex justify-center space-x-2 mb-8">
-        <button class="bg-white px-10 py-2 border-black rounded-lg text-black">
+        <button class="bg-white px-10 py-2 border-black rounded-lg text-black"
+        @click="activeTab = 'PROJECTS'">
           <!-- :class="tabClass(tab)"
           @click="selectedTab = tab" -->
           Projects
+          
         </button>
-        <button class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black">KPI</button>
-        <button class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black">
+        <button class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black" @click="activeTab = 'KPI'">KPI</button>
+        <button class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black" @click="activeTab = 'EMPLOYEES'">
           Employee's
         </button>
         {{ activeTab }}
@@ -26,7 +28,7 @@
       <div v-else-if="selectedTab === 'USERS'">
         <UsersSection :users="users" />
       </div> -->
-      <Kpi :department="department" :tasks="tasks" />
+      <Kpi v-if="activeTab == 'KPI'" :department="department" :tasks="tasks" />
     </div>
   </MainLayout>
 </template>

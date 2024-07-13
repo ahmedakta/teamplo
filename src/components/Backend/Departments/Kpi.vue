@@ -5,10 +5,10 @@
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       <!-- Todo Column -->
-      <div class="bg-white p-4 rounded-lg shadow">
+      <div class=" bg-gray-200 p-4 rounded-lg shadow">
         <h2 class="text-xl font-semibold mb-2 rounded-lg p-2 bg-orange-100">Todo</h2>
         <ul>
-          <li v-for="task in tasks" :key="task.id" class="mb-2 p-2 bg-gray-100 rounded-lg">
+          <li v-for="task in tasks" :key="task.id" class="mb-2 p-2 bg-white rounded-lg">
             <h3 class="text-lg font-semibold mb-1">{{ task.name }}</h3>
             <div class="text-sm text-gray-700 mb-2">{{ task.description }}</div>
             <div class="flex space-x-4 mb-2">

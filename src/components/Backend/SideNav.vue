@@ -120,25 +120,30 @@
     </nav>
   </div>
   <!-- Footer (Optional) -->
-  <div class="mt-6 text-gray-500">
+  <div class="mt-6 w-64 py-6 px-10 text-gray-500 top-0 left-0">
     <RouterLink
-      to="/tasks"
-      :class="{ active: $route.path === '/tasks' }"
-      class="block py-2 px-4 hover:bg-[#D6E6FD] hover:text-[#1038FA]"
+      to="/settings"
+      :class="{ active: $route.path === '/settings' }"
+      class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
     >
       <font-awesome-icon :icon="['fa', 'cog']" />
       Settings
     </RouterLink>
     <a
       href="#"
-      class="block py-2 px-4 text-red-500 hover:bg-[#D6E6FD]"
+      class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-red-500"
       @click="logout()"
       v-if="userStore.id"
     >
       <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
       Logout
     </a>
-    <p class="">Made By Scritp</p>
+    <div class="mx-auto flex w-64 px-5 py-5">
+      <p>Made By </p>
+      <a href="https://www.scritp.com" target="_blank">
+        <img src="/src/assets/scritp-logo.svg" class="mx-auto p-1" width="70" alt="" />
+      </a>
+    </div>
   </div>
 </div>
 

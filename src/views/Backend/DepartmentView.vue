@@ -40,7 +40,7 @@
       <div v-else-if="selectedTab === 'USERS'">
         <UsersSection :users="users" />
       </div> -->
-      <Kpi v-if="activeTab == 'PROJECTS'" :department="department" :tasks="tasks" />
+      <Board v-if="activeTab == 'PROJECTS'" :department="department" :tasks="tasks" />
     </div>
   </MainLayout>
 </template>
@@ -48,13 +48,13 @@
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import Kpi from '@/components/Backend/Departments/Board.vue'
+import Board from '@/components/Backend/Departments/Board.vue'
 import { useGeneralStore } from '@/stores/general'
 const generalStore = useGeneralStore()
 const route = useRoute()
 const department = ref({})
 const tasks = ref({})
-let activeTab = ref('kpi')
+let activeTab = ref('Board')
 
 onMounted(() => {
   try {

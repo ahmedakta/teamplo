@@ -189,7 +189,7 @@
           <!-- Actions Section -->
           <div class="float-right">
             <RouterLink
-              to="/projects"
+              @click="redirectBack()"
               class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-10 py-3 mr-2 dark:bg-gray-600 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
             >
               Cancel
@@ -210,6 +210,13 @@
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { useGeneralStore } from '@/stores/general'
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const redirectBack = () => {
+  router.go(-1)
+}
 
 const generalStore = useGeneralStore()
 const data = ref({

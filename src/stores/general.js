@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 import { useUserStore } from '@/stores/user'
-import { useRouter } from 'vue-router'
+import { useRouter , useRoute} from 'vue-router'
 import { useProjectStore } from '@/stores/project'
 import { reactive, ref } from 'vue'
 import { useDataTableStore } from '@/stores/datatable'
@@ -15,6 +15,7 @@ export const useGeneralStore = defineStore('general', {
     projectStore: useProjectStore(),
     datatableStore: useDataTableStore(),
     currentModal: null,
+    currentTab: ref(null),
     isEditProfileOpen: false,
     isLoading: ref(false),
     data: [],
@@ -159,6 +160,10 @@ export const useGeneralStore = defineStore('general', {
           }
         }
       )
+    },
+    setCurrentTab(tabName){
+      this.router.push({ query: { tab : tabName } });
+      this.currentTab = tabName;
     },
     // Function to show success message
     showSuccessMessage(message, isSuccess) {

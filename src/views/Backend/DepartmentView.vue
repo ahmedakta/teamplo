@@ -4,8 +4,8 @@
       <div class="flex justify-center space-x-2 mb-8">
         <button
           class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black"
-          :class="{ 'bg-white': activeTab === 'PROJECTS' }"
-          @click="activeTab = 'PROJECTS'"
+          :class="{ 'bg-white': generalStore.currentTab === 'PROJECTS' }"
+          @click="generalStore.setCurrentTab('PROJECTS')"
         >
           <!-- :class="tabClass(tab)"
           @click="selectedTab = tab" -->
@@ -13,15 +13,15 @@
         </button>
         <button
           class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black"
-          :class="{ 'bg-white': activeTab === 'KPI' }"
-          @click="activeTab = 'KPI'"
+          :class="{ 'bg-white': generalStore.currentTab === 'KPI' }"
+          @click="generalStore.setCurrentTab('KPI')"
         >
           KPI
         </button>
         <button
           class="border-[1px] border-gray-500 px-10 py-2 rounded-lg text-black"
-          :class="{ 'bg-white': activeTab === 'EMPLOYEES' }"
-          @click="activeTab = 'EMPLOYEES'"
+          :class="{ 'bg-white': generalStore.currentTab === 'EMPLOYEES' }"
+          @click="generalStore.setCurrentTab('EMPLOYEES')"
         >
           Employee's
         </button>
@@ -39,7 +39,7 @@
       <div v-else-if="selectedTab === 'USERS'">
         <UsersSection :users="users" />
       </div> -->
-      <Project />
+      <Project :projects="department.projects" v-if="generalStore.currentTab == 'PROJECTS'"/>
     </div>
   </MainLayout>
 </template>
@@ -53,11 +53,13 @@ const generalStore = useGeneralStore()
 const route = useRoute()
 const department = ref({})
 const tasks = ref({})
-let activeTab = ref('PROJECTS')
+
 
 onMounted(() => {
   try {
     getDepartment()
+    // set projects as default tab if there is no tab query in URL (we need to check url first)
+    generalStore.currentTab = route.query.tab ? route.query.tab : 'PROJECTS'
   } catch (error) {
     console.log(error)
   }

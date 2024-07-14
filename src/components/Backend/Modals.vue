@@ -155,6 +155,34 @@
     </div>
   </div>
 
+    <!-- Chat modal -->
+    <transition name="fade">
+    <div v-if="generalStore.currentModal === 'aiChatBoxModal'" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+      <div class="bg-white w-full max-w-md rounded-lg shadow-lg overflow-hidden">
+        <!-- Modal header -->
+        <div class="flex justify-between items-center p-4 border-b">
+          <h3 class="text-lg font-semibold">AI Chat Assistant</h3>
+          <button @click="generalStore.closeModal()" class="text-gray-600 hover:text-gray-900">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4">
+          <!-- Chat content -->
+          <div class="h-64 overflow-y-auto">
+            <p class="text-gray-600">Chat with our AI assistant!</p>
+            <!-- Add your chat content here -->
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="p-4 border-t">
+          <input type="text" placeholder="Type your message..." class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500" />
+        </div>
+      </div>
+    </div>
+  </transition>
   <!-- Assign Users Modal -->
   <div
     v-if="generalStore.currentModal === 'assignUserModal'"

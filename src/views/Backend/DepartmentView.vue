@@ -26,20 +26,18 @@
           Employee's
         </button>
       </div>
-      <!-- <div v-if="selectedTab === 'KPI'">
-        <KpiSection />
+      <!-- PROJECTS -->
+      <div v-if="generalStore.currentTab == 'PROJECTS'">
+        <Projects :projects="department.projects"/>
       </div>
-      <div v-else-if="selectedTab === 'TASKS'">
-        <TasksSection
-          :tasks="tasks"
-          :inProgressTasks="inProgressTasks"
-          :cancelledTasks="cancelledTasks"
-        />
+      <!-- KPI -->
+      <div v-if="generalStore.currentTab == 'KPI'">
+        <Kpi />
       </div>
-      <div v-else-if="selectedTab === 'USERS'">
-        <UsersSection :users="users" />
-      </div> -->
-      <Project :projects="department.projects" v-if="generalStore.currentTab == 'PROJECTS'"/>
+      <!-- Emplyees -->
+      <div v-if="generalStore.currentTab == 'EMPLOYEES'">
+        <Employees />
+      </div>
     </div>
   </MainLayout>
 </template>
@@ -47,7 +45,9 @@
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
-import Project from '@/components/Backend/Departments/Project.vue'
+import Projects from '@/components/Backend/Departments/Department/Projects.vue'
+import Kpi from '@/components/Backend/Departments/Department/Kpi.vue'
+import Employees from '@/components/Backend/Departments/Department/Employees.vue'
 import { useGeneralStore } from '@/stores/general'
 const generalStore = useGeneralStore()
 const route = useRoute()

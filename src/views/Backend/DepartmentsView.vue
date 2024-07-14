@@ -20,7 +20,7 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { ref, onMounted } from 'vue'
 import { useTaskStore } from '@/stores/task'
 import { useGeneralStore } from '@/stores/general'
-import Department from '@/components/Backend/Department.vue'
+import Department from '@/components/Backend/Departments/Department.vue'
 
 const generalStore = useGeneralStore()
 const taskStore = useTaskStore()

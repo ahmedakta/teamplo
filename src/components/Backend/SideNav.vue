@@ -31,7 +31,7 @@
   aria-label="Sidebar">
   <!-- Logo -->
   <div class="text-2xl text-black font-bold mx-auto">
-    <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.png" />
+    <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.svg" />
     <!-- General -->
     <p class="text-gray-600 text-sm font-bold py-3">General <hr/></p>
     <!-- Navigation Links -->
@@ -48,7 +48,7 @@
         @click="dropdownOpen = !dropdownOpen"
         class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fas', 'bars']" />
+        <font-awesome-icon :icon="['fas', 'users']" />
         Users
       </button>
       <div v-show="dropdownOpen" class="pl-5">

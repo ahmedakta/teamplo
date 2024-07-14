@@ -22,13 +22,14 @@
 
     <!-- Modals -->
     <Modals />
-
+        
     <!-- Bubble element -->
-    <div class="fixed bottom-4 right-4">
-      <div
-        class="w-15 h-15 bg-white rounded-full shadow-lg flex items-center justify-center text-white text-xl"
-      >
-        <span><img src="@/assets/ai1.png" width="50" alt="" /></span>
+    <div class="fixed bottom-6 right-6">
+      <div class="relative bg-white w-12 h-12 rounded-full shadow-lg border-2 border-gray-300 overflow-hidden">
+        <!-- Centered icon with subtle shadow -->
+        <div class="absolute inset-0 flex items-center justify-center">
+          <img src="@/assets/ai-technology.svg" width="30" alt="AI Icon" class="drop-shadow-lg" />
+        </div>
       </div>
     </div>
   </div>

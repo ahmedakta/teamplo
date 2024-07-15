@@ -173,8 +173,13 @@
             <Button
               type="button"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="pushRoute('backend.department.project.tasks',{department_slug : data.value.department.slug , project_slug : data.value.slug})"
-              >
+              @click="
+                pushRoute('backend.department.project.tasks', {
+                  department_slug: data.value.department.slug,
+                  project_slug: data.value.slug
+                })
+              "
+            >
               <font-awesome-icon :icon="['fas', 'bars']" />
             </Button>
           </div>
@@ -227,8 +232,13 @@ const getProjects = async (filterParams = generalStore.filterParams) => {
     generalStore.setDataTable()
   })
 }
-const pushRoute = (urlName = null , params = null) => {
-  router.push({ name: urlName, params: { params: params } });
+const pushRoute = (urlName = null, params = null) => {
+  console.log(params)
+  console.log(urlName)
+  router.push({
+    name: urlName,
+    params: { department_slug: params.department_slug, project_slug: params.project_slug }
+  })
 }
 
 const viewProject = (slug = null) => {

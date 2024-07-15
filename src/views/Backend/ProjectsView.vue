@@ -170,13 +170,13 @@
             >
               <font-awesome-icon :icon="['fas', 'eye']" />
             </button>
-            <button
+            <Button
               type="button"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="viewProject(data.value.slug)"
-            >
+              @click="pushRoute('backend.department.project.tasks',{department_slug : data.value.department.slug , project_slug : data.value.slug})"
+              >
               <font-awesome-icon :icon="['fas', 'bars']" />
-            </button>
+            </Button>
           </div>
         </template>
       </vue3-datatable>
@@ -226,6 +226,9 @@ const getProjects = async (filterParams = generalStore.filterParams) => {
   generalStore.makeRequest('/api/projects', filterParams).then(() => {
     generalStore.setDataTable()
   })
+}
+const pushRoute = (urlName = null , params = null) => {
+  router.push({ name: urlName, params: { params: params } });
 }
 
 const viewProject = (slug = null) => {

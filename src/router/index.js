@@ -6,6 +6,7 @@ import ProjectForm from '@/views/Backend/Forms/ProjectForm.vue'
 import SettingsIndex from '@/views/Backend/SettingsView.vue'
 import DepartmentsIndex from '@/views/Backend/DepartmentsView.vue'
 import DepartmentIndex from '@/views/Backend/DepartmentView.vue'
+import ProjectBoard from '@/views/Backend/Departments/Department/Project/Board.vue'
 import EventsIndex from '@/views/Backend/EventsView.vue'
 import ChatsIndex from '@/views/Backend/ChatsView.vue'
 import FrontendIndex from '@/views/Frontend/Index.vue'
@@ -111,6 +112,11 @@ const router = createRouter({
       path: '/department/:slug',
       name: 'backend.departments.view',
       component: DepartmentIndex
+    },
+    {
+      path: '/department/:department_slug/:project_slug/tasks',
+      name: 'backend.department.project.tasks',
+      component: ProjectBoard
     },
     {
       path: '/settings',

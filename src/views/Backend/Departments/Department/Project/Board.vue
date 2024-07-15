@@ -1,7 +1,7 @@
 <template>
   <div class="p-4 md:p-8">
-    <h1 class="text-3xl font-bold mb-4">{{ department.department_name }}</h1>
-    <p class="text-gray-600 mb-8">{{ department.department_desc }}</p>
+    <!-- <h1 class="text-3xl font-bold mb-4">{{ department.department_name }}</h1>
+    <p class="text-gray-600 mb-8">{{ department.department_desc }}</p> -->
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
       <!-- Todo Column -->
@@ -75,19 +75,20 @@ import { ref, onMounted } from 'vue'
 import { useGeneralStore } from '@/stores/general'
 
 const generalStore = useGeneralStore()
+const props = defineProps({
+  department_slug: String,
+  project_slug: String,
+})
 
 onMounted(() => {
   try {
-    let url = '/department/' + props.department_slug + props.project_slug + '/tasks';
     console.log(props)
+    let url = '/department/' + props.department_slug + props.project_slug + '/tasks';
+    console.log(url)
     generalStore.makeRequest(url)
   } catch (error) {
     console.log(error)
   }
 })
 
-const props = defineProps({
-  department_slug: String,
-  project_slug: String,
-})
 </script>

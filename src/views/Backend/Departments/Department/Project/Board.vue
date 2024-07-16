@@ -110,7 +110,7 @@
 
                 <button @click="assignUser" class="flex items-center">
                   <i class="fas fa-user fa-lg"></i>
-                  <font-awesome-icon :icon="['fas', 'user']" />
+                  <font-awesome-icon :icon="['fas', 'calendar']" />
                 </button>
 
                 <button @click="startTimer" class="flex items-center">

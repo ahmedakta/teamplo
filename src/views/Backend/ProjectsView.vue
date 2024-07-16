@@ -53,8 +53,9 @@
         class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full flex items-center"
       >
         <span class="mr-2"> {{ key }} : {{ param }}</span>
+        {{ generalStore.filterParams }}
         <button
-          @click="generalStore.filterParams.$remove(param)"
+          @click="generalStore.filterParams.splice(key , 1)"
           class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
         >
           x

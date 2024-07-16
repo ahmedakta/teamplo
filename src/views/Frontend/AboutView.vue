@@ -33,7 +33,7 @@
               nostrum tenetur consequatur deleniti, eum molestiae quis mollitia facilis doloribus
               pariatur, molestias quam nihil iusto doloremque sunt veritatis enim.
             </p>
-            <p class="text-blue-200">
+            <p class="text-[#3AA9D0] md:mt-40">
               Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Aenean Pretium Lacinia Nisi
               Nec Iaculis. Aenean Sit Amet Odio Condimentum, Suspendisse Dapibus Finibus Ligula, Sit
               Amet Tincidunt Turpis. Nun.
@@ -47,62 +47,111 @@
     <section class="py-12 bg-gray-100">
       <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="w-1/2">
-            <h3 class="text-xl font-bold mb-4 text-black">Misyonumuz</h3>
+          <div class="w-full md:w-1/w">
+            <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Mission</h3>
             <p class="text-gray-700 mb-8">
               Müşterilerimizin İhtiyaçlarını Anlamak Ve En Uygun Çözümleri Sunarak İşlerini
               Büyütmelerine Katkıda Bulunmak.
             </p>
-            <h3 class="text-xl font-bold mb-4 text-black">Vizyonumuz</h3>
+            <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Vision</h3>
             <p class="text-gray-700 mb-8">
               Sektörde Lider Bir Konumda Olmak Ve Müşterilerimize Değer Yaratan Çözümler Sunarak
               Sürekli Büyümek.
             </p>
           </div>
           <div class="flex w-1/2">
-            <img src="../../assets/about-us-3.png" alt="Image 3" class="rounded-lg shadow-lg" />
-            <img src="../../assets/about-us-4.png" alt="Image 3" class="rounded-lg shadow-lg" />
+            <img src="../../assets/about-us-3.png" alt="Image 3" class="rounded-lg m-2 shadow-lg" />
+            <img src="../../assets/about-us-4.png" alt="Image 3" class="rounded-lg m-2 shadow-lg" />
           </div>
         </div>
       </div>
     </section>
 
     <!-- Values Section -->
-    <section class="py-12">
+    <section class="py-12 bg-[#3AA9D0]">
       <div class="container mx-auto px-4">
-        <h3 class="text-2xl font-bold text-center mb-8 text-black">Değerlerimiz</h3>
         <div class="grid md:grid-cols-3 gap-8">
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h4 class="text-xl font-bold mb-4 text-black">Müşteri Memnuniyeti</h4>
-            <p class="text-gray-700">
-              Müşterilerimizin İhtiyaçlarını Anlamak Ve En Uygun Çözümleri Sunarak İşlerini
-              Büyütmelerine Katkıda Bulunmak.
-            </p>
+          <div class="p-6 text-white rounded-lg">
+            <h4 class="text-3xl font-bold mb-4">Our Values</h4>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h4 class="text-xl font-bold mb-4 text-black">İnovasyon Ve Sürekli Gelişme</h4>
-            <p class="text-gray-700">
+          <div class="relative p-6 border-[1px] border-white text-white">
+            <!-- Icon positioned in the top-right corner -->
+            <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
+            </div>
+            <!-- Card content -->
+            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <p>
               Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
               Hedefliyoruz.
             </p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h4 class="text-xl font-bold mb-4 text-black">Şeffaflık Ve Güvenilirlik</h4>
-            <p class="text-gray-700">
-              İşimizi Şeffaf Ve Güvenilir Bir Şekilde Yürüterek Müşterilerimizle Sağlam İlişkiler
-              Kuruyoruz.
+          <div class="relative p-6 border-[1px] border-white text-white">
+            <!-- Icon positioned in the top-right corner -->
+            <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
+            </div>
+            <!-- Card content -->
+            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <p>
+              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
+              Hedefliyoruz.
             </p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h4 class="text-xl font-bold mb-4 text-black">Takım Çalışması Ve İşbirliği</h4>
-            <p class="text-gray-700">
-              Takım Çalışması Ve İşbirliğine Dayalı Bir Çalışma Ortamı Oluşturuyoruz.
+          <div class="relative p-6 border-[1px] border-white text-white">
+            <!-- Icon positioned in the top-right corner -->
+            <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
+            </div>
+            <!-- Card content -->
+            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <p>
+              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
+              Hedefliyoruz.
             </p>
           </div>
-          <div class="bg-white p-6 rounded-lg shadow-lg">
-            <h4 class="text-xl font-bold mb-4 text-black">Sosyal Sorumluluk</h4>
-            <p class="text-gray-700">
-              Topluma Katkıda Bulunan Ve Çevresel Sorumluluğa Duyarlı Bir Şirketiz.
+          <div class="relative p-6 border-[1px] border-white text-white">
+            <!-- Icon positioned in the top-right corner -->
+            <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
+            </div>
+            <!-- Card content -->
+            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <p>
+              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
+              Hedefliyoruz.
+            </p>
+          </div>
+          <div class="relative p-6 border-[1px] border-white text-white">
+            <!-- Icon positioned in the top-right corner -->
+            <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
+            </div>
+            <!-- Card content -->
+            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <p>
+              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
+              Hedefliyoruz.
             </p>
           </div>
         </div>

@@ -33,12 +33,18 @@
         alt="Monthly Visitors"
         class="absolute bottom-1/2 right-1/2 transform translate-x-1/2 translate-y-1/2 w-10 h-10"
       /> -->
-      <img src="../../assets/dashboard-v1.png" class="block w-full h-auto" />
-      <img src="../../assets/privacy.png" class="absolute top-0 right-0 w-100 h-120" />
-      <img src="../../assets/rate.png" class="absolute left-[-2rem] bottom-20 w-140 h-150" />
+      <img src="../../assets/dashboard-v1.png" class="w-full h-auto" />
+      <img
+        src="../../assets/privacy.png"
+        class="hidden lg:block absolute top-0 right-0 w-100 h-120"
+      />
+      <img
+        src="../../assets/rate.png"
+        class="hidden lg:block absolute left-[-2rem] bottom-20 w-140 h-150"
+      />
       <img
         src="../../assets/visitors.png"
-        class="absolute right-[-2rem] bottom-[10rem] w-150 h-150"
+        class="hidden lg:block absolute right-[-2rem] bottom-[10rem] w-150 h-150"
       />
     </div>
     <!-- <div class="relative">

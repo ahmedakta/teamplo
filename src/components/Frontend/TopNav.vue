@@ -1,5 +1,5 @@
 <template>
-  <header class="py-4 bg-[#f3f7f8]">
+  <header class="py-4 absolute top-0 left-1/2 transform -translate-x-1/2 w-full z-50">
     <div class="container mx-auto bg-white rounded-xl flex items-center justify-between">
       <!-- Logo on the left -->
       <div class="flex-shrink-0">
@@ -10,7 +10,10 @@
       </div>
       <!-- Navigation links in the center -->
       <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
-        <a class="mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/' }" href="/"
+        <a
+          class="font-semibold mx-4 hover:text-[#5dade2]"
+          :class="{ active: $route.path === '/' }"
+          href="/"
           >Home</a
         >
         <a
@@ -39,8 +42,10 @@
         >
       </nav>
       <!-- Login button on the right -->
-      <div class="flex-shrink-0 text-center">
-        <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl"> Log in </a>
+      <div class="flex flex-shrink-0 text-center">
+        <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
+          Log in
+        </a>
         <button
           v-if="!userStore.id"
           class="text-white ml-1 py-2 px-4 rounded bg-blue-500"
@@ -56,11 +61,13 @@
           <option value="">TR</option>
           <option value="">AR</option>
         </select>
-        <div v-if="userStore.id" class="flex justify-between">
-          <img :src="'./src/assets/' + userStore.image" alt="" width="30rem" />
-          <span>
-            {{ userStore.name }}
-          </span>
+        <div v-if="userStore.id" class="px-4">
+          <img
+            :src="'./src/assets/' + userStore.image"
+            alt=""
+            class="border-2 border-gray-400 rounded-xl"
+            width="40rem"
+          />
         </div>
       </div>
     </div>

@@ -9,15 +9,15 @@
     </header>
 
     <!-- Why Us Section -->
-    <section class="py-40">
+    <section class="py-32">
       <div class="container mx-auto px-4">
-        <h2 class="text-2xl font-bold text-center mb-8 text-black">Why Us?</h2>
+        <h2 class="text-2xl text-center mb-8 text-black">Why Us?</h2>
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="relative flex justify-center">
+          <div class="relative flex mt-20 justify-center">
             <img
               src="../../assets/about-us-1.png"
               alt="Image 1"
-              class="relative z-10 rounded-lg shadow-lg w-3/4"
+              class="z-10 rounded-lg shadow-lg w-3/4"
             />
             <img
               src="../../assets/about-us-2.png"
@@ -26,14 +26,14 @@
             />
           </div>
 
-          <div>
+          <div class="pt-20">
             <p class="text-lg mb-4 text-black">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aperiam ratione
               maiores laudantium? Dolore corporis sed quas laudantium, natus quaerat accusamus
               nostrum tenetur consequatur deleniti, eum molestiae quis mollitia facilis doloribus
               pariatur, molestias quam nihil iusto doloremque sunt veritatis enim.
             </p>
-            <p class="text-[#3AA9D0] md:mt-40">
+            <p class="text-[#3AA9D0] text-sm md:mt-40">
               Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Aenean Pretium Lacinia Nisi
               Nec Iaculis. Aenean Sit Amet Odio Condimentum, Suspendisse Dapibus Finibus Ligula, Sit
               Amet Tincidunt Turpis. Nun.
@@ -45,10 +45,10 @@
 
     <!-- Mission and Vision Section -->
     <section class="py-12 bg-gray-100">
-      <div class="container mx-auto px-4">
+      <div class="container mx-auto px-4">"
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="w-full md:w-1/w">
-            <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Mission</h3>
+          <div class="w-full  text-xl md:w-1/2">
+            <h3 class="font-bold mb-4 text-[#3AA9D0]">Our Mission</h3>
             <p class="text-gray-700 mb-8">
               Müşterilerimizin İhtiyaçlarını Anlamak Ve En Uygun Çözümleri Sunarak İşlerini
               Büyütmelerine Katkıda Bulunmak.

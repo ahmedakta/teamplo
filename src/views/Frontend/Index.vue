@@ -5,6 +5,8 @@
     <HowToUse />
     <!-- <Props :items="items" /> -->
     <Categories :categories="categories" />
+    <OurSuccess />
+    <Clients />
     <Blogs :blogs="blogs" header="Our Latest Blogs" />
   </MainLayout>
 </template>
@@ -17,6 +19,8 @@ import HowToUse from '@/components/Frontend/HowToUse.vue'
 import Hero from '@/components/Frontend/Hero.vue'
 import Props from '@/components/Frontend/Props.vue'
 import Categories from '@/components/Frontend/Categories.vue'
+import OurSuccess from '@/components/Frontend/OurSuccess.vue'
+import Clients from '@/components/Frontend/Clients.vue'
 import Blogs from '@/components/Frontend/Blogs.vue'
 
 const items = ref([

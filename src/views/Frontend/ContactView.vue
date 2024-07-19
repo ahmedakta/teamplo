@@ -2,55 +2,120 @@
   <MainLayout>
    
     <!-- Contact Information Section -->
-    <section class="py-12">
-        <div class="container mx-auto px-4 text-black">
-            <h2 class="text-2xl font-bold text-center mb-8">Get in Touch</h2>
-            <div class="grid md:grid-cols-2 gap-8 ">
-                <!-- Contact Details -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Contact Information</h3>
-                    <p class="mb-4">Feel free to get in touch with us via phone or send us a message using the form.</p>
-                    <p class="mb-2"><strong>Address:</strong> 1234 Street Name, City, Country</p>
-                    <p class="mb-2"><strong>Phone:</strong> (123) 456-7890</p>
-                    <p class="mb-2"><strong>Email:</strong> contact@company.com</p>
-                    <div class="mt-4">
-                        <h4 class="text-lg font-bold mb-2">Follow Us</h4>
-                        <div class="flex space-x-3 text-xl">
-                            <a href="#" class="text-blue-600 hover:text-blue-800"><i class="fab fa-facebook"></i></a>
-                            <a href="#" class="text-blue-400 hover:text-blue-600"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="text-pink-600 hover:text-pink-800"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="text-blue-700 hover:text-blue-900"><i class="fab fa-linkedin"></i></a>
-                        </div>
-                    </div>
+    <section class="py-32">
+      <div class="container mx-auto px-4">
+        <!-- Head Of Page -->
+         <div class="text-center text-gray-500">
+           <h2 class="text-2xl text-center mb-8 text-black font-semibold">Contact Us</h2>
+           <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sit atque, est vel corrupti velit laborum vitae non et adipisci.</p>
+         </div>
+         <!-- Form And Information Section -->
+         <div class="mt-10 grid grid-cols-1 md:grid-cols-12">
+          <!-- Information Section -->
+          <div class="relative col-span-12 md:col-span-5 lg:col-span-5 xl:col-span-5 justify-center bg-[#3AA9D0] text-white p-5 md:p-20">
+
+            <img src="../../assets/contact-us-bg.svg" class="absolute right-0 top-0" alt="">
+            <h1 class="text-4xl">
+              Contact Us
+            </h1>
+            <!-- List Of Contact -->
+            <div class="p-6 rounded-lg relative">
+                <div class="flex py-5 items-center space-x-4">
+                    <img src="../../assets/contact-email.svg" class="rounded-3xl px-5 py-5 text-white bg-[#48afd4]" alt="">
+                  <div>
+                    <h2 class="text-xl font-bold">Contact Us</h2>
+                    <p class=" text-gray-600">
+                      Short information 
+                    </p>
+                  </div>
                 </div>
-                <!-- Contact Form -->
-                <div>
-                    <h3 class="text-xl font-bold mb-4">Send Us a Message</h3>
-                    <form class="bg-white rounded-lg p-8 shadow-md">
-                        <div class="mb-4">
-                            <label for="name" class="block text-gray-700 font-bold mb-2">Name</label>
-                            <input type="text" id="name" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Your Name">
-                        </div>
-                        <div class="mb-4">
-                            <label for="email" class="block text-gray-700 font-bold mb-2">Email</label>
-                            <input type="email" id="email" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Your Email">
-                        </div>
-                        <div class="mb-4">
-                            <label for="subject" class="block text-gray-700 font-bold mb-2">Subject</label>
-                            <input type="text" id="subject" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" placeholder="Subject">
-                        </div>
-                        <div class="mb-4">
-                            <label for="message" class="block text-gray-700 font-bold mb-2">Message</label>
-                            <textarea id="message" class="w-full px-3 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-600" rows="5" placeholder="Your Message"></textarea>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-800">Send Message</button>
-                        </div>
-                    </form>
+                <div class="flex py-5 items-center space-x-4">
+                    <img src="../../assets/contact-phone.svg" class="rounded-3xl px-5 py-5 text-white bg-[#48afd4]" alt="">
+                  <div>
+                    <h2 class="text-xl font-bold">Contact Us</h2>
+                    <p class=" text-gray-600">
+                      Short information 
+                    </p>
+                  </div>
+                </div>
+                <div class="flex py-5 items-center space-x-4">
+                    <img src="../../assets/contact-map.svg" class="rounded-3xl px-5 py-5 text-white bg-[#48afd4]" alt="">
+                  <div>
+                    <h2 class="text-xl font-bold">Contact Us</h2>
+                    <p class=" text-gray-600">
+                      Short information 
+                    </p>
+                  </div>
                 </div>
             </div>
+            <!-- Social Media Links -->
+            <div>
+              <!-- Social media header -->
+              <div class="flex">
+                <div class="border-l-[1px] w-10 border-white h-6 mr-2"></div>
+                <p>Our Social Media</p>
+              </div>
+              <!-- Links -->
+              <div class=" flex justify-start space-x-4 py-4">
+                <a href="">
+                  <font-awesome-icon :icon="['fab', 'facebook-f']" class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-4 px-4 rounded-lg" />
+                </a>
+                <a href="">
+                  <font-awesome-icon :icon="['fab', 'x-twitter']" class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-4 px-4 rounded-lg" />
+                </a>
+                <a href="">
+                  <font-awesome-icon :icon="['fab', 'linkedin']" class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-4 px-4 rounded-lg" />
+                </a>
+                <a href="">
+                  <font-awesome-icon :icon="['fab', 'instagram']" class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-4 px-4 rounded-lg" />
+                </a>
+              </div>
+            </div>
+          </div>
+          <!-- Form Section -->
+          <div class="col-span-12 md:col-span-7 lg:col-span-7 xl:col-span-7 p-5 md:p-20 bg-white">
+            <form>
+                  <!-- Side by side inputs -->
+                  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label for="phone" class="block text-sm font-medium text-gray-700">Name</label>
+                        <input type="text" id="phone" name="phone" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0]  sm:text-sm" placeholder="Full Name">
+                    </div>
+                      <div>
+                          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                          <input type="email" id="email" name="email" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm" placeholder="example@gmail.com">
+                      </div>
+                  </div>
+
+                  <!-- Full-width input -->
+                  <div class="mb-6">
+                      <label for="full-name" class="block text-sm font-medium text-gray-700">Subject</label>
+                      <input type="text" id="full-name" name="full-name" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm" placeholder="Subject">
+                  </div>
+                  <!-- Full-width input -->
+                  <div class="mb-6">
+                      <label for="address" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                      <input type="tel" id="address" name="address" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm" placeholder="Phone Number">
+                  </div>
+                  <!-- Full-width input -->
+                  <div class="mb-6">
+                      <label for="address" class="block text-sm font-medium text-gray-700">Message</label>
+                      <textarea name="" id="" cols="30" rows="5" class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm" placeholder="Write your message.."></textarea>
+                  </div>
+
+                  <!-- Submit button -->
+                  <div>
+                      <button type="submit" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-[#3AA9D0] hover:bg-[#48afd4] focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#48afd4]">
+                          SEND MESSAGE                
+                          <font-awesome-icon class="m-2" :icon="['fa', 'arrow-right']" /> 
+                      </button>
+                  </div>
+              </form>
+          </div>
         </div>
+      </div>
     </section>
+
   </MainLayout>
 </template>
 

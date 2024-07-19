@@ -1,7 +1,7 @@
 <template>
     <div class="bg-white">
         <div class="container mx-auto py-10">
-            <h1 class="text-4xl text-center py-5 font-bold">
+            <h1 class="text-4xl text-center py-5 font-bold text-black">
                 <span class="text-[#3AA9D0] font-bold">Our Clients</span> Who's Loved Teamplo
             </h1>
             <p class="text-center py-5 text-gray-500 max-w-4xl mx-auto">Lorem ipsum dolor sit amet, consectetur
@@ -13,7 +13,7 @@
                 obcaecati
                 dolores iusto ipsa, magnam iste dicta.</p>
             <!-- List The Clients -->
-            <div class="flex flex-wrap justify-center md:justify-between mx-auto py-5 max-w-screen-xl">
+            <div class="flex flex-wrap justify-center md:justify-between mx-auto py-5 max-w-screen-xl text-gray-500">
                 <!-- Client 1  -->
                 <div class="max-w-sm bg-[#FFF9EE] p-5 w-full rounded-xl overflow-hidden shadow-lg m-4">
                     <!-- Client Info  -->

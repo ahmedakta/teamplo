@@ -7,7 +7,7 @@
                     <img src="../../assets/line-horizontal.svg" class="hidden lg:block" />
                 </span>
                 <!-- paragraph -->
-                <p>
+                <p class="text-gray-500">
                     Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, voluptatibus?
                 </p>
                 <!-- the list -->

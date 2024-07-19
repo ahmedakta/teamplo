@@ -1,5 +1,5 @@
 <template>
- <div class="max-w-xs w-full rounded-xl overflow-hidden shadow-lg m-4">
+ <div class="max-w-72 w-full rounded-xl overflow-hidden shadow-lg m-4">
     <img class="w-full h-48 object-cover" :src="blog.image" alt="Blog Image" />
     <div class="px-6 py-4">
       <div class="py-4">

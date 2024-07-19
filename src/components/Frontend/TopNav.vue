@@ -39,8 +39,12 @@
           <option value="">AR</option>
         </select>
         <div v-if="userStore.id" class="px-4">
-          <img :src="'./src/assets/' + userStore.image" alt="" class="border-2 border-gray-400 rounded-xl"
-            width="40rem" />
+          <RouterLink
+          to="/dashboard"
+          >
+            <img :src="'./src/assets/' + userStore.image" alt="" class="border-2 border-gray-400 rounded-xl"
+              width="40rem" />
+          </RouterLink>
         </div>
       </div>
     </div>

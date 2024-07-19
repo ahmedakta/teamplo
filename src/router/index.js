@@ -21,6 +21,11 @@ import DepartmentsView from '@/views/Backend/DepartmentsView.vue'
 
 const ifAuthenticated = (to, from, next) => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
+  // content manager dashboard redirect
+  if(to.path == '/dashboard' && storedUserInfo.role_id == 3)
+  {
+    router.push('/content-creator/dashboard')
+  }
   // check first if there is required role for this page....
   if (to.meta.roles) {
     if (storedUserInfo && !to.meta.roles.includes(storedUserInfo.role_id)) {

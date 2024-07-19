@@ -1,0 +1,31 @@
+<template>
+    <MainLayout>
+      <div class="container max-w-[7xl] mx-auto flex flex-wrap justify-between">
+        <!-- KPI cards -->
+        <div class="flex flex-wrap justify-between mb-5">
+          <!-- KPI Card 1 -->
+          <div
+            class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-gray-700 text-sm">Total Pages:</span>
+              <span class="text-gray-700 text-sm">0</span>
+            </div>
+          </div>
+          <div
+            class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
+          >
+            <div class="flex items-center justify-between">
+              <span class="text-gray-700 text-sm">Total Categories:</span>
+              <span class="text-gray-700 text-sm">0</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </MainLayout>
+  </template>
+  
+  <script setup>
+  import MainLayout from '@/layouts/Backend/MainLayout.vue'
+  </script>
+  

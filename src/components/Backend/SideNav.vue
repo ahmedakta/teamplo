@@ -122,29 +122,29 @@
         <font-awesome-icon :icon="['fa', 'comment']" />
         Chats
       </RouterLink>
-      <!-- Content Creator ROutes -->
+      <!-- Content Creator Routes -->
        <div 
        v-if="userStore.role_id == 3"
        >
         <RouterLink
-          to="/chats"
-          :class="{ active: $route.path === '/chats' }"
+          to="/content-creator/dashboard"
+          :class="{ active: $route.path === '/content-creator/dashboard' }"
           class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
         >
           <font-awesome-icon :icon="['fa', 'chart-simple']" />
           KPI
         </RouterLink>
         <RouterLink
-          to="/chats"
-          :class="{ active: $route.path === '/chats' }"
+          to="/content-creator/pages"
+          :class="{ active: $route.path === '/content-creator/pages' }"
           class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
         >
           <font-awesome-icon :icon="['fa', 'file']" />
           Pages
         </RouterLink>
         <RouterLink
-          to="/chats"
-          :class="{ active: $route.path === '/chats' }"
+          to="/content-creator/categories"
+          :class="{ active: $route.path === '/content-creator/categories' }"
           class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
         >
           <font-awesome-icon :icon="['fa', 'list']" />

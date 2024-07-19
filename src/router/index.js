@@ -16,7 +16,9 @@ import LoginView from '@/views/Frontend/LoginView.vue'
 import ContactView from '@/views/Frontend/ContactView.vue'
 import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
-import ContentCreator from '@/views/Backend/ContentCreator.vue'
+import ContentCreator from '@/views/Backend/Contents/ContentsKpi.vue'
+import ContentsView from '@/views/Backend/Contents/ContentsView.vue'
+import CategoriesView from '@/views/Backend/Contents/CategoriesView.vue'
 import DepartmentsView from '@/views/Backend/DepartmentsView.vue'
 
 const ifAuthenticated = (to, from, next) => {
@@ -25,6 +27,7 @@ const ifAuthenticated = (to, from, next) => {
   if(to.path == '/dashboard' && storedUserInfo.role_id == 3)
   {
     router.push('/content-creator/dashboard')
+    return
   }
   // check first if there is required role for this page....
   if (to.meta.roles) {
@@ -71,10 +74,25 @@ const router = createRouter({
     },
     // End Of Frontend Pages Routes
     // Backend Routes
+    // content creator routes
     {
       path: '/content-creator/dashboard',
       name: 'backend.contentCreator',
       component: ContentCreator,
+      meta: { roles: [1, 3] },
+      beforeEnter: ifAuthenticated // Check if user logged in to enter this page
+    },
+    {
+      path: '/content-creator/pages',
+      name: 'backend.contentCreator.pages',
+      component: ContentsView,
+      meta: { roles: [1, 3] },
+      beforeEnter: ifAuthenticated // Check if user logged in to enter this page
+    },
+    {
+      path: '/content-creator/categories',
+      name: 'backend.contentCreator.categories',
+      component: CategoriesView,
       meta: { roles: [1, 3] },
       beforeEnter: ifAuthenticated // Check if user logged in to enter this page
     },

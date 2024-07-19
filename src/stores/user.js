@@ -70,7 +70,9 @@ export const useUserStore = defineStore('user', {
       }
       return false
     },
-
+    hasPermission($permission) {
+      // todo
+    },
     async logout() {
       try {
         await axios.post('/logout')

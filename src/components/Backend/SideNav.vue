@@ -38,6 +38,7 @@
     <nav id="sidenav" class="mt-6 text-[1.1rem] text-gray-500">
       <RouterLink
         to="/dashboard"
+        v-if="userStore.role_id == 1"
         :class="{ active: $route.path === '/dashboard' }"
         class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
@@ -45,6 +46,7 @@
         Dashboard
       </RouterLink>
       <button
+        v-if="userStore.role_id == 1"
         @click="dropdownOpen = !dropdownOpen"
         class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
@@ -77,6 +79,7 @@
         </RouterLink>
       </div>
       <RouterLink
+        v-if="userStore.role_id == 1"
         to="/projects"
         :class="{ active: $route.path === '/projects' }"
         class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
@@ -85,6 +88,7 @@
         Projects
       </RouterLink>
       <RouterLink
+        v-if="userStore.role_id == 1"
         to="/departments"
         :class="{ active: $route.path === '/departments' }"
         class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
@@ -101,6 +105,7 @@
         Tasks
       </RouterLink> -->
       <RouterLink
+        v-if="userStore.role_id == 1"
         to="/events"
         :class="{ active: $route.path === '/events' }"
         class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
@@ -109,6 +114,7 @@
         Events
       </RouterLink>
       <RouterLink
+        v-if="userStore.role_id == 1"
         to="/chats"
         :class="{ active: $route.path === '/chats' }"
         class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
@@ -116,6 +122,35 @@
         <font-awesome-icon :icon="['fa', 'comment']" />
         Chats
       </RouterLink>
+      <!-- Content Creator ROutes -->
+       <div 
+       v-if="userStore.role_id == 3"
+       >
+        <RouterLink
+          to="/chats"
+          :class="{ active: $route.path === '/chats' }"
+          class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        >
+          <font-awesome-icon :icon="['fa', 'chart-simple']" />
+          KPI
+        </RouterLink>
+        <RouterLink
+          to="/chats"
+          :class="{ active: $route.path === '/chats' }"
+          class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        >
+          <font-awesome-icon :icon="['fa', 'file']" />
+          Pages
+        </RouterLink>
+        <RouterLink
+          to="/chats"
+          :class="{ active: $route.path === '/chats' }"
+          class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        >
+          <font-awesome-icon :icon="['fa', 'list']" />
+          Categories
+        </RouterLink>
+      </div>
       <button @click="toggleButton" class="text-black px-4 py-2 rounded mb-4 w-full md:hidden">Toggle Sidenav</button>
     </nav>
   </div>

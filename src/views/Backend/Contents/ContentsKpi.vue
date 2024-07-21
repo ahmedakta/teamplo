@@ -9,7 +9,7 @@
         >
           <div class="flex items-center justify-between">
             <span class="text-gray-700 text-sm">Total Pages:</span>
-            <span class="text-gray-700 text-sm">0</span>
+            <span class="text-gray-700 text-sm">{{ data.content_count }}</span>
           </div>
         </div>
         <div
@@ -17,7 +17,7 @@
         >
           <div class="flex items-center justify-between">
             <span class="text-gray-700 text-sm">Total Categories:</span>
-            <span class="text-gray-700 text-sm">0</span>
+            <span class="text-gray-700 text-sm">{{ data.category_count }}</span>
           </div>
         </div>
       </div>
@@ -27,4 +27,17 @@
 
 <script setup>
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
+import { onMounted, ref } from 'vue'
+import { useGeneralStore } from '@/stores/general'
+const generalStore = useGeneralStore()
+const data = ref([])
+onMounted(() => {
+  try {
+    generalStore.makeRequest('/api/content-creator/dashboard').then(() => {
+      data.value = generalStore.data
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
 </script>

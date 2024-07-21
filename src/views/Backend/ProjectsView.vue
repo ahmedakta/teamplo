@@ -55,7 +55,7 @@
         <span class="mr-2"> {{ key }} : {{ param }}</span>
         {{ generalStore.filterParams }}
         <button
-          @click="generalStore.filterParams.splice(key , 1)"
+          @click="generalStore.filterParams.splice(key, 1)"
           class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
         >
           x

@@ -1,6 +1,45 @@
 <template>
   <MainLayout>
     <div class="container max-w-[7xl] mx-auto flex flex-wrap justify-between">
+      <div
+        class="container w-full md:flex justify-between items-center flex-wrap gap-4 font-semibold"
+      >
+        <div class="mb-5 rounded-xl w-full md:w-auto">You Can put something here</div>
+        <!-- Filter Section -->
+        <div class="mb-5 relative w-full md:w-auto">
+          <ul
+            v-if="isOpen"
+            class="absolute left-0 mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10"
+          >
+            <li v-for="col in cols" :key="col.field">
+              <label
+                class="flex items-center gap-2 w-full cursor-pointer text-gray-600 hover:text-black"
+              >
+                <input
+                  type="checkbox"
+                  class="form-checkbox"
+                  :checked="!col.hide"
+                  @change="col.hide = !$event.target.checked"
+                />
+                <span>{{ col.title }}</span>
+              </label>
+            </li>
+          </ul>
+          <RouterLink
+            to="/project/create"
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
+          >
+            Add Content <font-awesome-icon :icon="['fa', 'plus']" />
+          </RouterLink>
+          <button
+            type="button"
+            @click="generalStore.openModal('filterModal')"
+            class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
+          >
+            <font-awesome-icon :icon="['fa', 'filter']" />
+          </button>
+        </div>
+      </div>
       <vue3-datatable
         ref="datatable"
         skin="bh-table-striped bh-table-hover bh-table-bordered bh-table-compact"
@@ -30,13 +69,16 @@
         <!-- actions -->
         <template #actions="data">
           <div class="flex gap-4">
-            <button
-              type="button"
+            <!-- TODO : MAKE ALL ROUTER LINKS LIKE THIS ONE :::: {name , params ...} -->
+            <RouterLink
+              :to="{
+                name: 'backend.contentCreator.content.view',
+                params: { slug: data.value.slug }
+              }"
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="viewContent(data.value.slug)"
             >
               <font-awesome-icon :icon="['fas', 'eye']" />
-            </button>
+            </RouterLink>
             <Button
               type="button"
               class="bg-red-500 text-white font-bold py-2 px-3 border-b-4 border-teds-700 hover:red-blue-500 rounded !py-1"

@@ -18,6 +18,7 @@ import FaqView from '@/views/Frontend/FaqView.vue'
 import { useUserStore } from '@/stores/user'
 import ContentCreator from '@/views/Backend/Contents/ContentsKpi.vue'
 import ContentsView from '@/views/Backend/Contents/ContentsView.vue'
+import ContentView from '@/views/Backend/Contents/ContentView.vue'
 import CategoriesView from '@/views/Backend/Contents/CategoriesView.vue'
 import DepartmentsView from '@/views/Backend/DepartmentsView.vue'
 
@@ -95,6 +96,13 @@ const router = createRouter({
       component: CategoriesView,
       meta: { roles: [1, 3] },
       beforeEnter: ifAuthenticated // Check if user logged in to enter this page
+    },
+    {
+      path: '/content-creator/content/:slug',
+      name: 'backend.contentCreator.content.view',
+      meta: { roles: [1 , 3] },
+      component: ContentView,
+      beforeEnter: ifAuthenticated
     },
     {
       path: '/dashboard',

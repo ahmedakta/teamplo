@@ -13,7 +13,8 @@
         <div class="w-full md:w-1/2 text-center md:px-40">
           <h1 class="text-2xl font-bold text-left">Manage Users.</h1>
           <p class="mx-auto text-xl text-gray-500 text-left pt-10 mb-10">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, minus quo commodi voluptatem
+            At Teamplo, we understand the challenges of managing a dynamic and diverse team. Our platform is designed to
+            streamline your team management processes, ensuring efficiency, productivity, and collaboration.
           </p>
           <a class="bg-[#3AA9D0] text-white p-3 rounded px-20" href="#">More Information</a>
         </div>

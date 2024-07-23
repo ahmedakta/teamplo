@@ -7,15 +7,19 @@
                     <img src="../../assets/line-horizontal.svg" class="hidden lg:block" />
                 </span>
                 <!-- paragraph -->
-                <p class="text-gray-500">
-                    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Unde, voluptatibus?
+                <p>
+                    Our track record speaks for itself. Teamplo has helped numerous organizations realize their full
+                    potential. Here are some of our notable successes:
                 </p>
                 <!-- the list -->
                 <div class="py-10 text-xl">
                     <ul>
                         <li class="flex py-2">
                             <img src="../../assets/our-success-smile.svg" alt="">
-                            <p class="py-3 px-4 text-black font-semibold">Lorem ipsum dolor sit amet.</p>
+                            <p class="py-3 px-4 text-black font-semibold">Improved Efficiency: Our clients have reported
+                                a 30% increase in team efficiency, thanks to our intuitive project management tools and
+                                user-friendly interface.
+                            </p>
                         </li>
                         <li class="flex py-2">
                             <img src="../../assets/our-success-calendar.svg" alt="">

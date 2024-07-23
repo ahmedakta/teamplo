@@ -33,7 +33,7 @@
               nostrum tenetur consequatur deleniti, eum molestiae quis mollitia facilis doloribus
               pariatur, molestias quam nihil iusto doloremque sunt veritatis enim.
             </p>
-            <p class="text-[#3AA9D0] text-sm md:mt-40">
+            <p class="text-[#3AA9D0] md:mt-40">
               Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Aenean Pretium Lacinia Nisi
               Nec Iaculis. Aenean Sit Amet Odio Condimentum, Suspendisse Dapibus Finibus Ligula, Sit
               Amet Tincidunt Turpis. Nun.
@@ -45,18 +45,24 @@
 
     <!-- Mission and Vision Section -->
     <section class="py-12 bg-gray-100">
-      <div class="container mx-auto px-4">"
+      <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-8">
-          <div class="w-full  text-xl md:w-1/2">
-            <h3 class="font-bold mb-4 text-[#3AA9D0]">Our Mission</h3>
+          <div class="w-full md:w-1/w">
+            <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Mission</h3>
             <p class="text-gray-700 mb-8">
-              Müşterilerimizin İhtiyaçlarını Anlamak Ve En Uygun Çözümleri Sunarak İşlerini
-              Büyütmelerine Katkıda Bulunmak.
+              At Teamplo, our mission is to empower companies of all sizes with a single, unified platform that
+              simplifies and enhances their management processes. We understand that running a business involves
+              juggling numerous tasks, from project management and team collaboration to financial tracking and customer
+              relations. Our goal is to bring all these functions together in one seamless platform, allowing businesses
+              to operate more efficiently and effectively.
             </p>
             <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Vision</h3>
             <p class="text-gray-700 mb-8">
-              Sektörde Lider Bir Konumda Olmak Ve Müşterilerimize Değer Yaratan Çözümler Sunarak
-              Sürekli Büyümek.
+              Our vision is to make Teamplo the most trusted and comprehensive business management software in the
+              market. We are committed to continuous improvement and innovation, ensuring our platform evolves to meet
+              the changing needs of businesses. By integrating advanced artificial intelligence capabilities, we aim to
+              provide tools that not only streamline operations but also offer insights and optimizations that drive
+              growth and success.
             </p>
           </div>
           <div class="flex w-1/2">
@@ -77,81 +83,58 @@
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img
-                src="../../assets/about-us-vector-1.svg"
-                alt="Image 3"
-                class="h-6 w-6 text-white"
-              />
+              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
             </div>
             <!-- Card content -->
-            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <h4 class="text-xl font-bold mb-4">All-in-One Solution</h4>
             <p>
-              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
-              Hedefliyoruz.
+              Manage your projects, teams, finances, and customer relationships all in one place.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img
-                src="../../assets/about-us-vector-1.svg"
-                alt="Image 3"
-                class="h-6 w-6 text-white"
-              />
+              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
             </div>
             <!-- Card content -->
-            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <h4 class="text-xl font-bold mb-4">User-Friendly Interface</h4>
             <p>
-              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
-              Hedefliyoruz.
+              Our platform is designed to be intuitive and easy to use, ensuring that all team members can get up to
+              speed quickly.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img
-                src="../../assets/about-us-vector-1.svg"
-                alt="Image 3"
-                class="h-6 w-6 text-white"
-              />
+              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
             </div>
             <!-- Card content -->
-            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <h4 class="text-xl font-bold mb-4">Customizable Features</h4>
             <p>
-              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
-              Hedefliyoruz.
+              Tailor the platform to suit your specific business needs, with customizable workflows and integrations.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img
-                src="../../assets/about-us-vector-1.svg"
-                alt="Image 3"
-                class="h-6 w-6 text-white"
-              />
+              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
             </div>
             <!-- Card content -->
-            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <h4 class="text-xl font-bold mb-4">Real-Time Analytics</h4>
             <p>
-              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
-              Hedefliyoruz.
+              Gain valuable insights into your operations with our real-time analytics and reporting tools.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img
-                src="../../assets/about-us-vector-1.svg"
-                alt="Image 3"
-                class="h-6 w-6 text-white"
-              />
+              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
             </div>
             <!-- Card content -->
-            <h4 class="text-xl font-bold mb-4">İnovasyon Ve Sürekli Gelişme</h4>
+            <h4 class="text-xl font-bold mb-4">AI-Driven Efficiency</h4>
             <p>
-              Sürekli Olarak Kendimizi Geliştirerek Müşterilerimize En İyi Hizmeti Sunmayı
-              Hedefliyoruz.
+              Leverage artificial intelligence to automate routine tasks, identify trends, and make data-driven
+              decisions.
             </p>
           </div>
         </div>

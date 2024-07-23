@@ -6,7 +6,7 @@
           class="font-montserrat max-w-2xl text-black mb-10 text-2xl font-semibold leading-none tracking-tight md:text-4xl xl:text-5xl">
           Manage Companies from A to Z: All Business Processes on a
           <span class="text-[#3aa9D0] font-semibold">Single Platform!
-            <img src="../../assets/line-horizontal.svg" class="mx-auto hidden lg:block" />
+            <img src="../../assets/line-horizontal.svg" class="mx-auto lg:block" />
           </span>
         </h1>
 
@@ -26,7 +26,7 @@
       /> -->
       <img src="../../assets/dashboard-v1.png" class="w-full h-auto" />
       <img src="../../assets/privacy.png" class="hidden lg:block absolute top-0 right-0 w-100 h-120" />
-      <img src="../../assets/star.svg" class="hidden lg:block absolute top-0 left-0 w-100 h-120" />
+      <img src="../../assets/star.svg" class="lg:block absolute top-0 left-0 w-100 h-120" />
       <img src="../../assets/rate.svg" class="hidden lg:block absolute left-[-2rem] bottom-20 w-140 h-150" />
       <img src="../../assets/line-vertical.svg"
         class="hidden lg:block absolute right-[-2rem] bottom-[15rem] w-150 h-150" />

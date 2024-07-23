@@ -15,6 +15,8 @@ import FeaturesView from '@/views/Frontend/FeaturesView.vue'
 import LoginView from '@/views/Frontend/LoginView.vue'
 import ContactView from '@/views/Frontend/ContactView.vue'
 import FaqView from '@/views/Frontend/FaqView.vue'
+import BlogsView from '@/views/Frontend/BlogsView.vue'
+import BlogView from '@/views/Frontend/BlogView.vue'
 import { useUserStore } from '@/stores/user'
 import ContentCreator from '@/views/Backend/Contents/ContentsKpi.vue'
 import ContentsView from '@/views/Backend/Contents/ContentsView.vue'
@@ -25,8 +27,7 @@ import DepartmentsView from '@/views/Backend/DepartmentsView.vue'
 const ifAuthenticated = (to, from, next) => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
   // content manager dashboard redirect
-  if(to.path == '/dashboard' && storedUserInfo.role_id == 3)
-  {
+  if (to.path == '/dashboard' && storedUserInfo.role_id == 3) {
     router.push('/content-creator/dashboard')
     return
   }
@@ -73,6 +74,16 @@ const router = createRouter({
       name: 'frontend.faq',
       component: FaqView
     },
+    {
+      path: '/blogs',
+      name: 'frontend.blogs',
+      component: BlogsView
+    },
+    {
+      path: '/blogs/example-blog',
+      name: 'frontend.blogs.view',
+      component: BlogView
+    },
     // End Of Frontend Pages Routes
     // Backend Routes
     // content creator routes
@@ -100,7 +111,7 @@ const router = createRouter({
     {
       path: '/content-creator/content/:slug',
       name: 'backend.contentCreator.content.view',
-      meta: { roles: [1 , 3] },
+      meta: { roles: [1, 3] },
       component: ContentView,
       beforeEnter: ifAuthenticated
     },

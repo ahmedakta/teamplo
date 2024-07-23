@@ -10,25 +10,50 @@
       </div>
       <!-- Navigation links in the center -->
       <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
-        <a class="font-montserrat mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/' }" href="/">Home</a>
-        <a class="font-montserrat mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/about-us' }"
-          href="/about-us">About
-          Us</a>
-        <a class="font-montserrat mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/features' }"
-          href="/features">Features</a>
-        <a class="font-montserrat mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/contact-us' }"
-          href="/contact-us">Contact Us</a>
-        <a class="font-montserrat mx-4 hover:text-[#5dade2]" :class="{ active: $route.path === '/faq' }"
-          href="/faq">FAQ</a>
-        <a href="#" class="mx-4 hover:text-[#5dade2]" @click="logout()" v-if="userStore.id">logout</a>
+        <a
+          class="font-montserrat mx-4 hover:text-[#5dade2]"
+          :class="{ active: $route.path === '/' }"
+          href="/"
+          >Home</a
+        >
+        <a
+          class="font-montserrat mx-4 hover:text-[#5dade2]"
+          :class="{ active: $route.path === '/about-us' }"
+          href="/about-us"
+          >About Us</a
+        >
+        <a
+          class="font-montserrat mx-4 hover:text-[#5dade2]"
+          :class="{ active: $route.path === '/features' }"
+          href="/features"
+          >Features</a
+        >
+        <a
+          class="font-montserrat mx-4 hover:text-[#5dade2]"
+          :class="{ active: $route.path === '/blogs' }"
+          href="/blogs"
+          >Blogs</a
+        >
+        <a
+          class="font-montserrat mx-4 hover:text-[#5dade2]"
+          :class="{ active: $route.path === '/contact-us' }"
+          href="/contact-us"
+          >Contact Us</a
+        >
+        <a href="#" class="mx-4 hover:text-[#5dade2]" @click="logout()" v-if="userStore.id"
+          >logout</a
+        >
       </nav>
       <!-- Login button on the right -->
       <div class="flex flex-shrink-0 text-center">
         <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
           Log in
         </a>
-        <button v-if="!userStore.id" class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
-          @click="($event) => (generalStore.isLoginOpen = true)">
+        <button
+          v-if="!userStore.id"
+          class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
+          @click="($event) => (generalStore.isLoginOpen = true)"
+        >
           <font-awesome-icon :icon="['fas', 'arrow-right']" />
           Get Started
         </button>
@@ -39,12 +64,12 @@
           <option value="">AR</option>
         </select>
         <div v-if="userStore.id" class="px-4">
-          <RouterLink
-          to="/dashboard"
-          >
-            <img :src="'./src/assets/' + userStore.image" alt="" class="border-2 border-gray-400 rounded-xl"
-              width="40rem" />
-          </RouterLink>
+          <img
+            :src="'/src/assets/' + userStore.image"
+            alt=""
+            class="border-2 border-gray-400 rounded-xl"
+            width="40rem"
+          />
         </div>
       </div>
     </div>

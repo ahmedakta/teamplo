@@ -1,17 +1,42 @@
 <template>
- <div class="max-w-72 w-full rounded-xl overflow-hidden shadow-lg m-4">
-    <img class="w-full h-48 object-cover" :src="blog.image" alt="Blog Image" />
-    <div class="px-6 py-4">
-      <div class="py-4">
-        <span
-          class="inline-block text-gray-500 rounded-full py-1 text-sm font-semibold text-gray-700 mr-2"
-        >
-          {{ blog.created_at }}
+  <div class="max-w-xs w-full rounded-xl overflow-hidden shadow-lg m-4">
+    <div class="relative w-full h-48">
+      <img class="w-full h-full object-cover" :src="blog.image" alt="Blog Image" />
+      <div class="absolute top-2 right-2 py-1 px-2 text-white bg-gray-400 rounded-lg">
+        <!-- Heart Icon -->
+        <a href="#">
+          <font-awesome-icon :icon="['fa-regular', 'heart']" />
+        </a>
+      </div>
+      <div class="absolute bottom-2 right-2 bg-opacity-75 px-2 py-1 rounded">
+        <!-- Ratings -->
+        <span class="text-yellow-400 text-sm font-semibold">
+          <font-awesome-icon :icon="['fa', 'star']" />
+          3.9
         </span>
       </div>
-      <a class="text-black text-base" href="#">
+    </div>
+    <div class="px-6 py-4">
+      <a class="text-black text-base" href="/blogs/example-blog">
         {{ blog.header }}
       </a>
+      <!-- Reading time -->
+      <div class="mt-5 py-4 ">
+        <p class="flex justify-between">
+        <div>
+          <font-awesome-icon :icon="['fa-regular', 'clock']" />
+          {{ blog.reading_time }}
+        </div>
+        <div>
+          {{ blog.created_at }}
+        </div>
+        </p>
+        <hr class=" border-gray-300">
+      </div>
+      <!-- Button -->
+      <button class="text-white ml-1 py-2 px-4 w-full rounded bg-[#3AA9D0]">
+        Read More
+      </button>
     </div>
   </div>
 </template>

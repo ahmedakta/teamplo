@@ -86,29 +86,33 @@ const blogs = ref([
     id: 1,
     header:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
-    image: 'assets/blogs/blog1.png',
-    created_at: '27 APRIL 2024'
+    image: '/src/assets/blogs/blog1.png',
+    created_at: '27 APRIL 2024',
+    reading_time: '10 min'
   },
   {
     id: 2,
     header:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
-    image: 'assets/blogs/blog2.png',
-    created_at: '27 APRIL 2024'
+    image: '/src/assets/blogs/blog2.png',
+    created_at: '27 APRIL 2024',
+    reading_time: '10 min'
   },
   {
     id: 3,
     header:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
-    image: 'assets/blogs/blog3.png',
-    created_at: '27 APRIL 2024'
+    image: '/src/assets/blogs/blog3.png',
+    created_at: '27 APRIL 2024',
+    reading_time: '10 min'
   },
   {
     id: 4,
     header:
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been',
-    image: 'assets/blogs/blog4.png',
-    created_at: '27 APRIL 2024'
+    image: '/src/assets/blogs/blog4.png',
+    created_at: '27 APRIL 2024',
+    reading_time: '10 min'
   }
 ])
 </script>

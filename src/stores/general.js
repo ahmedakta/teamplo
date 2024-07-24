@@ -97,7 +97,7 @@ export const useGeneralStore = defineStore('general', {
           showCancelButton: true,
           confirmButtonText: 'Logout',
           denyButtonText: 'Cancel'
-        }).then((result) => {
+        }).then(result => {
           /* Read more about isConfirmed, isDenied below */
           if (result) {
             try {
@@ -133,12 +133,12 @@ export const useGeneralStore = defineStore('general', {
     },
     hasSessionExpired() {
       axios.interceptors.response.use(
-        (response) => {
+        response => {
           console.log(response)
           // Call was successful, continue.
           return response
         },
-        (error) => {
+        error => {
           switch (error.response.status) {
             case 401: // Not logged in
             case 419: // Session expired
@@ -198,6 +198,10 @@ export const useGeneralStore = defineStore('general', {
       if (modal == 'assignUserModal') {
         // console.log(params.department_id)
         this.projectStore.fetchAssignmentUsers(params)
+      }
+      if (this.currentModal != null) {
+        this.closeModal()
+        return
       }
       this.currentModal = modal
     },

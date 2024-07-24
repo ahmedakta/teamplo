@@ -23,6 +23,7 @@ import ContentsView from '@/views/Backend/Contents/ContentsView.vue'
 import ContentView from '@/views/Backend/Contents/ContentView.vue'
 import CategoriesView from '@/views/Backend/Contents/CategoriesView.vue'
 import DepartmentsView from '@/views/Backend/DepartmentsView.vue'
+import WhyUsView from '@/views/Frontend/WhyUsView.vue'
 
 const ifAuthenticated = (to, from, next) => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
@@ -83,6 +84,11 @@ const router = createRouter({
       path: '/blogs/example-blog',
       name: 'frontend.blogs.view',
       component: BlogView
+    },
+    {
+      path: '/why-us',
+      name: 'frontend.whyUs',
+      component: WhyUsView
     },
     // End Of Frontend Pages Routes
     // Backend Routes

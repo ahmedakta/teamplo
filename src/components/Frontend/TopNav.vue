@@ -48,7 +48,7 @@
         >
         <div class="relative">
           <button
-            @click="generalStore.openModal('topnavMenu')"
+            @mouseover="generalStore.openModal('topnavMenu')"
             class="flex flex-row items-center w-full px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           >
             Use Cases
@@ -65,6 +65,7 @@
             </svg>
           </button>
           <div
+            @mouseleave="generalStore.closeModal()"
             v-show="generalStore.currentModal == 'topnavMenu'"
             x-transition:enter="transition ease-out duration-100"
             x-transition:enter-start="transform opacity-0 scale-95"

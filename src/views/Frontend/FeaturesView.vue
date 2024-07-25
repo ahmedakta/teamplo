@@ -3,12 +3,12 @@
     <!-- Features Section -->
     <section class="py-32 h-full">
       <div class="container mx-auto px-4 text-black">
-        <div class="grid md:grid-cols-2 gap-8 h-24 mb-10">
+        <div class="grid md:grid-cols-2 gap-8 h-24 md:mb-10 mb-20">
           <div>
-            <h3 class="text-4xl font-bold">Features</h3>
+            <h3 class="text-4xl md:text-left text-center font-bold">Features</h3>
           </div>
           <div>
-            <h3 class="mb-4">
+            <h3 class="mb-4 text-center text-gray-500">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis facilis placeat
               praesentium eius commodi alias harum molestiae exercitationem similique magni?
             </h3>
@@ -21,7 +21,7 @@
           </div>
           <!-- Feature List -->
           <div class="mt-auto mb-auto">
-            <h3 class="text-3xl text-left font-bold mb-4">Departments and projects managment</h3>
+            <h3 class="text-3xl text-center md:text-left font-bold mb-4">Departments and projects managment</h3>
             <ul>
               <li>
                 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
@@ -32,7 +32,7 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
+            <button class="text-white ml-1 py-2 px-12 m-4 w-full rounded bg-[#3AA9D0]">
               Contact Us
               <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </button>
@@ -40,11 +40,12 @@
         </div>
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
           <!-- Feature List -->
-          <div class="mt-auto mb-auto">
-            <h3 class="text-3xl text-left font-bold mb-4">Departments and projects managment</h3>
+          <div class="mt-auto mb-auto order-2 md:order-1">
+            <h3 class="text-3xl md:text-left text-center font-bold mb-4">Departments and projects managment
+            </h3>
             <ul>
               <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
+                - Lorem ipsum dolor sit amet consectetur ad1ipisicing elit. Quasi beatae explicabo
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
               <li>
@@ -52,24 +53,24 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
+            <button class="text-white w-full ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
               Contact Us
               <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </button>
           </div>
           <!-- Feature Image -->
-          <div class="w-full">
+          <div class="w-full order-1 md:order-2">
             <img src="../../assets/feature-2.png" class="rounded-xl" width="100%" alt="" />
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
           <!-- Feature Image -->
-          <div class="w-full">
+          <div class="w-full order-1 md:order-2">
             <img src="../../assets/features-3.png" class="rounded-xl" width="100%" alt="" />
           </div>
           <!-- Feature List -->
-          <div class="mt-auto mb-auto">
-            <h3 class="text-3xl text-left font-bold mb-4">Departments and projects managment</h3>
+          <div class="mt-auto mb-auto order-1 md:order-2">
+            <h3 class="text-3xl text-left font-bold mb-4">Departments1 and projects managment</h3>
             <ul>
               <li>
                 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
@@ -80,7 +81,7 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
+            <button class="text-white w-full ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
               Contact Us
               <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </button>
@@ -88,7 +89,7 @@
         </div>
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
           <!-- Feature List -->
-          <div class="mt-auto mb-auto">
+          <div class="mt-auto mb-auto order-2 md:order-1">
             <h3 class="text-3xl text-left font-bold mb-4">Departments and projects managment</h3>
             <ul>
               <li>
@@ -100,13 +101,13 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
+            <button class="text-white w-full ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
               Contact Us
               <font-awesome-icon :icon="['fas', 'arrow-right']" />
             </button>
           </div>
           <!-- Feature Image -->
-          <div class="w-full">
+          <div class="w-full order-1 md:order-2">
             <img src="../../assets/features-4.png" class="rounded-xl" width="100%" alt="" />
           </div>
         </div>

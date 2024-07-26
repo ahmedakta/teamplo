@@ -2,16 +2,16 @@
   <div class="bg-white pt-20 pb-20 mt-10 text-black">
     <div class="container mx-auto">
       <div class="justify-between items-center">
-        <h2 class="text-3xl font-bold mb-4">
+        <h2 class="text-2xl md:text-3xl font-bold mb-4 md:text-left text-center">
           See How To Use <span class="text-[#3aa9D0] font-semibold">Teamplo</span>
         </h2>
       </div>
-      <div class="flex flex-wrap">
+      <div class="flex flex-wrap p-10">
         <div class="w-full md:w-1/2 p-4">
           <img src="../../assets/dashboard-v1.png" alt="" />
         </div>
-        <div class="w-full md:w-1/2 text-center md:px-40">
-          <h1 class="text-2xl font-bold text-left">Manage Users.</h1>
+        <div class="w-full md:w-1/2 text-center md:px-40 ">
+          <h1 class="text-2xl font-bold md:text-left">Manage Users</h1>
           <p class="mx-auto text-xl text-gray-500 text-left pt-10 mb-10">
             At Teamplo, we understand the challenges of managing a dynamic and diverse team. Our platform is designed to
             streamline your team management processes, ensuring efficiency, productivity, and collaboration.

@@ -1,10 +1,10 @@
 <template>
     <div class="bg-white">
         <div class="container mx-auto py-10">
-            <h1 class="text-4xl text-center py-5 font-bold">
+            <h1 class="md:text-4xl text-3xl text-center py-5 font-bold">
                 <span class="text-[#3AA9D0] font-bold">Our Clients</span> Who's Loved Teamplo
             </h1>
-            <p class="text-center py-5 text-gray-500 max-w-4xl mx-auto">
+            <p class="text-center py-5 text-gray-500 max-w-4xl mx-auto px-5">
                 We are proud to have a diverse and satisfied client base. Here are just a few of the many organizations
                 that have benefited from Teamplo:
             </p>

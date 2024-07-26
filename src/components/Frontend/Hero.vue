@@ -3,7 +3,7 @@
     <div class="text-center justify-center max-w-screen-xl px-4 pt-20 pb-8 mx-auto lg:pt-28">
       <div class="mr-auto place-self-center lg:col-span-7">
         <h1
-          class="font-montserrat max-w-2xl text-black mb-10 text-2xl font-semibold leading-none tracking-tight md:text-4xl xl:text-5xl">
+          class="font-montserrat max-w-2xl text-black mb-10 text-3xl font-semibold leading-none tracking-tight md:text-4xl xl:text-5xl">
           Manage Companies from A to Z: All Business Processes on a
           <span class="text-[#3aa9D0] font-semibold">Single Platform!
             <img src="../../assets/line-horizontal.svg" class="mx-auto lg:block" />

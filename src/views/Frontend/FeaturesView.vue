@@ -21,7 +21,9 @@
           </div>
           <!-- Feature List -->
           <div class="mt-auto mb-auto">
-            <h3 class="text-3xl text-center md:text-left font-bold mb-4">Departments and projects managment</h3>
+            <h3 class="text-3xl text-center md:text-left font-bold mb-4">
+              Departments and projects managment
+            </h3>
             <ul>
               <li>
                 - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
@@ -41,7 +43,8 @@
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
           <!-- Feature List -->
           <div class="mt-auto mb-auto order-2 md:order-1">
-            <h3 class="text-3xl md:text-left text-center font-bold mb-4">Departments and projects managment
+            <h3 class="text-3xl md:text-left text-center font-bold mb-4">
+              Departments and projects managment
             </h3>
             <ul>
               <li>

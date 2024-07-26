@@ -2,8 +2,14 @@
   <MainLayout>
     <!-- Header Section -->
     <header class="mx-auto text-white relative">
-      <img src="../../assets/header.png" alt="Image 1" class="w-full rounded-lg shadow-lg" />
-      <h3 class="absolute bg-blue inset-0 flex items-center justify-center font-semibold text-4xl">
+      <img
+        src="../../assets/about-us-background.jpg"
+        alt="Image 1"
+        class="w-full object-fill rounded-lg shadow-lg"
+      />
+      <h3
+        class="absolute bg-blue inset-0 flex items-center justify-center font-semibold text-4xl mt-20"
+      >
         About Us
       </h3>
     </header>
@@ -50,19 +56,21 @@
           <div class="w-full md:w-1/w">
             <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Mission</h3>
             <p class="text-gray-700 mb-8">
-              At Teamplo, our mission is to empower companies of all sizes with a single, unified platform that
-              simplifies and enhances their management processes. We understand that running a business involves
-              juggling numerous tasks, from project management and team collaboration to financial tracking and customer
-              relations. Our goal is to bring all these functions together in one seamless platform, allowing businesses
-              to operate more efficiently and effectively.
+              At Teamplo, our mission is to empower companies of all sizes with a single, unified
+              platform that simplifies and enhances their management processes. We understand that
+              running a business involves juggling numerous tasks, from project management and team
+              collaboration to financial tracking and customer relations. Our goal is to bring all
+              these functions together in one seamless platform, allowing businesses to operate more
+              efficiently and effectively.
             </p>
             <h3 class="text-xl font-bold mb-4 text-[#3AA9D0]">Our Vision</h3>
             <p class="text-gray-700 mb-8">
-              Our vision is to make Teamplo the most trusted and comprehensive business management software in the
-              market. We are committed to continuous improvement and innovation, ensuring our platform evolves to meet
-              the changing needs of businesses. By integrating advanced artificial intelligence capabilities, we aim to
-              provide tools that not only streamline operations but also offer insights and optimizations that drive
-              growth and success.
+              Our vision is to make Teamplo the most trusted and comprehensive business management
+              software in the market. We are committed to continuous improvement and innovation,
+              ensuring our platform evolves to meet the changing needs of businesses. By integrating
+              advanced artificial intelligence capabilities, we aim to provide tools that not only
+              streamline operations but also offer insights and optimizations that drive growth and
+              success.
             </p>
           </div>
           <div class="flex w-1/2">
@@ -83,7 +91,11 @@
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
             </div>
             <!-- Card content -->
             <h4 class="text-xl font-bold mb-4">All-in-One Solution</h4>
@@ -94,47 +106,65 @@
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
             </div>
             <!-- Card content -->
             <h4 class="text-xl font-bold mb-4">User-Friendly Interface</h4>
             <p>
-              Our platform is designed to be intuitive and easy to use, ensuring that all team members can get up to
-              speed quickly.
+              Our platform is designed to be intuitive and easy to use, ensuring that all team
+              members can get up to speed quickly.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
             </div>
             <!-- Card content -->
             <h4 class="text-xl font-bold mb-4">Customizable Features</h4>
             <p>
-              Tailor the platform to suit your specific business needs, with customizable workflows and integrations.
+              Tailor the platform to suit your specific business needs, with customizable workflows
+              and integrations.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
             </div>
             <!-- Card content -->
             <h4 class="text-xl font-bold mb-4">Real-Time Analytics</h4>
             <p>
-              Gain valuable insights into your operations with our real-time analytics and reporting tools.
+              Gain valuable insights into your operations with our real-time analytics and reporting
+              tools.
             </p>
           </div>
           <div class="relative p-6 border-[1px] border-white text-white">
             <!-- Icon positioned in the top-right corner -->
             <div class="absolute -top-4 bg-[#3AA9D0] rounded-full p-2">
-              <img src="../../assets/about-us-vector-1.svg" alt="Image 3" class="h-6 w-6 text-white" />
+              <img
+                src="../../assets/about-us-vector-1.svg"
+                alt="Image 3"
+                class="h-6 w-6 text-white"
+              />
             </div>
             <!-- Card content -->
             <h4 class="text-xl font-bold mb-4">AI-Driven Efficiency</h4>
             <p>
-              Leverage artificial intelligence to automate routine tasks, identify trends, and make data-driven
-              decisions.
+              Leverage artificial intelligence to automate routine tasks, identify trends, and make
+              data-driven decisions.
             </p>
           </div>
         </div>

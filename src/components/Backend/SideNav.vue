@@ -31,7 +31,13 @@
   aria-label="Sidebar">
   <!-- Logo -->
   <div class="text-2xl text-black font-bold mx-auto">
-    <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.svg" />
+    <RouterLink
+      :to="{
+          name: 'frontend.index',
+        }"
+    >
+      <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.svg" />
+    </RouterLink>
     <!-- General -->
     <p class="text-gray-600 text-sm font-bold py-3">General <hr/></p>
     <!-- Navigation Links -->

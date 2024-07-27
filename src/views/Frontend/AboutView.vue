@@ -2,11 +2,8 @@
   <MainLayout>
     <!-- Header Section -->
     <header class="mx-auto text-white relative">
-      <img
-        src="../../assets/about-us-background.jpg"
-        alt="Image 1"
-        class="w-full object-fill rounded-lg shadow-lg"
-      />
+      <img src="../../assets/about-us-background.jpg" alt="Image 1" class="w-full md:h-[50rem]" />
+
       <h3
         class="absolute bg-blue inset-0 flex items-center justify-center font-semibold text-4xl mt-20"
       >

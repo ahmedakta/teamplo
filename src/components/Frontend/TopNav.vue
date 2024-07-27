@@ -10,55 +10,111 @@
       </div>
       <!-- Navigation links in the center -->
       <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
-        <a class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-          :class="{ 'bg-gray-200 active': $route.path === '/' }" href="/">Home</a>
-        <a class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-          :class="{ 'bg-gray-200 active': $route.path === '/about-us' }" href="/about-us">About Us</a>
-        <a class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-          :class="{ 'bg-gray-200 active': $route.path === '/features' }" href="/features">Features</a>
+        <a
+          class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          :class="{ 'bg-gray-200 active': $route.path === '/' }"
+          href="/"
+          >Home</a
+        >
+        <a
+          class="px-4 py-2 mt-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          :class="{ 'bg-gray-200 active': $route.path === '/about-us' }"
+          href="/about-us"
+          >About Us</a
+        >
+        <a
+          class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          :class="{ 'bg-gray-200 active': $route.path === '/features' }"
+          href="/features"
+          >Features</a
+        >
         <div class="relative">
-          <button @mouseover="generalStore.openModal('topnavMenu')" @click="generalStore.openModal('topnavMenu')"
-            class="flex flex-row items-center w-full px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline">
+          <button
+            @mouseover="generalStore.openModal('topnavMenu')"
+            @click="generalStore.openModal('topnavMenu')"
+            class="flex flex-row items-center w-full px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          >
             Use Cases
-            <svg fill="currentColor" viewBox="0 0 20 20"
-              class="inline h-4 ml-1 transition-transform duration-200 transform">
-              <path fill-rule="evenodd"
+            <svg
+              fill="currentColor"
+              viewBox="0 0 20 20"
+              class="inline h-4 ml-1 transition-transform duration-200 transform"
+            >
+              <path
+                fill-rule="evenodd"
                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                clip-rule="evenodd"></path>
+                clip-rule="evenodd"
+              ></path>
             </svg>
           </button>
-          <div @mouseleave="generalStore.closeModal()" v-show="generalStore.currentModal == 'topnavMenu'"
+          <div
+            @mouseleave="generalStore.closeModal()"
+            v-show="generalStore.currentModal == 'topnavMenu'"
             x-transition:enter="transition ease-out duration-100"
             x-transition:enter-start="transform opacity-0 scale-95"
-            x-transition:enter-end="transform opacity-100 scale-100" x-transition:leave="transition ease-in duration-75"
+            x-transition:enter-end="transform opacity-100 scale-100"
+            x-transition:leave="transition ease-in duration-75"
             x-transition:leave-start="transform opacity-100 scale-100"
             x-transition:leave-end="transform opacity-0 scale-95"
-            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48">
+            class="absolute right-0 w-full mt-2 origin-top-right rounded-md shadow-lg md:w-48"
+          >
             <div class="px-2 py-2 bg-white rounded-md shadow dark-mode:bg-gray-800">
-              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="#">Link #1</a>
-              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="#">Link #2</a>
-              <a class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-                href="#">Link #3</a>
+              <a
+                class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#"
+                >Link #1</a
+              >
+              <a
+                class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#"
+                >Link #2</a
+              >
+              <a
+                class="block px-4 py-2 mt-2 text-sm font-semibold bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+                href="#"
+                >Link #3</a
+              >
             </div>
           </div>
         </div>
-        <a class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-          :class="{ 'bg-gray-200 active': $route.path === '/blogs' }" href="/blogs">Blogs</a>
-        <a class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-          :class="{ 'bg-gray-200 active': $route.path === '/why-us' }" href="/why-us">Why Us</a>
-        <a class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
-          :class="{ 'bg-gray-200 active': $route.path === '/contact-us' }" href="/contact-us">Contact Us</a>
-        <a href="#" class="mx-4 hover:text-[#5dade2]" @click="logout()" v-if="userStore.id">logout</a>
+        <a
+          class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          :class="{ 'bg-gray-200 active': $route.path === '/blogs' }"
+          href="/blogs"
+          >Blogs</a
+        >
+        <a
+          class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          :class="{ 'bg-gray-200 active': $route.path === '/why-us' }"
+          href="/why-us"
+          >Why Us</a
+        >
+        <a
+          class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          :class="{ 'bg-gray-200 active': $route.path === '/contact-us' }"
+          href="/contact-us"
+          >Contact Us</a
+        >
+        <a
+          href="#"
+          class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-red-600 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+          @click="logout()"
+          v-if="userStore.id"
+        >
+          <font-awesome-icon :icon="['fas', 'right-from-bracket']" />
+          Logout</a
+        >
       </nav>
       <!-- Login button on the right -->
       <div class="hidden md:flex flex-shrink-0 text-center">
         <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
           Log in
         </a>
-        <button v-if="!userStore.id" class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
-          @click="$event => (generalStore.isLoginOpen = true)">
+        <button
+          v-if="!userStore.id"
+          class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
+          @click="$event => (generalStore.isLoginOpen = true)"
+        >
           <font-awesome-icon :icon="['fas', 'arrow-right']" />
           Get Started
         </button>
@@ -69,15 +125,27 @@
           <option value="">AR</option>
         </select>
         <div v-if="userStore.id" class="px-4">
-          <img :src="'./src/assets/' + userStore.image" alt="" class="border-2 border-gray-400 rounded-xl"
-            width="40rem" />
+          <RouterLink
+            :to="{
+              name: 'backend.index'
+            }"
+          >
+            <img
+              :src="'./src/assets/' + userStore.image"
+              alt=""
+              class="border-2 border-gray-400 rounded-xl"
+              width="40rem"
+            />
+          </RouterLink>
         </div>
       </div>
       <!-- Bars Icon for Mobile -->
       <div class="md:hidden">
         <button id="menu-toggle" class="text-2xl">
-          <font-awesome-icon :icon="['fa', 'bars']"
-            class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-2 px-4 m-2 rounded-lg" />
+          <font-awesome-icon
+            :icon="['fa', 'bars']"
+            class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-2 px-4 m-2 rounded-lg"
+          />
         </button>
       </div>
     </div>

@@ -1,31 +1,20 @@
 <template>
   <MainLayout>
-    <!-- Header Section -->
-    <header class="mx-auto text-white relative">
-      <img src="../../assets/about-us-background.jpg" alt="Image 1" class="w-full md:h-[50rem]" />
-
-      <h3
-        class="absolute bg-blue inset-0 flex items-center justify-center font-semibold text-4xl mt-20"
-      >
-        About Us
-      </h3>
-    </header>
-
     <!-- Why Us Section -->
     <section class="py-32">
       <div class="container mx-auto px-4">
-        <h2 class="text-2xl text-center mb-8 text-black">Why Us?</h2>
-        <div class="grid md:grid-cols-2 gap-8">
+        <h2 class="text-2xl text-center mb-8 text-black">About Us</h2>
+        <div class="grid md:grid-cols-2 gap-8 ml-5">
           <div class="relative flex mt-20 justify-center">
             <img
               src="../../assets/about-us-1.png"
               alt="Image 1"
-              class="z-10 rounded-lg shadow-lg w-3/4"
+              class="z-10 rounded-lg shadow-lg md:w-3/4 w-full"
             />
             <img
               src="../../assets/about-us-2.png"
               alt="Image 2"
-              class="absolute inset-y-0 left-0 transform -translate-x-10 -translate-y-20 rounded-lg shadow-lg w-3/4"
+              class="absolute inset-y-0 left-0 transform -translate-x-10 -translate-y-20 rounded-lg shadow-lg md:w-3/4 w-full"
             />
           </div>
 

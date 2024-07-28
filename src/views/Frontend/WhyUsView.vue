@@ -1,14 +1,5 @@
 <template>
   <MainLayout>
-    <header class="mx-auto text-white relative">
-      <img src="../../assets/blogs/header.png" alt="Image 1" class="w-full rounded-lg shadow-lg" />
-      <h3
-        class="text-black absolute bg-blue inset-0 flex items-center justify-center font-semibold text-4xl"
-      >
-        Why Us
-      </h3>
-    </header>
-
     <section class="py-32 h-full">
       <div class="container mx-auto px-4 text-black">
         <div class="grid md:grid-cols-2 gap-12 h-[40rem]">

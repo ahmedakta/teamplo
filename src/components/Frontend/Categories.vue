@@ -18,7 +18,7 @@
 
       <div class="md:flex py-5">
         <ul
-          class="flex-column cursor-pointer font-bold md:w-1/2 p-5 space-y space-y-4 text-sm text-black dark:text-gray-400 md:me-4 mb-4 md:mb-0"
+          class="flex-column cursor-pointer font-bold md:w-1/2 p-5 space-y space-y-4 text-sm text-black md:me-4 mb-4 md:mb-0"
         >
           <li
             class="bg-white px-4 py-3 shadow border-[1px] rounded-xl transition-colors duration-300 ease-in-out"
@@ -129,7 +129,7 @@
             </p>
           </li>
         </ul>
-        <div class="p-6 text-medium text-gray-500 dark:text-gray-400 rounded-lg w-full">
+        <div class="p-6 text-medium text-gray-500 rounded-lg w-full">
           <img
             v-if="activeTab == 'firstTab'"
             src="../../assets/project-manamgement.svg"

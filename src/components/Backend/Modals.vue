@@ -208,7 +208,55 @@
       </div>
     </div>
   </div>
-
+  <!-- EmailSuccessModal Modal -->
+  <transition name="fade">
+    <div
+      v-if="generalStore.currentModal === 'EmailSuccessModal'"
+      class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+    >
+      <div class="bg-white w-full max-w-md rounded-lg shadow-lg overflow-hidden">
+        <!-- Modal header -->
+        <div class="text-right p-4 border-b">
+          <button @click="generalStore.closeModal()" class="text-gray-600 hover:text-gray-900">
+            <svg
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              ></path>
+            </svg>
+          </button>
+        </div>
+        <!-- Modal body -->
+        <div class="p-4 text-black">
+          <!-- Chat content -->
+          <div class="h-64 items-center text-center">
+            <img src="../../assets/success-email.svg" class="mx-auto hidden lg:block" />
+            <h4 class="text-xl font-semibold">
+              Thank you for reaching out!. We'll get back to you shortly.
+            </h4>
+          </div>
+        </div>
+        <!-- Modal footer -->
+        <div class="border-t h-20 items-center text-center mt-10 w-full">
+          <RouterLink
+            class="bg-black text-white rounded-lg py-5 px-5 w-full"
+            :to="{
+              name: 'frontend.index'
+            }"
+            >Back To Home</RouterLink
+          >
+        </div>
+      </div>
+    </div>
+  </transition>
   <!-- Chat modal -->
   <transition name="fade">
     <div
@@ -307,6 +355,7 @@
 import { useGeneralStore } from '@/stores/general'
 const generalStore = useGeneralStore()
 import { useProjectStore } from '@/stores/project'
+import { RouterLink } from 'vue-router'
 const projectStore = useProjectStore()
 </script>
 <style scoped>

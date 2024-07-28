@@ -96,14 +96,15 @@
           <div
             class="col-span-12 md:col-span-7 lg:col-span-7 xl:col-span-7 p-5 md:p-20 bg-white order-1 md:order-2"
           >
-            <form>
+            <form @submit.prevent="contactUs()">
               <!-- Side by side inputs -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
                   <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
                   <input
                     type="text"
-                    id="phone"
+                    id="name"
+                    v-model="data.name"
                     name="name"
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                     placeholder="Full Name"
@@ -114,6 +115,7 @@
                   <input
                     type="email"
                     id="email"
+                    v-model="data.email"
                     name="email"
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                     placeholder="example@gmail.com"
@@ -127,6 +129,7 @@
                 <input
                   type="text"
                   id="subject"
+                  v-model="data.subject"
                   name="subject"
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                   placeholder="Subject"
@@ -141,6 +144,7 @@
                   type="tel"
                   id="phone"
                   name="phone"
+                  v-model="data.phone"
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                   placeholder="Phone Number"
                 />
@@ -151,6 +155,7 @@
                 <textarea
                   name="message"
                   id="message"
+                  v-model="data.message"
                   cols="30"
                   rows="5"
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
@@ -178,4 +183,21 @@
 
 <script setup>
 import MainLayout from '@/layouts/Frontend/MainLayout.vue'
+import { useGeneralStore } from '@/stores/general'
+import { ref, onMounted } from 'vue'
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
+const generalStore = useGeneralStore()
+let data = ref([])
+
+const contactUs = async () => {
+  try {
+    await userStore.getTokens()
+    generalStore.makeRequest('api/contact-us', data, 'POST')
+    data.value = []
+    generalStore.openModal('EmailSuccessModal')
+  } catch (error) {
+    console.log(error)
+  }
+}
 </script>

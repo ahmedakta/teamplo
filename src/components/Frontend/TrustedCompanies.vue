@@ -46,3 +46,9 @@
 </template>
 
 <script setup></script>
+<style scoped>
+img {
+  width: 4rem;
+  padding: 0.3rem;
+}
+</style>

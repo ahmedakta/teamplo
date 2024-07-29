@@ -54,9 +54,8 @@
         >
         <div class="relative">
           <button
-            @mouseover="generalStore.openModal('topnavMenu')"
             @click="generalStore.openModal('topnavMenu')"
-            class="flex flex-row items-center w-full px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
+            class="items-center w-full px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           >
             Use Cases
             <svg
@@ -72,7 +71,6 @@
             </svg>
           </button>
           <div
-            @mouseleave="generalStore.closeModal()"
             v-show="generalStore.currentModal == 'topnavMenu'"
             x-transition:enter="transition ease-out duration-100"
             x-transition:enter-start="transform opacity-0 scale-95"
@@ -87,7 +85,7 @@
                 class="flex mx-auto px-4 py-2 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105"
                 href="#"
               >
-                <img src="../../assets/usecases-company.svg" alt="Company 2" class="md:h-7" />
+                <img src="../../assets/usecases-company.svg" alt="Company 2" class="md:h-7 h-10" />
                 <p class="text-center mt-auto mb-auto text-sm font-semibold pl-5">
                   Company managment
                 </p>
@@ -96,7 +94,7 @@
                 class="flex mx-auto px-4 py-2 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105"
                 href="#"
               >
-                <img src="../../assets/usecases-project.svg" alt="Company 2" class="md:h-7" />
+                <img src="../../assets/usecases-project.svg" alt="Company 2" class="md:h-7 h-10" />
                 <p class="text-center mt-auto mb-auto text-sm font-semibold pl-5">
                   Project managment
                 </p>
@@ -105,7 +103,7 @@
                 class="flex mx-auto px-4 py-2 bg-transparent rounded-lg dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline transition duration-300 transform hover:scale-105"
                 href="#"
               >
-                <img src="../../assets/usecases-tasks.svg" alt="Company 2" class="md:h-7" />
+                <img src="../../assets/usecases-tasks.svg" alt="Company 2" class="md:h-7 h-10" />
                 <p class="text-center mt-auto mb-auto text-sm font-semibold pl-5">Task managment</p>
               </a>
             </div>
@@ -129,6 +127,37 @@
           href="/contact-us"
           >Contact Us</a
         >
+        <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
+          Log in
+        </a>
+        <button
+          v-if="!userStore.id"
+          class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
+          @click="$event => (generalStore.isLoginOpen = true)"
+        >
+          <font-awesome-icon :icon="['fas', 'arrow-right']" />
+          Get Started
+        </button>
+        <!-- swithch languages -->
+        <select class="text-[#3aa9D0] px-1" name="" id="">
+          <option value="">EN</option>
+          <option value="">TR</option>
+          <option value="">AR</option>
+        </select>
+        <div v-if="userStore.id" class="px-4">
+          <RouterLink
+            :to="{
+              name: 'backend.index'
+            }"
+          >
+            <img
+              :src="'./src/assets/' + userStore.image"
+              alt=""
+              class="border-2 border-gray-400 rounded-xl"
+              width="40rem"
+            />
+          </RouterLink>
+        </div>
         <a
           href="#"
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-red-600 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"

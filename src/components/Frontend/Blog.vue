@@ -1,5 +1,7 @@
 <template>
-  <div class="max-w-72 w-full rounded-xl overflow-hidden shadow-lg m-4">
+  <div
+    class="max-w-96 w-full rounded-xl overflow-hidden shadow-lg m-4 items-center justify-center mx-auto"
+  >
     <div class="relative w-full h-48">
       <img class="w-full h-full object-cover" :src="blog.image" alt="Blog Image" />
       <div class="absolute top-2 right-2 py-1 px-2 text-white bg-gray-400 rounded-lg">
@@ -21,22 +23,20 @@
         {{ blog.header }}
       </a>
       <!-- Reading time -->
-      <div class="mt-5 py-4 ">
-        <p class="flex justify-between">
-        <div>
-          <font-awesome-icon :icon="['fa-regular', 'clock']" />
-          {{ blog.reading_time }}
+      <div class="mt-5 py-4">
+        <div class="flex justify-between">
+          <div>
+            <font-awesome-icon :icon="['fa-regular', 'clock']" />
+            {{ blog.reading_time }}
+          </div>
+          <div>
+            {{ blog.created_at }}
+          </div>
         </div>
-        <div>
-          {{ blog.created_at }}
-        </div>
-        </p>
-        <hr class=" border-gray-300">
+        <hr class="border-gray-300" />
       </div>
       <!-- Button -->
-      <button class="text-white ml-1 py-2 px-4 w-full rounded bg-[#3AA9D0]">
-        Read More
-      </button>
+      <button class="text-white ml-1 py-2 px-4 w-full rounded bg-[#3AA9D0]">Read More</button>
     </div>
   </div>
 </template>

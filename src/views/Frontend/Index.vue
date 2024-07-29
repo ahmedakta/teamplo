@@ -6,7 +6,10 @@
     <!-- <Props :items="items" /> -->
     <Categories :categories="categories" />
     <OurSuccess />
-    <Clients />
+    <Clients
+      :clients="clients"
+      description="We are proud to have a diverse and satisfied client base. Here are just a few of the many organizations that have benefited from Teamplo:"
+    />
     <Blogs :blogs="blogs" header="Our Latest Blogs" />
   </MainLayout>
 </template>
@@ -64,21 +67,31 @@ const items = ref([
 const categories = ref([
   {
     id: 1,
-    name: 'Mobil Uyum',
-    image: 'src/assets/categories/category1.png',
-    active: true
+    header: 'CEO',
+    description:
+      'At Teamplo, the CEO plays a pivotal role in project management. Their responsibilities include setting the strategic vision, allocating resources, and ensuring alignment with the company’s goals. The CEO works closely with senior management to define project priorities and drive overall success. By fostering a culture of innovation and excellence, the CEO empowers the entire organization to achieve its project objectives efficiently.',
+    tab: 'firstTab'
   },
   {
     id: 2,
-    name: 'Web Arayuz',
-    image: 'src/assets/categories/category2.png',
-    active: false
+    header: 'Employee',
+    description:
+      'Employees at Teamplo are integral to the success of every project. They bring their unique skills and expertise to the table, contributing to the completion of tasks and milestones. Each team member is encouraged to take ownership of their roles and collaborate effectively with colleagues. Continuous learning and professional development are emphasized, enabling employees to grow and excel in their careers while delivering high-quality project outcomes.',
+    tab: 'secondTab'
   },
   {
     id: 3,
-    name: 'Yazilim',
-    image: 'src/assets/categories/category3.png',
-    active: false
+    header: 'HR',
+    description:
+      'The HR department at Teamplo supports project management by recruiting and retaining top talent. They ensure that the right people are in place to meet project demands. HR is also responsible for creating a positive work environment, offering training programs, and implementing policies that enhance productivity and job satisfaction. By aligning HR strategies with project goals, they help maintain a motivated and capable workforce.',
+    tab: 'thirdTab'
+  },
+  {
+    id: 4,
+    header: 'Team Leader',
+    description:
+      'Project Managers at Teamplo are the backbone of project execution. They oversee planning, execution, and closing of projects, ensuring that all phases are completed on time and within budget. Project Managers coordinate resources, manage risks, and communicate with stakeholders to keep everyone informed and engaged. Their leadership and problem-solving skills are crucial for navigating challenges and achieving project success.',
+    tab: 'fourthTab'
   }
 ])
 const blogs = ref([
@@ -113,6 +126,32 @@ const blogs = ref([
     image: '/src/assets/blogs/blog4.png',
     created_at: '27 APRIL 2024',
     reading_time: '10 min'
+  }
+])
+const clients = ref([
+  {
+    id: 1,
+    name: 'Aylin Yilmaz',
+    header: 'Amazing Service',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+    image: 'src/assets/client-1.png',
+    bgColor: 'bg-[#FFF9EE]'
+  },
+  {
+    id: 2,
+    name: 'Baris Kaya',
+    header: 'Amazing service',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+    image: 'src/assets/client-2.png',
+    bgColor: 'bg-[#E7F5E8]'
+  },
+  {
+    id: 3,
+    name: 'Deniz sahin',
+    header: 'Amazing service',
+    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+    image: 'src/assets/client-3.png',
+    bgColor: 'bg-[#3AA9D026]'
   }
 ])
 </script>

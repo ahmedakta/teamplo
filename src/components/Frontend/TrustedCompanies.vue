@@ -6,7 +6,7 @@
         <div class="w-full md:w-1/2 text-center md:text-left">
           <h2 class="text-xl font-semibold mb-4">Trusted by Global Companies</h2>
         </div>
-        <div class="md:w-1/2 max-w-1/2 w-1/2 flex text-center justify-between">
+        <div class="md:w-1/2 items-center max-w-1/2 w-1/2 flex text-center justify-between">
           <!-- Company Icons -->
           <img
             src="../../assets/trusted_companies/company1.png"
@@ -38,7 +38,6 @@
             alt="Company 3"
             class="md:h-10 md:w-full w-16 p-1 transition duration-300 transform hover:scale-110"
           />
-          <!-- Add more company icons as needed -->
         </div>
       </div>
     </div>

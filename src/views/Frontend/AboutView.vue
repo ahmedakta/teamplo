@@ -3,7 +3,7 @@
     <!-- Why Us Section -->
     <section class="py-32">
       <div class="container mx-auto px-4">
-        <h2 class="text-2xl text-center mb-8 text-black">About Us</h2>
+        <h2 class="text-2xl text-center mb-8 text-black font-semibold">About Us</h2>
         <div class="grid md:grid-cols-2 gap-8 ml-5">
           <div class="relative flex mt-20 justify-center">
             <img

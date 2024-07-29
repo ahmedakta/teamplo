@@ -16,7 +16,7 @@ export const useGeneralStore = defineStore('general', {
     datatableStore: useDataTableStore(),
     currentModal: null,
     currentTab: ref(null),
-    isEditProfileOpen: false,
+    isSideNavOpen: ref(false),
     isLoading: ref(false),
     data: [],
     selectedPost: null,

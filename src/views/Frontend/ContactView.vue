@@ -108,6 +108,7 @@
                     name="name"
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                     placeholder="Full Name"
+                    required
                   />
                 </div>
                 <div>
@@ -119,6 +120,7 @@
                     name="email"
                     class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                     placeholder="example@gmail.com"
+                    required
                   />
                 </div>
               </div>
@@ -133,6 +135,7 @@
                   name="subject"
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                   placeholder="Subject"
+                  required
                 />
               </div>
               <!-- Full-width input -->
@@ -147,6 +150,7 @@
                   v-model="data.phone"
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                   placeholder="Phone Number"
+                  required
                 />
               </div>
               <!-- Full-width input -->
@@ -160,6 +164,7 @@
                   rows="5"
                   class="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-[#3AA9D0] text-black focus:border-[#3AA9D0] sm:text-sm"
                   placeholder="Write your message.."
+                  required
                 ></textarea>
               </div>
 

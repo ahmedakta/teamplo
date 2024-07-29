@@ -1,15 +1,39 @@
 <template>
-  <header class="py-5 absolute top-0 left-1/2 transform -translate-x-1/2 w-4/5 md:w-full z-40">
-    <div class="container mx-auto bg-white rounded-xl flex items-center justify-between">
-      <!-- Logo on the left -->
-      <div class="flex-shrink-0">
-        <!-- <img src="logo.png" alt="Logo" class="h-8" /> -->
-        <a href="/">
-          <img alt="Vue logo" class="h-[4rem] logo px-10 py-2" src="@/assets/teamplo-logo-v1.png" />
-        </a>
+  <!-- Frontend Side Nav -->
+  <section class="md:hidden" v-if="generalStore.isSideNavOpen">
+    <div
+      :class="{
+        'translate-x-0': generalStore.isSideNavOpen,
+        '-translate-x-full': !generalStore.isSideNavOpen
+      }"
+      class="fixed z-50 inset-y-0 left-0 w-64 bg-white border-r border-gray-200 transform transition-transform duration-300 ease-in-out"
+    >
+      <div class="flex items-center justify-between p-4 border-b border-gray-200">
+        <h2 class="text-lg font-semibold">Menu</h2>
+        <button
+          @click="generalStore.isSideNavOpen = false"
+          class="text-gray-500 hover:text-gray-900 focus:outline-none focus:text-gray-900"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
       </div>
       <!-- Navigation links in the center -->
-      <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
+      <nav
+        class="bg-white flex flex-col md:flex text-black rounded-2xl p-3 text-center border-black"
+      >
         <a
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/' }"
@@ -115,141 +139,18 @@
           Logout</a
         >
       </nav>
-      <!-- Login button on the right -->
-      <div class="hidden md:flex flex-shrink-0 text-center">
-        <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
-          Log in
-        </a>
-        <button
-          v-if="!userStore.id"
-          class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
-          @click="$event => (generalStore.isLoginOpen = true)"
-        >
-          <font-awesome-icon :icon="['fas', 'arrow-right']" />
-          Get Started
-        </button>
-        <!-- swithch languages -->
-        <select class="text-[#3aa9D0] px-1" name="" id="">
-          <option value="">EN</option>
-          <option value="">TR</option>
-          <option value="">AR</option>
-        </select>
-        <div v-if="userStore.id" class="px-4">
-          <RouterLink
-            :to="{
-              name: 'backend.index'
-            }"
-          >
-            <img
-              :src="'./src/assets/' + userStore.image"
-              alt=""
-              class="border-2 border-gray-400 rounded-xl"
-              width="40rem"
-            />
-          </RouterLink>
-        </div>
-      </div>
-      <!-- Bars Icon for Mobile -->
-      <div class="md:hidden">
-        <button id="menu-toggle" class="text-2xl" @click="generalStore.isSideNavOpen = true">
-          <font-awesome-icon
-            :icon="['fa', 'bars']"
-            class="text-white hover:bg-white hover:text-[#48afd4] text-2xl bg-[#48afd4] py-2 px-4 m-2 rounded-lg"
-          />
-        </button>
-      </div>
     </div>
-  </header>
+
+    <div class="p-4">
+      <!-- Main content goes here -->
+    </div>
+  </section>
 </template>
-
 <script setup>
-import { useUserStore } from '@/stores/user'
 import { useGeneralStore } from '@/stores/general'
-const userStore = useUserStore()
-const generalStore = useGeneralStore()
 import { useRouter } from 'vue-router'
+import { useUserStore } from '@/stores/user'
+const userStore = useUserStore()
 const router = useRouter()
-
-const isLoggedIn = redirect => {
-  let storedUserInfo = JSON.parse(localStorage.getItem('user'))
-  if (storedUserInfo) {
-    if (redirect) {
-      router.push(redirect)
-    }
-  } else {
-    generalStore.isLoginOpen = true
-  }
-}
-
-const logout = () => {
-  try {
-    userStore.logout()
-    router.push('/')
-  } catch (error) {
-    console.log(error)
-  }
-}
+const generalStore = useGeneralStore()
 </script>
-<style scoped>
-/* header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-} */
-</style>

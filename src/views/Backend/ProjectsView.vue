@@ -55,7 +55,7 @@
         <span class="mr-2"> {{ key }} : {{ param }}</span>
         {{ generalStore.filterParams }}
         <button
-          @click="generalStore.filterParams.splice(key, 1)"
+          @click="removeFilterParam(key)"
           class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
         >
           x
@@ -212,27 +212,24 @@ import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
+import { useProjectStore } from '@/stores/project'
 import { useDataTableStore } from '@/stores/datatable'
 import { useRouter } from 'vue-router'
 const router = useRouter()
 const generalStore = useGeneralStore()
 const datatableStore = useDataTableStore()
+const projectStore = useProjectStore()
 const isOpen = ref(false)
 const datatable: any = ref(null)
 
 onMounted(() => {
   try {
-    getProjects()
+    projectStore.getProjects()
   } catch (error) {
     console.log(error)
   }
 })
 
-const getProjects = async (filterParams = generalStore.filterParams) => {
-  generalStore.makeRequest('/api/projects', filterParams).then(() => {
-    generalStore.setDataTable()
-  })
-}
 const pushRoute = (urlName = null, params = null) => {
   console.log(params)
   console.log(urlName)
@@ -245,9 +242,14 @@ const pushRoute = (urlName = null, params = null) => {
 const viewProject = (slug = null) => {
   router.push(`/project/${slug}`)
 }
+
+const removeFilterParam = (key = null) => {
+  delete generalStore.filterParams[key]
+  projectStore.getProjects()
+}
 // change server function
 const changeServer = (data: any) => {
   generalStore.filterParams.page = data.current_page
-  getProjects(generalStore.filterParams)
+  projectStore.getProjects(generalStore.filterParams)
 }
 </script>

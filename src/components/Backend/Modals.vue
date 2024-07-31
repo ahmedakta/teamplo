@@ -75,6 +75,7 @@
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Start At</label>
           <input
+            @change="projectStore.getProjects(generalStore.filterParams)"
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             type="date"
             v-model="generalStore.filterParams.project_start_at"
@@ -83,6 +84,7 @@
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">End At</label>
           <input
+            @change="projectStore.getProjects(generalStore.filterParams)"
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             type="date"
             v-model="generalStore.filterParams.project_end_at"
@@ -91,6 +93,7 @@
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Project Budget</label>
           <input
+            @change="projectStore.getProjects(generalStore.filterParams)"
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             type="number"
             v-model="generalStore.filterParams.project_budget"
@@ -99,6 +102,7 @@
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Department</label>
           <select
+            @change="projectStore.getProjects(generalStore.filterParams)"
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             name="status"
             v-model="generalStore.filterParams.department_id"
@@ -115,6 +119,7 @@
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Stage</label>
           <select
+            @change="projectStore.getProjects(generalStore.filterParams)"
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             name="status"
             v-model="generalStore.filterParams.project_stage"
@@ -131,11 +136,13 @@
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Priority</label>
           <select
+            @change="projectStore.getProjects(generalStore.filterParams)"
             class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             name="status"
             v-model="generalStore.filterParams.project_priority"
           >
             <option
+              @change="projectStore.getProjects(generalStore.filterParams)"
               class="bg-white text-black rounded-md"
               v-for="(priority, index) in generalStore.data.filter_form.priorities"
               :key="index"
@@ -182,16 +189,6 @@
           class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
         >
           Close
-        </button>
-        <button
-          @click="
-            generalStore.makeRequest('/api/projects', generalStore.filterParams, 'GET').then(() => {
-              generalStore.setDataTable()
-            })
-          "
-          class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-        >
-          <font-awesome-icon :icon="['fas', 'search']" />
         </button>
         <button
           v-if="Object.keys(generalStore.filterParams).length"

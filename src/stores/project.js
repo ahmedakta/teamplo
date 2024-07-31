@@ -8,6 +8,11 @@ export const useProjectStore = defineStore('project', {
     projects: []
   }),
   actions: {
+    async getProjects(filterParams = this.generalStore.filterParams) {
+      this.generalStore.makeRequest('/api/projects', filterParams).then(() => {
+        this.generalStore.setDataTable()
+      })
+    },
     async fetchAssignmentUsers(params) {
       try {
         this.data = []

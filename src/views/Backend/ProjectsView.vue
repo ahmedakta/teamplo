@@ -3,7 +3,9 @@
     <div
       class="container w-full md:flex justify-between items-center flex-wrap gap-4 font-semibold"
     >
-      <div class="mb-5 rounded-xl w-full md:w-auto">You Can put something here</div>
+      <div class="mb-5 rounded-xl w-full md:w-auto">
+        You Can put something here {{ generalStore.prevUrl }}
+      </div>
       <!-- Filter Section -->
       <div class="mb-5 relative w-full md:w-auto">
         <ul
@@ -164,25 +166,27 @@
         </template>
         <template #actions="data">
           <div class="flex gap-4">
-            <button
-              type="button"
+            <RouterLink
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="viewProject(data.value.slug)"
+              :to="{
+                name: 'backend.projects.view',
+                params: { slug: data.value.slug }
+              }"
             >
               <font-awesome-icon :icon="['fas', 'eye']" />
-            </button>
-            <Button
-              type="button"
+            </RouterLink>
+            <RouterLink
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
-              @click="
-                pushRoute('backend.department.project.tasks', {
+              :to="{
+                name: 'backend.department.project.tasks',
+                params: {
                   department_slug: data.value.department.slug,
                   project_slug: data.value.slug
-                })
-              "
+                }
+              }"
             >
               <font-awesome-icon :icon="['fas', 'bars']" />
-            </Button>
+            </RouterLink>
           </div>
         </template>
       </vue3-datatable>
@@ -214,8 +218,6 @@ import '@bhplugin/vue3-datatable/dist/style.css'
 import { useGeneralStore } from '@/stores/general'
 import { useProjectStore } from '@/stores/project'
 import { useDataTableStore } from '@/stores/datatable'
-import { useRouter } from 'vue-router'
-const router = useRouter()
 const generalStore = useGeneralStore()
 const datatableStore = useDataTableStore()
 const projectStore = useProjectStore()
@@ -229,19 +231,6 @@ onMounted(() => {
     console.log(error)
   }
 })
-
-const pushRoute = (urlName = null, params = null) => {
-  console.log(params)
-  console.log(urlName)
-  router.push({
-    name: urlName,
-    params: { department_slug: params.department_slug, project_slug: params.project_slug }
-  })
-}
-
-const viewProject = (slug = null) => {
-  router.push(`/project/${slug}`)
-}
 
 const removeFilterParam = (key = null) => {
   delete generalStore.filterParams[key]

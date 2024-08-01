@@ -1,6 +1,9 @@
 <template>
   <MainLayout>
     <div class="mx-auto p-4">
+      <!-- <RouterLink :to="route.go(-1)">
+        <font-awesome-icon :icon="['fas', 'backward']" />
+      </RouterLink> -->
       <h1 class="text-3xl font-bold mb-4">{{ data.project_name }}</h1>
       <div
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"

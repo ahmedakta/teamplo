@@ -1,11 +1,10 @@
 import { defineStore } from 'pinia'
 import { useUserStore } from '@/stores/user'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useProjectStore } from '@/stores/project'
 import { reactive, ref } from 'vue'
 import { useDataTableStore } from '@/stores/datatable'
 import axios from '../../plugins/axios'
-import { data } from 'autoprefixer'
 const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({

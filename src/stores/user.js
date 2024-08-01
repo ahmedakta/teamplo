@@ -1,9 +1,7 @@
 import axios from '../../plugins/axios'
 import { defineStore } from 'pinia'
-import { useRouter } from 'vue-router'
 import { useGeneralStore } from '@/stores/general'
 
-const router = useRouter()
 export const useUserStore = defineStore('user', {
   state: () => ({
     id: '',
@@ -31,9 +29,6 @@ export const useUserStore = defineStore('user', {
         },
         { withCredentials: true }
       )
-      //   {
-      //     headers: headers
-      // }
       useGeneralStore().isLoading = false
       swal('Success', 'You Logged In Successfully')
     },

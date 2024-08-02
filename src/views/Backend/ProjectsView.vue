@@ -64,6 +64,7 @@
         </button>
       </div>
     </div>
+
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
       <vue3-datatable
         ref="datatable"
@@ -71,6 +72,7 @@
         :loading="generalStore.isLoading"
         :pageSize="15"
         :sortable="true"
+        :page="datatableStore.params.current_page"
         :sortColumn="datatableStore.params.sort_column"
         :sortDirection="datatableStore.params.sort_direction"
         :totalRows="datatableStore.params.total_rows"

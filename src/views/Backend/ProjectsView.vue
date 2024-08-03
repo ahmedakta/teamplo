@@ -4,7 +4,24 @@
       class="container w-full md:flex justify-between items-center flex-wrap gap-4 font-semibold"
     >
       <div class="mb-5 rounded-xl w-full md:w-auto">
-        You Can put something here {{ generalStore.prevUrl }}
+        <form action="">
+          <select
+            name=""
+            id=""
+            class="border-b w-30 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+          >
+            <option value="" class="bg-white text-black rounded-md">Sort By Column</option>
+            <option value="" class="bg-white text-black rounded-md">ID</option>
+            <option value="">Project Name</option>
+            <option value="">Budget</option>
+            <option value="">Priority</option>
+          </select>
+          <button
+            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
+          >
+            <font-awesome-icon :icon="['fa', 'arrow-down-wide-short']" />
+          </button>
+        </form>
       </div>
       <!-- Filter Section -->
       <div class="mb-5 relative w-full md:w-auto">
@@ -49,18 +66,58 @@
       </div>
     </div>
     <div class="flex space-x-2">
-      <div v-for="(param, key) in generalStore.filterParams" :key="key">
-        <div
-          class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full flex items-center"
-          v-if="key != 'page'"
-        >
-          <span class="mr-2"> {{ key }} : {{ param }}</span>
-          <button
-            @click="removeFilterParam(key)"
-            class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
-          >
-            x
-          </button>
+      <div v-for="(param, key) in generalStore.filterParams" :key="key" v-if="key != 'page'">
+        <!-- Handling the filter params one by one to display the name of filtered item -->
+        <div class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full">
+          <!-- Department -->
+          <div class="flex items-center" v-if="key == 'department_id'">
+            <span class="mr-2">
+              Department :
+              {{
+                generalStore.data.filter_form.departments[param]
+                  ? generalStore.data.filter_form.departments[param].department_name
+                  : ''
+              }}
+            </span>
+            <button
+              @click="removeFilterParam(key)"
+              class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+            >
+              x
+            </button>
+          </div>
+          <!-- Stage -->
+          <div class="flex items-center" v-else-if="key == 'project_stage'">
+            <span class="mr-2">Stage : {{ generalStore.data.filter_form.stages[param] }}</span>
+            <button
+              @click="removeFilterParam(key)"
+              class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+            >
+              x
+            </button>
+          </div>
+          <!-- Priority -->
+          <div class="flex items-center" v-else-if="key == 'project_priority'">
+            <span class="mr-2"
+              >Priority : {{ generalStore.data.filter_form.priorities[param] }}</span
+            >
+            <button
+              @click="removeFilterParam(key)"
+              class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+            >
+              x
+            </button>
+          </div>
+          <!-- AS IT IS -->
+          <div class="flex items-center" v-else>
+            <span class="mr-2"> {{ key }} : {{ param }}</span>
+            <button
+              @click="removeFilterParam(key)"
+              class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+            >
+              x
+            </button>
+          </div>
         </div>
       </div>
     </div>

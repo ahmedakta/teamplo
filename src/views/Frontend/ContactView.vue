@@ -96,7 +96,14 @@
           <div
             class="col-span-12 md:col-span-7 lg:col-span-7 xl:col-span-7 p-5 md:p-20 bg-white order-1 md:order-2"
           >
-            <form @submit.prevent="contactUs()">
+            <form
+              @submit.prevent="
+                generalStore.makeRequest('api/contact-us', data, 'POST').then(() => {
+                  generalStore.openModal('EmailSuccessModal')
+                  data = {}
+                })
+              "
+            >
               <!-- Side by side inputs -->
               <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                 <div>
@@ -189,20 +196,7 @@
 <script setup>
 import MainLayout from '@/layouts/Frontend/MainLayout.vue'
 import { useGeneralStore } from '@/stores/general'
-import { ref, onMounted } from 'vue'
-import { useUserStore } from '@/stores/user'
-const userStore = useUserStore()
+import { ref } from 'vue'
 const generalStore = useGeneralStore()
-let data = ref([])
-
-const contactUs = async () => {
-  try {
-    await userStore.getTokens()
-    generalStore.makeRequest('api/contact-us', data, 'POST')
-    data.value = []
-    generalStore.openModal('EmailSuccessModal')
-  } catch (error) {
-    console.log(error)
-  }
-}
+const data = ref({})
 </script>

@@ -49,19 +49,19 @@
       </div>
     </div>
     <div class="flex space-x-2">
-      <div
-        v-for="(param, key) in generalStore.filterParams"
-        :key="key"
-        class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full flex items-center"
-      >
-        <span class="mr-2"> {{ key }} : {{ param }}</span>
-        {{ generalStore.filterParams }}
-        <button
-          @click="removeFilterParam(key)"
-          class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+      <div v-for="(param, key) in generalStore.filterParams" :key="key">
+        <div
+          class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full flex items-center"
+          v-if="key != 'page'"
         >
-          x
-        </button>
+          <span class="mr-2"> {{ key }} : {{ param }}</span>
+          <button
+            @click="removeFilterParam(key)"
+            class="bg-red-500 text-white rounded-full w-5 h-5 flex items-center justify-center"
+          >
+            x
+          </button>
+        </div>
       </div>
     </div>
 

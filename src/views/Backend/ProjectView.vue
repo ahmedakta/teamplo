@@ -1,10 +1,12 @@
 <template>
   <MainLayout>
     <div class="mx-auto p-4">
-      <!-- <RouterLink :to="route.go(-1)">
-        <font-awesome-icon :icon="['fas', 'backward']" />
-      </RouterLink> -->
-      <h1 class="text-3xl font-bold mb-4">{{ data.project_name }}</h1>
+      <div class="flex">
+        <button @click="generalStore.goBack()">
+          <font-awesome-icon class="text-red-500" :icon="['fas', 'backward']" />
+        </button>
+        <h1 class="text-3xl font-bold mb-4">{{ data.project_name }}</h1>
+      </div>
       <div
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
         class="bg-white shadow-md rounded-lg p-6 mb-6"

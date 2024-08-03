@@ -23,7 +23,8 @@ export const useGeneralStore = defineStore('general', {
     isBackUrl: '/',
     posts: null,
     suggested: null,
-    following: null
+    following: null,
+    router: useRouter()
   }),
   actions: {
     // this function responsible to set data for "DataTable" only after makeRequest()
@@ -63,10 +64,14 @@ export const useGeneralStore = defineStore('general', {
         const response = await axios[method.toLowerCase()](url, reqParams)
         // show the response modal response
         if (response.data.data) {
+          // update URL with filterParam
+          if (params) {
+            this.router.push({ query: params })
+          }
           this.data = response.data.data
         }
         if (refreshUrl) {
-          this.makeRequest(refreshUrl).then(() => {
+          this.makeRequest(refreshUrl, this.filterParams).then(() => {
             this.setDataTable()
           })
         }
@@ -206,6 +211,9 @@ export const useGeneralStore = defineStore('general', {
     },
     closeModal() {
       this.currentModal = null
+    },
+    goBack() {
+      this.router.go(-1)
     }
   },
   persist: true

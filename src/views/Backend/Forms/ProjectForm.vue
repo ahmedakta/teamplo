@@ -34,10 +34,11 @@
               v-model="data.value.department_id"
               name=""
               id=""
-              class="border w-1/2 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             >
               <option
-                v-for="(department, key) in generalStore.data.departments"
+                v-if="generalStore.data.form"
+                v-for="(department, key) in generalStore.data.form.departments"
                 :key="key"
                 :value="department.id"
               >
@@ -108,12 +109,17 @@
           <div>
             <h3 class="text-l font-semibold">Project Stage</h3>
             <select
+              v-if="generalStore.data.form"
               required
               v-model="data.value.project_stage"
               class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
               name="status"
             >
-              <option v-for="(stage, key) in generalStore.data.stages" :key="key" :value="stage.id">
+              <option
+                v-for="(stage, key) in generalStore.data.form.stages"
+                :key="key"
+                :value="stage.id"
+              >
                 {{ stage.category_name }}
               </option>
             </select>

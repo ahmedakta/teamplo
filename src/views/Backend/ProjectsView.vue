@@ -17,7 +17,7 @@
         >
           <select
             v-model="generalStore.filterParams.sort_by"
-            class="border-b w-30 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            class="border-b w-[7rem] border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             required
           >
             <option class="bg-white text-black rounded-md" selected>Sort By Column</option>

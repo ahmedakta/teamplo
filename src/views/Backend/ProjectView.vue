@@ -1,20 +1,31 @@
 <template>
   <MainLayout>
     <div class="mx-auto p-4">
-      <div class="flex">
-        <button @click="generalStore.goBack()">
-          <font-awesome-icon class="text-red-500" :icon="['fas', 'backward']" />
-        </button>
-        <h1 class="text-3xl font-bold mb-4">{{ data.project_name }}</h1>
+      <div
+        :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
+        class="bg-white shadow-md rounded-lg p-6 mb-6"
+      >
+        <button @click="generalStore.goBack()">Back</button>
       </div>
       <div
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
         class="bg-white shadow-md rounded-lg p-6 mb-6"
       >
-        <div class="mb-4">
-          <h2 class="text-2xl font-semibold">Project Details</h2>
+        <h2 class="text-2xl font-semibold mb-10">Project Details</h2>
+        <div class="mb-4 flex">
+          <div class="mb-4 w-1/2">
+            <h2 class="text-md font-semibold">Project Name</h2>
+            <input
+              class="border border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              v-model="data.project_name"
+              cols="100"
+              rows="3"
+              @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
+            />
+          </div>
+          <h2 class="text-md font-semibold">Project Description</h2>
           <textarea
-            class="border border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            class="border w-1/2 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             v-model="data.project_description"
             cols="100"
             rows="3"
@@ -30,7 +41,21 @@
         <div class="grid grid-cols-2 gap-4">
           <div>
             <h3 class="text-l font-semibold">Department ID</h3>
-            <p class="text-gray-600">{{ data.department_id }}</p>
+            <select
+              @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
+              v-if="generalStore.data.form"
+              required
+              v-model="data.department_id"
+              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            >
+              <option
+                v-for="(department, key) in generalStore.data.form.departments"
+                :key="key"
+                :value="department.id"
+              >
+                {{ department.department_name }}
+              </option>
+            </select>
           </div>
           <div>
             <h3 class="text-l font-semibold">Budget</h3>
@@ -247,7 +272,7 @@ const getProject = async (filterParams = null) => {
   generalStore.makeRequest(url, filterParams).then(() => {
     // custimize values for datatable library
     if (generalStore.data) {
-      data.value = generalStore.data
+      data.value = generalStore.data.rec
       generalStore.isLoading = false
     } else {
       console.log('something going wrong with endpoint data')

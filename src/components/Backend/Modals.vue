@@ -74,12 +74,25 @@
         <!-- Input fields for filtering data -->
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Project Budget</label>
-          <input
-            @change="projectStore.getProjects(generalStore.filterParams)"
-            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            type="number"
-            v-model="generalStore.filterParams.project_budget"
-          />
+          <div class="flex items-center space-x-2">
+            <input
+              @change="projectStore.getProjects(generalStore.filterParams)"
+              class="border-b w-40 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              type="number"
+              v-model="generalStore.filterParams.project_budget"
+            />
+            <select
+              @change="projectStore.getProjects(generalStore.filterParams)"
+              class="border-b border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              v-model="generalStore.filterParams.project_currency"
+            >
+              <option value="USD">USD</option>
+              <option value="EUR">EUR</option>
+              <option value="GBP">GBP</option>
+              <option value="JPY">JPY</option>
+              <!-- Add other currency options as needed -->
+            </select>
+          </div>
         </div>
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Department</label>

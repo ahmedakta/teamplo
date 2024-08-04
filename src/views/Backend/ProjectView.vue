@@ -6,6 +6,7 @@
         class="bg-white shadow-md rounded-lg p-6 mb-6"
       >
         <button @click="generalStore.goBack()">Back</button>
+        {{ data.comments }}
       </div>
       <div
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"

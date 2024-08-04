@@ -88,13 +88,12 @@
       </div>
     </div>
     <div class="flex space-x-2">
-      <div
-        v-for="(param, key) in generalStore.filterParams"
-        :key="key"
-        v-if="key != 'page' || key != 'order' || key != 'sort_by'"
-      >
+      <div v-for="(param, key) in generalStore.filterParams" :key="key">
         <!-- Handling the filter params one by one to display the name of filtered item -->
-        <div class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full">
+        <div
+          class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full"
+          v-if="key != 'page' && key != 'order'"
+        >
           <!-- Department -->
           <div class="flex items-center" v-if="key == 'department_id'">
             <span class="mr-2">

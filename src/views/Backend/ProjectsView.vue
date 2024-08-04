@@ -4,22 +4,44 @@
       class="container w-full md:flex justify-between items-center flex-wrap gap-4 font-semibold"
     >
       <div class="mb-5 rounded-xl w-full md:w-auto">
-        <form action="">
+        <form
+          @submit.prevent="
+            () => {
+              generalStore.filterParams.order && generalStore.filterParams.order == 'ASC'
+                ? (generalStore.filterParams.order = 'DESC')
+                : (generalStore.filterParams.order = 'ASC')
+              projectStore.getProjects(generalStore.filterParams)
+            }
+          "
+          action=""
+        >
           <select
-            name=""
-            id=""
+            v-model="generalStore.filterParams.sort_by"
             class="border-b w-30 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            required
           >
-            <option value="" class="bg-white text-black rounded-md">Sort By Column</option>
-            <option value="" class="bg-white text-black rounded-md">ID</option>
-            <option value="">Project Name</option>
-            <option value="">Budget</option>
-            <option value="">Priority</option>
+            <option class="bg-white text-black rounded-md" selected>Sort By Column</option>
+            <option value="id" class="bg-white text-black rounded-md">ID</option>
+            <option value="project_budget" class="bg-white text-black rounded-md">
+              Project Budget
+            </option>
+            <option value="project_priority" class="bg-white text-black rounded-md">
+              Project Priority
+            </option>
+            <option value="project_stage" class="bg-white text-black rounded-md">
+              Project Stage
+            </option>
+            <option value="created_at" class="bg-white text-black rounded-md">Created At</option>
           </select>
           <button
+            type="submit"
             class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
           >
-            <font-awesome-icon :icon="['fa', 'arrow-down-wide-short']" />
+            <font-awesome-icon
+              v-if="generalStore.filterParams.order == 'DESC'"
+              :icon="['fa-solid', 'arrow-down-wide-short']"
+            />
+            <font-awesome-icon v-else :icon="['fa-sold', 'arrow-up-short-wide']" />
           </button>
         </form>
       </div>
@@ -66,7 +88,11 @@
       </div>
     </div>
     <div class="flex space-x-2">
-      <div v-for="(param, key) in generalStore.filterParams" :key="key" v-if="key != 'page'">
+      <div
+        v-for="(param, key) in generalStore.filterParams"
+        :key="key"
+        v-if="key != 'page' || key != 'order' || key != 'sort_by'"
+      >
         <!-- Handling the filter params one by one to display the name of filtered item -->
         <div class="bg-gray-200 text-gray-700 px-5 py-2 m-1 rounded-full">
           <!-- Department -->

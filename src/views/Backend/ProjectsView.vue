@@ -87,7 +87,7 @@
         </button>
       </div>
     </div>
-    <div class="flex space-x-2">
+    <div class="flex space-x-2" v-if="generalStore.data.filter_form">
       <div v-for="(param, key) in generalStore.filterParams" :key="key">
         <!-- Handling the filter params one by one to display the name of filtered item -->
         <div

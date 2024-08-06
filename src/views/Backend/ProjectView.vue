@@ -19,7 +19,7 @@
           <!-- Total Tasks -->
           <div class="bg-gray-100 rounded-lg p-4">
             <h3 class="text-sm font-medium text-gray-700">Total Tasks</h3>
-            <p class="mt-1 text-2xl font-semibold text-gray-900">32</p>
+            <p class="mt-1 text-2xl font-semibold text-gray-900">{{ data.tasks_count }}</p>
           </div>
 
           <!-- Completed Tasks -->
@@ -31,7 +31,68 @@
           <!-- Assigned Users -->
           <div class="bg-gray-100 rounded-lg p-4">
             <h3 class="text-sm font-medium text-gray-700">Assigned Users</h3>
-            <p class="mt-1 text-2xl font-semibold text-gray-900">5</p>
+            <p class="mt-1 text-2xl font-semibold text-gray-900">
+              <div class="border bg-gray-100 rounded-xl p-4">
+                <!-- Display assigned users -->
+                <div class="flex items-center justify-between border-b py-2">
+                  <div class="flex items-center space-x-2">
+                    <div class="flex -space-x-2">
+                      <div class="relative group" data-username="User 1">
+                        <img
+                          class="w-10 h-10 rounded-full border-2 border-white"
+                          src="https://via.placeholder.com/40"
+                          alt="User 1"
+                        />
+                        <div
+                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          ×
+                        </div>
+                        <div
+                          class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                        >
+                          User 1
+                        </div>
+                      </div>
+                      <div class="relative group">
+                        <img
+                          class="w-10 h-10 rounded-full border-2 border-white"
+                          src="https://via.placeholder.com/40"
+                          alt="User 1"
+                        />
+                        <div
+                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          ×
+                        </div>
+                        <div
+                          class="absolute mb-100 inset-0 flex items-center justify-center bg-black bg-opacity-60 text-black text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          a
+                        </div>
+                      </div>
+                      <div class="relative group">
+                        <img
+                          class="w-10 h-10 rounded-full border-2 border-white"
+                          src="https://via.placeholder.com/40"
+                          alt="User 1"
+                        />
+                        <div
+                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                        >
+                          ×
+                        </div>
+                      </div>
+                    </div>
+                    <div
+                      class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                    >
+                      +16
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </p>
           </div>
         </div>
 
@@ -236,6 +297,7 @@
         class="bg-white mt-10 shadow-md rounded-lg p-6 mb-6"
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
       >
+        <h2 class="text-lg font-semibold mb-2">Comments & Files</h2>
         <!-- buttons -->
         <div class="border-b mb-4">
           <button
@@ -264,7 +326,7 @@
         <div>
           <div v-if="activeTab === 'comments'">
             <!-- Comments content goes here -->
-            <div v-if="data.comments">
+            <div v-if="data.comments" class="overflow-y-auto h-60">
               <div
                 v-for="(comment, key) in data.comments"
                 :key="key"
@@ -281,16 +343,12 @@
                       <h4 class="font-semibold text-gray-800">{{ comment.user.name }}</h4>
                       <span class="text-sm text-gray-500">{{ comment.created_at }}</span>
                     </div>
-                    <p class="mt-2 text-gray-600">{{ comment.comment_desc }}</p>
+                    <p class="mt-2 text-gray-600" v-html="comment.comment_desc"></p>
                     <!-- Display reactions -->
                     <div class="mt-2 flex space-x-2">
                       <div class="flex items-center space-x-1">
                         <span>😂 (3)</span>
                       </div>
-                    </div>
-                    <div class="mt-4 flex space-x-4">
-                      <button class="text-sm text-blue-500 hover:underline">Reply</button>
-                      <button class="text-sm text-red-500 hover:underline">Delete</button>
                     </div>
                   </div>
                 </div>
@@ -299,12 +357,39 @@
                 <div
                   class="absolute top-0 mx-auto right-0 hidden group-hover:flex flex-row bg-white border border-gray-200 rounded-lg shadow-lg"
                 >
-                  <button class="text-sm py-2 px-2 text-gray-700 hover:text-gray-900">React</button>
-                  <button class="text-sm py-2 px-2 text-gray-700 hover:text-gray-900">
-                    Emojis
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    React
                   </button>
-                  <button class="text-sm py-2 px-2 text-gray-700 hover:text-gray-900">Edit</button>
-                  <button class="text-sm py-2 px-2 text-gray-700 hover:text-gray-900">
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    <font-awesome-icon :icon="['fa', 'face-grin-tears']" />
+                  </button>
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    <font-awesome-icon :icon="['fa', 'check']" />
+                  </button>
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    <font-awesome-icon :icon="['fa', 'pen-to-square']" />
+                  </button>
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    <font-awesome-icon :icon="['fa', 'reply']" />
+                  </button>
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
+                    <font-awesome-icon :icon="['fa', 'trash']" />
+                  </button>
+                  <button
+                    class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
+                  >
                     <font-awesome-icon :icon="['fa', 'bars']" />
                   </button>
                 </div>

@@ -9,6 +9,8 @@
           :title="department.department_name"
           :description="department.department_desc"
           :slug="department.slug"
+          :projects_count="department.projects_count"
+          :users_count="department.users_count"
         />
       </div>
     </div>
@@ -28,7 +30,7 @@ const errors = ref()
 onMounted(() => {
   generalStore.makeRequest('api/departments')
 })
-const deleteTask = async (task) => {
+const deleteTask = async task => {
   errors.value = null
 
   try {

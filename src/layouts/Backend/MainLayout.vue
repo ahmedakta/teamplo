@@ -22,13 +22,15 @@
 
     <!-- Modals -->
     <Modals />
-        
+
     <!-- Bubble element -->
-    <div class="fixed bottom-6 right-6 cursor-pointer"   
-    @click="
-      generalStore.openModal('aiChatBoxModal')
-    ">
-      <div class="relative bg-white w-12 h-12 rounded-full shadow-lg border-2 border-gray-300 overflow-hidden">
+    <div
+      class="fixed bottom-6 right-6 cursor-pointer"
+      @click="generalStore.openModal('aiChatBoxModal')"
+    >
+      <div
+        class="relative bg-white w-12 h-12 rounded-full shadow-lg border-2 border-gray-300 overflow-hidden"
+      >
         <!-- Centered icon with subtle shadow -->
         <div class="absolute inset-0 flex items-center justify-center">
           <img src="@/assets/ai-technology.svg" width="30" alt="AI Icon" class="drop-shadow-lg" />

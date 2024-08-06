@@ -183,6 +183,7 @@
             {{ data.value.progress }}
           </progress>
         </template>
+        <template #project_end_at="data"> {{ data.value.project_end_at }} Days Left </template>
         <template #assignments="data">
           <div class="flex -space-x-2">
             <div

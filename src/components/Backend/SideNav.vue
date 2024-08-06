@@ -46,41 +46,43 @@
         to="/dashboard"
         v-if="userStore.role_id == 1"
         :class="{ active: $route.path === '/dashboard' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fas', 'circle-notch']" />
+      <img src="../../assets/icons/dashboard.svg" alt="">
         Dashboard
       </RouterLink>
-      <button
+      <RouterLink
+        to=""
         v-if="userStore.role_id == 1"
         @click="dropdownOpen = !dropdownOpen"
-        class="block py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        class="flex py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fas', 'users']" />
+      <img src="../../assets/icons/solar_users-group-rounded-bold-duotone.svg" class="pr-2" alt="">
         Users
-      </button>
+      </RouterLink>
       <div v-show="dropdownOpen" class="pl-5">
         <RouterLink
           to="/link1"
-          class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+          class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
           @click="dropdownOpen = false"
         >
-          <font-awesome-icon :icon="['fas', 'users']" />
+        <img src="@/assets/icons/inactive-dot.svg" class="pr-2" alt="" />
           Users
         </RouterLink>
         <RouterLink
           to="/link2"
-          class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+          class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
           @click="dropdownOpen = false"
         >
+        <img src="@/assets/icons/inactive-dot.svg" class="pr-2" alt="" />
           Employees
         </RouterLink>
         <RouterLink
           to="/link3"
-          class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+          class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
           @click="dropdownOpen = false"
         >
-          <font-awesome-icon :icon="['fas', 'user-lock']" />
+        <img src="@/assets/icons/inactive-dot.svg" class="pr-2" alt="" />
           Permissions
         </RouterLink>
       </div>
@@ -90,16 +92,16 @@
         :class="{ active: $route.path === '/projects' }"
         class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fa', 'diagram-project']" />
+        <font-awesome-icon :icon="['fas', 'diagram-project']" />
         Projects
       </RouterLink>
       <RouterLink
         v-if="userStore.role_id == 1"
         to="/departments"
         :class="{ active: $route.path === '/departments' }"
-        class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
+        class="block flex py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fas', 'users-rectangle']" />
+      <img src="../../assets/icons/solar_notes-bold-duotone.svg" class="pr-2" alt="">
         Departments
       </RouterLink>
       <!-- <RouterLink
@@ -114,18 +116,18 @@
         v-if="userStore.role_id == 1"
         to="/events"
         :class="{ active: $route.path === '/events' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fa', 'calendar']" />
-        Events
+        <img src="../../assets/icons/calendar.svg" class="pr-2" alt="">
+        <p>Events</p>
       </RouterLink>
       <RouterLink
         v-if="userStore.role_id == 1"
         to="/chats"
         :class="{ active: $route.path === '/chats' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+        class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fa', 'comment']" />
+      <img src="../../assets/icons/message-text.svg" class="pr-2" alt="">
         Chats
       </RouterLink>
       <!-- Content Creator Routes -->
@@ -179,6 +181,14 @@
       <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
       Logout
     </a>
+    <RouterLink
+      to="/settings"
+      :class="{ active: $route.path === '/settings' }"
+      class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+    >
+    <img src="@/assets/icons/message-question.svg" alt="" class="pr-1" />
+      Support
+    </RouterLink>
     <div class="mx-auto flex w-64 px-5 py-5">
       <p>Made By </p>
       <a href="https://www.scritp.com" target="_blank">

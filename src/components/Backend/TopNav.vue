@@ -12,7 +12,7 @@
           v-if="userStore.id"
           class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"
         >
-          <p><font-awesome-icon :icon="['fas', 'search']" class="text-black" /></p>
+          <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="" />
           <input
             v-model="generalStore.filterParams.search"
             type="text"
@@ -24,21 +24,23 @@
           v-if="userStore.id"
           class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl"
         >
-          <RouterLink to="/settings"
-            ><font-awesome-icon :icon="['fas', 'fa-cog']" class="text-black"
-          /></RouterLink>
+          <RouterLink to="/settings">
+            <img src="@/assets/icons/setting-2.svg" class="text-black pr-1" alt="" />
+          </RouterLink>
         </div>
         <div
           v-if="userStore.id"
           class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl"
         >
-          <a href=""> <font-awesome-icon :icon="['far', 'bell']" class="text-black" /></a>
+          <a href="">
+            <img src="@/assets/icons/notification.svg" class="text-black pr-1" alt="" />
+          </a>
         </div>
         <div
           v-if="userStore.id"
           class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-3xl"
         >
-          <a href="#"><img :src="'./src/assets/' + userStore.image" alt="" width="25rem" /></a>
+          <a href="#"><img :src="'/src/assets/' + userStore.image" alt="" width="25rem" /></a>
         </div>
       </div>
     </div>
@@ -53,7 +55,7 @@ const generalStore = useGeneralStore()
 import { useRouter } from 'vue-router'
 const router = useRouter()
 
-const isLoggedIn = (redirect) => {
+const isLoggedIn = redirect => {
   let storedUserInfo = JSON.parse(localStorage.getItem('user'))
   if (storedUserInfo) {
     if (redirect) {

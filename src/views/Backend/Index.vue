@@ -147,27 +147,19 @@ const task = ref('')
         <div class="bg-white w-full flex flex-col mx-auto">
           <!-- Task cards -->
           <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img src="../../assets/icons/task-todo.png" alt="" class="rounded-xl w-[4rem] px-5" />
+            <img src="@/assets/icons/todo.svg" alt="" class="rounded-xl w-[4rem] px-5" />
             <p>Todo (18)</p>
           </div>
           <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img
-              src="../../assets/icons/task-inProgress.png"
-              alt=""
-              class="rounded-xl w-[4rem] px-5"
-            />
+            <img src="@/assets/icons/in-progress.svg" alt="" class="rounded-xl w-[4rem] px-5" />
             <p>In Progress (18)</p>
           </div>
           <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img src="../../assets/icons/task-done.png" alt="" class="rounded-xl w-[4rem] px-5" />
+            <img src="@/assets/icons/done.svg" alt="" class="rounded-xl w-[4rem] px-5" />
             <p>Done (18)</p>
           </div>
           <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img
-              src="../../assets/icons/task-unassigned.png"
-              alt=""
-              class="rounded-xl w-[4rem] px-5"
-            />
+            <img src="@/assets/icons/unassigned.svg" alt="" class="rounded-xl w-[4rem] px-5" />
             <p>Unassigned (18)</p>
           </div>
         </div>

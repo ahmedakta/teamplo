@@ -1,11 +1,51 @@
 <template>
   <MainLayout>
     <div class="p-4 md:p-8">
-      <h1 class="text-2xl font-bold mb-4" v-if="data.department">
-        {{ data.department.department_name }} - {{ data.project.project_name }} project
-      </h1>
+      <!-- Project PROGRESS KPI -->
+      <div class="flex justify-between mb-5 bg-white rounded-2xl p-5">
+        <div class="p-6 rounded-lg w-96" v-if="data.department">
+          <div class="text-lg font-semibold mb-2">
+            {{ data.department.department_name }} - {{ data.project.project_name }} project
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <div class="text-gray-600">Progress</div>
+            <div class="text-gray-800">45%</div>
+          </div>
+          <progress value="45" max="100" class="w-full"></progress>
+        </div>
+        <div class="p-6 rounded-lg w-96" v-if="data.project">
+          <div class="text-lg flex font-semibold mb-2">
+            <img src="@/assets/icons/calendar.svg" class="pr-1" alt="" />
+            End Date : {{ data.project.project_end_at }} Days Left
+          </div>
+          <div class="flex justify-between items-center mb-2">
+            <div class="text-gray-600"></div>
+          </div>
+          <!-- Display assigned users -->
+          <div class="flex items-center justify-between border-b">
+            <div class="flex items-right">
+              <div class="flex -space-x-2">
+                <div class="relative">
+                  <img
+                    class="w-10 h-10 rounded-full border-2 border-white"
+                    src="@/assets/default_profile_image.png"
+                    alt="User 1"
+                  />
+                  <div
+                    class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                  >
+                    User 1
+                  </div>
+                </div>
+                <!-- Repeat for other users -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <!-- Filter Section -->
-       <div class="bg-white w-full flex justify-between mb-1 pt-5 rounded-xl">
+      <div class="bg-white mx-auto w-full flex justify-between mb-1 pt-5 rounded-2xl">
         <!-- Column filtration -->
         <div class="ml-1">
           <button
@@ -38,84 +78,90 @@
           </button>
         </div>
         <!-- Search -->
-         <div class="mr-2">
-          <input type="text" placeholder="Search for task .." class="border-gray-200 rounded-lg border-2 py-1 px-2">
-         </div>
-       </div>
+        <div class="mr-2">
+          <input
+            type="text"
+            placeholder="Search for task .."
+            class="border-gray-200 rounded-lg border-2 py-1 px-2"
+          />
+        </div>
+      </div>
       <!-- End Of  Filter Section -->
       <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div class="bg-gray-200 p-4 rounded-lg shadow">
-        <div class="flex items-center justify-between mb-2 p-2 bg-orange-100 rounded-lg">
-          <h2 class="text-xl font-semibold">Todo</h2>
-          <!-- buttons section -->
-          <div class="flex items-center justify-end space-x-2 flex-wrap text-gray-600">
-            <button class="bg-white py-1 px-2 rounded-lg">
-              <font-awesome-icon :icon="['fas', 'bars']" />
-            </button>
-            <button class="bg-white py-1 px-2 rounded-lg">
-              <font-awesome-icon :icon="['fas', 'plus']" />
-            </button>
+          <div class="flex items-center justify-between mb-2 p-2 bg-orange-100 rounded-lg">
+            <h2 class="text-xl font-semibold">Todo</h2>
+            <!-- buttons section -->
+            <div class="flex items-center justify-end space-x-2 flex-wrap text-gray-600">
+              <button class="bg-white py-1 px-2 rounded-lg">
+                <font-awesome-icon :icon="['fas', 'bars']" />
+              </button>
+              <button class="bg-white py-1 px-2 rounded-lg">
+                <font-awesome-icon :icon="['fas', 'plus']" />
+              </button>
+            </div>
           </div>
-        </div>
-        <ul>
-          <li v-for="task in data.tasks" :key="task.id" class="mb-2 p-2 bg-white rounded-lg">
-            <h3 class="text-lg font-semibold mb-1">
-              <font-awesome-icon class="cursor-grab" :icon="['fas', 'grip']" /> {{ task.name }}
-            </h3>
-            <div class="text-sm text-gray-700 mb-2">{{ task.description }}</div>
-            <div class="flex flex-wrap space-x-4 mb-2">
-              <div class="flex items-center">
-                <!-- Assigned Users Section -->
-                <div class="w-full sm:w-40">
-                  <!-- Display assigned users -->
-                  <div class="flex items-center justify-between border-b">
-                    <div class="flex items-center">
-                      <div class="flex -space-x-2">
-                        <div class="relative group" data-username="User 1">
-                          <img
-                            class="w-10 h-10 rounded-full border-2 border-white"
-                            src="@/assets/default_profile_image.png"
-                            alt="User 1"
-                          />
-                          <div
-                            class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                          >
-                            ×
+          <ul>
+            <li v-for="task in data.tasks" :key="task.id" class="mb-2 p-2 bg-white rounded-lg">
+              <h3 class="text-lg font-semibold mb-1">
+                <font-awesome-icon class="cursor-grab" :icon="['fas', 'grip']" /> {{ task.name }}
+              </h3>
+              <div class="text-sm text-gray-700 mb-2">{{ task.description }}</div>
+              <div class="flex flex-wrap space-x-4 mb-2">
+                <div class="flex items-center">
+                  <!-- Assigned Users Section -->
+                  <div class="w-full sm:w-40">
+                    <!-- Display assigned users -->
+                    <div class="flex items-center justify-between border-b">
+                      <div class="flex items-center">
+                        <div class="flex -space-x-2">
+                          <div class="relative group" data-username="User 1">
+                            <img
+                              class="w-10 h-10 rounded-full border-2 border-white"
+                              src="@/assets/default_profile_image.png"
+                              alt="User 1"
+                            />
+                            <div
+                              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                            >
+                              ×
+                            </div>
+                            <div
+                              class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                            >
+                              User 1
+                            </div>
                           </div>
-                          <div
-                            class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
-                          >
-                            User 1
-                          </div>
+                          <!-- Repeat for other users -->
                         </div>
-                        <!-- Repeat for other users -->
-                      </div>
-                      <div class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full">
-                        +
+                        <div
+                          class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
+                        >
+                          +
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
+                <button @click="togglePriority" class="flex items-center">
+                  <font-awesome-icon :icon="['fas', 'flag']" />
+                </button>
+
+                <button @click="assignUser" class="flex items-center">
+                  <font-awesome-icon :icon="['fas', 'calendar']" />
+                </button>
+
+                <button @click="startTimer" class="flex items-center">
+                  <font-awesome-icon :icon="['fas', 'stopwatch']" />
+                </button>
+
+                <button @click="toggleStatus" class="flex items-center">
+                  <font-awesome-icon :icon="['fas', 'check']" />
+                </button>
               </div>
-              <button @click="togglePriority" class="flex items-center">
-                <font-awesome-icon :icon="['fas', 'flag']" />
-              </button>
-
-              <button @click="assignUser" class="flex items-center">
-                <font-awesome-icon :icon="['fas', 'calendar']" />
-              </button>
-
-              <button @click="startTimer" class="flex items-center">
-                <font-awesome-icon :icon="['fas', 'stopwatch']" />
-              </button>
-
-              <button @click="toggleStatus" class="flex items-center">
-                <font-awesome-icon :icon="['fas', 'check']" />
-              </button>
-            </div>
-          </li>
-        </ul>
-      </div>
+            </li>
+          </ul>
+        </div>
 
         <!-- In Progress Column -->
         <div class="bg-white p-4 rounded-lg shadow">
@@ -198,3 +244,23 @@ const getTasks = async (filterParams = null) => {
   })
 }
 </script>
+<style scoped>
+progress {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 8px;
+}
+
+progress::-webkit-progress-bar {
+  @apply bg-gray-200 rounded;
+}
+
+progress::-webkit-progress-value {
+  @apply bg-gray-500 rounded;
+}
+
+progress::-moz-progress-bar {
+  @apply bg-blue-500 rounded;
+}
+</style>

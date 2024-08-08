@@ -208,6 +208,7 @@
             generalStore.makeRequest('/api/projects').then(() => {
               generalStore.setDataTable()
               generalStore.filterParams = {}
+              router.push({ query: {} })
             })
           "
           class="mt-4 inline-flex items-center px-4 py-2 text-black border border-transparent rounded-md font-semibold focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
@@ -366,6 +367,8 @@ const generalStore = useGeneralStore()
 import { useProjectStore } from '@/stores/project'
 import { RouterLink } from 'vue-router'
 const projectStore = useProjectStore()
+import { useRouter } from 'vue-router'
+const router = useRouter()
 </script>
 <style scoped>
 .tags-input {

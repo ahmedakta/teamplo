@@ -473,7 +473,7 @@ const data = ref([])
 const formData = ref({})
 const generalStore = useGeneralStore()
 let activeTab = ref('comments')
-let projectUrl = '/api/project/' + route.params.slug
+let projectUrl = `/api/project/${route.params.slug}`
 
 onMounted(() => {
   try {

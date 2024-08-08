@@ -296,7 +296,7 @@
 }
 </style>
 <script setup lang="ts">
-import { ref, reactive, onMounted } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import Vue3Datatable from '@bhplugin/vue3-datatable'
 import '@bhplugin/vue3-datatable/dist/style.css'
@@ -308,18 +308,43 @@ const datatableStore = useDataTableStore()
 const projectStore = useProjectStore()
 const isOpen = ref(false)
 const datatable: any = ref(null)
+import { useRoute, useRouter } from 'vue-router'
+const router = useRouter()
+const route = useRoute()
 
 onMounted(() => {
   try {
+    generalStore.updateFilterParams()
     projectStore.getProjects()
   } catch (error) {
     console.log(error)
   }
 })
-
+// watch the filter queries
+watch(
+  () => route.query,
+  newQuery => {
+    // generalStore.filterParams = newQuery
+    projectStore.getProjects(newQuery)
+  },
+  { immediate: true } // Trigger the watcher immediately on component mount
+)
 const removeFilterParam = (key = null) => {
+  let updatedQuery = route.query
   delete generalStore.filterParams[key]
-  projectStore.getProjects()
+  delete updatedQuery[key]
+  // console.log(updatedQuery)
+  // TODOOOOOOO
+  router.push({ query: updatedQuery })
+  projectStore.getProjects(updatedQuery)
+  // ______ Debug ______ //
+  // console.log('before delete')
+  // console.log(generalStore.filterParams)
+  // console.log(updatedQuery)
+  // console.log('after delete')
+  // console.log(updatedQuery)
+  // console.log(generalStore.filterParams)
+  // ______ /Debug ______ //
 }
 // change server function
 const changeServer = (data: any) => {

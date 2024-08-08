@@ -1,14 +1,21 @@
 import { defineStore } from 'pinia'
 import axios from '../../plugins/axios'
 import { useGeneralStore } from '@/stores/general'
+import { useRoute } from 'vue-router'
 export const useProjectStore = defineStore('project', {
   state: () => ({
     data: [],
     generalStore: useGeneralStore(),
-    projects: []
+    projects: [],
+    route: useRoute()
   }),
   actions: {
     async getProjects(filterParams = this.generalStore.filterParams) {
+      // check if there is filter params in the query of url
+      if (Object.keys(this.route.query).length) {
+        // merge the route query with teh filterparams
+        filterParams = { ...this.route.query, ...filterParams }
+      }
       this.generalStore.makeRequest('/api/projects', filterParams).then(() => {
         this.generalStore.setDataTable()
       })

@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia'
 import { useUserStore } from '@/stores/user'
 import { useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useProjectStore } from '@/stores/project'
 import { reactive, ref } from 'vue'
 import { useDataTableStore } from '@/stores/datatable'
@@ -11,6 +12,7 @@ export const useGeneralStore = defineStore('general', {
     isLoginOpen: false,
     filterParams: reactive({}),
     router: useRouter(),
+    route: useRoute(),
     projectStore: useProjectStore(),
     datatableStore: useDataTableStore(),
     currentModal: null,
@@ -23,10 +25,13 @@ export const useGeneralStore = defineStore('general', {
     isBackUrl: '/',
     posts: null,
     suggested: null,
-    following: null,
-    router: useRouter()
+    following: null
   }),
   actions: {
+    // update filter params from query of url
+    updateFilterParams() {
+      this.filterParams = { ...this.filterParams, ...this.route.query }
+    },
     // this function responsible to set data for "DataTable" only after makeRequest()
     setDataTable() {
       this.isLoading = true
@@ -51,6 +56,7 @@ export const useGeneralStore = defineStore('general', {
     },
     // we using this function to make all requests.
     async makeRequest(url, params = null, method = 'GET', redirect = null, refreshUrl = null) {
+      // we should update the params with the qureiesin the URL
       this.isLoading = true
       try {
         // Ensure method is in uppercase

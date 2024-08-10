@@ -71,7 +71,7 @@ export const useGeneralStore = defineStore('general', {
         // show the response modal response
         if (response.data.data) {
           // update URL with filterParam
-          if (params) {
+          if (params && method != 'POST') {
             this.router.push({ query: params })
           }
           this.data = response.data.data

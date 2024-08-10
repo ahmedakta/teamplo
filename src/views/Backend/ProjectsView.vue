@@ -212,7 +212,7 @@
                 ×
               </div>
               <div
-                class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
+                class="absolute -top-10 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
               >
                 {{ user.name }}
               </div>

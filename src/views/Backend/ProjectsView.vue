@@ -314,7 +314,9 @@ const route = useRoute()
 
 onMounted(() => {
   try {
+    // TODO : this logic loadng data twice
     generalStore.updateFilterParams()
+
     projectStore.getProjects()
   } catch (error) {
     console.log(error)
@@ -331,11 +333,17 @@ watch(
 )
 const removeFilterParam = (key = null) => {
   let updatedQuery = route.query
-  delete generalStore.filterParams[key]
-  delete updatedQuery[key]
+  if (key) {
+    delete generalStore.filterParams[key]
+    delete updatedQuery[key]
+  }
   // console.log(updatedQuery)
   // TODOOOOOOO
-  router.push({ query: updatedQuery })
+  router.push({ query: updatedQuery }).catch(err => {
+    if (err.name !== 'NavigationDuplicated') {
+      throw err
+    }
+  })
   projectStore.getProjects(updatedQuery)
   // ______ Debug ______ //
   // console.log('before delete')

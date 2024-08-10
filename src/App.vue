@@ -6,8 +6,6 @@ import AuthOverlay from '@/components/AuthOverlay.vue'
 const generalStore = useGeneralStore()
 const userStore = useUserStore()
 import swal from 'sweetalert'
-import { useRouter } from 'vue-router'
-const router = useRouter()
 onMounted(async () => {
   // alert(1)
   // // TODO we should read from local storage directly

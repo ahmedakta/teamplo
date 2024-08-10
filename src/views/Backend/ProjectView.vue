@@ -3,11 +3,10 @@
     <div class="mx-auto p-4">
       <div
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
-        class="bg-white shadow-md rounded-lg p-6 mb-6"
+        class=" p-6 mb-6"
       >
         <!-- Project Title -->
-        <div class="flex items-center justify-between mb-4">
-          <h2 class="text-xl font-semibold text-gray-800">Project Title</h2>
+        <div class="flex items-center justify-end mb-4">
           <span
             class="inline-block px-3 py-1 text-sm font-medium bg-green-100 text-green-700 rounded-full"
             >Active</span
@@ -15,21 +14,21 @@
         </div>
 
         <!-- KPI Section -->
-        <div class="grid grid-cols-3 gap-4">
+        <div class="grid grid-cols-3">
           <!-- Total Tasks -->
-          <div class="bg-gray-100 rounded-lg p-4">
+          <div class="bg-gray-200 w-3/4 rounded-lg p-4">
             <h3 class="text-sm font-medium text-gray-700">Total Tasks</h3>
             <p class="mt-1 text-2xl font-semibold text-gray-900">{{ data.tasks_count }}</p>
           </div>
 
           <!-- Completed Tasks -->
-          <div class="bg-gray-100 rounded-lg p-4">
+          <div class="bg-gray-200 w-3/4 rounded-lg p-4">
             <h3 class="text-sm font-medium text-gray-700">Completed Tasks</h3>
             <p class="mt-1 text-2xl font-semibold text-gray-900">18</p>
           </div>
 
           <!-- Assigned Users -->
-          <div class="bg-gray-100 rounded-lg p-4">
+          <div class="bg-gray-200 w-3/4 rounded-lg p-4">
             <h3 class="text-sm font-medium text-gray-700">Assigned Users</h3>
             <p class="mt-1 text-2xl font-semibold text-gray-900">
               <div class="border bg-gray-100 rounded-xl p-4">
@@ -95,43 +94,8 @@
             </p>
           </div>
         </div>
-
-        <!-- Project Description -->
-        <div class="mt-6">
-          <h3 class="text-sm font-medium text-gray-700">Project Description</h3>
-          <p class="mt-2 text-gray-600">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua.
-          </p>
-        </div>
       </div>
 
-      <div
-        :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
-        class="bg-white shadow-md rounded-lg p-6 mb-6"
-      >
-        <h2 class="text-2xl font-semibold mb-10">Project Details</h2>
-        <div class="mb-4 flex">
-          <div class="mb-4 w-1/2">
-            <h2 class="text-md font-semibold">Project Name</h2>
-            <input
-              class="border border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-              v-model="data.project_name"
-              cols="100"
-              rows="3"
-              @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
-            />
-          </div>
-          <h2 class="text-md font-semibold">Project Description</h2>
-          <textarea
-            class="border w-1/2 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            v-model="data.project_description"
-            cols="100"
-            rows="3"
-            @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
-          ></textarea>
-        </div>
-      </div>
       <div
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
         class="bg-white shadow-md rounded-lg p-6"
@@ -139,13 +103,33 @@
         <h2 class="text-2xl mb-5 font-semibold">Project Information</h2>
         <div class="grid grid-cols-2 gap-4">
           <div>
+            <h2 class="text-md font-semibold">Project Name</h2>
+            <input
+            class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            v-model="data.project_name"
+              cols="100"
+              rows="3"
+              @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
+            />
+          </div>
+          <div>
+            <h2 class="text-md font-semibold">Project Description</h2>
+            <textarea
+            class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+            v-model="data.project_description"
+              cols="100"
+              rows="3"
+              @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
+            ></textarea>
+          </div>
+          <div>
             <h3 class="text-l font-semibold">Department ID</h3>
             <select
               @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
               v-if="generalStore.data.form"
               required
               v-model="data.department_id"
-              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
             >
               <option
                 v-for="(department, key) in generalStore.data.form.departments"
@@ -161,7 +145,7 @@
             <div class="relative">
               <input
                 type="number"
-                class="border-b w-60 border-gray-300 rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-blue-500"
+                class="border-b w-full border-gray-300 rounded-md py-2 pl-10 pr-4 focus:outline-none focus:border-blue-500"
                 v-model="data.project_budget"
                 @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
               />
@@ -175,7 +159,7 @@
           <div>
             <h3 class="text-l font-semibold">Start Date</h3>
             <input
-              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
               type="date"
               v-model="data.project_start_at"
               @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
@@ -184,7 +168,7 @@
           <div>
             <h3 class="text-l font-semibold">End Date</h3>
             <input
-              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
               type="date"
               v-model="data.project_end_at"
               @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
@@ -194,7 +178,7 @@
           <div>
             <h3 class="text-l font-semibold">Priority</h3>
             <select
-              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
               name="status"
               v-model="data.project_priority"
               @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
@@ -207,7 +191,7 @@
           <div>
             <h3 class="text-l font-semibold">Status</h3>
             <select
-              class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
+              class="border-b w-full border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
               name="status"
               v-model="data.status"
               @change="generalStore.makeRequest('api/project/update', data, 'PUT')"
@@ -216,80 +200,6 @@
               <option :value="0">Inactive</option>
             </select>
           </div>
-          <div>
-            <h3 class="text-l font-semibold">Status</h3>
-            <!-- Assigned Users Section -->
-            <div class="mt-4 w-60">
-              <h2 class="text-lg font-semibold mb-2">Assigned Users</h2>
-
-              <div class="border rounded bg-gray-100 rounded-xl p-4">
-                <!-- Display assigned users -->
-                <div class="flex items-center justify-between border-b py-2">
-                  <div class="flex items-center space-x-2">
-                    <div class="flex -space-x-2">
-                      <div class="relative group" data-username="User 1">
-                        <img
-                          class="w-10 h-10 rounded-full border-2 border-white"
-                          src="https://via.placeholder.com/40"
-                          alt="User 1"
-                        />
-                        <div
-                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          ×
-                        </div>
-                        <div
-                          class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
-                        >
-                          User 1
-                        </div>
-                      </div>
-                      <div class="relative group">
-                        <img
-                          class="w-10 h-10 rounded-full border-2 border-white"
-                          src="https://via.placeholder.com/40"
-                          alt="User 1"
-                        />
-                        <div
-                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          ×
-                        </div>
-                        <div
-                          class="absolute mb-100 inset-0 flex items-center justify-center bg-black bg-opacity-60 text-black text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          a
-                        </div>
-                      </div>
-                      <div class="relative group">
-                        <img
-                          class="w-10 h-10 rounded-full border-2 border-white"
-                          src="https://via.placeholder.com/40"
-                          alt="User 1"
-                        />
-                        <div
-                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          ×
-                        </div>
-                      </div>
-                    </div>
-                    <div
-                      class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
-                    >
-                      +16
-                    </div>
-                  </div>
-                  <!-- <button
-                    @click="removeUser(index)"
-                    class="text-red-500 hover:text-red-700 focus:outline-none"
-                  >
-                    Remove
-                  </button> -->
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <!-- tabs -->
@@ -297,7 +207,6 @@
         class="bg-white mt-10 shadow-md rounded-lg p-6 mb-6"
         :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }"
       >
-        <h2 class="text-lg font-semibold mb-2">Comments & Files</h2>
         <!-- buttons -->
         <div class="border-b mb-4">
           <button

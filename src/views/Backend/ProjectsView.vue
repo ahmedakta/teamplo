@@ -332,27 +332,10 @@ watch(
   { immediate: true } // Trigger the watcher immediately on component mount
 )
 const removeFilterParam = (key = null) => {
-  let updatedQuery = route.query
   if (key) {
     delete generalStore.filterParams[key]
-    delete updatedQuery[key]
   }
-  // console.log(updatedQuery)
-  // TODOOOOOOO
-  router.push({ query: updatedQuery }).catch(err => {
-    if (err.name !== 'NavigationDuplicated') {
-      throw err
-    }
-  })
-  projectStore.getProjects(updatedQuery)
-  // ______ Debug ______ //
-  // console.log('before delete')
-  // console.log(generalStore.filterParams)
-  // console.log(updatedQuery)
-  // console.log('after delete')
-  // console.log(updatedQuery)
-  // console.log(generalStore.filterParams)
-  // ______ /Debug ______ //
+  projectStore.getProjects()
 }
 // change server function
 const changeServer = (data: any) => {

@@ -12,10 +12,6 @@ export const useProjectStore = defineStore('project', {
   actions: {
     async getProjects(filterParams = this.generalStore.filterParams) {
       // check if there is filter params in the query of url
-      if (Object.keys(this.route.query).length) {
-        // merge the route query with teh filterparams
-        filterParams = { ...this.route.query, ...filterParams }
-      }
       this.generalStore.makeRequest('/api/projects', filterParams).then(() => {
         this.generalStore.setDataTable()
       })

@@ -3,7 +3,7 @@
     <div class="container mx-auto h-[5rem] rounded-xl flex items-center justify-between">
       <!-- Logo on the left -->
       <div class="flex-shrink-0">
-        <h1 class="text-black text-[2vh] px-5 font-bold">Welcome 👋🏻 {{ userStore.name }}</h1>
+        <h1 class="text-black text-20 px-5 font-bold">Welcome 👋🏻 {{ userStore.name }}</h1>
       </div>
       <!-- Login button on the right -->
       <!-- search input -->
@@ -12,7 +12,7 @@
           v-if="userStore.id"
           class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"
         >
-          <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="" />
+          <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
           <input
             v-model="generalStore.filterParams.search"
             type="text"
@@ -38,9 +38,14 @@
         </div>
         <div
           v-if="userStore.id"
-          class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-3xl"
+          class="flex h-12 w-12 justify-center items-center bg-white rounded-full"
         >
-          <a href="#"><img :src="'/src/assets/' + userStore.image" alt="" width="25rem" /></a>
+          <a href="#"
+            ><img
+              :src="'/src/assets/' + userStore.image"
+              alt=""
+              class="rounded-full h-10 w-10 object-cover"
+          /></a>
         </div>
       </div>
     </div>

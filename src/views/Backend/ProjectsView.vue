@@ -13,7 +13,6 @@
               projectStore.getProjects(generalStore.filterParams)
             }
           "
-          action=""
         >
           <select
             v-model="generalStore.filterParams.sort_by"
@@ -35,7 +34,7 @@
           </select>
           <button
             type="submit"
-            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
+            class="text-white ml-2 bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
           >
             <font-awesome-icon
               v-if="generalStore.filterParams.order == 'DESC'"

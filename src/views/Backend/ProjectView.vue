@@ -235,7 +235,7 @@
         <div>
           <div v-if="activeTab === 'comments'">
             <!-- Comments content goes here -->
-            <div v-if="data.comments" class="overflow-y-auto h-60">
+            <div v-if="data.comments && data.comments.length" class="overflow-y-auto h-60">
               <div
                 v-for="(comment, key) in data.comments"
                 :key="key"

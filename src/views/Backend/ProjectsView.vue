@@ -193,7 +193,7 @@
             >
               <img
                 src="@/assets/default_profile_image.png"
-                class="w-10 h-10 rounded-full border-2 border-white"
+                class="w-10 h-10 rounded-full border-2 border-gray-200"
                 alt="User 1"
               />
               <div
@@ -237,7 +237,7 @@
         </template>
         <template #project_stage="data">
           <p
-            class="text-black px-2 text-center py-1 rounded"
+            class="inline-block px-3 py-1 text-sm font-medium bg-green-100 text-black rounded-full"
             :class="data.value.stage.category_color"
           >
             {{ data.value.stage.category_name }}
@@ -251,7 +251,7 @@
         <template #actions="data">
           <div class="flex gap-4">
             <RouterLink
-              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 hover:border-blue-500 rounded !py-1"
               :to="{
                 name: 'backend.projects.view',
                 params: { slug: data.value.slug }
@@ -260,7 +260,7 @@
               <font-awesome-icon :icon="['fas', 'eye']" />
             </RouterLink>
             <RouterLink
-              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 border-b-4 border-blue-700 hover:border-blue-500 rounded !py-1"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 hover:border-blue-500 rounded !py-1"
               :to="{
                 name: 'backend.department.project.tasks',
                 params: {

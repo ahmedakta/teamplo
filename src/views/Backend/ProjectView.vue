@@ -299,7 +299,7 @@
                   <button
                     class="text-sm hover:bg-gray-200 py-2 px-2 text-gray-700 hover:text-gray-900"
                   >
-                    <font-awesome-icon :icon="['fa', 'bars']" />
+                    <font-awesome-icon :icon="['fa', 'ellipsis-vertical']" />
                   </button>
                 </div>
 

@@ -8,10 +8,7 @@
       <!-- Login button on the right -->
       <!-- search input -->
       <div class="hidden md:flex justify-between w-[26rem] text-[1rem] text-center">
-        <div
-          v-if="userStore.id"
-          class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl"
-        >
+        <div class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl">
           <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
           <input
             v-model="generalStore.filterParams.search"
@@ -20,26 +17,17 @@
             class="text-black"
           />
         </div>
-        <div
-          v-if="userStore.id"
-          class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl"
-        >
+        <div class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl">
           <RouterLink to="/settings">
             <img src="@/assets/icons/setting-2.svg" class="text-black pr-1" alt="" />
           </RouterLink>
         </div>
-        <div
-          v-if="userStore.id"
-          class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl"
-        >
+        <div class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl">
           <a href="">
             <img src="@/assets/icons/notification.svg" class="text-black pr-1" alt="" />
           </a>
         </div>
-        <div
-          v-if="userStore.id"
-          class="flex h-12 w-12 justify-center items-center bg-white rounded-full"
-        >
+        <div class="flex h-12 w-12 justify-center items-center bg-white rounded-full">
           <a href="#"
             ><img
               :src="'/src/assets/' + userStore.image"

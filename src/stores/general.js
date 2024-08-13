@@ -56,6 +56,7 @@ export const useGeneralStore = defineStore('general', {
     },
     // we using this function to make all requests.
     async makeRequest(url, params = null, method = 'GET', redirect = null, refreshUrl = null) {
+      this.data = []
       // we should update the params with the qureiesin the URL
       this.isLoading = true
       try {

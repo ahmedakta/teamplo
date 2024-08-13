@@ -3,7 +3,11 @@
     class="max-w-96 w-full rounded-xl overflow-hidden shadow-lg m-4 items-center justify-center mx-auto"
   >
     <div class="relative w-full h-48">
-      <img class="w-full h-full object-cover" :src="blog.image" alt="Blog Image" />
+      <img
+        class="w-full h-full object-cover"
+        :src="`src/assets/blogs/${blog.content_image}`"
+        alt="Blog Image"
+      />
       <div class="absolute top-2 right-2 py-1 px-2 text-white bg-gray-400 rounded-lg">
         <!-- Heart Icon -->
         <a href="#">
@@ -19,9 +23,9 @@
       </div>
     </div>
     <div class="px-6 py-4">
-      <a class="text-black text-base" href="/blogs/example-blog">
-        {{ blog.header }}
-      </a>
+      <RouterLink class="text-black text-base" :to="`/blogs/${blog.slug}`">
+        {{ blog.content_title }}
+      </RouterLink>
       <!-- Reading time -->
       <div class="mt-5 py-4">
         <div class="flex justify-between">

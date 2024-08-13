@@ -81,7 +81,7 @@ const router = createRouter({
       component: BlogsView
     },
     {
-      path: '/blogs/example-blog',
+      path: '/blogs/:slug',
       name: 'frontend.blogs.view',
       component: BlogView
     },

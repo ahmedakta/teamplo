@@ -16,7 +16,7 @@
           <p>Sort: Most Read</p>
         </div>
       </div>
-      <Blogs :blogs="blogs" header="" />
+      <Blogs :blogs="data" header="" />
     </section>
     <!-- Blogs List Section -->
   </MainLayout>
@@ -24,9 +24,27 @@
 </template>
 <script setup>
 import MainLayout from '@/layouts/Frontend/MainLayout.vue'
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import { useGeneralStore } from '@/stores/general'
+const generalStore = useGeneralStore()
 import Blogs from '@/components/Frontend/Blogs.vue'
-
+const data = ref([])
+onMounted(() => {
+  try {
+    // TODO : this logic loadng data twice
+    generalStore.makeRequest('/api/blogs').then(() => {
+      // custimize values for datatable library
+      if (generalStore.data) {
+        data.value = generalStore.data.data.data
+        generalStore.isLoading = false
+      } else {
+        console.log('something going wrong with endpoint data')
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
 const blogs = ref([
   {
     id: 1,

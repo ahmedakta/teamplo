@@ -1,15 +1,20 @@
 <template>
   <div class="text-black p-5">
     <div v-if="loaded">
-      <Pie :data="storeData.chart" :options="options" palette="Soft" v-if="storeData.chart" />
+      <Pie
+        :data="storeData.departments_progress.chart"
+        :options="options"
+        palette="Soft"
+        v-if="storeData.departments_progress"
+      />
     </div>
   </div>
 </template>
 
 <script setup>
-import { Pie, Bar } from 'vue-chartjs'
+import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js'
-import { ref, onMounted } from 'vue'
+import { onMounted } from 'vue'
 ChartJS.register(ArcElement, Tooltip, Legend)
 let loaded = false
 
@@ -25,4 +30,11 @@ const options = {
   responsive: true,
   maintainAspectRatio: false
 }
+// options: {
+//                 scales: {
+//                     y: {
+//                         beginAtZero: true
+//                     }
+//                 }
+//             }
 </script>

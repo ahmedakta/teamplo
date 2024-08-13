@@ -2,15 +2,14 @@
 import { ref, onMounted } from 'vue'
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { useGeneralStore } from '@/stores/general'
-import Chart from '@/components/Backend/Chart.vue'
+import PieChart from '@/components/Backend/Charts/PieChart.vue'
+import LineChart from '@/components/Backend/Charts/LineChart.vue'
+import DoughnutChart from '@/components/Backend/Charts/DoughnutChart.vue'
 const generalStore = useGeneralStore()
-const errors = ref()
 
 onMounted(() => {
   try {
     generalStore.makeRequest('/api/dashboard')
-    console.log('+')
-    console.log(generalStore.data)
   } catch (error) {
     console.log(error)
   }
@@ -33,19 +32,13 @@ const task = ref('')
     {{ generalStore.data }}
   </div> -->
   <MainLayout>
-    <div class="container max-w-[7xl] mx-auto flex flex-wrap justify-between">
-      <!-- KPI cards -->
-      <div class="flex flex-wrap justify-between mb-5">
+    <div class="container mx-auto">
+      <!-- Wrapper for KPI cards -->
+      <div class="flex flex-wrap justify-center md:justify-between mb-5">
         <!-- KPI Card 1 -->
-        <div
-          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
-        >
-          <div class="flex items-center justify-between">
-            <span class="text-gray-700 text-sm">Total Employees:</span>
-            <span class="text-gray-700 text-sm">20</span>
-          </div>
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
           <div class="flex items-center mt-10 justify-between mb-4">
-            <span class="text-gray-700 text-xl font-semibold">Active Employees</span>
+            <span class="text-gray-700 text-lg font-semibold">Active Employees</span>
             <span class="text-green-500 text-sm flex items-center">
               <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -65,9 +58,7 @@ const task = ref('')
         </div>
 
         <!-- KPI Card 2 -->
-        <div
-          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
-        >
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800">Project Completion Rate</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
@@ -83,9 +74,7 @@ const task = ref('')
         </div>
 
         <!-- KPI Card 3 -->
-        <div
-          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
-        >
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-gray-800">Projects Count</h3>
             <span class="text-gray-500 text-sm">40</span>
@@ -101,9 +90,7 @@ const task = ref('')
         </div>
 
         <!-- KPI Card 4 -->
-        <div
-          class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[calc(50%-2rem)] md:w-[23.5rem] m-1"
-        >
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
           <div class="flex items-center justify-between mb-4">
             <h3 class="text-lg font-semibold text-gray-800">Inventory Turnover</h3>
             <span class="text-gray-500 text-sm">May 2024</span>
@@ -119,22 +106,8 @@ const task = ref('')
         </div>
       </div>
 
-      <!-- Departments Progress Overview -->
-      <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
-        <div class="flex justify-between">
-          <h1 class="font-bold text-xl text-black p-5">Departments Progress Overview</h1>
-          <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
-            <option value="">Nisan</option>
-            <option value="">Augustos</option>
-            <option value="">Ekim</option>
-            <option value="">Aralik</option>
-          </select>
-        </div>
-        <Chart :storeData="generalStore.data" />
-      </div>
-
       <!-- Tasks by Department -->
-      <div class="bg-white shadow-md w-full md:w-[calc(50%-1rem)] rounded-xl">
+      <div class="bg-white shadow-md w-full rounded-xl mb-5">
         <div class="flex justify-between">
           <h1 class="font-bold text-xl text-black p-5">Tasks by Department</h1>
           <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
@@ -163,6 +136,34 @@ const task = ref('')
             <p>Unassigned (18)</p>
           </div>
         </div>
+      </div>
+
+      <div class="flex flex-wrap justify-between">
+        <!-- Departments Progress Overview -->
+        <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
+          <div class="flex justify-between">
+            <h1 class="font-bold text-xl text-black p-5">Departments Progress Overview</h1>
+            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
+              <option value="">Nisan</option>
+              <option value="">Augustos</option>
+              <option value="">Ekim</option>
+              <option value="">Aralik</option>
+            </select>
+          </div>
+          <PieChart :storeData="generalStore.data" />
+        </div>
+        <!-- Doutnut Chart -->
+        <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
+          <div class="flex justify-between">
+            <h1 class="font-bold text-xl text-black p-5">Employees at company</h1>
+          </div>
+          <DoughnutChart :storeData="generalStore.data" />
+        </div>
+      </div>
+
+      <!-- Line Chart -->
+      <div class="bg-white w-full rounded-xl p-5 mt-5">
+        <LineChart :storeData="generalStore.data" />
       </div>
 
       <!-- Projects Progress -->

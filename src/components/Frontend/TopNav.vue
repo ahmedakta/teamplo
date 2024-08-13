@@ -120,14 +120,14 @@
         <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
           Log in
         </a>
-        <button
+        <RouterLink
           v-if="!userStore.id"
+          to="/contact-us"
           class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
-          @click="$event => (generalStore.isLoginOpen = true)"
         >
-          <font-awesome-icon :icon="['fas', 'arrow-right']" />
-          Get Started
-        </button>
+          <font-awesome-icon :icon="['fas', 'star']" />
+          Get a Demo
+        </RouterLink>
         <!-- swithch languages -->
         <select class="text-[#3aa9D0] px-1" name="" id="">
           <option value="">EN</option>

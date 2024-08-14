@@ -28,7 +28,25 @@ onMounted(() => {
 })
 const options = {
   responsive: true,
-  maintainAspectRatio: false
+  maintainAspectRatio: false,
+  plugins: {
+    legend: {
+      position: 'top'
+    },
+    tooltip: {
+      callbacks: {
+        label: function (tooltipItem) {
+          return tooltipItem.label + ': ' + Math.round(tooltipItem.raw) + '%'
+        }
+      }
+    },
+    datalabels: {
+      display: true,
+      formatter: (value, context) => {
+        return value === 0 ? '0%' : value + '%'
+      }
+    }
+  }
 }
 // options: {
 //                 scales: {

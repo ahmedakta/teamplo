@@ -217,8 +217,6 @@
 import MainLayout from '@/layouts/Backend/MainLayout.vue'
 import { useGeneralStore } from '@/stores/general'
 import { ref, onMounted } from 'vue'
-import { redirectBack } from '@/mixins/helper.js'
-import axios from '../../../../plugins/axios'
 
 const generalStore = useGeneralStore()
 const data = ref({

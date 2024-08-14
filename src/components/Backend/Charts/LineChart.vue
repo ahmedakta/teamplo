@@ -36,6 +36,22 @@ onMounted(() => {
   loaded = true
 })
 const options = {
+  animations: {
+    tension: {
+      duration: 1000,
+      easing: 'easeInQuad',
+      from: 0,
+      to: 1,
+      loop: true
+    }
+  },
+  scales: {
+    y: {
+      // defining min and max so hiding the dataset does not change scale range
+      min: 0,
+      max: 100
+    }
+  },
   responsive: true,
   maintainAspectRatio: false
 }

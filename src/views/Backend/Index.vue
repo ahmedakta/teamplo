@@ -106,16 +106,22 @@ const task = ref('')
         </div>
       </div>
 
-      <!-- Tasks by Department -->
+      <!-- Tasks by Project -->
       <div class="bg-white shadow-md w-full rounded-xl mb-5">
         <div class="flex justify-between">
-          <h1 class="font-bold text-xl text-black p-5">Tasks by Department</h1>
-          <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
-            <option value="">IT</option>
-            <option value="">Marketing</option>
-            <option value="">Medium</option>
-            <option value="">Low</option>
-          </select>
+          <h1 class="font-bold text-xl text-black p-5">Tasks by Project</h1>
+          <div>
+            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
+              <option value="">IT</option>
+              <option value="">Marketing</option>
+              <option value="">Medium</option>
+              <option value="">Low</option>
+            </select>
+            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
+              <option value="">Project 1</option>
+              <option value="">Project 2</option>
+            </select>
+          </div>
         </div>
         <div class="bg-white w-full flex flex-col mx-auto">
           <!-- Task cards -->
@@ -137,7 +143,7 @@ const task = ref('')
           </div>
         </div>
       </div>
-
+      {{ generalStore.data }}
       <div class="flex flex-wrap justify-between">
         <!-- Departments Progress Overview -->
         <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">

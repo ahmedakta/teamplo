@@ -7,15 +7,11 @@
       </div>
       <!-- Login button on the right -->
       <!-- search input -->
-      <div class="hidden md:flex justify-between w-[26rem] text-[1rem] text-center">
-        <div class="flex h-[3rem] justify-between bg-white py-3 px-3 rounded-2xl">
-          <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
-          <input
-            v-model="generalStore.filterParams.search"
-            type="text"
-            placeholder="Search..."
-            class="text-black"
-          />
+      <div class="hidden md:flex justify-between w-[15rem] text-[1rem] text-center">
+        <div class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl">
+          <a @click="generalStore.openModal('searchModal')">
+            <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
+          </a>
         </div>
         <div class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl">
           <RouterLink to="/settings">

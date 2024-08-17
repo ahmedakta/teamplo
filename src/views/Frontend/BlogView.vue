@@ -1,7 +1,7 @@
 <template>
   <MainLayout>
     <!-- Blog View -->
-    <section class="container mx-auto py-32 p-5" v-if="generalStore.data">
+    <section class="container mx-auto py-32 p-5 text-black" v-if="generalStore.data">
       <header class="flex justify-between">
         <h1 class="text-xl font-bold mb-10">{{ generalStore.data.content_title }}</h1>
         <a href="#">

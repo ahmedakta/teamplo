@@ -3,7 +3,7 @@
   <div
     ref="modal"
     v-if="generalStore.currentModal === 'shareModal'"
-    class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50"
+    class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 text-black"
   >
     <div class="bg-white relative rounded-lg p-6 w-full max-w-md">
       <h2 class="text-2xl font-bold mb-4">Share this Blog</h2>
@@ -61,7 +61,7 @@
   <div
     ref="modal"
     v-if="generalStore.currentModal === 'filterModal'"
-    class="fixed inset-0 flex items-end justify-end z-50 transition-transform duration-300 transform"
+    class="fixed text-black inset-0 flex items-end justify-end z-50 transition-transform duration-300 transform"
     :class="{
       'translate-x-full': generalStore.currentModal !== 'filterModal',
       'translate-x-0': generalStore.currentModal === 'filterModal'
@@ -358,6 +358,137 @@
       >
         Close
       </button>
+    </div>
+  </div>
+
+  <!-- Search Modal -->
+  <div
+    ref="modal"
+    v-if="generalStore.currentModal === 'searchModal'"
+    class="fixed inset-0 flex items-center justify-center bg-gray-800 bg-opacity-50 text-black"
+  >
+    <div class="bg-white relative rounded-lg p-6 w-full max-w-md">
+      <!-- Top -->
+      <div class="flex justify-between">
+        <div class="flex h-[3rem] justify-between mr-5 bg-white py-3 px-3 rounded-2xl">
+          <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
+          <input
+            v-model="generalStore.filterParams.search"
+            type="text"
+            class="w-full"
+            placeholder="Tap to start search"
+          />
+        </div>
+        <button @click="generalStore.closeModal()" class="text-gray-600 hover:text-gray-900 p-2">
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            ></path>
+          </svg>
+        </button>
+      </div>
+      <hr class="border-1 border-gray-200 w-full mt-5 mb-5" />
+
+      <!-- social media links -->
+      <!-- tabs -->
+      <div :class="{ 'skeleton-loader bg-gray-200 animate-pulse': generalStore.isLoading }">
+        <!-- buttons -->
+        <div class="border-b mb-4 flex justify-between">
+          <button
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'comments' }"
+            class="p-2 focus:outline-none"
+            @click="generalStore.currentTab = 'users'"
+          >
+            Users
+          </button>
+          <button
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'files' }"
+            class="p-2 focus:outline-none"
+            @click="generalStore.currentTab = 'files'"
+          >
+            Files
+          </button>
+          <button
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'projects' }"
+            class="p-2 focus:outline-none"
+            @click="generalStore.currentTab = 'projects'"
+          >
+            Projects
+          </button>
+          <button
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'activity' }"
+            class="p-2 focus:outline-none"
+            @click="generalStore.currentTab = 'activity'"
+          >
+            Activities
+          </button>
+          <button
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'settings' }"
+            class="p-2 focus:outline-none justify-end"
+          >
+            <img src="@/assets/icons/setting-2.svg" class="text-black pr-1" alt="" />
+          </button>
+        </div>
+        <!-- tabs -->
+        <div>
+          <div v-if="generalStore.currentTab === 'users'">Users</div>
+          <div>
+            <!-- File Item Start -->
+            <div class="flex justify-between items-center border-b py-4 hover:bg-gray-50">
+              <!-- Left Side: Icon + File Name -->
+              <div class="flex items-center">
+                <font-awesome-icon :icon="['fa', 'file']" class="text-blue-500 mr-3" />
+                <span class="text-gray-800 font-medium">Document.pdf</span>
+              </div>
+              <!-- Right Side: Actions -->
+              <div class="flex space-x-3">
+                <button class="text-gray-500 hover:text-blue-700">
+                  <font-awesome-icon :icon="['fa', 'bars']" />
+                </button>
+              </div>
+            </div>
+            <!-- File Item Start -->
+            <div class="flex justify-between items-center border-b py-4 hover:bg-gray-50">
+              <!-- Left Side: Icon + File Name -->
+              <div class="flex items-center">
+                <font-awesome-icon :icon="['fa', 'file']" class="text-blue-500 mr-3" />
+                <span class="text-gray-800 font-medium">Document.pdf</span>
+              </div>
+              <!-- Right Side: Actions -->
+              <div class="flex space-x-3">
+                <button class="text-gray-500 hover:text-blue-700">
+                  <font-awesome-icon :icon="['fa', 'bars']" />
+                </button>
+              </div>
+            </div>
+            <!-- File Item Start -->
+            <div class="flex justify-between items-center border-b py-4 hover:bg-gray-50">
+              <!-- Left Side: Icon + File Name -->
+              <div class="flex items-center">
+                <font-awesome-icon :icon="['fa', 'file']" class="text-blue-500 mr-3" />
+                <span class="text-gray-800 font-medium">Document.pdf</span>
+              </div>
+              <!-- Right Side: Actions -->
+              <div class="flex space-x-3">
+                <button class="text-gray-500 hover:text-blue-700">
+                  <font-awesome-icon :icon="['fa', 'bars']" />
+                </button>
+              </div>
+            </div>
+          </div>
+          <div v-if="generalStore.currentTab === 'projects'">projects</div>
+          <div v-if="generalStore.currentTab === 'activity'">Activities</div>
+        </div>
+      </div>
     </div>
   </div>
 </template>

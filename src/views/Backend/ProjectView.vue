@@ -210,30 +210,30 @@
         <!-- buttons -->
         <div class="border-b mb-4">
           <button
-            :class="{ 'border-b-2 border-blue-500': activeTab === 'comments' }"
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'comments' }"
             class="p-2 focus:outline-none"
-            @click="activeTab = 'comments'"
+            @click="generalStore.currentTab = 'comments'"
           >
             Comments
           </button>
           <button
-            :class="{ 'border-b-2 border-blue-500': activeTab === 'files' }"
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'files' }"
             class="p-2 focus:outline-none"
-            @click="activeTab = 'files'"
+            @click="generalStore.currentTab = 'files'"
           >
             Files
           </button>
           <button
-            :class="{ 'border-b-2 border-blue-500': activeTab === 'activity' }"
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'activity' }"
             class="p-2 focus:outline-none"
-            @click="activeTab = 'activity'"
+            @click="generalStore.currentTab = 'activity'"
           >
             Activities
           </button>
         </div>
         <!-- tabs -->
         <div>
-          <div v-if="activeTab === 'comments'">
+          <div v-if="generalStore.currentTab === 'comments'">
             <!-- Comments content goes here -->
             <div v-if="data.comments && data.comments.length" class="overflow-y-auto h-60">
               <div
@@ -355,12 +355,12 @@
               <font-awesome-icon :icon="['fa', 'paper-plane']" />
             </button>
           </div>
-          <div v-if="activeTab === 'files'">
+          <div v-if="generalStore.currentTab === 'files'">
             <!-- Files content goes here -->
             <h3 class="text-lg font-semibold mb-2">Files</h3>
             <p class="text-gray-600">No files available.</p>
           </div>
-          <div v-if="activeTab === 'activity'">
+          <div v-if="generalStore.currentTab === 'activity'">
             <!-- Files content goes here -->
             <h3 class="text-lg font-semibold mb-2">Last Activity</h3>
             <p class="text-gray-600">No files available.</p>
@@ -381,12 +381,12 @@ const route = useRoute()
 const data = ref([])
 const formData = ref({})
 const generalStore = useGeneralStore()
-let activeTab = ref('comments')
 let projectUrl = `/api/project/${route.params.slug}`
 
 onMounted(() => {
   try {
     getProject(null, projectUrl)
+    generalStore.currentTab = 'comments';
   } catch (error) {
     console.log(error)
   }

@@ -2,7 +2,7 @@
   <h1 v-if="header" class="text-4xl text-center font-bold py-10 text-black">
     {{ header }}
   </h1>
-  <div class="flex flex-wrap justify-center md:justify-between mx-auto py-5 container">
+  <div class="flex flex-wrap justify-center md:justify-between mx-auto py-5 container text-black">
     <swiper
       :modules="[Pagination]"
       :slides-per-view="1"

@@ -59,17 +59,9 @@ const task = ref('')
 
         <!-- KPI Card 2 -->
         <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-gray-800">Project Completion Rate</h3>
-            <span class="text-gray-500 text-sm">May 2024</span>
-          </div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-gray-700 text-xl font-semibold">4.7</span>
-            <span class="text-gray-700 text-sm">Rate</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-gray-700 text-sm">Last Month:</span>
-            <span class="text-gray-700 text-sm">4.5</span>
+          <div class="flex items-center mt-10 justify-between mb-4">
+            <span class="text-gray-700 text-lg font-semibold">Project Count</span>
+            <span class="text-green-500 text-sm flex items-center"> +20 </span>
           </div>
         </div>
 
@@ -143,7 +135,6 @@ const task = ref('')
           </div>
         </div>
       </div>
-      {{ generalStore.data }}
       <div class="flex flex-wrap justify-between">
         <!-- Departments Progress Overview -->
         <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">

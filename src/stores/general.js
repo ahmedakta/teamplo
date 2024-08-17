@@ -217,6 +217,7 @@ export const useGeneralStore = defineStore('general', {
       this.currentModal = modal
     },
     closeModal() {
+      this.currentTab = null
       this.currentModal = null
     },
     goBack() {

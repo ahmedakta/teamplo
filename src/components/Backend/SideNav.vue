@@ -48,7 +48,7 @@
         :class="{ active: $route.path === '/dashboard' }"
         class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-      <img src="../../assets/icons/dashboard.svg" alt="">
+      <img src="../../assets/icons/dashboard.svg" class="pr-2" alt="">
         Dashboard
       </RouterLink>
       <RouterLink
@@ -92,7 +92,7 @@
         :class="{ active: $route.path === '/projects' }"
         class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fas', 'diagram-project']" />
+        <font-awesome-icon :icon="['fas', 'diagram-project']" class="pr-2" />
         Projects
       </RouterLink>
       <RouterLink
@@ -129,6 +129,15 @@
       >
       <img src="../../assets/icons/message-text.svg" class="pr-2" alt="">
         Chats
+      </RouterLink>
+      <RouterLink
+        v-if="userStore.role_id == 1"
+        to="/chats"
+        :class="{ active: $route.path === '/chats' }"
+        class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+      >
+      <img src="../../assets/icons/folder.svg" class="pr-2 w-9" alt="">
+      Documents & Files
       </RouterLink>
       <!-- Content Creator Routes -->
        <div 

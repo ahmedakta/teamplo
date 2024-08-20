@@ -34,10 +34,16 @@ const task = ref('')
   <MainLayout>
     <div class="container mx-auto">
       <!-- Wrapper for KPI cards -->
-      <div class="flex flex-wrap justify-center md:justify-between mb-5">
+      <div
+        class="flex flex-wrap justify-center md:justify-between mb-5"
+        v-if="generalStore.data.kpi"
+      >
         <!-- KPI Card 1 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
-          <div class="flex items-center mt-10 justify-between mb-4">
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-1/3">
+          <div class="flex items-center mt-8 justify-between mb-4">
+            <span class="text-gray-700 text-lg font-semibold">
+              <font-awesome-icon :icon="['fas', 'user']"
+            /></span>
             <span class="text-gray-700 text-lg font-semibold">Active Employees</span>
             <span class="text-green-500 text-sm flex items-center">
               <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
@@ -52,48 +58,34 @@ const task = ref('')
                   clip-rule="evenodd"
                 ></path>
               </svg>
-              +15
+              +{{ generalStore.data.kpi.company_users }}
             </span>
           </div>
         </div>
 
         <!-- KPI Card 2 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-1/3">
           <div class="flex items-center mt-10 justify-between mb-4">
-            <span class="text-gray-700 text-lg font-semibold">Project Count</span>
-            <span class="text-green-500 text-sm flex items-center"> +20 </span>
+            <span class="text-gray-700 text-lg font-semibold">
+              <font-awesome-icon :icon="['fas', 'diagram-project']"
+            /></span>
+            <span class="text-gray-700 text-lg font-semibold">Projects</span>
+            <span class="text-green-500 text-sm flex items-center">
+              {{ generalStore.data.kpi.company_projects }}
+            </span>
           </div>
         </div>
 
         <!-- KPI Card 3 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-gray-800">Projects Count</h3>
-            <span class="text-gray-500 text-sm">40</span>
-          </div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-gray-700 text-xl font-semibold">8%</span>
-            <span class="text-gray-700 text-sm">Turnover Rate</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-gray-700 text-sm">Last Quarter:</span>
-            <span class="text-gray-700 text-sm">7%</span>
-          </div>
-        </div>
-
-        <!-- KPI Card 4 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-[17rem] m-1">
-          <div class="flex items-center justify-between mb-4">
-            <h3 class="text-lg font-semibold text-gray-800">Inventory Turnover</h3>
-            <span class="text-gray-500 text-sm">May 2024</span>
-          </div>
-          <div class="flex items-center justify-between mb-4">
-            <span class="text-gray-700 text-xl font-semibold">6x</span>
-            <span class="text-gray-700 text-sm">Turnover Ratio</span>
-          </div>
-          <div class="flex items-center justify-between">
-            <span class="text-gray-700 text-sm">Last Year:</span>
-            <span class="text-gray-700 text-sm">5x</span>
+        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-1/3">
+          <div class="flex items-center mt-10 justify-between mb-4">
+            <span class="text-gray-700 text-lg font-semibold">
+              <img src="../../assets/icons/solar_notes-bold-duotone.svg" class="pr-2" alt="" />
+            </span>
+            <span class="text-gray-700 text-lg font-semibold">Departments</span>
+            <span class="text-green-500 text-sm flex items-center">
+              {{ generalStore.data.kpi.company_departments }}
+            </span>
           </div>
         </div>
       </div>

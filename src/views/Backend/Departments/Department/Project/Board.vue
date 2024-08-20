@@ -107,57 +107,67 @@
                 <font-awesome-icon class="cursor-grab" :icon="['fas', 'grip']" /> {{ task.name }}
               </h3>
               <div class="text-sm text-gray-700 mb-2">{{ task.description }}</div>
-              <div class="flex flex-wrap space-x-4 mb-2">
-                <div class="flex items-center">
-                  <!-- Assigned Users Section -->
-                  <div class="w-full sm:w-40">
-                    <!-- Display assigned users -->
-                    <div class="flex items-center justify-between border-b">
-                      <div class="flex items-center">
-                        <div class="flex -space-x-2">
-                          <div class="relative group" data-username="User 1">
-                            <img
-                              class="w-10 h-10 rounded-full border-2 border-white"
-                              src="@/assets/default_profile_image.png"
-                              alt="User 1"
-                            />
-                            <div
-                              class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                            >
-                              ×
-                            </div>
-                            <div
-                              class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
-                            >
-                              User 1
-                            </div>
-                          </div>
-                          <!-- Repeat for other users -->
-                        </div>
-                        <div
-                          class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
-                        >
-                          +
-                        </div>
+              <!-- Tags Section -->
+              <div class="flex flex-wrap gap-1 m-2">
+                <span
+                  class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+                >
+                  Tag 1
+                </span>
+                <span
+                  class="inline-block bg-red-100 text-black-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+                >
+                  Tag 2
+                </span>
+              </div>
+              <div class="flex flex-wrap items-center justify-between mb-2">
+                <!-- Assigned Users Section -->
+                <div class="flex items-center space-x-2">
+                  <div class="flex -space-x-2">
+                    <div class="relative group" data-username="User 1">
+                      <img
+                        class="w-10 h-10 rounded-full border-2 border-white"
+                        src="@/assets/default_profile_image.png"
+                        alt="User 1"
+                      />
+                      <div
+                        class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
+                      >
+                        ×
+                      </div>
+                      <div
+                        class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-2 py-1 rounded opacity-0 group-hover:opacity-100"
+                      >
+                        User 1
                       </div>
                     </div>
+                    <!-- Repeat for other users -->
+                  </div>
+                  <div
+                    class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full cursor-pointer"
+                  >
+                    +
                   </div>
                 </div>
-                <button @click="togglePriority" class="flex items-center">
-                  <font-awesome-icon :icon="['fas', 'flag']" />
-                </button>
 
-                <button @click="assignUser" class="flex items-center">
-                  <font-awesome-icon :icon="['fas', 'calendar']" />
-                </button>
+                <!-- Task Actions Section -->
+                <div class="flex space-x-4">
+                  <button @click="togglePriority" class="flex items-center">
+                    <font-awesome-icon :icon="['fas', 'flag']" class="text-gray-700" />
+                  </button>
 
-                <button @click="startTimer" class="flex items-center">
-                  <font-awesome-icon :icon="['fas', 'stopwatch']" />
-                </button>
+                  <button @click="assignUser" class="flex items-center">
+                    <font-awesome-icon :icon="['fas', 'calendar']" class="text-gray-700" />
+                  </button>
 
-                <button @click="toggleStatus" class="flex items-center">
-                  <font-awesome-icon :icon="['fas', 'check']" />
-                </button>
+                  <button @click="startTimer" class="flex items-center">
+                    <font-awesome-icon :icon="['fas', 'stopwatch']" class="text-gray-700" />
+                  </button>
+
+                  <button @click="toggleStatus" class="flex items-center">
+                    <font-awesome-icon :icon="['fas', 'check']" class="text-gray-700" />
+                  </button>
+                </div>
               </div>
             </li>
           </ul>

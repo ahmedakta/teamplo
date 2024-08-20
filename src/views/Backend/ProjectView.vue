@@ -24,7 +24,7 @@
           <!-- Completed Tasks -->
           <div class="bg-gray-200 w-3/4 rounded-lg p-4">
             <h3 class="text-sm font-medium text-gray-700">Completed Tasks</h3>
-            <p class="mt-1 text-2xl font-semibold text-gray-900">18</p>
+            <p class="mt-1 text-2xl font-semibold text-gray-900">{{data.completed_tasks_count}}</p>
           </div>
 
           <!-- Assigned Users -->
@@ -358,6 +358,22 @@
           <div v-if="generalStore.currentTab === 'files'">
             <!-- Files content goes here -->
             <h3 class="text-lg font-semibold mb-2">Files</h3>
+            <div  class="space-y-4">
+              <div class="bg-white shadow rounded-lg p-4 flex items-center space-x-4">
+                <div class="flex-shrink-0">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16V4a2 2 0 012-2h10l6 6v8a2 2 0 01-2 2H8l-4 4z" />
+                  </svg>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-sm font-semibold text-gray-700">asdasd</h4>
+                  <p class="text-sm text-gray-500">12| PDF</p>
+                </div>
+                <div class="flex-shrink-0">
+                  <a class="text-blue-600 hover:text-blue-800">Download</a>
+                </div>
+              </div>
+            </div>
             <p class="text-gray-600">No files available.</p>
           </div>
           <div v-if="generalStore.currentTab === 'activity'">

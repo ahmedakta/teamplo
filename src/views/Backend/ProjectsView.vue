@@ -199,7 +199,7 @@
               :data-username="user.name"
             >
               <img
-                src="@/assets/default_profile_image.png"
+                :src="'/src/assets/' + user.image"
                 class="w-10 h-10 rounded-full border-2 border-gray-200"
                 alt="User 1"
               />

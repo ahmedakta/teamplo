@@ -16,13 +16,13 @@
         <!-- KPI Section -->
         <div class="grid grid-cols-3">
           <!-- Total Tasks -->
-          <div class="bg-gray-200 w-3/4 rounded-lg p-4">
+         <div class="bg-gray-200 w-3/4 rounded-lg p-4 flex flex-col items-center justify-center">
             <h3 class="text-sm font-medium text-gray-700">Total Tasks</h3>
             <p class="mt-1 text-2xl font-semibold text-gray-900">{{ data.tasks_count }}</p>
-          </div>
+        </div>
 
           <!-- Completed Tasks -->
-          <div class="bg-gray-200 w-3/4 rounded-lg p-4">
+          <div class="bg-gray-200 w-3/4 rounded-lg p-4 flex flex-col items-center justify-center">
             <h3 class="text-sm font-medium text-gray-700">Completed Tasks</h3>
             <p class="mt-1 text-2xl font-semibold text-gray-900">{{data.completed_tasks_count}}</p>
           </div>
@@ -35,11 +35,11 @@
                 <!-- Display assigned users -->
                 <div class="flex items-center justify-between border-b py-2">
                   <div class="flex items-center space-x-2">
-                    <div class="flex -space-x-2">
+                    <div class="flex -space-x-2" v-for="(user , index) in data.users" :key="index">
                       <div class="relative group" data-username="User 1">
                         <img
                           class="w-10 h-10 rounded-full border-2 border-white"
-                          src="https://via.placeholder.com/40"
+                          :src="'/src/assets/' + user.image"
                           alt="User 1"
                         />
                         <div
@@ -50,36 +50,7 @@
                         <div
                           class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
                         >
-                          User 1
-                        </div>
-                      </div>
-                      <div class="relative group">
-                        <img
-                          class="w-10 h-10 rounded-full border-2 border-white"
-                          src="https://via.placeholder.com/40"
-                          alt="User 1"
-                        />
-                        <div
-                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          ×
-                        </div>
-                        <div
-                          class="absolute mb-100 inset-0 flex items-center justify-center bg-black bg-opacity-60 text-black text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          a
-                        </div>
-                      </div>
-                      <div class="relative group">
-                        <img
-                          class="w-10 h-10 rounded-full border-2 border-white"
-                          src="https://via.placeholder.com/40"
-                          alt="User 1"
-                        />
-                        <div
-                          class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                        >
-                          ×
+                          {{ user.name }}
                         </div>
                       </div>
                     </div>

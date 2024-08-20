@@ -111,13 +111,10 @@
               <div class="flex flex-wrap gap-1 m-2">
                 <span
                   class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
+                  v-for="(tag, index) in task.tags"
+                  :key="index"
                 >
-                  Tag 1
-                </span>
-                <span
-                  class="inline-block bg-red-100 text-black-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded"
-                >
-                  Tag 2
+                  {{ tag.tag_name }}
                 </span>
               </div>
               <div class="flex flex-wrap items-center justify-between mb-2">

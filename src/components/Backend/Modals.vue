@@ -404,7 +404,7 @@
         <!-- buttons -->
         <div class="border-b mb-4 flex justify-between">
           <button
-            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'comments' }"
+            :class="{ 'border-b-2 border-blue-500': generalStore.currentTab === 'users' }"
             class="p-2 focus:outline-none"
             @click="generalStore.currentTab = 'users'"
           >

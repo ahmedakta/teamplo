@@ -5,7 +5,7 @@
     <div class="relative w-full h-48">
       <img
         class="w-full h-full object-cover"
-        :src="`src/assets/blogs/${blog.content_image}`"
+        :src="`/src/assets/blogs/${blog.content_image}`"
         alt="Blog Image"
       />
       <div class="absolute top-2 right-2 py-1 px-2 text-white bg-gray-400 rounded-lg">
@@ -30,7 +30,7 @@
       <div class="mt-5 py-4">
         <div class="flex justify-between">
           <div>
-            <font-awesome-icon :icon="['fa-regular', 'clock']" />
+            <font-awesome-icon :icon="['fa', 'book-open-reader']" />
             {{ blog.reading_time }}
           </div>
           <div>

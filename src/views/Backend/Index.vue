@@ -16,24 +16,33 @@ onMounted(() => {
 })
 
 // example attrs to the vcalendar
-const attrs = ref([
+const attributes = ref([
   {
-    key: 'test',
-    highlight: true,
-    dates: { start: new Date(2019, 3, 15), end: new Date(2019, 3, 19) }
+    // Boolean
+    dot: true,
+    dates: [new Date(2024, 0, 1), new Date(2024, 0, 10), new Date(2024, 0, 22)]
+  },
+  {
+    // String
+    dot: 'red',
+    dates: [new Date(2024, 0, 4), new Date(2024, 0, 10), new Date(2024, 0, 15)]
+  },
+  {
+    // Object
+    dot: {
+      style: {
+        backgroundColor: 'brown'
+      }
+    },
+    dates: [new Date(2024, 0, 12), new Date(2024, 0, 26), new Date(2024, 0, 15)]
   }
 ])
-const task = ref('')
 </script>
 
 <template>
-  <!-- <div class="text-black bg-red-500 w-full h-[5rem]" v-if="generalStore.data">
-    <h1>Data Debugger</h1>
-    {{ generalStore.data }}
-  </div> -->
   <MainLayout>
     <div class="container mx-auto">
-      <!-- Wrapper for KPI cards -->
+      <!-- ___________ Wrapper for KPI cards ____________ -->
       <div
         class="flex flex-wrap justify-center md:justify-between mb-5"
         v-if="generalStore.data.kpi"
@@ -89,44 +98,50 @@ const task = ref('')
           </div>
         </div>
       </div>
+      <!-- ___________ End Of Wrapper for KPI cards ____________ -->
 
-      <!-- Tasks by Project -->
-      <div class="bg-white shadow-md w-full rounded-xl mb-5">
-        <div class="flex justify-between">
-          <h1 class="font-bold text-xl text-black p-5">Tasks by Project</h1>
-          <div>
-            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
-              <option value="">IT</option>
-              <option value="">Marketing</option>
-              <option value="">Medium</option>
-              <option value="">Low</option>
-            </select>
-            <select name="" id="" class="bg-gray-200 m-5 py-1 px-2 rounded-xl text-black">
-              <option value="">Project 1</option>
-              <option value="">Project 2</option>
-            </select>
+      <!-- ______________  Events And Tasks By Project _____________  -->
+      <div class="flex flex-wrap justify-between mb-5">
+        <!-- Departments Progress Overview -->
+        <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
+          <div class="flex justify-between">
+            <h1 class="font-bold text-xl text-black p-5">Events & Meetings</h1>
+          </div>
+          <div class="flex justify-between">
+            <p>List Of Events</p>
+            <VCalendar :initial-page="{ month: 8, year: 2024 }" :attributes="attributes" />
           </div>
         </div>
-        <div class="bg-white w-full flex flex-col mx-auto">
-          <!-- Task cards -->
-          <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img src="@/assets/icons/todo.svg" alt="" class="rounded-xl w-[4rem] px-5" />
-            <p>Todo (18)</p>
+        <!-- Doutnut Chart -->
+        <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
+          <div class="flex justify-between">
+            <h1 class="font-bold text-xl text-black p-5">Projects Tasks</h1>
           </div>
-          <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img src="@/assets/icons/in-progress.svg" alt="" class="rounded-xl w-[4rem] px-5" />
-            <p>In Progress (18)</p>
-          </div>
-          <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img src="@/assets/icons/done.svg" alt="" class="rounded-xl w-[4rem] px-5" />
-            <p>Done (18)</p>
-          </div>
-          <div class="flex shadow py-3 m-3 rounded-xl text-black">
-            <img src="@/assets/icons/unassigned.svg" alt="" class="rounded-xl w-[4rem] px-5" />
-            <p>Unassigned (18)</p>
+          <div class="bg-white w-full flex flex-col rounded-xl mx-auto">
+            <!-- Task cards -->
+            <div class="flex shadow py-3 m-3 rounded-xl text-black">
+              <img src="@/assets/icons/todo.svg" alt="" class="rounded-xl w-[4rem] px-5" />
+              <p>Todo (18)</p>
+            </div>
+            <div class="flex shadow py-3 m-3 rounded-xl text-black">
+              <img src="@/assets/icons/in-progress.svg" alt="" class="rounded-xl w-[4rem] px-5" />
+              <p>In Progress (18)</p>
+            </div>
+            <div class="flex shadow py-3 m-3 rounded-xl text-black">
+              <img src="@/assets/icons/done.svg" alt="" class="rounded-xl w-[4rem] px-5" />
+              <p>Done (18)</p>
+            </div>
+            <div class="flex shadow py-3 m-3 rounded-xl text-black">
+              <img src="@/assets/icons/unassigned.svg" alt="" class="rounded-xl w-[4rem] px-5" />
+              <p>Unassigned (18)</p>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- ______________  End Of Events And Tasks By Project _____________  -->
+
+      <!-- ______________ Charts ____________ -->
       <div class="flex flex-wrap justify-between">
         <!-- Departments Progress Overview -->
         <div class="bg-white w-full shadow-md md:w-[calc(50%-1rem)] rounded-xl mb-5 md:mb-0">
@@ -154,66 +169,6 @@ const task = ref('')
       <div class="bg-white w-full rounded-xl p-5 mt-5">
         <LineChart :storeData="generalStore.data" />
       </div>
-
-      <!-- Projects Progress -->
-      <!-- <div class="bg-white w-full rounded-xl p-5 mt-5">
-        <h1 class="font-bold text-xl">Projects Progress</h1>
-        <div class="bg-white w-full mx-auto overflow-y-auto h-[20rem]">
-          <div
-            class="flex justify-between shadow py-3 m-3 rounded-xl text-black px-4"
-            v-for="(project, key) in generalStore.data.projects"
-            :key="key"
-          >
-            <div class="flex items-center space-x-2">
-              <div class="flex -space-x-2">
-                <div
-                  v-for="(user, key) in project.users"
-                  :key="key"
-                  class="relative group"
-                  :data-username="user.name"
-                >
-                  <img
-                    :src="'./src/assets/' + user.image"
-                    class="w-10 h-10 rounded-full border-2 border-white"
-                    alt="User 1"
-                  />
-                  <div
-                    class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-60 text-white text-xl rounded-full opacity-0 group-hover:opacity-100"
-                  >
-                    ×
-                  </div>
-                  <div
-                    class="absolute -top-6 left-1/2 transform -translate-x-1/2 text-xs text-white bg-gray-800 px-4 py-1 rounded opacity-0 group-hover:opacity-100"
-                  >
-                    {{ user.name }}
-                  </div>
-                </div>
-                <div class="relative group">
-                  <span
-                    class="flex items-center justify-center w-10 h-10 text-green-800 bg-green-100 rounded-full"
-                    >+</span
-                  >
-                </div>
-              </div>
-              <div
-                class="flex items-center justify-center w-10 h-10 text-green-800 bg-gray-100 rounded-full"
-              >
-                +16
-              </div>
-            </div>
-            <div class="w-1/4 text-left text-black">
-              {{ project.project_name }}
-            </div>
-            <div class="w-1/4 bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
-              <div
-                class="bg-pink-600 h-2.5 rounded-full"
-                :style="{ width: project.progress + '%' }"
-              ></div>
-            </div>
-            <div class="w-1/4 text-center">2 Days left</div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </MainLayout>
 </template>

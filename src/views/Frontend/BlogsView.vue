@@ -16,7 +16,7 @@
           <p>Sort: Most Read</p>
         </div>
       </div>
-      <Blogs :blogs="data" header="" />
+      <Blogs v-if="data.contents" :blogs="data.contents.data" header="" />
     </section>
     <!-- Blogs List Section -->
   </MainLayout>
@@ -35,7 +35,7 @@ onMounted(() => {
     generalStore.makeRequest('/api/blogs').then(() => {
       // custimize values for datatable library
       if (generalStore.data) {
-        data.value = generalStore.data.data.data
+        data.value = generalStore.data
         generalStore.isLoading = false
       } else {
         console.log('something going wrong with endpoint data')

@@ -123,17 +123,17 @@
         <RouterLink
           v-if="!userStore.id"
           to="/contact-us"
-          class="text-white ml-1 py-2 px-4 rounded bg-[#3AA9D0]"
+          class="text-white ml-1 py-2 px-4 mr-3 rounded bg-[#3AA9D0]"
         >
           <font-awesome-icon :icon="['fas', 'star']" />
           Get a Demo
         </RouterLink>
         <!-- swithch languages -->
-        <select class="text-[#3aa9D0] px-1" name="" id="">
+        <!-- <select class="text-[#3aa9D0] px-1" name="" id="">
           <option value="">EN</option>
           <option value="">TR</option>
           <option value="">AR</option>
-        </select>
+        </select> -->
         <div v-if="userStore.id" class="px-4">
           <RouterLink
             :to="{

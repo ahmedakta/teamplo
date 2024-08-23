@@ -34,10 +34,6 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white ml-1 py-2 px-12 m-4 w-full rounded bg-[#3AA9D0]">
-              Contact Us
-              <font-awesome-icon :icon="['fas', 'arrow-right']" />
-            </button>
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
@@ -56,10 +52,6 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white w-full ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
-              Contact Us
-              <font-awesome-icon :icon="['fas', 'arrow-right']" />
-            </button>
           </div>
           <!-- Feature Image -->
           <div class="w-full order-1 md:order-2">
@@ -84,10 +76,6 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white w-full ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
-              Contact Us
-              <font-awesome-icon :icon="['fas', 'arrow-right']" />
-            </button>
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
@@ -104,10 +92,6 @@
                 saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
               </li>
             </ul>
-            <button class="text-white w-full ml-1 py-2 px-12 m-4 rounded bg-[#3AA9D0]">
-              Contact Us
-              <font-awesome-icon :icon="['fas', 'arrow-right']" />
-            </button>
           </div>
           <!-- Feature Image -->
           <div class="w-full order-1 md:order-2">

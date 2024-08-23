@@ -16,7 +16,13 @@
           <p>Sort: Most Read</p>
         </div>
       </div>
-      <Blogs v-if="data.contents" :blogs="data.contents.data" header="" />
+      <Blogs
+        v-if="data.contents"
+        :blogs="data.contents.data"
+        :links="data.contents.links"
+        header=""
+        isSlider="0"
+      />
     </section>
     <!-- Blogs List Section -->
   </MainLayout>
@@ -26,9 +32,11 @@
 import MainLayout from '@/layouts/Frontend/MainLayout.vue'
 import { ref, onMounted } from 'vue'
 import { useGeneralStore } from '@/stores/general'
-const generalStore = useGeneralStore()
 import Blogs from '@/components/Frontend/Blogs.vue'
+
+const generalStore = useGeneralStore()
 const data = ref([])
+
 onMounted(() => {
   try {
     // TODO : this logic loadng data twice

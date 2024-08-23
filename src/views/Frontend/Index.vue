@@ -10,22 +10,39 @@
       :clients="clients"
       description="We are proud to have a diverse and satisfied client base. Here are just a few of the many organizations that have benefited from Teamplo:"
     />
-    <Blogs :blogs="blogs" header="Our Latest Blogs" />
+    <Blogs :blogs="data.contents" header="Our Latest Blogs" isSlider="1" />
   </MainLayout>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import MainLayout from '@/layouts/Frontend/MainLayout.vue'
 import Trusted from '@/components/Frontend/TrustedCompanies.vue'
 import HowToUse from '@/components/Frontend/HowToUse.vue'
 import Hero from '@/components/Frontend/Hero.vue'
-import Props from '@/components/Frontend/Props.vue'
 import Categories from '@/components/Frontend/Categories.vue'
 import OurSuccess from '@/components/Frontend/OurSuccess.vue'
 import Clients from '@/components/Frontend/Clients.vue'
 import Blogs from '@/components/Frontend/Blogs.vue'
+import { useGeneralStore } from '@/stores/general'
+const generalStore = useGeneralStore()
 
+const data = ref([])
+onMounted(() => {
+  try {
+    generalStore.makeRequest('/api/home').then(() => {
+      // custimize values for datatable library
+      if (generalStore.data) {
+        data.value = generalStore.data
+        generalStore.isLoading = false
+      } else {
+        console.log('something going wrong with endpoint data')
+      }
+    })
+  } catch (error) {
+    console.log(error)
+  }
+})
 const items = ref([
   {
     id: 1,
@@ -133,7 +150,8 @@ const clients = ref([
     id: 1,
     name: 'Aylin Yilmaz',
     header: 'Amazing Service',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+    description:
+      'Teamplo has revolutionized our project management. The centralized communication and intuitive interface have boosted our productivity. It feels like having an extra set of hands! ',
     image: 'src/assets/client-1.png',
     bgColor: 'bg-[#FFF9EE]'
   },
@@ -141,7 +159,8 @@ const clients = ref([
     id: 2,
     name: 'Baris Kaya',
     header: 'Amazing service',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+    description:
+      "Teamplo has transformed our workflow with its transparency and data-driven insights. It's scalable and perfect for growing teams. A fantastic tool!",
     image: 'src/assets/client-2.png',
     bgColor: 'bg-[#E7F5E8]'
   },
@@ -149,7 +168,8 @@ const clients = ref([
     id: 3,
     name: 'Deniz sahin',
     header: 'Amazing service',
-    description: 'Lorem Ipsum is simply dummy text of the printing and typesetting industry ',
+    description:
+      'Teamplo has exceeded our expectations with its seamless integration and customizable dashboards. It’s made team collaboration more efficient. Highly recommended!',
     image: 'src/assets/client-3.png',
     bgColor: 'bg-[#3AA9D026]'
   }

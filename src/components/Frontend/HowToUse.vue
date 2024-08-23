@@ -10,14 +10,20 @@
         <div class="w-full md:w-1/2 p-4">
           <img src="../../assets/dashboard-v1.png" alt="" />
         </div>
-        <div class="w-full md:w-1/2 text-center md:px-40">
+        <div class="w-full md:w-1/2 text-center md:text-left md:px-20 lg:px-40">
           <h1 class="text-2xl font-bold md:text-left">Manage Users</h1>
-          <p class="mx-auto text-xl text-gray-500 text-left pt-10 mb-10">
+          <p
+            class="mx-auto text-xl text-gray-500 text-center md:text-left pt-6 md:pt-10 mb-6 md:mb-10"
+          >
             At Teamplo, we understand the challenges of managing a dynamic and diverse team. Our
             platform is designed to streamline your team management processes, ensuring efficiency,
             productivity, and collaboration.
           </p>
-          <a class="bg-[#3AA9D0] text-white p-3 rounded px-20" href="#">More Information</a>
+          <a
+            class="bg-[#3AA9D0] text-white w-full md:w-auto rounded px-4 py-2 inline-block"
+            href="#"
+            >More Information</a
+          >
         </div>
       </div>
     </div>

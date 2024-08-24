@@ -26,6 +26,8 @@
 </template>
 
 <script setup>
+import { useGeneralStore } from '@/stores/general'
+const generalStore = useGeneralStore()
 defineProps({
   client: Object
 })

@@ -5,9 +5,9 @@
         <span class="text-[#3AA9D0] font-bold">Admin Panel</span> For the company CEO
       </h1>
       <p class="text-center py-5 text-gray-500 max-w-4xl mx-auto">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae est debitis quasi
-        reprehenderit voluptatibus deserunt, corrupti labore adipisci reiciendis et atque fuga, non
-        obcaecati dolores iusto ipsa, magnam iste dicta.
+        Welcome to the CEO Admin Panel for Teamplo. Access real-time insights, manage resources,
+        budgets, and timelines, and communicate seamlessly with teams. Ensure data integrity with
+        robust security. Streamline decision-making and boost productivity with this command center.
       </p>
       <!-- <div class="flex flex-wrap justify-between w-[25rem] mt-5 mx-auto">
       <app-button v-for="category in categories" :key="category.id" :active="currentCategory.id == category.id"

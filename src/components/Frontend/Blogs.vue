@@ -27,9 +27,9 @@
     </div>
   </div>
   <!-- ____ Pagination _____  -->
-  <div v-if="links">
+  <!-- <div v-if="links">
     <Paginator :links="links" />
-  </div>
+  </div> -->
 </template>
 
 <script setup>

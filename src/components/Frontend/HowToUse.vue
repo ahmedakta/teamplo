@@ -8,6 +8,7 @@
       </div>
       <div class="flex flex-wrap p-10">
         <div class="w-full md:w-1/2 p-4">
+          <!-- <iframe src="https://youtube.com/embed/T3qH-uY3t-Y" class="w-full h-full" frameborder="0"></iframe> -->
           <img src="../../assets/dashboard-v1.png" alt="" />
         </div>
         <div class="w-full md:w-1/2 text-center md:text-left md:px-20 lg:px-40">

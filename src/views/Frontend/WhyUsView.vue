@@ -4,11 +4,11 @@
       <div class="container mx-auto px-4 text-black">
         <div class="grid md:grid-cols-2 gap-12 h-[43rem] md:h-[35rem]">
           <!-- Feature List -->
-          <div class="mt-auto mb-auto md:w-3/4 w-full order-1">
-            <h3 class="text-3xl md:text-left text-center font-bold mb-4">
-              Departments and projects managment
-            </h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, eveniet!
+          <div class="mt-auto md:text-left text-center mb-auto md:w-3/4 w-full order-1">
+            <h3 class="text-3xl font-bold mb-4">Intuitive and Easy to Use</h3>
+            Our platform is designed with a user-centric approach, making it easy for you to
+            navigate and utilize its features. With a clean, modern interface and straightforward
+            functionality, Teamplo ensures a hassle-free experience for all users.
           </div>
           <!-- Feature Image -->
           <div class="relative w-full order-2">
@@ -46,20 +46,20 @@
             />
           </div>
           <!-- Feature List -->
-          <div class="mt-auto mb-auto md:w-3/4 w-full order-1">
-            <h3 class="text-3xl md:text-left text-center font-bold mb-4">
-              Departments and projects managment
-            </h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, eveniet!
+          <div class="mt-auto mb-auto md:text-left text-center md:w-3/4 w-full order-1">
+            <h3 class="text-3xl font-bold mb-4">Dedicated Support at Your Service</h3>
+            At Teamplo, we pride ourselves on providing top-notch customer support. Our dedicated
+            team is available to assist you with any questions or issues, ensuring you get the most
+            out of our platform with timely and effective solutions.
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-12 h-auto mb-10">
           <!-- Feature List -->
-          <div class="mt-auto mb-auto md:w-3/4 w-full order-1">
-            <h3 class="text-3xl md:text-left text-center font-bold mb-4">
-              Departments and projects managment
-            </h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, eveniet!
+          <div class="mt-auto mb-auto md:text-left text-center md:w-3/4 w-full order-1">
+            <h3 class="text-3xl font-bold mb-4">Adapts to Your Growing Needs</h3>
+            Whether you’re a small startup or a large enterprise, Teamplo scales with your business.
+            Our flexible platform can be customized to fit your specific needs and can grow
+            alongside your company, making it a perfect fit for any organization.
           </div>
           <div class="relative flex mt-20 justify-center order-2">
             <!-- Feature Image -->
@@ -90,20 +90,21 @@
             />
           </div>
           <!-- Feature List -->
-          <div class="mt-auto mb-auto md:w-3/4 w-full order-1">
-            <h3 class="text-3xl md:text-left text-center font-bold mb-4">
-              Departments and projects managment
-            </h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, eveniet!
+          <div class="mt-auto mb-auto md:text-left text-center md:w-3/4 w-full order-1">
+            <h3 class="text-3xl font-bold mb-4">Make Informed Decisions</h3>
+            Teamplo provides powerful analytics and reporting tools to help you make data-driven
+            decisions. Gain valuable insights into your projects, performance, and resource
+            allocation, enabling you to drive strategic improvements and achieve your business
+            goals.
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-12 h-auto mb-10">
           <!-- Feature List -->
-          <div class="mt-auto mb-auto md:w-3/4 w-full order-1">
-            <h3 class="text-3xl md:text-left text-center font-bold mb-4">
-              Departments and projects managment
-            </h3>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quidem, eveniet!
+          <div class="mt-auto mb-auto md:text-left text-center md:w-3/4 w-full order-1">
+            <h3 class="text-3xl font-bold mb-4">Streamline Your Operations</h3>
+            Teamplo offers an all-in-one solution for managing every aspect of your company. From
+            tracking projects and tasks to managing employee performance and resources, our platform
+            integrates seamlessly to ensure smooth and efficient operations.
           </div>
           <div class="relative flex mt-20 justify-center order-2">
             <!-- Feature Image -->

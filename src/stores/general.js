@@ -10,6 +10,8 @@ const router = useRouter()
 export const useGeneralStore = defineStore('general', {
   state: () => ({
     isLoginOpen: false,
+    isLocalhost: window.location.hostname === 'localhost', // Initialize the variable
+    dir: window.location.hostname === 'localhost' ? '/src/assets' : '/assets', // Initialize the variable
     filterParams: reactive({}),
     router: useRouter(),
     route: useRoute(),

@@ -149,28 +149,28 @@ const clients = ref([
   {
     id: 1,
     name: 'Aylin Yilmaz',
-    header: 'Amazing Service',
+    header: 'Outstanding Service with Teamplo',
     description:
       'Teamplo has revolutionized our project management. The centralized communication and intuitive interface have boosted our productivity. It feels like having an extra set of hands! ',
-    image: 'src/assets/client-1.png',
+    image: generalStore.dir + '/client-1.png',
     bgColor: 'bg-[#FFF9EE]'
   },
   {
     id: 2,
     name: 'Baris Kaya',
-    header: 'Amazing service',
+    header: 'Tailored Solutions That Drive Success',
     description:
       "Teamplo has transformed our workflow with its transparency and data-driven insights. It's scalable and perfect for growing teams. A fantastic tool!",
-    image: 'src/assets/client-2.png',
+    image: generalStore.dir + '/client-1.png',
     bgColor: 'bg-[#E7F5E8]'
   },
   {
     id: 3,
     name: 'Deniz sahin',
-    header: 'Amazing service',
+    header: 'Customized Excellence in Every Solution',
     description:
       'Teamplo has exceeded our expectations with its seamless integration and customizable dashboards. It’s made team collaboration more efficient. Highly recommended!',
-    image: 'src/assets/client-3.png',
+    image: generalStore.dir + '/client-1.png',
     bgColor: 'bg-[#3AA9D026]'
   }
 ])

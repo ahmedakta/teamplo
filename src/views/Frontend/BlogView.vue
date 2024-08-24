@@ -12,13 +12,17 @@
       <!-- Blog Image -->
       <img
         class="w-full h-full object-cover"
-        :src="`../src/assets/blogs/${generalStore.data.content_image}`"
+        :src="
+          generalStore.data.content_image
+            ? `${generalStore.dir}/blogs/${generalStore.data.content_image}`
+            : `${generalStore.dir}/blogs/default-blog.png`
+        "
         alt="Blog Image"
       />
       <!-- Suthor Section -->
       <div class="flex justify-between mt-10">
         <div class="flex">
-          <img src="/src/assets/default_profile_image.png" class="mr-5" alt="" />
+          <img :src="`${generalStore.dir}/default_profile_image.png`" class="mr-5" alt="" />
           <p class="mt-3" v-if="generalStore.data.user">{{ generalStore.data.user.name }}</p>
         </div>
         <font-awesome-icon

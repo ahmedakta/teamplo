@@ -4,12 +4,13 @@
     class="max-w-96 w-full rounded-xl overflow-hidden shadow-lg m-4 items-center justify-center mx-auto"
   >
     <div class="relative w-full h-48">
+      {{ generateCodeFrame }}
       <img
         class="w-full h-full object-cover"
         :src="
           blog.content_image
-            ? `/src/assets/blogs/${blog.content_image}`
-            : '/src/assets/blogs/default-blog.png'
+            ? `${generalStore.dir}/blogs/${blog.content_image}`
+            : `${generalStore.dir}/blogs/default-blog.png`
         "
         alt="Blog Image"
       />
@@ -45,6 +46,9 @@
 </template>
 
 <script setup>
+import { useGeneralStore } from '@/stores/general'
+const generalStore = useGeneralStore()
+
 defineProps({
   blog: Object
 })

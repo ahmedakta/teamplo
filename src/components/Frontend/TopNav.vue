@@ -10,23 +10,29 @@
       </div>
       <!-- Navigation links in the center -->
       <nav class="bg-white hidden md:flex text-black rounded-2xl p-3 text-center border-black">
-        <a
+        <RouterLink
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/' }"
-          href="/"
-          >Home</a
+          :to="{
+            name: 'frontend.index'
+          }"
+          >Home</RouterLink
         >
-        <a
+        <RouterLink
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/about-us' }"
-          href="/about-us"
-          >About Us</a
+          :to="{
+            name: 'frontend.aboutUs'
+          }"
+          >About Us</RouterLink
         >
-        <a
+        <RouterLink
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/features' }"
-          href="/features"
-          >Features</a
+          :to="{
+            name: 'frontend.features'
+          }"
+          >Features</RouterLink
         >
         <div class="relative">
           <button
@@ -87,23 +93,29 @@
             </div>
           </div>
         </div>
-        <a
+        <RouterLink
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/blogs' }"
-          href="/blogs"
-          >Blogs</a
+          :to="{
+            name: 'frontend.blogs'
+          }"
+          >Blogs</RouterLink
         >
-        <a
+        <RouterLink
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/why-us' }"
-          href="/why-us"
-          >Why Us</a
+          :to="{
+            name: 'frontend.whyUs'
+          }"
+          >Why Us</RouterLink
         >
-        <a
+        <RouterLink
           class="px-4 py-2 mt-2 mr-2 text-sm font-semibold text-gray-900 rounded-lg dark-mode:bg-gray-700 dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 md:mt-0 hover:text-gray-900 focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline"
           :class="{ 'bg-gray-200 active': $route.path === '/contact-us' }"
-          href="/contact-us"
-          >Contact Us</a
+          :to="{
+            name: 'frontend.contactUs'
+          }"
+          >Contact Us</RouterLink
         >
         <a
           href="#"
@@ -167,7 +179,7 @@ import { useUserStore } from '@/stores/user'
 import { useGeneralStore } from '@/stores/general'
 const userStore = useUserStore()
 const generalStore = useGeneralStore()
-import { useRouter } from 'vue-router'
+import { RouterLink, useRouter } from 'vue-router'
 const router = useRouter()
 
 const isLoggedIn = redirect => {

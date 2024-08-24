@@ -8,9 +8,9 @@
             <h3 class="text-4xl md:text-left text-center font-bold">Features</h3>
           </div>
           <div>
-            <h3 class="mb-4 text-center text-gray-500">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis facilis placeat
-              praesentium eius commodi alias harum molestiae exercitationem similique magni?
+            <h3 class="mb-4 text-left text-[#3AA9D0]">
+              We can improve Teamplo's features based on your company's needs, tailoring tools and
+              functionalities to better support your operations.
             </h3>
           </div>
         </div>
@@ -22,17 +22,11 @@
           <!-- Feature List -->
           <div class="mt-auto mb-auto">
             <h3 class="text-3xl text-center md:text-left font-bold mb-4">
-              Departments and projects managment
+              Centralized Communication
             </h3>
             <ul>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
+              <li>- Seamless messaging between teams</li>
+              <li>- Integrated notifications and updates</li>
             </ul>
           </div>
         </div>
@@ -40,17 +34,11 @@
           <!-- Feature List -->
           <div class="mt-auto mb-auto order-2 md:order-1">
             <h3 class="text-3xl md:text-left text-center font-bold mb-4">
-              Departments and projects managment
+              Streamlined Project Management
             </h3>
             <ul>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur ad1ipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
+              <li>- Task tracking and progress visualization</li>
+              <li>- Automated project timelines and milestones</li>
             </ul>
           </div>
           <!-- Feature Image -->
@@ -65,32 +53,20 @@
           </div>
           <!-- Feature List -->
           <div class="mt-auto mb-auto order-1 md:order-2">
-            <h3 class="text-3xl text-left font-bold mb-4">Departments1 and projects managment</h3>
+            <h3 class="text-3xl text-left font-bold mb-4">Resource Management</h3>
             <ul>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
+              <li>- Efficient allocation of team resources</li>
+              <li>- Comprehensive resource usage analytics</li>
             </ul>
           </div>
         </div>
         <div class="grid md:grid-cols-2 gap-8 h-auto mb-10">
           <!-- Feature List -->
           <div class="mt-auto mb-auto order-2 md:order-1">
-            <h3 class="text-3xl text-left font-bold mb-4">Departments and projects managment</h3>
+            <h3 class="text-3xl text-left font-bold mb-4">Data-Driven Insights</h3>
             <ul>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
-              <li>
-                - Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi beatae explicabo
-                saepe a doloribus unde pariatur quidem praesentium vitae. Obcaecati.
-              </li>
+              <li>- Real-time performance dashboards</li>
+              <li>- In-depth reporting and analytics</li>
             </ul>
           </div>
           <!-- Feature Image -->

@@ -20,15 +20,12 @@
 
           <div class="pt-20">
             <p class="text-lg mb-4 text-black">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Molestias aperiam ratione
-              maiores laudantium? Dolore corporis sed quas laudantium, natus quaerat accusamus
-              nostrum tenetur consequatur deleniti, eum molestiae quis mollitia facilis doloribus
-              pariatur, molestias quam nihil iusto doloremque sunt veritatis enim.
-            </p>
-            <p class="text-[#3AA9D0] md:mt-40">
-              Lorem Ipsum Dolor Sit Amet, Consectetur Adipiscing Elit. Aenean Pretium Lacinia Nisi
-              Nec Iaculis. Aenean Sit Amet Odio Condimentum, Suspendisse Dapibus Finibus Ligula, Sit
-              Amet Tincidunt Turpis. Nun.
+              Teamplo was established in 2024 by
+              <a href="https://scritp.com" target="_blank" class="text-blue-500">scritp</a>, the
+              visionary behind the software company Scritp. Our platform was born out of a desire to
+              revolutionize how businesses manage their operations, providing a comprehensive and
+              intuitive software solution that covers every aspect of business management from A to
+              Z.
             </p>
           </div>
         </div>

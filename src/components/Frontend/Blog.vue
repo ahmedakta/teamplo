@@ -4,7 +4,6 @@
     class="max-w-96 w-full rounded-xl overflow-hidden shadow-lg m-4 items-center justify-center mx-auto"
   >
     <div class="relative w-full h-48">
-      {{ generateCodeFrame }}
       <img
         class="w-full h-full object-cover"
         :src="

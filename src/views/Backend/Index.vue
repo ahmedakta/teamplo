@@ -44,16 +44,16 @@ const attributes = ref([
     <div class="container mx-auto">
       <!-- ___________ Wrapper for KPI cards ____________ -->
       <div
-        class="flex flex-wrap justify-center md:justify-between mb-5"
+        class="flex bg-white rounded-xl shadow-md flex-wrap justify-center md:justify-between mb-5"
         v-if="generalStore.data.kpi"
       >
         <!-- KPI Card 1 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-1/3">
+        <div class="p-6 w-full sm:w-1/3">
           <div class="flex items-center mt-8 justify-between mb-4">
             <span class="text-gray-700 text-lg font-semibold">
-              <font-awesome-icon :icon="['fas', 'user']"
-            /></span>
-            <span class="text-gray-700 text-lg font-semibold">Active Employees</span>
+              <img src="@/assets/icons/backend/dashboard/kpi/users.svg" class="pr-2" alt="" />
+            </span>
+            <span class="text-gray-700 text-lg font-semibold">Active Users</span>
             <span class="text-green-500 text-sm flex items-center">
               <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
                 <path
@@ -73,11 +73,11 @@ const attributes = ref([
         </div>
 
         <!-- KPI Card 2 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-1/3">
+        <div class="p-6 w-full sm:w-1/3">
           <div class="flex items-center mt-10 justify-between mb-4">
             <span class="text-gray-700 text-lg font-semibold">
-              <font-awesome-icon :icon="['fas', 'diagram-project']"
-            /></span>
+              <img src="@/assets/icons/backend/dashboard/kpi/projects.svg" class="pr-2" alt="" />
+            </span>
             <span class="text-gray-700 text-lg font-semibold">Projects</span>
             <span class="text-green-500 text-sm flex items-center">
               {{ generalStore.data.kpi.company_projects }}
@@ -86,10 +86,10 @@ const attributes = ref([
         </div>
 
         <!-- KPI Card 3 -->
-        <div class="bg-white rounded-lg shadow-md p-6 w-full sm:w-1/3">
+        <div class="p-6 w-full sm:w-1/3">
           <div class="flex items-center mt-10 justify-between mb-4">
             <span class="text-gray-700 text-lg font-semibold">
-              <img src="../../assets/icons/solar_notes-bold-duotone.svg" class="pr-2" alt="" />
+              <img src="@/assets/icons/backend/dashboard/kpi/departments.svg" class="pr-2" alt="" />
             </span>
             <span class="text-gray-700 text-lg font-semibold">Departments</span>
             <span class="text-green-500 text-sm flex items-center">
@@ -108,8 +108,17 @@ const attributes = ref([
             <h1 class="font-bold text-xl text-black p-5">Events & Meetings</h1>
           </div>
           <div class="flex justify-between">
-            <p>List Of Events</p>
-            <VCalendar :initial-page="{ month: 8, year: 2024 }" :attributes="attributes" />
+            <div class="p-5 w-full text-black">
+              <ul>
+                <li class="p-3 bg-green-100 w-full rounded-xl">Meeting 10:00 - 10:30 | IT</li>
+                <li class="p-3 mt-2 bg-red-100 w-full rounded-xl">Meeting 10:00 - 10:30 | IT</li>
+              </ul>
+            </div>
+            <VCalendar
+              :initial-page="{ month: 8, year: 2024 }"
+              :attributes="attributes"
+              class="border-1 border-red-500"
+            />
           </div>
         </div>
         <!-- Doutnut Chart -->

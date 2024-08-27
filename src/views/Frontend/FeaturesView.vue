@@ -25,8 +25,15 @@
               Centralized Communication
             </h3>
             <ul>
-              <li>- Seamless messaging between teams</li>
-              <li>- Integrated notifications and updates</li>
+              <li>
+                - Centralized communication platforms provide smooth, unified messaging between
+                teams, eliminating tool-switching and reducing misunderstandings.
+              </li>
+              <li>
+                - Centralized communication consolidates notifications into a single feed, keeping
+                team members informed with real-time, customizable alerts without overwhelming
+                users.
+              </li>
             </ul>
           </div>
         </div>
@@ -37,8 +44,16 @@
               Streamlined Project Management
             </h3>
             <ul>
-              <li>- Task tracking and progress visualization</li>
-              <li>- Automated project timelines and milestones</li>
+              <li>
+                - Streamlined project management systems provide real-time task tracking and
+                progress visualization, with visual dashboards and detailed reports that help teams
+                stay organized and on track.
+              </li>
+              <li>
+                - Automated project management tools create timelines and milestones to set and
+                track deadlines, preventing delays and keeping the project on schedule with timely
+                reminders and updates.
+              </li>
             </ul>
           </div>
           <!-- Feature Image -->
@@ -55,8 +70,16 @@
           <div class="mt-auto mb-auto order-1 md:order-2">
             <h3 class="text-3xl text-left font-bold mb-4">Resource Management</h3>
             <ul>
-              <li>- Efficient allocation of team resources</li>
-              <li>- Comprehensive resource usage analytics</li>
+              <li>
+                - Resource management systems optimize team resource allocation by aligning skills
+                and availability with project needs, ensuring tasks are assigned to the right
+                individuals to maximize productivity and minimize bottlenecks.
+              </li>
+              <li>
+                - Comprehensive analytics tools provide detailed insights into resource usage,
+                helping teams track effectiveness, make informed decisions, and adjust strategies to
+                enhance efficiency and balance workload.
+              </li>
             </ul>
           </div>
         </div>
@@ -65,8 +88,16 @@
           <div class="mt-auto mb-auto order-2 md:order-1">
             <h3 class="text-3xl text-left font-bold mb-4">Data-Driven Insights</h3>
             <ul>
-              <li>- Real-time performance dashboards</li>
-              <li>- In-depth reporting and analytics</li>
+              <li>
+                - Real-time performance dashboards offer up-to-the-minute data on key metrics,
+                providing a clear visual representation of trends to help teams make quick, informed
+                decisions and improve overall visibility and responsiveness.
+              </li>
+              <li>
+                - In-depth reporting and analytics offer comprehensive insights into data patterns
+                and trends, supporting strategic planning, identifying improvement areas, and
+                enabling data-driven decision-making.
+              </li>
             </ul>
           </div>
           <!-- Feature Image -->

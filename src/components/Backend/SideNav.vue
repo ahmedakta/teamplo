@@ -48,7 +48,7 @@
         :class="{ active: $route.path === '/dashboard' }"
         class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-      <img src="../../assets/icons/dashboard.svg" class="pr-2" alt="">
+      <img src="@/assets/icons/backend/sidebar/dashboard.svg" class="pr-2" alt="">
         Dashboard
       </RouterLink>
       <RouterLink
@@ -57,7 +57,7 @@
         @click="dropdownOpen = !dropdownOpen"
         class="flex py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-      <img src="../../assets/icons/solar_users-group-rounded-bold-duotone.svg" class="pr-2" alt="">
+      <img src="@/assets/icons/backend/sidebar/users.svg" class="pr-2" alt="">
         Users
       </RouterLink>
       <div v-show="dropdownOpen" class="pl-5">
@@ -90,9 +90,9 @@
         v-if="userStore.role_id == 1"
         to="/projects"
         :class="{ active: $route.path === '/projects' }"
-        class="block py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
+        class="flex py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
-        <font-awesome-icon :icon="['fas', 'diagram-project']" class="pr-2" />
+      <img src="@/assets/icons/backend/sidebar/projects.svg" class="pr-2" alt="">
         Projects
       </RouterLink>
       <RouterLink
@@ -101,33 +101,27 @@
         :class="{ active: $route.path === '/departments' }"
         class="block flex py-2 hover:bg-[#D6E6FD] hover:rounded-xl px-4 hover:text-[#1038FA]"
       >
-      <img src="../../assets/icons/solar_notes-bold-duotone.svg" class="pr-2" alt="">
+      <img src="@/assets/icons/backend/sidebar/departments.svg" class="pr-2" alt="">
         Departments
       </RouterLink>
-      <!-- <RouterLink
-        to="/tasks"
-        :class="{ active: $route.path === '/tasks' }"
-        class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
-      >
-        <font-awesome-icon :icon="['fa', 'bars-progress']" />
-        Tasks
-      </RouterLink> -->
+
       <RouterLink
         v-if="userStore.role_id == 1"
         to="/events"
         :class="{ active: $route.path === '/events' }"
         class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-        <img src="../../assets/icons/calendar.svg" class="pr-2" alt="">
+        <img src="@/assets/icons/backend/sidebar/events.svg" class="pr-2" alt="">
         <p>Events</p>
       </RouterLink>
+      
       <RouterLink
         v-if="userStore.role_id == 1"
         to="/chats"
         :class="{ active: $route.path === '/chats' }"
         class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-      <img src="../../assets/icons/message-text.svg" class="pr-2" alt="">
+      <img src="@/assets/icons/backend/sidebar/chats.svg" class="pr-2" alt="">
         Chats
       </RouterLink>
       <RouterLink
@@ -136,8 +130,8 @@
         :class="{ active: $route.path === '/chats' }"
         class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
-      <img src="../../assets/icons/folder.svg" class="pr-2 w-9" alt="">
-      Documents & Files
+      <img src="@/assets/icons/backend/sidebar/drive.svg" class="pr-2 w-9" alt="">
+      Drive
       </RouterLink>
       <!-- Content Creator Routes -->
        <div 
@@ -176,18 +170,18 @@
     <RouterLink
       to="/settings"
       :class="{ active: $route.path === '/settings' }"
-      class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
+      class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
     >
-      <font-awesome-icon :icon="['fa', 'cog']" />
-      Settings
+    <img src="@/assets/icons/backend/sidebar/settings.svg" class="pr-2" alt="">
+    Settings
     </RouterLink>
     <a
       href="#"
-      class="block py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-red-500"
+      class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-red-500"
       @click="logout()"
       v-if="userStore.id"
     >
-      <font-awesome-icon :icon="['fa', 'right-from-bracket']" />
+    <img src="@/assets/icons/backend/sidebar/logout.svg" class="pr-2" alt="">
       Logout
     </a>
     <RouterLink
@@ -195,7 +189,7 @@
       :class="{ active: $route.path === '/settings' }"
       class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
     >
-    <img src="@/assets/icons/message-question.svg" alt="" class="pr-1" />
+    <img src="@/assets/icons/backend/sidebar/support.svg" alt="" class="pr-1" />
       Support
     </RouterLink>
     <div class="mx-auto flex w-64 px-5 py-5">

@@ -15,9 +15,15 @@
         <div class="space-y-3">
           <a
             href="#"
-            class="inline-flex bg-[#3AA9D0] items-center justify-center w-full px-10 py-3 mb-2 mr-2 text-sm font-medium text-white border border-gray-200 rounded-lg sm:w-auto focus:outline-none focus:z-10 focus:ring-2 focus:ring-yellow-500"
+            class="inline-flex bg-white border-2 border-[#3AA9D0] items-center justify-center w-full px-10 py-3 mb-2 mr-2 text-sm font-medium text-[#3AA9D0] hover:bg-[#3aa9D0] hover:text-white rounded-lg sm:w-auto focus:outline-none focus:z-10 focus:ring-2 focus:ring-yellow-500"
           >
-            Get Started. It's FREE!
+            Get a FREE Demo
+          </a>
+          <a
+            href="#"
+            class="inline-flex bg-[#3AA9D0] items-center justify-center w-full px-10 py-3 mb-2 mr-2 text-sm font-medium text-white border-orange-300 border-2 rounded-lg sm:w-auto focus:outline-none focus:z-10 focus:ring-2 focus:ring-yellow-500"
+          >
+            Signup
           </a>
         </div>
       </div>

@@ -71,26 +71,34 @@
             </label>
           </li>
         </ul>
-        <RouterLink
-          to="/project/create"
-          class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
-        >
-          Add Project <font-awesome-icon :icon="['fa', 'plus']" />
-        </RouterLink>
+
         <button
           type="button"
           @click="generalStore.openModal('filterModal')"
-          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
+          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 hover:text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
+        >
+          <font-awesome-icon :icon="['fa', 'robot']" /> Automation
+        </button>
+        <button
+          type="button"
+          @click="generalStore.openModal('filterModal')"
+          class="text-blue-700 border-blue-700 border-[1px] hover:text-white hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
         >
           <font-awesome-icon :icon="['fa', 'filter']" />
         </button>
         <button
-          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none w-full md:w-auto"
+          class="text-blue-700 border-blue-700 border-[1px] hover:text-white hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none w-full md:w-auto"
           type="button"
           @click="isOpen = !isOpen"
         >
           <font-awesome-icon :icon="['fa', 'bars']" />
         </button>
+        <RouterLink
+          to="/project/create"
+          class="text-white bg-blue-700 hover:bg-white hover:text-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
+        >
+          <font-awesome-icon :icon="['fa', 'plus']" />
+        </RouterLink>
       </div>
     </div>
     <div class="flex space-x-2" v-if="generalStore.data.filter_form">
@@ -257,7 +265,7 @@
         </template>
         <template #actions="data">
           <div class="flex gap-4">
-            <RouterLink
+            <!-- <RouterLink
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 hover:border-blue-500 rounded !py-1"
               :to="{
                 name: 'backend.projects.view',
@@ -277,7 +285,11 @@
               }"
             >
               <font-awesome-icon :icon="['fas', 'bars']" />
-            </RouterLink>
+            </RouterLink> -->
+            <font-awesome-icon
+              :icon="['fas', 'ellipsis-vertical']"
+              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 hover:border-blue-500 rounded !py-1"
+            />
           </div>
         </template>
       </vue3-datatable>

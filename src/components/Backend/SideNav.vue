@@ -127,7 +127,7 @@
       <RouterLink
         v-if="userStore.role_id == 1"
         to="/chats"
-        :class="{ active: $route.path === '/chats' }"
+        :class="{ active: $route.path === '/drive' }"
         class="flex py-2 px-4 hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"
       >
       <img src="@/assets/icons/backend/sidebar/drive.svg" class="pr-2 w-9" alt="">

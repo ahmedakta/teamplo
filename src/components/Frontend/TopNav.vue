@@ -129,7 +129,12 @@
       </nav>
       <!-- Login button on the right -->
       <div class="hidden md:flex flex-shrink-0 text-center">
-        <a href="/login" class="bg-white text-[#3aa9D0] py-2 px-4 rounded-xl" v-if="!userStore.id">
+        <a
+          href="/login"
+          class="bg-white text-[#3aa9D0] hover:text-white hover:bg-[#3aa9D0] border-2 border-[#3aa9D0] py-2 px-4 rounded-lg"
+          v-if="!userStore.id"
+        >
+          <font-awesome-icon :icon="['fas', 'right-from-bracket']" class="fa-beat-fade" />
           Log in
         </a>
         <RouterLink

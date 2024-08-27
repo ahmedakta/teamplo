@@ -108,9 +108,11 @@ const attributes = ref([
             <h1 class="font-bold text-xl text-black p-5">Events & Meetings</h1>
           </div>
           <div class="flex justify-between">
-            <div class="p-5 w-full text-black">
+            <div class="p-5 w-full h-3/4 text-black overflow-y-auto">
               <ul>
                 <li class="p-3 bg-green-100 w-full rounded-xl">Meeting 10:00 - 10:30 | IT</li>
+                <li class="p-3 mt-2 bg-red-100 w-full rounded-xl">Meeting 10:00 - 10:30 | IT</li>
+                <li class="p-3 mt-2 bg-red-100 w-full rounded-xl">Meeting 10:00 - 10:30 | IT</li>
                 <li class="p-3 mt-2 bg-red-100 w-full rounded-xl">Meeting 10:00 - 10:30 | IT</li>
               </ul>
             </div>

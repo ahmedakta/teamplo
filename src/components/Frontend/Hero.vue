@@ -8,7 +8,7 @@
           Manage Companies from A to Z: All Business Processes on a
           <span class="text-[#3aa9D0] font-semibold"
             >Single Platform!
-            <img src="../../assets/line-horizontal.svg" class="mx-auto lg:block" />
+            <img src="@/assets/line-horizontal.svg" class="mx-auto lg:block" />
           </span>
         </h1>
 
@@ -48,7 +48,7 @@
         class="hidden lg:block absolute right-[-2rem] bottom-[15rem] w-150 h-150"
       />
       <img
-        src="@/assets/visitors.png"
+        src="@/assets/Frame 83.svg"
         class="hidden lg:block absolute right-[-2rem] bottom-0 w-150 h-150"
       />
     </div>

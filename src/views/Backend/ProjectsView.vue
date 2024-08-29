@@ -264,7 +264,7 @@
           </p>
         </template>
         <template #actions="data">
-          <div class="flex gap-4">
+          <div class="flex gap-1">
             <!-- <RouterLink
               class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 hover:border-blue-500 rounded !py-1"
               :to="{
@@ -286,10 +286,33 @@
             >
               <font-awesome-icon :icon="['fas', 'bars']" />
             </RouterLink> -->
-            <font-awesome-icon
-              :icon="['fas', 'ellipsis-vertical']"
-              class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-3 hover:border-blue-500 rounded !py-1"
-            />
+            <RouterLink
+              :to="{
+                name: 'backend.projects.view',
+                params: { slug: data.value.slug }
+              }"
+            >
+              <font-awesome-icon
+                :icon="['fas', 'ellipsis-vertical']"
+                class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-3 hover:border-blue-500 rounded !py-1"
+              />
+            </RouterLink>
+            <RouterLink
+              :to="{
+                name: 'backend.department.project.tasks',
+                params: {
+                  department_slug: data.value.department.slug,
+                  project_slug: data.value.slug
+                }
+              }"
+            >
+              <img
+                src="/src/assets/ai-technology.svg"
+                width="20"
+                alt="AI Icon"
+                class="bg-blue-500 hover:bg-blue-400 text-white font-bold hover:border-blue-500 rounded"
+              />
+            </RouterLink>
           </div>
         </template>
       </vue3-datatable>

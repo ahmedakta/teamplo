@@ -10,17 +10,25 @@
       <div class="hidden md:flex justify-between w-[15rem] text-[1rem] text-center">
         <div class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl">
           <a href="#" @click="generalStore.openModal('searchModal')">
-            <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
+            <img
+              src="@/assets/icons/backend/topnav/search.svg"
+              class="text-black pr-1"
+              alt="Search"
+            />
           </a>
         </div>
         <div class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl">
           <RouterLink to="/settings">
-            <img src="@/assets/icons/setting-2.svg" class="text-black pr-1" alt="" />
+            <img src="@/assets/icons/backend/topnav/settings.svg" class="text-black pr-1" alt="" />
           </RouterLink>
         </div>
         <div class="flex justify-between h-[3rem] bg-white py-3 px-3 rounded-2xl">
           <a href="">
-            <img src="@/assets/icons/notification.svg" class="text-black pr-1" alt="" />
+            <img
+              src="@/assets/icons/backend/topnav/notifications.svg"
+              class="text-black pr-1"
+              alt=""
+            />
           </a>
         </div>
         <div class="flex h-12 w-12 justify-center items-center bg-white rounded-full">

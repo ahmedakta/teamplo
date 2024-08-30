@@ -49,52 +49,57 @@ const attributes = ref([
       >
         <!-- KPI Card 1 -->
         <div class="p-6 w-full sm:w-1/3">
-          <div class="flex items-center mt-8 justify-between mb-4">
+          <div class="flex items-center h-full mb-4">
             <span class="text-gray-700 text-lg font-semibold">
               <img src="@/assets/icons/backend/dashboard/kpi/users.svg" class="pr-2" alt="" />
             </span>
-            <span class="text-gray-700 text-lg font-semibold">Active Users</span>
-            <span class="text-green-500 text-sm flex items-center">
-              <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 3.333a6.667 6.667 0 100 13.334A6.667 6.667 0 0010 3.333zm0-1.667a8.333 8.333 0 110 16.666A8.333 8.333 0 0110 1.667z"
-                  clip-rule="evenodd"
-                ></path>
-                <path
-                  fill-rule="evenodd"
-                  d="M10 6.667a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm0-1.666a5 5 0 110 10A5 5 0 0110 5z"
-                  clip-rule="evenodd"
-                ></path>
-              </svg>
-              +{{ generalStore.data.kpi.company_users }}
-            </span>
+            <div class="flex flex-col border-r-[1px] border-gray-300 w-full">
+              <span class="text-gray-700 text-lg font-semibold">Active Users</span>
+              <span class="text-[#3aa9d0] text-sm font-bold flex items-center">
+                <svg class="h-4 w-4 mr-1" fill="currentColor" viewBox="0 0 20 20">
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 3.333a6.667 6.667 0 100 13.334A6.667 6.667 0 0010 3.333zm0-1.667a8.333 8.333 0 110 16.666A8.333 8.333 0 0110 1.667z"
+                    clip-rule="evenodd"
+                  ></path>
+                  <path
+                    fill-rule="evenodd"
+                    d="M10 6.667a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm0-1.666a5 5 0 110 10A5 5 0 0110 5z"
+                    clip-rule="evenodd"
+                  ></path>
+                </svg>
+                +{{ generalStore.data.kpi.company_users }}
+              </span>
+            </div>
           </div>
         </div>
-
         <!-- KPI Card 2 -->
         <div class="p-6 w-full sm:w-1/3">
-          <div class="flex items-center mt-10 justify-between mb-4">
+          <div class="flex items-center h-full justify-between mb-4">
             <span class="text-gray-700 text-lg font-semibold">
               <img src="@/assets/icons/backend/dashboard/kpi/projects.svg" class="pr-2" alt="" />
             </span>
-            <span class="text-gray-700 text-lg font-semibold">Projects</span>
-            <span class="text-green-500 text-sm flex items-center">
-              {{ generalStore.data.kpi.company_projects }}
-            </span>
+            <div class="flex flex-col border-r-[1px] border-gray-300 w-full">
+              <span class="text-gray-700 text-lg font-semibold">Projects</span>
+              <span class="text-green-500 text-sm font-bold flex items-center">
+                {{ generalStore.data.kpi.company_projects }}
+              </span>
+            </div>
           </div>
         </div>
 
         <!-- KPI Card 3 -->
         <div class="p-6 w-full sm:w-1/3">
-          <div class="flex items-center mt-10 justify-between mb-4">
+          <div class="flex items-center h-full justify-between mb-4">
             <span class="text-gray-700 text-lg font-semibold">
               <img src="@/assets/icons/backend/dashboard/kpi/departments.svg" class="pr-2" alt="" />
             </span>
-            <span class="text-gray-700 text-lg font-semibold">Departments</span>
-            <span class="text-green-500 text-sm flex items-center">
-              {{ generalStore.data.kpi.company_departments }}
-            </span>
+            <div class="flex flex-col border-r-[1px] border-gray-300 w-full">
+              <span class="text-gray-700 text-lg font-semibold">Departments</span>
+              <span class="text-orange-500 text-sm font-bold flex items-center">
+                {{ generalStore.data.kpi.company_departments }}
+              </span>
+            </div>
           </div>
         </div>
       </div>

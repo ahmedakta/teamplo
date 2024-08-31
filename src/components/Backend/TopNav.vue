@@ -9,7 +9,7 @@
       <!-- search input -->
       <div class="hidden md:flex justify-between w-[15rem] text-[1rem] text-center">
         <div class="flex justify-between bg-white py-3 h-[3rem] px-3 rounded-2xl">
-          <a href="#" @click="generalStore.openModal('searchModal')">
+          <a class="cursor-pointer" @click="generalStore.openModal('searchModal')">
             <img
               src="@/assets/icons/backend/topnav/search.svg"
               class="text-black pr-1"

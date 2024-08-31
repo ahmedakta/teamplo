@@ -146,24 +146,6 @@
             </option>
           </select>
         </div>
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Start At</label>
-          <input
-            @change="projectStore.getProjects(generalStore.filterParams)"
-            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            type="date"
-            v-model="generalStore.filterParams.project_start_at"
-          />
-        </div>
-        <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">End At</label>
-          <input
-            @change="projectStore.getProjects(generalStore.filterParams)"
-            class="border-b w-60 border-gray-300 rounded-md py-2 pl-3 pr-4 focus:outline-none focus:border-blue-500"
-            type="date"
-            v-model="generalStore.filterParams.project_end_at"
-          />
-        </div>
         <!-- Assignment Filter -->
         <div class="mb-4">
           <label class="block text-sm font-medium text-gray-700">Assigned To User..</label>

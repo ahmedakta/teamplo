@@ -52,7 +52,7 @@
         Dashboard
       </RouterLink>
       <RouterLink
-        to=""
+        to="/users"
         v-if="userStore.role_id == 1"
         @click="dropdownOpen = !dropdownOpen"
         class="flex py-2 px-4 w-full text-left hover:bg-[#D6E6FD] hover:rounded-xl hover:text-[#1038FA]"

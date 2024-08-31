@@ -1,14 +1,32 @@
 <template>
   <MainLayout>
+    <!-- Header -->
+    <div class="flex justify-between py-5">
+      <h1 class="font-bold text-lg">Projects</h1>
+      <RouterLink
+        to="/project/create"
+        class="rounded-2xl bg-[#3aa9d0] text-white border-[1px] border-gray-200 text-center py-3 px-3 me-2"
+      >
+        <font-awesome-icon class="rounded-xl border-2 border-white" :icon="['fa', 'plus']" />
+        Create New Project
+      </RouterLink>
+    </div>
+
+    <!-- Filter Butons -->
     <div
-      class="container w-full mb-5 md:flex justify-between items-center flex-wrap gap-4 font-semibold"
+      class="container bg-white rounded-t-2xl w-full h-28 md:flex justify-between items-center flex-wrap gap-4 font-semibold"
     >
       <div class="rounded-xl w-full md:w-auto flex">
-        <div class="flex h-[3rem] justify-between mr-5 bg-white py-3 px-3 rounded-2xl">
-          <img src="@/assets/icons/ic_search.svg" class="text-black pr-1" alt="Search" />
-          <input v-model="generalStore.filterParams.search" type="text" placeholder="Search..." />
+        <div class="relative flex items-center h-full justify-between bg-white py-3 px-3">
+          <input
+            v-model="generalStore.filterParams.search"
+            class="h-12 rounded-lg border-[1px] border-gray-200 pl-10 pr-3 w-full"
+            type="text"
+            placeholder="search by name, ID, or keyword"
+          />
+          <img src="@/assets/icons/ic_search.svg" class="absolute left-5 text-black" alt="Search" />
         </div>
-        <div class="flex h-[3rem] justify-between bg-white py-2 rounded-2xl">
+        <div class="flex justify-between bg-white rounded-2xl">
           <form
             @submit.prevent="
               () => {
@@ -18,11 +36,9 @@
                 projectStore.getProjects(generalStore.filterParams)
               }
             "
+            class="relative flex items-center h-full justify-between mr-5 bg-white text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2 focus:outline-none w-full md:w-auto"
           >
-            <button
-              type="submit"
-              class="text-black focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2 me-2 mb-2 focus:outline-none w-full md:w-auto"
-            >
+            <button type="submit" class="absolute left-5 py-3 px-3 text-black">
               <font-awesome-icon
                 v-if="generalStore.filterParams.order == 'DESC'"
                 :icon="['fa-solid', 'arrow-down-wide-short']"
@@ -31,7 +47,7 @@
             </button>
             <select
               v-model="generalStore.filterParams.sort_by"
-              class="border-b w-[7rem] rounded-md"
+              class="h-12 rounded-lg border-[1px] border-gray-200 pl-10 pr-3 w-full"
               required
             >
               <option class="text-black rounded-md" selected>Sort By Column</option>
@@ -50,14 +66,13 @@
           </form>
         </div>
       </div>
-      <div class="mr-2"></div>
       <!-- Filter Section -->
-      <div class="mb-5 relative w-full md:w-auto">
+      <div class="rounded-xl w-full md:w-auto flex">
         <ul
           v-if="isOpen"
-          class="absolute left-0 mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10"
+          class="absolute mt-0.5 p-2.5 min-w-[150px] bg-white rounded shadow-md space-y-1 z-10"
         >
-          <li v-for="col in cols" :key="col.field">
+          <li v-for="col in datatableStore.cols" :key="col.field">
             <label
               class="flex items-center gap-2 w-full cursor-pointer text-gray-600 hover:text-black"
             >
@@ -72,36 +87,60 @@
           </li>
         </ul>
 
-        <button
-          type="button"
-          @click="generalStore.openModal('filterModal')"
-          class="text-blue-700 border-blue-700 border-[1px] hover:bg-blue-800 hover:text-white focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
-        >
-          <font-awesome-icon :icon="['fa', 'robot']" /> Automation
-        </button>
-        <button
-          type="button"
-          @click="generalStore.openModal('filterModal')"
-          class="text-blue-700 border-blue-700 border-[1px] hover:text-white hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 focus:outline-none w-full md:w-auto"
-        >
-          <font-awesome-icon :icon="['fa', 'filter']" />
-        </button>
-        <button
-          class="text-blue-700 border-blue-700 border-[1px] hover:text-white hover:bg-blue-800 focus:ring-4 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-5 focus:outline-none w-full md:w-auto"
-          type="button"
-          @click="isOpen = !isOpen"
-        >
-          <font-awesome-icon :icon="['fa', 'bars']" />
-        </button>
-        <RouterLink
-          to="/project/create"
-          class="text-white bg-blue-700 hover:bg-white hover:text-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 focus:outline-none dark:focus:ring-blue-800 w-full md:w-auto"
-        >
-          <font-awesome-icon :icon="['fa', 'plus']" />
-        </RouterLink>
+        <div class="relative flex items-center h-full justify-between bg-white py-3 px-3">
+          <input
+            @change="projectStore.getProjects(generalStore.filterParams)"
+            v-model="generalStore.filterParams.project_start_at"
+            class="h-12 rounded-lg border-[1px] border-gray-200 pl-10 w-32"
+            type="text"
+            onfocus="(this.type='date')"
+            onblur="(this.type='text')"
+            placeholder="Start Date"
+          />
+          <img src="@/assets/icons/calendar.svg" class="absolute left-5 text-black" alt="Search" />
+        </div>
+        <div class="relative flex items-center h-full justify-between bg-white py-3 px-3">
+          <input
+            @change="projectStore.getProjects(generalStore.filterParams)"
+            v-model="generalStore.filterParams.project_end_at"
+            class="h-12 rounded-lg border-[1px] border-gray-200 pl-10 w-32"
+            type="text"
+            onfocus="(this.type='date')"
+            onblur="(this.type='text')"
+            placeholder="End Date"
+          />
+          <img src="@/assets/icons/calendar.svg" class="absolute left-5 text-black" alt="Search" />
+        </div>
+        <div class="py-3 px-3">
+          <button
+            type="button"
+            @click="generalStore.openModal('filterModal')"
+            class="rounded-lg border-[1px] border-gray-200 text-center py-3 px-3"
+          >
+            <font-awesome-icon class="text-[#3aa9d0]" :icon="['fa', 'robot']" /> Automation
+          </button>
+        </div>
+        <div class="py-3 px-3">
+          <button
+            type="button"
+            @click="generalStore.openModal('filterModal')"
+            class="rounded-lg border-[1px] border-gray-200 text-center py-2 px-2"
+          >
+            <img src="/src/assets/icons/filter.svg" class="rounded-full" alt="User 1" />
+          </button>
+        </div>
+        <div class="py-3 px-3">
+          <button
+            class="rounded-lg border-[1px] border-gray-200 text-center py-2 px-2"
+            type="button"
+            @click="isOpen = !isOpen"
+          >
+            <img src="/src/assets/icons/sort.svg" class="rounded-full" alt="User 1" />
+          </button>
+        </div>
       </div>
     </div>
-    <div class="flex space-x-2" v-if="generalStore.data.filter_form">
+    <div class="flex space-x-2 bg-white" v-if="generalStore.data.filter_form">
       <div v-for="(param, key) in generalStore.filterParams" :key="key">
         <!-- Handling the filter params one by one to display the name of filtered item -->
         <div
@@ -160,11 +199,12 @@
         </div>
       </div>
     </div>
+    <!-- Datatable -->
 
     <div class="container md:flex flex-col bg-white w-full rounded-xl h-screen">
       <vue3-datatable
         ref="datatable"
-        skin="bh-table-striped bh-table-hover bh-table-bordered bh-table-compact"
+        skin="bh-table-compact"
         :loading="generalStore.isLoading"
         :pageSize="15"
         :sortable="true"
@@ -252,14 +292,17 @@
         </template>
         <template #project_stage="data">
           <p
-            class="inline-block px-3 py-1 text-sm font-medium bg-green-100 text-black rounded-full"
-            :class="data.value.stage.category_color"
+            class="inline-block px-3 py-1 text-sm font-medium rounded-full"
+            :class="`text-${data.value.stage.category_color}-500 border-2 border-${data.value.stage.category_color}-500`"
           >
             {{ data.value.stage.category_name }}
           </p>
         </template>
         <template #project_priority="data">
-          <p class="text-black px-2 text-center py-1 rounded">
+          <p
+            class="text-black px-2 text-center py-1 rounded"
+            :class="`text-${data.value.stage.category_color}-500 bg-${data.value.stage.category_color}-100`"
+          >
             {{ data.value.priority.category_name }}
           </p>
         </template>
@@ -294,7 +337,7 @@
             >
               <font-awesome-icon
                 :icon="['fas', 'ellipsis-vertical']"
-                class="bg-blue-500 hover:bg-blue-400 text-white font-bold px-3 hover:border-blue-500 rounded !py-1"
+                class="hover:bg-gray-400 text-black font-bold px-3 hover:border-gray-500 rounded !py-1"
               />
             </RouterLink>
             <RouterLink
@@ -310,7 +353,7 @@
                 src="/src/assets/ai-technology.svg"
                 width="20"
                 alt="AI Icon"
-                class="bg-blue-500 hover:bg-blue-400 text-white font-bold hover:border-blue-500 rounded"
+                class="hover:bg-blue-400 text-white font-bold hover:border-blue-500 rounded"
               />
             </RouterLink>
           </div>
@@ -324,15 +367,16 @@
   @apply min-h-[380px];
 }
 .progress-bar::-webkit-progress-bar {
+  height: 0.5rem;
   background-color: #e5e7eb; /* Tailwind's bg-gray-200 */
   border-radius: 0.5rem;
 }
 .progress-bar::-webkit-progress-value {
-  background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+  background-color: gray; /* Tailwind's bg-blue-500 */
   border-radius: 0.5rem 0 0 0.5rem;
 }
 .progress-bar::-moz-progress-bar {
-  background-color: #3b82f6; /* Tailwind's bg-blue-500 */
+  background-color: gray; /* Tailwind's bg-blue-500 */
   border-radius: 0.5rem;
 }
 </style>
